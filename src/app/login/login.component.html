@@ -2,15 +2,15 @@
     <div class="login-register" style="background-image:url(./assets/images/background/login-register.jpg);">
         <div class="login-box card">
             <div class="card-body">
-                <form class="form-horizontal form-material" id="loginform" action="index.html">
+                <form [formGroup]="formLogin" (ngSubmit)="login()" class="form-horizontal form-material" id="loginform" action="index.html">
                     <h3 class="box-title m-b-20">Iniciar sesion</h3>
                     <div class="form-group ">
                         <div class="col-xs-12">
-                            <input class="form-control" type="text" required="" placeholder="Usuario"> </div>
+                            <input formControlName="username" class="form-control" type="text" required="" placeholder="Usuario"> </div>
                     </div>
                     <div class="form-group">
                         <div class="col-xs-12">
-                            <input class="form-control" type="password" required="" placeholder="Contraseña"> </div>
+                            <input formControlName="password" class="form-control" type="password" required="" placeholder="Contraseña"> </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-md-12">
@@ -21,7 +21,7 @@
                     </div>
                     <div class="form-group text-center">
                         <div class="col-xs-12 p-b-20">
-                            <button [routerLink]="['/dashboard']" routerLinkActive="router-link-active" class="btn btn-block btn-lg btn-info btn-rounded" type="submit">Iniciar sesion</button>
+                            <button class="btn btn-block btn-lg btn-info btn-rounded" type="submit">Iniciar sesion</button>
                         </div>
                     </div>
 

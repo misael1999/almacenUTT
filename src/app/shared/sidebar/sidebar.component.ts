@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-declare function initPlugins();
+import { Usuario } from '../../models/Usuario';
+import { LoginService } from 'src/app/services/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -8,10 +10,20 @@ declare function initPlugins();
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
+  public usuario: Usuario;
+
+  constructor(private _loginService: LoginService, private _router: Router) {
+
+    this.usuario = this._loginService.usuario;
+
+   }
 
   ngOnInit() {
-    initPlugins();
+  }
+
+  public logout() {
+    this._loginService.logout();
+    this._router.navigate(['/login']);
   }
 
 }

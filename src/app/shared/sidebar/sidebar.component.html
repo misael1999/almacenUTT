@@ -8,16 +8,16 @@
         <nav class="sidebar-nav">
             <ul id="sidebarnav">
                 <li class="user-profile">
-                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><img src="../assets/images/users/profile.png" alt="user" /><span class="hide-menu">Misael Gonzalez</span></a>
+                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><img src="../assets/images/users/profile.png" alt="user" /><span class="hide-menu">{{usuario.primerNombre}} {{usuario.apellidoPaterno}}</span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="javascript:void()">Mi perfil </a></li>
                         <li><a href="javascript:void()">Mis archivos</a></li>
-                        <li><a href="#" [routerLink]="'/login'">Cerrar sesion</a></li>
+                        <li><a class="cursor" (click)="logout()">Cerrar sesion</a></li>
                     </ul>
                 </li>
                 <li class="nav-devider"></li>
                 <li class="nav-small-cap">Entradas/Salidas</li>
-                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Facturas <span class="label label-rouded label-themecolor pull-right">4</span></span></a>
+                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-file-document"></i><span class="hide-menu">Facturas <span class="label label-rouded label-themecolor pull-right">4</span></span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="index.html">Ingresar factura </a></li>
                         <li><a href="index2.html">Lista de facturas</a></li>
@@ -25,11 +25,19 @@
                     </ul>
                 </li>
                 <li class="nav-small-cap">Comisiones</li>
-                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Comisiones <span class="label label-rouded label-themecolor pull-right">4</span></span></a>
+                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-wallet-travel"></i><span class="hide-menu">Comisiones <span class="label label-rouded label-themecolor pull-right">4</span></span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="index.html">Ingresar comision</a></li>
                         <li><a href="index2.html">Lista de facturas</a></li>
                         <li><a href="index3.html">Ver vales de salida</a></li>
+                    </ul>
+                </li>
+                <li class="nav-small-cap">Mantenimiento</li>
+                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-folder-lock"></i><span class="hide-menu">Administrar <span class="label label-rouded label-themecolor pull-right">4</span></span></a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li><a href="index.html">Usuarios</a></li>
+                        <li><a href="index2.html">Productos</a></li>
+                        <li><a href="index3.html">Proveedores</a></li>
                     </ul>
                 </li>
 
