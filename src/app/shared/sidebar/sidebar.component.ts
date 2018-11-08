@@ -14,8 +14,7 @@ export class SidebarComponent implements OnInit {
 
   constructor(private _loginService: LoginService, private _router: Router) {
 
-    this.usuario = this._loginService.usuario;
-
+    this.usuario = JSON.parse(localStorage.getItem('usuario'));
    }
 
   ngOnInit() {
