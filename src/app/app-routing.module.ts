@@ -6,6 +6,7 @@ import { PagesComponent } from './pages/pages.component';
 import { NopagefoundComponent } from './shared/nopagefound/nopagefound.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
+import { LoginGuard } from './services/service.index';
 
 
 const appRoutes: Routes = [
@@ -13,7 +14,7 @@ const appRoutes: Routes = [
   {
       path: '',
       component: PagesComponent,
-      // canActivate: [ LoginGuardGuard ],
+      canActivate: [ LoginGuard ],
       loadChildren: './pages/pages.module#PagesModule'
   },
   { path: '**', component: NopagefoundComponent }

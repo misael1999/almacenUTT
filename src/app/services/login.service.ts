@@ -18,7 +18,8 @@ export class LoginService {
 
   constructor(private _http: HttpClient, private store: Store<AppState>) {
 
-    this.store.select('auth').subscribe(auth => {
+    this.store.select('auth')
+      .subscribe(auth => {
         this.error = auth.error;
         if (this.error != null) {
           swal(this.error.error.error.mensaje, this.error.error.error.error, 'error');
@@ -29,15 +30,32 @@ export class LoginService {
         }
     });
 
-    this.usuario = JSON.parse(localStorage.getItem('usuario'));
-    this.token = localStorage.getItem('token');
+    this.cargarStorage();
 
   }
+
+  public estaLogueado() {
+    return ( this.token.length > 5 ) ? true : false;
+  }
+
 
   private guardarStorage(usuario: any, token: string) {
       localStorage.setItem('usuario', JSON.stringify(usuario));
       localStorage.setItem('token', JSON.stringify(token));
   }
+
+  cargarStorage() {
+
+    if ( localStorage.getItem('token')) {
+      this.token = localStorage.getItem('token');
+      this.usuario = JSON.parse( localStorage.getItem('usuario') );
+    } else {
+      this.token = '';
+      this.usuario = null;
+    }
+
+  }
+
 
   public login(nombreUsuario: string, password: string) {
     const url = URL_SERVICIOS + '/login';

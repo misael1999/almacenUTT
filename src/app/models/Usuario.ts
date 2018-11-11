@@ -7,7 +7,7 @@ export class Usuario {
     public rol: string,
     public nombreUsuario: string,
     public password: string,
-    public id_usuario?: string,
+    public idUsuario?: number,
     public estado?: boolean,
     public segundoNombre?: string,
     ) {}

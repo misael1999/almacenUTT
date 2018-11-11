@@ -5,7 +5,12 @@ import { CommonModule } from '@angular/common';
 import {
   SidebarService,
   SharedService,
-  LoginService
+  LoginService,
+  ProveedorService,
+  ProductoService,
+  ModalProductoService,
+  ModalProveedorService,
+  LoginGuard
  } from './service.index';
 
 
@@ -17,7 +22,12 @@ import {
   providers: [
     SidebarService,
     SharedService,
-    LoginService
+    LoginService,
+    ProveedorService,
+    ProductoService,
+    ModalProductoService,
+    ModalProveedorService,
+    LoginGuard
   ],
   declarations: []
 })

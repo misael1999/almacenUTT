@@ -1,0 +1,79 @@
+<div class="row" *ngIf="loaded">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <button type="button" class="btn btn-info btn-rounded pull-left" (click)="abrirModal()">Agregar nuevo proveedor</button>
+
+                <div class="table-responsive">
+                    <table id="demo-foo-addrow" class="table m-t-30 table-hover contact-list" data-page-size="10">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nombre</th>
+                                <th>Calle</th>
+                                <th>Telefono</th>
+                                <th>RFC</th>
+                                <th>Contacto</th>
+                                <th>Correo</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let proveedor of proveedores">
+                                <td>{{proveedor.idProveedor}}</td>
+                                <td>{{proveedor.nombre}}</td>
+                                <td>{{proveedor.calle}}</td>
+                                <td><span class="label label-danger">{{proveedor.telefono}}</span> </td>
+                                <td>{{proveedor.rfc}}</td>
+                                <td>{{proveedor.contacto}}</td>
+                                <td>{{proveedor.correo}}</td>
+                                <td>
+                                    <button type="button" class="btn btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Eliminar"><i class="ti-trash" aria-hidden="true"></i></button>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Editar"><i class="ti-pencil-alt" aria-hidden="true"></i></button>
+                                </td>
+
+                        </tbody>
+                        <tfoot>
+                            <tr>
+
+                                <td colspan="7">
+                                    <div class="text-right">
+                                        <ul class="pagination"> </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CUADRO DE CARGANDO -->
+
+<div class="row" *ngIf="loading">
+    <div class="col-lg-12">
+
+        <div class="d-flex justify-content-center">
+            <i class="fa fa-spinner fa-spin fa-3x"></i>
+        </div>
+    </div>
+</div>
+
+<!--   MENSAJE DE ERROR    -->
+
+<div class="row" *ngIf="error != null">
+    <div class="col-lg-12">
+        <div class="alert alert-danger" role="alert">
+            <h4 class="alert-heading">{{error.name}}</h4>
+            <p>{{error.message}}</p>
+            <hr>
+            <p class="mb-0">{{error.status}}</p>
+        </div>
+    </div>
+</div>
+<app-modal-proveedor></app-modal-proveedor>

@@ -1,0 +1,172 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card ">
+            <div class="card-header bg-warning">
+                <h4 class="m-b-0 text-white">Informacion general</h4>
+            </div>
+            <div class="card-body">
+                <form action="#" class="form-horizontal">
+                    <div class="form-body">
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="control-label text-right col-md-3">Proveedor</label>
+                                    <div class="col-md-9">
+                                        <select class="form-control custom-select">
+                                            <option *ngFor="let proveedor of proveedores" [value]="proveedor.idProveedor">{{proveedor.nombre}}</option>
+                                        </select>
+                                        <small class="form-control-feedback"> Selecciona el proveedor </small></div>
+                                </div>
+                            </div>
+                            <!--/span-->
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="control-label text-right col-md-3">Fecha de expedicion</label>
+                                    <div class="col-md-9">
+                                        <input type="date" class="form-control" placeholder="dd/mm/yyyy">
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <!--/row-->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="control-label text-right col-md-3">Category</label>
+                                    <div class="col-md-9">
+                                        <select class="form-control custom-select" data-placeholder="Choose a Category" tabindex="1">
+                                            <option value="Category 1">Category 1</option>
+                                            <option value="Category 2">Category 2</option>
+                                            <option value="Category 3">Category 5</option>
+                                            <option value="Category 4">Category 4</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/span-->
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="control-label text-right col-md-3">Membership</label>
+                                    <div class="col-md-9">
+                                        <div class="radio-list">
+                                            <label class="custom-control custom-radio">
+                                                <input id="radio3" name="radio" type="radio" checked="" class="custom-control-input">
+                                                <span class="custom-control-indicator"></span>
+                                                <span class="custom-control-description">Free</span>
+                                            </label>
+                                            <label class="custom-control custom-radio">
+                                                <input id="radio4" name="radio" type="radio" class="custom-control-input">
+                                                <span class="custom-control-indicator"></span>
+                                                <span class="custom-control-description">Paid</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card ">
+            <div class="card-header bg-primary">
+                <h4 class="m-b-0 text-white">Productos</h4>
+            </div>
+            <div class="card-body">
+                <form action="#" class="form-horizontal">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="control-label text-right col-md-3">First Name</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" placeholder="John doe">
+                                        <small class="form-control-feedback"> This is inline help </small> </div>
+                                </div>
+                            </div>
+                            <!--/span-->
+                            <div class="col-md-6">
+                                <div class="form-group has-danger row">
+                                    <label class="control-label text-right col-md-3">Last Name</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control form-control-danger" placeholder="12n">
+                                        <small class="form-control-feedback"> This field has error. </small> </div>
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <!--/row-->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="control-label text-right col-md-3">Gender</label>
+                                    <div class="col-md-9">
+                                        <select class="form-control custom-select">
+                                            <option value="">Male</option>
+                                            <option value="">Female</option>
+                                        </select>
+                                        <small class="form-control-feedback"> Select your gender. </small> </div>
+                                </div>
+                            </div>
+                            <!--/span-->
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="control-label text-right col-md-3">Date of Birth</label>
+                                    <div class="col-md-9">
+                                        <input type="date" class="form-control" placeholder="dd/mm/yyyy">
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <!--/row-->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="control-label text-right col-md-3">Category</label>
+                                    <div class="col-md-9">
+                                        <select class="form-control custom-select" data-placeholder="Choose a Category" tabindex="1">
+                                            <option value="Category 1">Category 1</option>
+                                            <option value="Category 2">Category 2</option>
+                                            <option value="Category 3">Category 5</option>
+                                            <option value="Category 4">Category 4</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/span-->
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="control-label text-right col-md-3">Membership</label>
+                                    <div class="col-md-9">
+                                        <div class="radio-list">
+                                            <label class="custom-control custom-radio">
+                                                <input id="radio3" name="radio" type="radio" checked="" class="custom-control-input">
+                                                <span class="custom-control-indicator"></span>
+                                                <span class="custom-control-description">Free</span>
+                                            </label>
+                                            <label class="custom-control custom-radio">
+                                                <input id="radio4" name="radio" type="radio" class="custom-control-input">
+                                                <span class="custom-control-indicator"></span>
+                                                <span class="custom-control-description">Paid</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

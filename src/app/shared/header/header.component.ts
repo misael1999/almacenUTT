@@ -12,8 +12,8 @@ export class HeaderComponent implements OnInit {
 
   public usuario: Usuario;
 
-  constructor() {
-    this.usuario = JSON.parse(localStorage.getItem('usuario'));
+  constructor(private _loginService: LoginService) {
+    this.usuario = _loginService.usuario;
    }
 
   ngOnInit() {
