@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from '../services/service.index';
-import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppState } from '../store/app.reducer';
 import * as authActions from '../store/actions';
@@ -17,7 +16,7 @@ export class LoginComponent implements OnInit {
   public formLogin: FormGroup;
   public loading = false;
 
-  constructor( public loginService: LoginService, private _router: Router, private store: Store<AppState> ) { 
+  constructor( public loginService: LoginService, private store: Store<AppState> ) {
 
       this.store.select('auth')
           .subscribe(auth => {
@@ -45,12 +44,6 @@ export class LoginComponent implements OnInit {
     const password = this.formLogin.value.password;
 
     this.store.dispatch(new authActions.LoginUser(username, password));
-
-    this.loginService.login(username, password)
-      .subscribe((resp: any) => {
-        this._router.navigate(['/inicio']);
-      });
-
   }
 
 }

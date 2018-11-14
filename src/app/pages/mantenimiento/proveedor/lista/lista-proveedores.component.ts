@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { ProveedorService, LoginService, ModalProveedorService } from 'src/app/services/service.index';
+import { ProveedorService, ModalProveedorActualizarService, ModalProveedorService } from 'src/app/services/service.index';
 import { Proveedor } from '../../../../models/Proveedor';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
@@ -23,7 +23,8 @@ export class ListaProveedorComponent implements OnInit {
   proveedores: Proveedor[];
 
   constructor(private provedorService: ProveedorService,
-    private store: Store<AppState>, private modalProveedorService: ModalProveedorService) {
+    private store: Store<AppState>, private modalProveedorService: ModalProveedorService,
+     private modalProveedorActualizarService: ModalProveedorActualizarService) {
       store.dispatch(new fromProveedor.LoadProveedores());
       this.store.select('proveedores')
         .subscribe(proveedores => {
@@ -39,6 +40,43 @@ export class ListaProveedorComponent implements OnInit {
 
   public abrirModal() {
     this.modalProveedorService.mostrarModal();
+  }
+
+  actualizarProveedor(proveedor: Proveedor) {
+    this.store.dispatch(new fromProveedor.SelectProveedor(proveedor));
+    this.modalProveedorActualizarService.mostrarModal();
+  }
+
+  eliminarProveedor(proveedor: Proveedor) {
+    const swalWithBootstrapButtons = swal.mixin({
+      confirmButtonClass: 'btn btn-success',
+      cancelButtonClass: 'btn btn-danger',
+      buttonsStyling: true,
+    });
+
+    swalWithBootstrapButtons({
+      title: '¿Estas seguro?',
+      text: 'No se podra revertir',
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Si, eliminalo!',
+      cancelButtonText: 'No, cancelar!',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.value) {
+        proveedor.status = false;
+        this.store.dispatch(new fromProveedor.UpdateProveedor(proveedor));
+      } else if (
+        // Read more about handling dismissals
+        result.dismiss === swal.DismissReason.cancel
+      ) {
+        swalWithBootstrapButtons(
+          'Cancelado',
+          'El proveedor ' + proveedor.nombre + ' no ha sido eliminado :)',
+          'error'
+        );
+      }
+    });
   }
 
 }

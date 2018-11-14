@@ -1,15 +1,16 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AuthInterceptor } from './interceptor/authInterceptor.service';
 
 import {
-  SidebarService,
-  SharedService,
   LoginService,
   ProveedorService,
   ProductoService,
   ModalProductoService,
   ModalProveedorService,
+  ModalProveedorActualizarService,
+  FacturaService,
   LoginGuard
  } from './service.index';
 
@@ -20,14 +21,19 @@ import {
     HttpClientModule
   ],
   providers: [
-    SidebarService,
-    SharedService,
     LoginService,
     ProveedorService,
     ProductoService,
     ModalProductoService,
     ModalProveedorService,
-    LoginGuard
+    FacturaService,
+    ModalProveedorActualizarService,
+    LoginGuard,
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: AuthInterceptor,
+    //   multi: true,
+    // },
   ],
   declarations: []
 })

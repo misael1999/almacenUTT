@@ -28,24 +28,33 @@
                                 <td>{{proveedor.contacto}}</td>
                                 <td>{{proveedor.correo}}</td>
                                 <td>
-                                    <button type="button" class="btn btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Eliminar"><i class="ti-trash" aria-hidden="true"></i></button>
+                                    <button type="button" (click)="eliminarProveedor(proveedor)" class="btn btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Eliminar"><i class="ti-trash" aria-hidden="true"></i></button>
                                 </td>
                                 <td>
-                                    <button type="button" class="btn btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Editar"><i class="ti-pencil-alt" aria-hidden="true"></i></button>
+                                    <button type="button" (click)="actualizarProveedor(proveedor)" class="btn btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Editar"><i class="ti-pencil-alt" aria-hidden="true"></i></button>
                                 </td>
 
                         </tbody>
-                        <tfoot>
-                            <tr>
-
-                                <td colspan="7">
-                                    <div class="text-right">
-                                        <ul class="pagination"> </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tfoot>
                     </table>
+                    <div class="paginador d-flex justify-content-center">
+                        <nav aria-label="...">
+                            <ul class="pagination">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1">Anterior</a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item active">
+                                    <a class="page-link" href="#">4 <span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">Siguiente</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
 
                 </div>
             </div>
@@ -77,3 +86,4 @@
     </div>
 </div>
 <app-modal-proveedor></app-modal-proveedor>
+<app-modal-proveedor-actualizar></app-modal-proveedor-actualizar>

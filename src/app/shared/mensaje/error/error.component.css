@@ -1,0 +1,42 @@
+.alert-mensaje {
+    position: fixed;
+    z-index: 999999999999999;
+    color: #fff;
+    width: 100%;
+    padding: 15px;
+    margin: 0;
+    display: flex;
+    align-content: center;
+    transition-duration: .5s;
+}
+
+.oculto {
+    display: none;
+    transition-duration: .5s;
+}
+
+.alert-error .mensaje {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.button-close {
+    display: block;
+    position: absolute;
+    right: 15px;
+    top: 10px;
+}
+
+.button-close span {
+    color: #fff;
+    font-size: 150%;
+}
+
+.bg-error {
+    background-color: rgb(190, 9, 9);
+}
+
+.bg-alert-success {
+    background-color: rgb(31, 117, 5);
+}

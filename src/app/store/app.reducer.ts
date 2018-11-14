@@ -6,13 +6,15 @@ export interface AppState {
     proveedor: reducers.ProveedorState;
     proveedores: reducers.ProveedoresState;
     productos: reducers.ProductosState;
+    factura: reducers.FacturaState;
 }
 
 export const appReducers: ActionReducerMap<AppState> = {
     auth: reducers.authReducer,
     proveedor: reducers.proveedorReducer,
     proveedores: reducers.proveedoresReducer,
-    productos: reducers.productosReducer
+    productos: reducers.productosReducer,
+    factura: reducers.facturaReducer
 };
 
 

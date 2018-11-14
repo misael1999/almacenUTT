@@ -4,6 +4,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { IngresarComponent } from './facturas/ingresar/ingresar.component';
 import { ListaProveedorComponent } from './mantenimiento/proveedor/lista/lista-proveedores.component';
 import { ListaProductosComponent } from './mantenimiento/producto/lista-productos/lista-productos.component';
+import { ListaFacturasComponent } from './facturas/lista-facturas/lista-facturas.component';
 
 
 // Guards
@@ -19,9 +20,10 @@ const pagesRoutes: Routes = [
         // canActivate: [ VerificaTokenGuard ],
         data: { titulo: 'Inicio' }
     },
-    {path: 'lista-facturas', component: IngresarComponent, data: { titulo: 'Lista de facturas' } },
-    {path: 'lista-proveedores', component: ListaProveedorComponent, data: { titulo: 'Lista de proveedores' } },
-    {path: 'lista-productos', component: ListaProductosComponent, data: { titulo: 'Lista de productos' } },
+    {path: 'facturas-ingresar', component: IngresarComponent, data: { titulo: 'Ingresar factura' } },
+    {path: 'facturas', component: ListaFacturasComponent, data: { titulo: 'Lista de facturas' } },
+    {path: 'proveedores', component: ListaProveedorComponent, data: { titulo: 'Lista de proveedores' } },
+    {path: 'productos', component: ListaProductosComponent, data: { titulo: 'Lista de productos' } },
     // Mantenimientos
     // {
     //     path: 'usuarios',
@@ -29,7 +31,7 @@ const pagesRoutes: Routes = [
     //     canActivate: [ AdminGuard ],
     //     data: { titulo: 'Mantenimiento de Usuarios' }
     // },
-    { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
+    { path: '', redirectTo: '/inicio', pathMatch: 'full' }
 ];
 
 

@@ -4,6 +4,7 @@ import { Usuario } from '../../models/Usuario';
 export const LOGIN_USER = '[Auth] Login User';
 export const LOGIN_USER_SUCCESS = '[Auth] Login User SUCCESS';
 export const LOGIN_USER_FAIL = '[Auth] Login User FAIL';
+export const LOGIN_USER_END = '[Auth] Login user END';
 export const LOGOUT_USER = '[Auth] Logout User';
 
 
@@ -28,6 +29,10 @@ export class LogoutUser implements Action {
     readonly type = LOGOUT_USER;
 }
 
-export type authAcciones = LoginUser | LoginUserSucess | LoginUserFail | LogoutUser;
+export class LoginUserEnd implements Action {
+    readonly type = LOGIN_USER_END;
+}
+
+export type authAcciones = LoginUser | LoginUserSucess | LoginUserFail | LogoutUser | LoginUserEnd;
 
 

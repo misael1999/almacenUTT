@@ -4,7 +4,7 @@ import * as productosActions from '../../actions';
 import { map, switchMap, catchError } from 'rxjs/operators';
 import {ProveedorService } from 'src/app/services/service.index';
 import { of } from 'rxjs';
-import { ProductoService } from '../../../services/producto.service';
+import { ProductoService } from '../../../services/producto/producto.service';
 import { LoadProductosSuccess } from '../../actions/producto/productos.actions';
 
 

@@ -14,8 +14,8 @@ export class Proveedor {
     public rfc?: string,
     public contacto?: string,
     public correo?: string,
-    public status?: string,
-    public idProveedor?: string,
+    public status?: boolean,
+    public idProveedor?: number,
     public fechaCreacion?: string
     ) {}
 }

@@ -1,171 +1,109 @@
 <div class="row">
-    <div class="col-lg-12">
-        <div class="card ">
-            <div class="card-header bg-warning">
-                <h4 class="m-b-0 text-white">Informacion general</h4>
-            </div>
+    <div class="col-12">
+        <div class="card">
             <div class="card-body">
-                <form action="#" class="form-horizontal">
-                    <div class="form-body">
 
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group row">
-                                    <label class="control-label text-right col-md-3">Proveedor</label>
-                                    <div class="col-md-9">
-                                        <select class="form-control custom-select">
-                                            <option *ngFor="let proveedor of proveedores" [value]="proveedor.idProveedor">{{proveedor.nombre}}</option>
-                                        </select>
-                                        <small class="form-control-feedback"> Selecciona el proveedor </small></div>
-                                </div>
-                            </div>
-                            <!--/span-->
-                            <div class="col-md-6">
-                                <div class="form-group row">
-                                    <label class="control-label text-right col-md-3">Fecha de expedicion</label>
-                                    <div class="col-md-9">
-                                        <input type="date" class="form-control" placeholder="dd/mm/yyyy">
-                                    </div>
-                                </div>
-                            </div>
-                            <!--/span-->
-                        </div>
-                        <!--/row-->
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group row">
-                                    <label class="control-label text-right col-md-3">Category</label>
-                                    <div class="col-md-9">
-                                        <select class="form-control custom-select" data-placeholder="Choose a Category" tabindex="1">
-                                            <option value="Category 1">Category 1</option>
-                                            <option value="Category 2">Category 2</option>
-                                            <option value="Category 3">Category 5</option>
-                                            <option value="Category 4">Category 4</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--/span-->
-                            <div class="col-md-6">
-                                <div class="form-group row">
-                                    <label class="control-label text-right col-md-3">Membership</label>
-                                    <div class="col-md-9">
-                                        <div class="radio-list">
-                                            <label class="custom-control custom-radio">
-                                                <input id="radio3" name="radio" type="radio" checked="" class="custom-control-input">
-                                                <span class="custom-control-indicator"></span>
-                                                <span class="custom-control-description">Free</span>
-                                            </label>
-                                            <label class="custom-control custom-radio">
-                                                <input id="radio4" name="radio" type="radio" class="custom-control-input">
-                                                <span class="custom-control-indicator"></span>
-                                                <span class="custom-control-description">Paid</span>
-                                            </label>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card ribbon-wrapper-reverse">
+                            <div class="ribbon ribbon-bookmark ribbon-left ribbon-info">Informacion Basica</div>
+                            <div class="card-body">
+                                <form class="floating-labels m-t-40">
+                                    <div class="row">
+                                        <!--   input 1    -->
+                                        <div class="form-group col-md-6 m-b-40">
+                                            <input type="text" class="form-control" id="input1">
+                                            <span class="bar"></span>
+                                            <label for="input1">Nombre del proveedor</label>
+                                        </div>
+                                        <!--   input 2    -->
+                                        <div class="form-group col-md-6">
+                                            <input type="text" class="form-control bootstrapMaterialDatePicker" placeholder="Fecha de expedicion" id="mdate">
+                                        </div>
+                                        <div class="form-group col-md-12 m-b-0">
+                                            <textarea class="form-control" rows="4" id="input7"></textarea>
+                                            <span class="bar"></span>
+                                            <label for="input7">Descripcion</label>
                                         </div>
                                     </div>
-                                </div>
+                                </form>
                             </div>
-                            <!--/span-->
                         </div>
                     </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card ribbon-wrapper-reverse">
+                            <div class="ribbon ribbon-bookmark ribbon-left ribbon-info mb-2">Añadir productos</div>
+                            <div class="card-body">
+                                <form class="floating-labels">
+                                    <div class="row">
+                                        <div class="form-group col-md-5">
+                                            <input type="text" class="form-control" id="descripcion">
+                                            <span class="bar"></span>
+                                            <label for="descripcion">Descripcion del producto</label>
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <select class="form-control p-0" id="unidad">
+                                                                <option></option>
+                                                                <option>Pieza</option>
+                                                                <option>Caja</option>
+                                                            </select><span class="bar"></span>
+                                            <label for="unidad">Unidad</label>
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <input type="number" class="form-control" id="cantidad">
+                                            <span class="bar"></span>
+                                            <label for="cantidad">Cantidad</label>
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <input type="number" class="form-control" id="precio">
+                                            <span class="bar"></span>
+                                            <label for="precio">Precio</label>
+                                        </div>
+                                        <div class="form-group col-md-1">
+                                            <button class="btn btn-sm btn-danger">Agregar</button>
+                                        </div>
 
-<div class="row">
-    <div class="col-lg-12">
-        <div class="card ">
-            <div class="card-header bg-primary">
-                <h4 class="m-b-0 text-white">Productos</h4>
-            </div>
-            <div class="card-body">
-                <form action="#" class="form-horizontal">
-                    <div class="form-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group row">
-                                    <label class="control-label text-right col-md-3">First Name</label>
-                                    <div class="col-md-9">
-                                        <input type="text" class="form-control" placeholder="John doe">
-                                        <small class="form-control-feedback"> This is inline help </small> </div>
-                                </div>
-                            </div>
-                            <!--/span-->
-                            <div class="col-md-6">
-                                <div class="form-group has-danger row">
-                                    <label class="control-label text-right col-md-3">Last Name</label>
-                                    <div class="col-md-9">
-                                        <input type="text" class="form-control form-control-danger" placeholder="12n">
-                                        <small class="form-control-feedback"> This field has error. </small> </div>
-                                </div>
-                            </div>
-                            <!--/span-->
-                        </div>
-                        <!--/row-->
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group row">
-                                    <label class="control-label text-right col-md-3">Gender</label>
-                                    <div class="col-md-9">
-                                        <select class="form-control custom-select">
-                                            <option value="">Male</option>
-                                            <option value="">Female</option>
-                                        </select>
-                                        <small class="form-control-feedback"> Select your gender. </small> </div>
-                                </div>
-                            </div>
-                            <!--/span-->
-                            <div class="col-md-6">
-                                <div class="form-group row">
-                                    <label class="control-label text-right col-md-3">Date of Birth</label>
-                                    <div class="col-md-9">
-                                        <input type="date" class="form-control" placeholder="dd/mm/yyyy">
-                                    </div>
-                                </div>
-                            </div>
-                            <!--/span-->
-                        </div>
-                        <!--/row-->
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group row">
-                                    <label class="control-label text-right col-md-3">Category</label>
-                                    <div class="col-md-9">
-                                        <select class="form-control custom-select" data-placeholder="Choose a Category" tabindex="1">
-                                            <option value="Category 1">Category 1</option>
-                                            <option value="Category 2">Category 2</option>
-                                            <option value="Category 3">Category 5</option>
-                                            <option value="Category 4">Category 4</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--/span-->
-                            <div class="col-md-6">
-                                <div class="form-group row">
-                                    <label class="control-label text-right col-md-3">Membership</label>
-                                    <div class="col-md-9">
-                                        <div class="radio-list">
-                                            <label class="custom-control custom-radio">
-                                                <input id="radio3" name="radio" type="radio" checked="" class="custom-control-input">
-                                                <span class="custom-control-indicator"></span>
-                                                <span class="custom-control-description">Free</span>
-                                            </label>
-                                            <label class="custom-control custom-radio">
-                                                <input id="radio4" name="radio" type="radio" class="custom-control-input">
-                                                <span class="custom-control-indicator"></span>
-                                                <span class="custom-control-description">Paid</span>
-                                            </label>
+                                        <!--   Table de productos agregados    -->
+                                        <div class="col-12">
+                                            <div class="table-responsive">
+                                                <table id="demo-foo-addrow" class="table m-t-30 table-hover contact-list" data-page-size="10">
+                                                    <thead class="thead-productos">
+                                                        <tr>
+                                                            <th>Descripcion</th>
+                                                            <th>Unidad</th>
+                                                            <th>Cantidad</th>
+                                                            <th>Precio</th>
+                                                            <th></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Caja de lapiceros</td>
+                                                            <td>pieza</td>
+                                                            <td><span class="label label-danger">10</span></td>
+                                                            <td>100</td>
+                                                            <td>
+                                                                <button type="button" class="btn btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Eliminar"><i class="ti-trash" aria-hidden="true"></i></button>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+
+                                </form>
                             </div>
-                            <!--/span-->
+
                         </div>
                     </div>
-                </form>
+                </div>
+            </div>
+            <div class="button-guardar m-3">
+                <button class="btn btn-rounded btn-danger">Guardar factura</button>
             </div>
         </div>
     </div>

@@ -21,6 +21,7 @@ export class ModalProveedorComponent implements OnInit {
   loading: boolean;
   loaded: boolean;
   mensaje: any;
+  error: any;
 
   constructor(public modalProveedorService: ModalProveedorService, private store: Store<AppState>) {
 
@@ -29,11 +30,13 @@ export class ModalProveedorComponent implements OnInit {
           this.mensaje = proveedor.mensaje;
           this.loaded = proveedor.loaded;
           this.loading = proveedor.loading;
+          this.error = proveedor.error;
           if (this.mensaje != null) {
-            swal(this.mensaje.titulo, this.mensaje.mensaje, 'success');
             this.cerrarModal();
-            this.store.dispatch(new fromProveedor.CreateProveedorEnd());
+            this.formProveedor.reset();
+            this.store.dispatch(new fromProveedor.LoadProveedores());
           }
+
         });
    }
 
@@ -46,32 +49,30 @@ export class ModalProveedorComponent implements OnInit {
     this.formProveedor = new FormGroup({
 
       nombre: new FormControl( null , Validators.required ),
-      calle: new FormControl( null),
-      numeroLote: new FormControl( null),
-      numeroInterior: new FormControl( null),
-      colonia: new FormControl( null),
-      municipio: new FormControl( null),
-      estado: new FormControl( null),
-      codigoPostal: new FormControl( null),
-      regimenFiscal: new FormControl( null),
-      telefono: new FormControl( null),
-      rfc: new FormControl( null ),
-      contacto: new FormControl( null ),
-      correo: new FormControl( null )
+      calle: new FormControl( 'lorem'),
+      numeroLote: new FormControl( '1'),
+      numeroInterior: new FormControl( '1'),
+      colonia: new FormControl( 'lorem'),
+      municipio: new FormControl( 'lorem'),
+      estado: new FormControl( 'lorem'),
+      codigoPostal: new FormControl( '75251'),
+      regimenFiscal: new FormControl( 'lorem'),
+      telefono: new FormControl( '2384080578'),
+      rfc: new FormControl( 'lorem' ),
+      contacto: new FormControl( 'lorem' ),
+      correo: new FormControl( 'lorem@lorem.com' )
     });
 
   }
 
-  public cerrarModal() {
+  public cerrarModal(): void {
     this.modalProveedorService.ocultarModal();
-    this.store.dispatch(new fromProveedor.LoadProveedores());
-    this.store.complete();
   }
 
-  public crearProveedor() {
+  public crearProveedor(): void {
 
     if (this.formProveedor.invalid) {
-      console.log(this.formProveedor.controls);
+      console.log(this.formProveedor);
       return;
   }
 

@@ -56,7 +56,7 @@ export function authReducer(
         }
       };
       break;
-      case fromAuth.LOGOUT_USER:
+    case fromAuth.LOGOUT_USER:
       return {
         ...state,
         loaded: false,
@@ -64,6 +64,12 @@ export function authReducer(
         token: null,
         error: null,
         usuario: null
+      };
+      break;
+    case fromAuth.LOGIN_USER_END:
+      return {
+        ...state,
+        error: null,
       };
       break;
     default:

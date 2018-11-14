@@ -18,6 +18,8 @@ import { ListaProveedorComponent } from './mantenimiento/proveedor/lista/lista-p
 import { ListaProductosComponent } from './mantenimiento/producto/lista-productos/lista-productos.component';
 import { ModalProveedorComponent } from './mantenimiento/modals/proveedor/modal-proveedor.component';
 import { ModalProductoComponent } from './mantenimiento/modals/producto/modal-producto.component';
+import { ListaFacturasComponent } from './facturas/lista-facturas/lista-facturas.component';
+import { ModalProveedorActualizarComponent } from './mantenimiento/modals/proveedor/modal-proveedor-actualizar/modal-proveedor-actualizar.component';
 
 
 
@@ -33,7 +35,9 @@ import { ModalProductoComponent } from './mantenimiento/modals/producto/modal-pr
         ListaProveedorComponent,
         ListaProductosComponent,
         ModalProveedorComponent,
-        ModalProductoComponent
+        ModalProductoComponent,
+        ListaFacturasComponent,
+        ModalProveedorActualizarComponent,
     ],
     exports: [
         DashboardComponent,

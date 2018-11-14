@@ -1,5 +1,6 @@
 import { Proveedor } from '../../../models/Proveedor';
 import * as fromProveedor from '../../actions';
+import { UPDATE_PROVEEDOR, SELECT_PROVEEDOR } from '../../actions/proveedor/proveedor.actions';
 
 export interface ProveedorState {
     provedor: Proveedor;
@@ -50,6 +51,45 @@ export interface ProveedorState {
         case fromProveedor.CREATE_PROVEEDOR_END:
             return {
                 ...state,
+                mensaje: null,
+                error: null
+            };
+            break;
+            case fromProveedor.UPDATE_PROVEEDOR:
+            return {
+                ...state,
+                loading: true,
+            };
+            break;
+        case fromProveedor.SELECT_PROVEEDOR:
+            return {
+                ...state,
+                provedor: action.proveedor
+            };
+            break;
+            case fromProveedor.UPDATE_PROVEEDOR:
+            return {
+                ...state,
+                loading: true,
+            };
+            break;
+        case fromProveedor.UPDATE_PROVEEDOR_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                loaded: true,
+                mensaje: {
+                    titulo: action.payload.titulo,
+                    mensaje: action.payload.mensaje
+                }
+            };
+            break;
+        case fromProveedor.UPDATE_PROVEEDOR_FAIL:
+            return {
+                ...state,
+                loading: false,
+                loaded: false,
+                error: action.payload,
                 mensaje: null
             };
             break;

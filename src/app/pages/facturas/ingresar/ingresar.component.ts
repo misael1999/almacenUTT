@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Proveedor } from '../../../models/Proveedor';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
@@ -12,6 +12,8 @@ export class IngresarComponent implements OnInit {
 
   proveedores: Proveedor[];
 
+  @ViewChild('txtProveedor') txtProveedor: ElementRef;
+
   constructor(private store: Store<AppState>) {
       this.store.dispatch(new fromFactura.LoadProveedores());
 
@@ -24,6 +26,11 @@ export class IngresarComponent implements OnInit {
    }
 
   ngOnInit() {
+  }
+
+  colocarText(nombre: string) {
+    this.txtProveedor.nativeElement.value = nombre;
+    this.proveedores = null;
   }
 
 }

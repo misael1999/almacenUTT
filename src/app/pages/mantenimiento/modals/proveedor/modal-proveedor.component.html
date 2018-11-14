@@ -20,12 +20,12 @@
                                             <div class="row">
 
                                                 <div class="col-md-6">
-                                                    <div class="form-group">
+                                                    <div class="form-group" [ngClass]="{'has-danger': !formProveedor.controls['nombre'].valid, 'has-success': formProveedor.controls['nombre'].valid }">
                                                         <label class="control-label">Empresa:</label>
-                                                        <input formControlName="nombre" type="text" autocomplete="of" class="form-control form-control-danger" placeholder="Escribe el Nombre">
+                                                        <input formControlName="nombre" type="text" class="form-control" placeholder="Nombre de la empresa" [ngClass]="{'form-control-danger': !formProveedor.controls['nombre'].valid, 'form-control-success': formProveedor.controls['nombre'].valid}">
+                                                        <small class="form-control-feedback">*Obligatorio </small> </div>
 
 
-                                                        <small class="form-control-feedback"> </small> </div>
                                                     <h4 class="m-b-10">Domicilio Fiscal</h4>
 
                                                 </div>
@@ -140,7 +140,7 @@
                     </div>
                     <div class="modal-footer justify-content-center">
                         <div class="form-actions">
-                            <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Guardar proveedor</button>
+                            <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Guardar proveedor <i *ngIf="loading" class="fa fa-spinner fa-spin"></i></button>
                         </div>
                         <button (click)="cerrarModal()" type="button" class="btn btn-secondary ml-auto">Cerrar</button>
                     </div>
