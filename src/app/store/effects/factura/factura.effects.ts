@@ -14,13 +14,14 @@ export class FacturaEffects {
     crearFactura$ = this.actions$.ofType(facturaActions.CREATE_FACTURA)
         .pipe(
             mergeMap(action => {
-                const proveedor = action['factura'];
-                return this.facturaService.agregarFactura(proveedor)
+                const factura = action['factura'];
+                return this.facturaService.agregarFactura(factura)
                     .pipe(
                        map(data => {
                             return new facturaActions.CreateFacturaSuccess(data);
                        }),
                        catchError(error => {
+                           console.log(error);
                             return of(new facturaActions.CreateFacturaFail(error));
                        })
                     );

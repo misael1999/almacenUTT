@@ -2,26 +2,25 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-
                 <div class="row">
                     <div class="col-12">
                         <div class="card ribbon-wrapper-reverse">
                             <div class="ribbon ribbon-bookmark ribbon-left ribbon-info">Informacion Basica</div>
                             <div class="card-body">
-                                <form class="floating-labels m-t-40">
+                                <form [formGroup]="formInformacion" class="floating-labels m-t-40">
                                     <div class="row">
                                         <!--   input 1    -->
                                         <div class="form-group col-md-6 m-b-40">
-                                            <input type="text" class="form-control" id="input1">
+                                            <input formControlName="proveedor" type="text" class="form-control" id="input1">
                                             <span class="bar"></span>
                                             <label for="input1">Nombre del proveedor</label>
                                         </div>
                                         <!--   input 2    -->
                                         <div class="form-group col-md-6">
-                                            <input type="text" class="form-control bootstrapMaterialDatePicker" placeholder="Fecha de expedicion" id="mdate">
+                                            <input formControlName="fecha" type="text" class="form-control bootstrapMaterialDatePicker" placeholder="Fecha de expedicion" id="mdate">
                                         </div>
                                         <div class="form-group col-md-12 m-b-0">
-                                            <textarea class="form-control" rows="4" id="input7"></textarea>
+                                            <textarea formControlName="descripcion" class="form-control" rows="4" id="input7"></textarea>
                                             <span class="bar"></span>
                                             <label for="input7">Descripcion</label>
                                         </div>
@@ -31,68 +30,43 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="col-12">
                         <div class="card ribbon-wrapper-reverse">
                             <div class="ribbon ribbon-bookmark ribbon-left ribbon-info mb-2">Añadir productos</div>
                             <div class="card-body">
-                                <form class="floating-labels">
+                                <form [formGroup]="formProducto" (ngSubmit)="agregarProducto()" class="floating-labels">
                                     <div class="row">
                                         <div class="form-group col-md-5">
-                                            <input type="text" class="form-control" id="descripcion">
+                                            <input formControlName="descripcionProducto" type="text" class="form-control" id="descripcion">
                                             <span class="bar"></span>
                                             <label for="descripcion">Descripcion del producto</label>
                                         </div>
                                         <div class="form-group col-md-2">
-                                            <select class="form-control p-0" id="unidad">
-                                                                <option></option>
-                                                                <option>Pieza</option>
-                                                                <option>Caja</option>
+                                            <select formControlName="unidad" class="form-control p-0" id="unidad">
+                                                                <option value=""></option>
+                                                                <option value="pieza">Pieza</option>
+                                                                <option value="caja">Caja</option>
                                                             </select><span class="bar"></span>
                                             <label for="unidad">Unidad</label>
                                         </div>
                                         <div class="form-group col-md-2">
-                                            <input type="number" class="form-control" id="cantidad">
+                                            <input formControlName="cantidad" type="number" class="form-control" id="cantidad">
                                             <span class="bar"></span>
                                             <label for="cantidad">Cantidad</label>
                                         </div>
                                         <div class="form-group col-md-2">
-                                            <input type="number" class="form-control" id="precio">
+                                            <input formControlName="precio" type="number" class="form-control" id="precio">
                                             <span class="bar"></span>
                                             <label for="precio">Precio</label>
                                         </div>
                                         <div class="form-group col-md-1">
-                                            <button class="btn btn-sm btn-danger">Agregar</button>
+                                            <button type="submit" class="btn btn-sm btn-danger">Agregar</button>
                                         </div>
 
                                         <!--   Table de productos agregados    -->
-                                        <div class="col-12">
-                                            <div class="table-responsive">
-                                                <table id="demo-foo-addrow" class="table m-t-30 table-hover contact-list" data-page-size="10">
-                                                    <thead class="thead-productos">
-                                                        <tr>
-                                                            <th>Descripcion</th>
-                                                            <th>Unidad</th>
-                                                            <th>Cantidad</th>
-                                                            <th>Precio</th>
-                                                            <th></th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>Caja de lapiceros</td>
-                                                            <td>pieza</td>
-                                                            <td><span class="label label-danger">10</span></td>
-                                                            <td>100</td>
-                                                            <td>
-                                                                <button type="button" class="btn btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Eliminar"><i class="ti-trash" aria-hidden="true"></i></button>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
 
-                                            </div>
-                                        </div>
                                     </div>
 
                                 </form>
@@ -100,10 +74,38 @@
 
                         </div>
                     </div>
+
+                    <div class="col-12">
+                        <div class="table-responsive">
+                            <table id="demo-foo-addrow" class="table m-t-30 table-hover contact-list" data-page-size="10">
+                                <thead class="thead-productos">
+                                    <tr>
+                                        <th>Descripcion</th>
+                                        <th>Unidad</th>
+                                        <th>Cantidad</th>
+                                        <th>Precio</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let producto of productos">
+                                        <td>{{producto.producto.descripcion}}</td>
+                                        <td>{{producto.producto.unidad}}</td>
+                                        <td><span class="label label-danger">{{producto.producto.cantidad}}</span></td>
+                                        <td>{{producto.producto.precio}}</td>
+                                        <td>
+                                            <button type="button" class="btn btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Eliminar"><i class="ti-trash" aria-hidden="true"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="button-guardar m-3">
-                <button class="btn btn-rounded btn-danger">Guardar factura</button>
+                <button (click)="guardarFactura()" class="btn btn-rounded btn-danger">Guardar factura</button>
             </div>
         </div>
     </div>

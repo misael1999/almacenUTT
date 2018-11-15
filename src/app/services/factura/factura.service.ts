@@ -12,7 +12,7 @@ export class FacturaService {
 
 
   public agregarFactura(factura: Factura) {
-    const URL = URL_SERVICIOS + 'facturas';
+    const URL = URL_SERVICIOS + '/facturas';
     return this.http.post(URL, factura);
   }
 

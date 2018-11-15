@@ -67,12 +67,7 @@ function init_plugins() {
             $(".right-sidebar").slideDown(50);
             $(".right-sidebar").toggleClass("shw-rside");
         });
-        // ============================================================== 
-        // This is for the floating labels
-        // ============================================================== 
-        $('.floating-labels .form-control').on('focus blur', function(e) {
-            $(this).parents('.form-group').toggleClass('focused', (e.type === 'focus' || this.value.length > 0));
-        }).trigger('blur');
+
 
         // ============================================================== 
         // Auto select left navbar
@@ -149,16 +144,25 @@ function init_plugins() {
             $(this).closest('.card').removeClass().slideUp('fast');
         });
 
-        $('#mdate').bootstrapMaterialDatePicker({ weekStart: 0, time: false });
-        $('#timepicker').bootstrapMaterialDatePicker({ format: 'HH:mm', time: true, date: false });
-        $('#date-format').bootstrapMaterialDatePicker({ format: 'dddd DD MMMM YYYY - HH:mm' });
-
-        $('#min-date').bootstrapMaterialDatePicker({ format: 'DD/MM/YYYY HH:mm', minDate: new Date() });
-
-
 
     });
 
 
 
+}
+
+function init_factura_inputs() {
+
+    // ============================================================== 
+    // This is for the floating labels
+    // ============================================================== 
+    $('.floating-labels .form-control').on('focus blur', function(e) {
+        $(this).parents('.form-group').toggleClass('focused', (e.type === 'focus' || this.value.length > 0));
+    }).trigger('blur');
+
+    $('#mdate').bootstrapMaterialDatePicker({ weekStart: 0, time: false });
+    $('#timepicker').bootstrapMaterialDatePicker({ format: 'HH:mm', time: true, date: false });
+    $('#date-format').bootstrapMaterialDatePicker({ format: 'dddd DD MMMM YYYY - HH:mm' });
+
+    $('#min-date').bootstrapMaterialDatePicker({ format: 'DD/MM/YYYY HH:mm', minDate: new Date() });
 }

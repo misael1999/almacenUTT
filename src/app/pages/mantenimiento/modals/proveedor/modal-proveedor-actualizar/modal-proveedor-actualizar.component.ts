@@ -5,7 +5,6 @@ import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
 import { Proveedor } from '../../../../../models/Proveedor';
 import * as fromProveedor from '../../../../../store/actions';
-import swal from 'sweetalert2';
 
 
 @Component({
