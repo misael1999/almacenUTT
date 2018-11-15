@@ -18,49 +18,56 @@
                                     <div class="card-body">
                                         <div class="form-body">
                                             <div class="row">
-
                                                 <div class="col-md-6">
                                                     <div class="form-group" [ngClass]="{'has-danger': !formProveedor.controls['nombre'].valid, 'has-success': formProveedor.controls['nombre'].valid }">
                                                         <label class="control-label">Empresa:</label>
                                                         <input formControlName="nombre" type="text" class="form-control" placeholder="Nombre de la empresa" [ngClass]="{'form-control-danger': !formProveedor.controls['nombre'].valid, 'form-control-success': formProveedor.controls['nombre'].valid}">
-                                                        <small class="form-control-feedback">*Obligatorio </small> </div>
-
-
-                                                    <h4 class="m-b-10">Domicilio Fiscal</h4>
-
+                                                        <small class="form-control-feedback">*Obligatorio </small>
+                                                    </div>
                                                 </div>
-                                                <!--/span-->
-                                                <div class="col-md-6">
+                                                <div class="col-md-2">
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>No. Factura:</label>
+                                                        <input formControlName="" type="text" class="form-control" placeholder="No. de la factura">
+                                                        <small class="form-control-feedback"></small>
+                                                    </div>
                                                 </div>
                                                 <!--/span-->
                                             </div>
 
                                             <div class="row p-t-20">
-                                                <div class="col-md-6">
+                                                <div class="col-md-12">
+                                                    <h4 class="">Domicilio Fiscal</h4>
+                                                    <hr>
+                                                </div>
+                                                <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label class="control-label">Calle:</label>
                                                         <input formControlName="calle" type="text" id="calle" class="form-control" placeholder="Escribe la calle">
                                                         <small class="form-control-feedback"> </small> </div>
                                                 </div>
                                                 <!--/span-->
-                                                <div class="col-md-3">
+                                                <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <label class="control-label">Número de Lote:</label>
+                                                        <label class="control-label">
+                                                                Nº Exterior:</label>
                                                         <input formControlName="numeroLote" type="text" id="numero_lote" class="form-control" placeholder="Número de lote">
                                                         <small class="form-control-feedback"> </small> </div>
 
                                                 </div>
-                                                <div class="col-md-3">
+                                                <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <label class="control-label">Número Interior:</label>
+                                                        <label class="control-label">Nº Interior:</label>
                                                         <input formControlName="numeroInterior" type="text" id="num_interior" class="form-control" placeholder="Número Interior">
                                                         <small class="form-control-feedback"> </small> </div>
 
                                                 </div>
                                                 <!--/span-->
                                             </div>
-                                            <div class="row p-t-20">
-                                                <div class="col-md-8">
+                                            <div class="row">
+                                                <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label class="control-label">Colonia:</label>
                                                         <input formControlName="colonia" type="text" id="colonia" class="form-control" placeholder="Escribe la Colonia">
@@ -72,12 +79,8 @@
                                                         <div class="form-group">
                                                             <label class="control-label">Municipio:</label>
                                                             <input formControlName="municipio" type="text" id="municipio" class="form-control" value="Tehuacán" placeholder="Escribe el Municipio">
-                                                            <small class="form-control-feedback"> 
-                                                                                
-                                                                            </small>
+                                                            <small class="form-control-feedback"> </small>
                                                         </div>
-
-
                                                     </div>
                                                     <!--/span-->
                                                 </div>
@@ -97,40 +100,36 @@
 
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label class="control-label">Regimen Fiscal:</label>
-                                                        <input formControlName="regimenFiscal" type="text" id="regimen_fiscal" class="form-control">
-                                                        <small class="form-control-feedback"> </small> </div>
-
+                                                    <label class="control-label">RFC:</label>
+                                                    <input formControlName="rfc" type="text" id="rfc" class="form-control">
                                                 </div>
                                                 <!--/span-->
                                             </div>
+
                                             <div class="row p-t-20">
+                                                <div class="col-md-12">
+                                                    <h4>Datos de Contacto</h4>
+                                                    <hr>
+                                                </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Teléfono:</label>
                                                         <input formControlName="telefono" type="text" id="telefono" class="form-control" placeholder="Escribe el Teléfono">
-                                                        <small class="form-control-feedback"> </small> </div>
+                                                        <small class="form-control-feedback"> </small>
+                                                    </div>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <label class="control-label">RFC:</label>
-                                                    <input formControlName="rfc" type="text" id="rfc" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="row p-t-20">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Contacto:</label>
                                                         <input formControlName="contacto" type="text" id="contacto" class="form-control" placeholder="Escribe el nombre del contacto">
-                                                        <small class="form-control-feedback"> </small> </div>
+                                                        <small class="form-control-feedback"> </small>
+                                                    </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <label class="control-label">Correo electrónico:</label>
                                                     <input formControlName="correo" type="text" id="correo" class="form-control" placeholder="example@example.com">
                                                 </div>
                                             </div>
-                                            <!--Aqui..........................................................................................................................-->
-
 
                                         </div>
                                     </div>
