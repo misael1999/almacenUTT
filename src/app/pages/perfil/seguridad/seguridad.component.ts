@@ -12,8 +12,11 @@ declare function init_factura_inputs();
 export class SeguridadComponent implements OnInit {
 
   formPassword: FormGroup;
+  loading: boolean;
+
   constructor(private store: Store<AppState>) {
     this.store.select('usuario').subscribe(usuario => {
+    this.loading = usuario.loading;
       if (usuario.mensaje != null) {
         this.formPassword.reset();
       }

@@ -19,8 +19,11 @@ import { ListaProductosComponent } from './mantenimiento/producto/lista-producto
 import { ModalProveedorComponent } from './mantenimiento/modals/proveedor/modal-proveedor.component';
 import { ModalProductoComponent } from './mantenimiento/modals/producto/modal-producto.component';
 import { ListaFacturasComponent } from './facturas/lista-facturas/lista-facturas.component';
+// tslint:disable-next-line:max-line-length
 import { ModalProveedorActualizarComponent } from './mantenimiento/modals/proveedor/modal-proveedor-actualizar/modal-proveedor-actualizar.component';
 import { SeguridadComponent } from './perfil/seguridad/seguridad.component';
+import { FacturasActivasComponent } from './facturas/lista-facturas/facturas-activas/facturas-activas.component';
+import { FacturasEntregadasComponent } from './facturas/lista-facturas/facturas-entregadas/facturas-entregadas.component';
 
 
 
@@ -40,6 +43,8 @@ import { SeguridadComponent } from './perfil/seguridad/seguridad.component';
         ListaFacturasComponent,
         ModalProveedorActualizarComponent,
         SeguridadComponent,
+        FacturasActivasComponent,
+        FacturasEntregadasComponent,
     ],
     exports: [
         DashboardComponent,

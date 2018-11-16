@@ -6,9 +6,17 @@ import { ListaProveedorComponent } from './mantenimiento/proveedor/lista/lista-p
 import { ListaProductosComponent } from './mantenimiento/producto/lista-productos/lista-productos.component';
 import { ListaFacturasComponent } from './facturas/lista-facturas/lista-facturas.component';
 import { SeguridadComponent } from './perfil/seguridad/seguridad.component';
+import { FacturasActivasComponent } from './facturas/lista-facturas/facturas-activas/facturas-activas.component';
+import { FacturasEntregadasComponent } from './facturas/lista-facturas/facturas-entregadas/facturas-entregadas.component';
 
 
 // Guards
+
+const LIST_FACTURAS_ROUTES: Routes = [
+  { path: 'entregadas', component: FacturasEntregadasComponent, data: {titulo: 'Facturas'} },
+  { path: 'almacen', component: FacturasActivasComponent, data: {titulo: 'Facturas'} }
+];
+
 
 
 
@@ -22,7 +30,7 @@ const pagesRoutes: Routes = [
         data: { titulo: 'Inicio' }
     },
     {path: 'facturas-ingresar', component: IngresarComponent, data: { titulo: 'Ingresar factura' } },
-    {path: 'facturas', component: ListaFacturasComponent, data: { titulo: 'Lista de facturas' } },
+    {path: 'facturas', component: ListaFacturasComponent, children: LIST_FACTURAS_ROUTES , data: { titulo: 'Lista de facturas' } },
     {path: 'proveedores', component: ListaProveedorComponent, data: { titulo: 'Lista de proveedores' } },
     {path: 'productos', component: ListaProductosComponent, data: { titulo: 'Lista de productos' } },
     {path: 'seguridad', component: SeguridadComponent, data: { titulo: 'Seguridad' } },
