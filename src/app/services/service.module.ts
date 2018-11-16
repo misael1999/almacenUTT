@@ -11,7 +11,8 @@ import {
   ModalProveedorService,
   ModalProveedorActualizarService,
   FacturaService,
-  LoginGuard
+  LoginGuard,
+  UsuarioService
  } from './service.index';
 
 
@@ -29,6 +30,7 @@ import {
     FacturaService,
     ModalProveedorActualizarService,
     LoginGuard,
+    UsuarioService
     // {
     //   provide: HTTP_INTERCEPTORS,
     //   useClass: AuthInterceptor,

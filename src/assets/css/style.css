@@ -8039,9 +8039,13 @@ File: scss
 
 .typehead-proveedores {
     z-index: 9999;
-    max-height: 200px;
+    position: absolute;
+    display: block;
+    max-height: 300px;
+    min-height: 300px;
     overflow-y: scroll;
     border: 2px solid #f5f5f5;
+    background: #fff;
 }
 
 .typehead-proveedores p {
@@ -8060,7 +8064,23 @@ File: scss
     overflow: hidden;
 }
 
-.thead-productos {
-    background-color: #000;
-    color: #fff;
+.col-productos {
+    margin-bottom: -100px;
+}
+
+.col-informacion {
+    margin-bottom: -30px;
+}
+
+.tabla-productos {
+    padding: 30px;
+}
+
+.text-area {
+    font-size: 80%;
+    padding: 10px;
+}
+
+.text-password {
+    font-size: 80%;
 }

@@ -160,9 +160,9 @@ function init_factura_inputs() {
         $(this).parents('.form-group').toggleClass('focused', (e.type === 'focus' || this.value.length > 0));
     }).trigger('blur');
 
-    $('#mdate').bootstrapMaterialDatePicker({ weekStart: 0, time: false });
-    $('#timepicker').bootstrapMaterialDatePicker({ format: 'HH:mm', time: true, date: false });
-    $('#date-format').bootstrapMaterialDatePicker({ format: 'dddd DD MMMM YYYY - HH:mm' });
+    // $('#mdate').bootstrapMaterialDatePicker({ weekStart: 0, time: false });
+    // $('#timepicker').bootstrapMaterialDatePicker({ format: 'HH:mm', time: true, date: false });
+    // $('#date-format').bootstrapMaterialDatePicker({ format: 'dddd DD MMMM YYYY - HH:mm' });
 
-    $('#min-date').bootstrapMaterialDatePicker({ format: 'DD/MM/YYYY HH:mm', minDate: new Date() });
+    // $('#min-date').bootstrapMaterialDatePicker({ format: 'DD/MM/YYYY HH:mm', minDate: new Date() });
 }

@@ -1,0 +1,34 @@
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Cambio de contraseña</h4>
+                <form [formGroup]="formPassword" (ngSubmit)="cambiarPassword()" class="floating-labels m-t-40">
+                    <div class="form-group m-b-40">
+                        <input formControlName="passwordAnterior" type="password" class="form-control" id="input1">
+                        <span class="bar"></span>
+                        <label for="input1">Contraseña anterior</label>
+                    </div>
+                    <div class="form-group m-b-40" [ngClass]="{'has-error has-danger has-feedback': !formPassword.controls['passwordNueva'].valid, 'has-success has-feedback': formPassword.controls['passwordNueva'].valid }">
+                        <input formControlName="passwordNueva" type="password" class="form-control" id="input2" [ngClass]="{'form-control-danger': !formPassword.controls['passwordNueva'].valid, 'form-control-success': formPassword.controls['passwordNueva'].valid}">
+                        <span class="bar"></span>
+                        <label for="input2">Nueva contraseña</label>
+                        <small class="form-text text-muted mb-3">Al menos 8 caracteres</small>
+
+                    </div>
+                    <div class="form-group m-b-40" [ngClass]="{'has-error has-danger has-feedback': !formPassword.controls['passwordRepetir'].valid && formPassword.errors, 'has-success has-feedback': formPassword.controls['passwordRepetir'].valid && !formPassword.errors }">
+                        <input formControlName="passwordRepetir" type="password" class="form-control" id="input3" [ngClass]="{'form-control-danger': !formPassword.controls['passwordRepetir'].valid, 'form-control-success': formPassword.controls['passwordRepetir'].valid}">
+                        <span class="bar"></span>
+                        <label for="input3">Repita la contraseña</label>
+                        <div class="form-group" *ngIf="formPassword.errors && !formPassword.pristine">
+                            <p class="text-danger text-password my-0 py-0">La nueva contraseña deben de coincidir</p>
+                        </div>
+                    </div>
+                    <div class="button-cambiar">
+                        <button type="submit" class="btn btn-rounded btn-outline-info">Cambiar contraseña</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

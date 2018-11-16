@@ -8,29 +8,28 @@
         <nav class="sidebar-nav">
             <ul id="sidebarnav">
                 <li class="user-profile">
-                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><img src="../assets/images/users/profile.png" alt="user" /><span class="hide-menu">{{usuario.primerNombre}} {{usuario.apellidoPaterno}}</span></a>
+                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><img src="../assets/images/users/3.jpg" alt="user" /><span class="hide-menu">{{usuario.primerNombre}} {{usuario.apellidoPaterno}}</span></a>
                     <ul aria-expanded="false" class="collapse">
-                        <li><a>Mi perfil </a></li>
-                        <li><a>Mis archivos</a></li>
+                        <li><a routerLinkActive="active" class="cursor" [routerLink]="'/seguridad'">Seguridad</a></li>
                         <li><a class="cursor" (click)="logout()">Cerrar sesion</a></li>
                     </ul>
                 </li>
                 <li class="nav-devider"></li>
                 <li class="nav-small-cap">Entradas/Salidas</li>
-                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-file-document"></i><span class="hide-menu">Facturas <span class="label label-rouded label-themecolor pull-right">4</span></span></a>
+                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-file-document"></i><span class="hide-menu">Facturas</span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a routerLinkActive="active" class="cursor" [routerLink]="'/facturas'">Facturas </a></li>
                         <li><a>Lista de facturas</a></li>
                     </ul>
                 </li>
-                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-file-export"></i><span class="hide-menu">Vales de salidas <span class="label label-rouded label-themecolor pull-right">4</span></span></a>
+                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-file-export"></i><span class="hide-menu">Vales de salidas</span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a>Vales de salidas </a></li>
                         <li><a>Lista de facturas</a></li>
                     </ul>
                 </li>
                 <li class="nav-small-cap">Comisiones</li>
-                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-wallet-travel"></i><span class="hide-menu">Comisiones <span class="label label-rouded label-themecolor pull-right">4</span></span></a>
+                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-wallet-travel"></i><span class="hide-menu">Comisiones</span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a>Ingresar comision</a></li>
                         <li><a>Lista de facturas</a></li>
@@ -38,7 +37,7 @@
                     </ul>
                 </li>
                 <li class="nav-small-cap">Mantenimiento</li>
-                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-folder-lock"></i><span class="hide-menu">Administrar <span class="label label-rouded label-themecolor pull-right">4</span></span></a>
+                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-folder-lock"></i><span class="hide-menu">Administrar </span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a routerLinkActive="active" [routerLink]="'/productos'">Productos</a></li>
                         <li><a routerLinkActive="active" [routerLink]="'/proveedores'">Proveedores</a></li>

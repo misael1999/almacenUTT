@@ -6,7 +6,9 @@ import * as fromFactura from '../../../store/actions';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Producto } from '../../../models/Producto';
 import { Factura } from '../../../models/Factura';
+import swal from 'sweetalert2';
 declare function init_factura_inputs();
+
 @Component({
   selector: 'app-ingresar',
   templateUrl: './ingresar.component.html'
@@ -14,6 +16,7 @@ declare function init_factura_inputs();
 export class IngresarComponent implements OnInit {
 
   proveedores: Proveedor[];
+  loading: boolean;
   formInformacion: FormGroup;
   formProducto: FormGroup;
   productos: any = [];
@@ -24,9 +27,10 @@ export class IngresarComponent implements OnInit {
       this.store.dispatch(new fromFactura.LoadProveedores());
 
 
-      this.store.select('proveedores')
-        .subscribe(proveedores => {
-          this.proveedores = proveedores.provedores;
+      this.store
+        .subscribe(resp => {
+          this.proveedores = resp.proveedores.provedores;
+          this.loading = resp.factura.loading;
       });
 
    }
@@ -36,7 +40,7 @@ export class IngresarComponent implements OnInit {
 
     this.formInformacion = new FormGroup({
       proveedor: new FormControl(null, Validators.required),
-      fecha: new FormControl('2018-11-15', Validators.required),
+      fecha: new FormControl(null, Validators.required),
       descripcion: new FormControl(null)
     });
 
@@ -44,7 +48,7 @@ export class IngresarComponent implements OnInit {
       descripcionProducto: new FormControl(null, Validators.required),
       unidad: new FormControl(null, Validators.required),
       cantidad: new FormControl(null, Validators.required),
-      precio: new FormControl(null, Validators.required)
+      precio: new FormControl(null)
     });
   }
 
@@ -62,7 +66,12 @@ export class IngresarComponent implements OnInit {
       this.formProducto.value.precio
     );
 
-    this.productos.push({producto: producto});
+    if (this.formProducto.invalid) {
+      return;
+    }
+
+    this.productos.push({producto});
+    this.formProducto.reset();
   }
 
   guardarFactura() {
@@ -70,12 +79,14 @@ export class IngresarComponent implements OnInit {
     proveedor.idProveedor = 1;
 
     const factura = new Factura(
-      '2018-11-09 14:22:20',
+      this.formInformacion.value.fecha,
       this.productos,
       proveedor,
-      1
+      1,
+      this.formInformacion.value.descripcion
     );
-     this.store.dispatch(new fromFactura.CreateFactura(factura));
+
+    this.store.dispatch(new fromFactura.CreateFactura(factura));
 
   }
 

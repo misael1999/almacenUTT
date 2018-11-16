@@ -5,6 +5,7 @@ import { IngresarComponent } from './facturas/ingresar/ingresar.component';
 import { ListaProveedorComponent } from './mantenimiento/proveedor/lista/lista-proveedores.component';
 import { ListaProductosComponent } from './mantenimiento/producto/lista-productos/lista-productos.component';
 import { ListaFacturasComponent } from './facturas/lista-facturas/lista-facturas.component';
+import { SeguridadComponent } from './perfil/seguridad/seguridad.component';
 
 
 // Guards
@@ -24,6 +25,7 @@ const pagesRoutes: Routes = [
     {path: 'facturas', component: ListaFacturasComponent, data: { titulo: 'Lista de facturas' } },
     {path: 'proveedores', component: ListaProveedorComponent, data: { titulo: 'Lista de proveedores' } },
     {path: 'productos', component: ListaProductosComponent, data: { titulo: 'Lista de productos' } },
+    {path: 'seguridad', component: SeguridadComponent, data: { titulo: 'Seguridad' } },
     // Mantenimientos
     // {
     //     path: 'usuarios',

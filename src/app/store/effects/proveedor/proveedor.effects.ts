@@ -29,7 +29,7 @@ export class ProveedorEffects {
         );
 
         @Effect()
-    deleteProveedor$ = this.actions$.ofType(proveedorActions.UPDATE_PROVEEDOR)
+    updateProveedor$ = this.actions$.ofType(proveedorActions.UPDATE_PROVEEDOR)
         .pipe(
             mergeMap(action => {
                 const proveedor = action['proveedor'];

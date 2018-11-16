@@ -20,6 +20,7 @@ import { ModalProveedorComponent } from './mantenimiento/modals/proveedor/modal-
 import { ModalProductoComponent } from './mantenimiento/modals/producto/modal-producto.component';
 import { ListaFacturasComponent } from './facturas/lista-facturas/lista-facturas.component';
 import { ModalProveedorActualizarComponent } from './mantenimiento/modals/proveedor/modal-proveedor-actualizar/modal-proveedor-actualizar.component';
+import { SeguridadComponent } from './perfil/seguridad/seguridad.component';
 
 
 
@@ -38,6 +39,7 @@ import { ModalProveedorActualizarComponent } from './mantenimiento/modals/provee
         ModalProductoComponent,
         ListaFacturasComponent,
         ModalProveedorActualizarComponent,
+        SeguridadComponent,
     ],
     exports: [
         DashboardComponent,

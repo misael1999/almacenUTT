@@ -20,6 +20,7 @@ export class ErrorComponent implements OnInit {
         this.error = null;
         const errorFactura = resp.factura.error;
         const errorProveedor = resp.proveedor.error;
+        const errorUsuario = resp.usuario.error;
         const errorAuth = resp.auth.error;
 
         // this.error = (errorProveedor != null) ? errorProveedor : null;
@@ -32,6 +33,8 @@ export class ErrorComponent implements OnInit {
           this.error = errorAuth.error;
         } else if (errorProveedor != null) {
           this.error = errorProveedor;
+        } else if (errorUsuario != null) {
+          this.error = errorUsuario;
         }
 
         if (this.error != null) {
@@ -52,6 +55,7 @@ export class ErrorComponent implements OnInit {
     this.store.dispatch(new fromMensajes.CreateProveedorEnd());
     this.store.dispatch(new fromMensajes.CreateFacturaEnd());
     this.store.dispatch(new fromMensajes.LoginUserEnd());
+    this.store.dispatch(new fromMensajes.ChangePasswordEnd());
   }
 
 }

@@ -3,7 +3,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-md-12 col-informacion">
                         <div class="card ribbon-wrapper-reverse">
                             <div class="ribbon ribbon-bookmark ribbon-left ribbon-info">Informacion Basica</div>
                             <div class="card-body">
@@ -11,13 +11,17 @@
                                     <div class="row">
                                         <!--   input 1    -->
                                         <div class="form-group col-md-6 m-b-40">
-                                            <input formControlName="proveedor" type="text" class="form-control" id="input1">
+                                            <input #txtProveedor formControlName="proveedor" type="text" class="form-control" id="input1">
                                             <span class="bar"></span>
                                             <label for="input1">Nombre del proveedor</label>
+                                            <div class="typehead-proveedores w-100 d-none">
+                                                <p (click)="colocarText('comex')">comex</p>
+                                                <p>ferrepat</p>
+                                            </div>
                                         </div>
                                         <!--   input 2    -->
                                         <div class="form-group col-md-6">
-                                            <input formControlName="fecha" type="text" class="form-control bootstrapMaterialDatePicker" placeholder="Fecha de expedicion" id="mdate">
+                                            <input formControlName="fecha" type="date" class="form-control" placeholder="Fecha de expedicion">
                                         </div>
                                         <div class="form-group col-md-12 m-b-0">
                                             <textarea formControlName="descripcion" class="form-control" rows="4" id="input7"></textarea>
@@ -32,19 +36,19 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-12">
-                        <div class="card ribbon-wrapper-reverse">
+                    <div class="col-md-12 col-productos">
+                        <div class="card ribbon-wrapper-reverse card-producto">
                             <div class="ribbon ribbon-bookmark ribbon-left ribbon-info mb-2">Añadir productos</div>
                             <div class="card-body">
-                                <form [formGroup]="formProducto" (ngSubmit)="agregarProducto()" class="floating-labels">
+                                <form ngNativeValidate [formGroup]="formProducto" (ngSubmit)="agregarProducto()" class="floating-labels">
                                     <div class="row">
                                         <div class="form-group col-md-5">
-                                            <input formControlName="descripcionProducto" type="text" class="form-control" id="descripcion">
+                                            <input formControlName="descripcionProducto" type="text" class="form-control" required id="descripcion">
                                             <span class="bar"></span>
                                             <label for="descripcion">Descripcion del producto</label>
                                         </div>
                                         <div class="form-group col-md-2">
-                                            <select formControlName="unidad" class="form-control p-0" id="unidad">
+                                            <select formControlName="unidad" class="form-control p-0" required id="unidad">
                                                                 <option value=""></option>
                                                                 <option value="pieza">Pieza</option>
                                                                 <option value="caja">Caja</option>
@@ -52,7 +56,7 @@
                                             <label for="unidad">Unidad</label>
                                         </div>
                                         <div class="form-group col-md-2">
-                                            <input formControlName="cantidad" type="number" class="form-control" id="cantidad">
+                                            <input formControlName="cantidad" type="number" class="form-control" required id="cantidad">
                                             <span class="bar"></span>
                                             <label for="cantidad">Cantidad</label>
                                         </div>
@@ -65,7 +69,6 @@
                                             <button type="submit" class="btn btn-sm btn-danger">Agregar</button>
                                         </div>
 
-                                        <!--   Table de productos agregados    -->
 
                                     </div>
 
@@ -74,9 +77,10 @@
 
                         </div>
                     </div>
+                    <!--   Table de productos agregados    -->
 
-                    <div class="col-12">
-                        <div class="table-responsive">
+                    <div class="col-md-12">
+                        <div class="table-responsive tabla-productos">
                             <table id="demo-foo-addrow" class="table m-t-30 table-hover contact-list" data-page-size="10">
                                 <thead class="thead-productos">
                                     <tr>
@@ -105,7 +109,7 @@
                 </div>
             </div>
             <div class="button-guardar m-3">
-                <button (click)="guardarFactura()" class="btn btn-rounded btn-danger">Guardar factura</button>
+                <button (click)="guardarFactura()" class="btn btn-rounded btn-danger">Guardar factura <i *ngIf="loading" class="fa fa-spinner fa-spin ml-1"></i></button>
             </div>
         </div>
     </div>

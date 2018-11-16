@@ -1,6 +1,5 @@
 import { Proveedor } from '../../../models/Proveedor';
 import * as fromProveedor from '../../actions';
-import { UPDATE_PROVEEDOR, SELECT_PROVEEDOR } from '../../actions/proveedor/proveedor.actions';
 
 export interface ProveedorState {
     provedor: Proveedor;
