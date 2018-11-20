@@ -1,8 +1,8 @@
 import { Action } from '@ngrx/store';
 import { Producto } from '../../../models/Producto';
-export const LOAD_PRODUCTOS = '[Producto] Create Producto';
-export const LOAD_PRODUCTOS_SUCCESS = '[Producto] Create Producto SUCCESS';
-export const LOAD_PRODUCTOS_FAIL = '[Producto] Create Producto FAIL';
+export const LOAD_PRODUCTOS = '[Productos] Load Productos';
+export const LOAD_PRODUCTOS_SUCCESS = '[Productos] Load Productos SUCCESS';
+export const LOAD_PRODUCTOS_FAIL = '[Productos] Load Productos FAIL';
 
 
 export class LoadProductos implements Action {

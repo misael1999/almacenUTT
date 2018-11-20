@@ -8084,3 +8084,13 @@ File: scss
 .text-password {
     font-size: 80%;
 }
+
+.table-datos table tbody tr {
+    padding: 0;
+    margin: 0;
+}
+
+.table-datos table tbody tr td {
+    padding-bottom: 0;
+    margin-bottom: 0;
+}

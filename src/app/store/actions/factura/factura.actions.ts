@@ -1,9 +1,14 @@
 import { Action } from '@ngrx/store';
 import { Factura } from '../../../models/Factura';
-export const CREATE_FACTURA = '[Proveedor] Create factura';
-export const CREATE_FACTURA_SUCCESS = '[Proveedor] Create factura SUCCESS';
-export const CREATE_FACTURA_FAIL = '[Proveedor] Create factura FAIL';
-export const CREATE_FACTURA_END = '[Proveedor] Create factura END';
+export const CREATE_FACTURA = '[Factura] Create factura';
+export const CREATE_FACTURA_SUCCESS = '[Factura] Create factura SUCCESS';
+export const CREATE_FACTURA_FAIL = '[Factura] Create factura FAIL';
+export const CREATE_FACTURA_END = '[Factura] Create factura END';
+
+export const LOAD_FACTURA = '[Factura] Load factura';
+export const LOAD_FACTURA_SUCCESS = '[Factura] Load factura SUCCESS';
+export const LOAD_FACTURA_FAIL = '[Factura] Load factura FAIL';
+
 
 export class CreateFactura implements Action {
     readonly type = CREATE_FACTURA;
@@ -27,5 +32,28 @@ export class CreateFacturaEnd implements Action {
     constructor() {}
 }
 
-export type facturaAcciones = CreateFactura | CreateFacturaSuccess | CreateFacturaFail | CreateFacturaEnd;
+export class LoadFactura implements Action {
+    readonly type = LOAD_FACTURA;
+    constructor(public folio: string) {}
+}
+
+export class LoadFacturaSuccess implements Action {
+
+    readonly type = LOAD_FACTURA_SUCCESS;
+    constructor(public factura: Factura) {}
+}
+
+export class LoadFacturaFail implements Action {
+
+    readonly type = LOAD_FACTURA_FAIL;
+    constructor(public payload: any) {}
+}
+
+export type facturaAcciones = CreateFactura |
+                                CreateFacturaSuccess |
+                                CreateFacturaFail |
+                                CreateFacturaEnd |
+                                LoadFactura |
+                                LoadFacturaSuccess |
+                                LoadFacturaFail;
 

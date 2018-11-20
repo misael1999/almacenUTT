@@ -7,16 +7,20 @@ export interface AppState {
     proveedores: reducers.ProveedoresState;
     productos: reducers.ProductosState;
     factura: reducers.FacturaState;
+    facturas: reducers.FacturasState;
     usuario: reducers.UsuarioState;
+    areas: reducers.AreasState;
 }
 
 export const appReducers: ActionReducerMap<AppState> = {
     auth: reducers.authReducer,
+    productos: reducers.productosReducer,
     proveedor: reducers.proveedorReducer,
     proveedores: reducers.proveedoresReducer,
-    productos: reducers.productosReducer,
     factura: reducers.facturaReducer,
-    usuario: reducers.usuarioReducer
+    facturas: reducers.facturasReducer,
+    usuario: reducers.usuarioReducer,
+    areas: reducers.areasReducer
 };
 
 

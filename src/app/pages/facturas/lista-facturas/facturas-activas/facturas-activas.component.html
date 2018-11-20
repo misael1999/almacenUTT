@@ -1,12 +1,39 @@
-<div class="card card-factura border mt-3">
-    <div class="w-100 box-img">
-        <img class="img-fluid" src="../../../../assets/images/document/factura.png" alt="factura">
+<div *ngIf="loaded" class="row animated fadeIn">
+    <div class="col-lg-3" *ngFor="let factura of facturas">
+        <div class="card card-factura border mt-3">
+            <div class="w-100 box-img">
+                <img class="img-fluid" src="../../../../assets/images/document/factura.png" alt="factura">
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">Folio {{factura.folio}}</h4>
+                <p>Proveedor: {{factura.proveedor.nombre}}</p>
+                <p>Total productos: {{factura.items.length}}</p>
+                <p>Elaborado: {{factura.fechaCreacion | date}}</p>
+                <a [routerLink]="['/facturas', factura.folio]" class="btn btn-primary btn-sm mt-1">Ver factura</a>
+            </div>
+        </div>
     </div>
-    <div class="card-body">
-        <h4 class="card-title">No° 5</h4>
-        <p>Proveedor: Comex</p>
-        <p>Total productos: 10</p>
-        <p>Elaborado: 11/11/2018</p>
-        <a href="#" class="btn btn-primary btn-sm">Ver factura</a>
+</div>
+
+<div *ngIf="loading" class="cargando w-100 d-flex justify-content-center p-5 animated fadeIn">
+    <i class="fa fa-spinner fa-spin fa-3x"></i>
+</div>
+
+<div class="row" *ngIf="error != null">
+    <div class="col-lg-12">
+        <div class="alert alert-danger" role="alert">
+            <h4 class="alert-heading">{{error.name}}</h4>
+            <p>{{error.message}}</p>
+            <hr>
+            <p class="mb-0">{{error.status}}</p>
+        </div>
+    </div>
+</div>
+
+<div class="row" *ngIf="loaded && facturas.length == 0" class="animated fadeIn">
+    <div class="col-md-12">
+        <div class="alert alert-info  mt-3">
+            <span>No tiene facturas en almacen <span><a [routerLink]="'/facturas-ingresar'">Agregar factura</a></span></span>
+        </div>
     </div>
 </div>

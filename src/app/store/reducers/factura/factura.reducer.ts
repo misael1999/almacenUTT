@@ -1,6 +1,6 @@
 import * as fromfactura from '../../actions';
 import { Factura } from '../../../models/Factura';
-import { facturaAcciones, CREATE_FACTURA_END } from '../../actions/factura/factura.actions';
+import { facturaAcciones, CREATE_FACTURA_END, LOAD_FACTURA } from '../../actions/factura/factura.actions';
 
 export interface FacturaState {
     factura: Factura;
@@ -34,7 +34,8 @@ export interface FacturaState {
                 loaded: true,
                 mensaje: {
                     titulo: action.payload.titulo,
-                    mensaje: action.payload.mensaje
+                    mensaje: action.payload.mensaje,
+                    folio: action.payload.folio
                 }
             };
             break;
@@ -52,6 +53,30 @@ export interface FacturaState {
                 ...state,
                 mensaje: null,
                 error: null
+            };
+            break;
+        case fromfactura.LOAD_FACTURA:
+            return {
+                ...state,
+                loading: true
+            };
+            break;
+        case fromfactura.LOAD_FACTURA_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                loaded: true,
+                factura: {...action.factura},
+                mensaje: null
+            };
+            break;
+        case fromfactura.LOAD_FACTURA_FAIL:
+            return {
+                ...state,
+                loading: false,
+                loaded: true,
+                factura: null,
+                error: action.payload
             };
             break;
         default:

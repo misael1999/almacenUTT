@@ -34,10 +34,8 @@ export class SuccessComponent implements OnInit {
         }
         if (this.mensaje != null) {
             this.oculto = '';
-            console.log(this.oculto);
             setTimeout(() => {
                 this.cerrarMensaje();
-                console.log('entro en timeout');
             }, 4000);
         }
     });

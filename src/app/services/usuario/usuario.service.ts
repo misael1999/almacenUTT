@@ -3,9 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { URL_SERVICIOS } from '../../global/config';
 import { Usuario } from '../../models/Usuario';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class UsuarioService {
 
   usuario: Usuario;
@@ -21,6 +19,11 @@ export class UsuarioService {
     const URL = URL_SERVICIOS + '/usuarios/password/' + this.usuario.idUsuario;
     return this.http.patch(URL, {passwordAnterior, passwordNueva});
 
+  }
+
+  public getAreas() {
+    const URL = URL_SERVICIOS + '/areas';
+    return this.http.get(URL);
   }
 
 }

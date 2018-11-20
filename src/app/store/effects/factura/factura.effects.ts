@@ -27,4 +27,23 @@ export class FacturaEffects {
                     );
             })
         );
+
+    @Effect()
+    loadFactura$ = this.actions$.ofType(facturaActions.LOAD_FACTURA)
+        .pipe(
+            mergeMap(action => {
+                const folio = action['folio'];
+                return this.facturaService.getFacturaByFolio(folio)
+                    .pipe(
+                        map(data => {
+                            return new facturaActions.LoadFacturaSuccess(data['factura']);
+                        }),
+                        catchError(error => {
+                            console.log(error);
+                            return of(new facturaActions.LoadFacturaFail(error));
+                        })
+                    );
+            })
+        );
+
 }

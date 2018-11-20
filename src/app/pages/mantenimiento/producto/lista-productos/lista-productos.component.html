@@ -4,7 +4,7 @@
             <div class="card-body">
                 <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#add-proveedor">Agregar nuevo producto</button>
 
-                <div class="table-responsive">
+                <div class="table-responsive table-datos">
                     <table id="demo-foo-addrow" class="table m-t-30 table-hover contact-list" data-page-size="10">
                         <thead>
                             <tr>
@@ -20,13 +20,11 @@
                             <tr *ngFor="let producto of productos">
                                 <td>{{producto.idProducto}}</td>
                                 <td>{{producto.descripcion}}</td>
-                                <td>{{producto.piezas}}</td>
+                                <td>{{producto.cantidad}}</td>
                                 <td><span class="label label-danger">{{producto.unidad}}</span></td>
                                 <td>{{producto.precio}}</td>
                                 <td>
                                     <button type="button" class="btn btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Eliminar"><i class="ti-trash" aria-hidden="true"></i></button>
-                                </td>
-                                <td>
                                     <button type="button" class="btn btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Editar"><i class="ti-pencil-alt" aria-hidden="true"></i></button>
                                 </td>
                             </tr>
@@ -42,7 +40,25 @@
                             </tr>
                         </tfoot>
                     </table>
-
+                    <div class="paginador d-flex justify-content-center">
+                        <nav aria-label="...">
+                            <ul class="pagination">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1">Anterior</a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item active">
+                                    <a class="page-link" href="#">4 <span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">Siguiente</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
                 </div>
             </div>
         </div>

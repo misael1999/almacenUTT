@@ -24,6 +24,10 @@ import { ModalProveedorActualizarComponent } from './mantenimiento/modals/provee
 import { SeguridadComponent } from './perfil/seguridad/seguridad.component';
 import { FacturasActivasComponent } from './facturas/lista-facturas/facturas-activas/facturas-activas.component';
 import { FacturasEntregadasComponent } from './facturas/lista-facturas/facturas-entregadas/facturas-entregadas.component';
+import { ListaUsuariosComponent } from './mantenimiento/usuarios/lista-usuarios/lista-usuarios.component';
+import { DescripcionComponent } from './facturas/descripcion/descripcion.component';
+import { UsuariosAreasComponent } from './mantenimiento/usuarios/lista-usuarios/usuarios-areas/usuarios-areas.component';
+import { UsuariosSistemaComponent } from './mantenimiento/usuarios/lista-usuarios/usuarios-sistema/usuarios-sistema.component';
 
 
 
@@ -45,6 +49,10 @@ import { FacturasEntregadasComponent } from './facturas/lista-facturas/facturas-
         SeguridadComponent,
         FacturasActivasComponent,
         FacturasEntregadasComponent,
+        ListaUsuariosComponent,
+        DescripcionComponent,
+        UsuariosAreasComponent,
+        UsuariosSistemaComponent,
     ],
     exports: [
         DashboardComponent,

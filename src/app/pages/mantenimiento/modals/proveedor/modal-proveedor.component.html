@@ -19,19 +19,12 @@
                                         <div class="form-body">
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <div class="form-group" [ngClass]="{'has-danger': !formProveedor.controls['nombre'].valid, 'has-success': formProveedor.controls['nombre'].valid }">
-                                                        <label class="control-label">Empresa:</label>
-                                                        <input formControlName="nombre" type="text" class="form-control" placeholder="Nombre de la empresa" [ngClass]="{'form-control-danger': !formProveedor.controls['nombre'].valid, 'form-control-success': formProveedor.controls['nombre'].valid}">
-                                                        <small class="form-control-feedback">*Obligatorio </small>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-2">
-                                                </div>
-                                                <div class="col-md-4">
+                                                    <!-- [ngClass]="{'has-danger': !formProveedor.controls['nombre'].valid, 'has-success': formProveedor.controls['nombre'].valid }" -->
                                                     <div class="form-group">
-                                                        <label>No. Factura:</label>
-                                                        <input formControlName="" type="text" class="form-control" placeholder="No. de la factura">
-                                                        <small class="form-control-feedback"></small>
+                                                        <label class="control-label">Empresa:</label>
+                                                        <!-- [ngClass]="{'form-control-danger': !formProveedor.controls['nombre'].valid, 'form-control-success': formProveedor.controls['nombre'].valid} -->
+                                                        <input formControlName="nombre" type="text" class="form-control" placeholder="Nombre de la empresa">
+                                                        <small class="form-control-feedback">*Obligatorio </small>
                                                     </div>
                                                 </div>
                                                 <!--/span-->
