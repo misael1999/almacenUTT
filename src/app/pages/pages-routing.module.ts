@@ -28,9 +28,6 @@ const LIST_USUARIOS_ROUTES: Routes = [
   { path: '', redirectTo: '/inicio', pathMatch: 'full' }
 ];
 
-
-
-
 const pagesRoutes: Routes = [
     {
         path: 'inicio',
