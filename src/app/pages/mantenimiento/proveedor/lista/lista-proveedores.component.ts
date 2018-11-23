@@ -41,6 +41,20 @@ export class ListaProveedorComponent implements OnInit {
     init_factura_inputs();
   }
 
+  public ordenarNombre() {
+    this.proveedores.sort((a, b) => {
+      const nameA = a.nombre.toLowerCase();
+      const nameB = b.nombre.toLowerCase();
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+      return 0;
+    });
+  }
+
   public abrirModal() {
     this.modalProveedorService.mostrarModal();
   }

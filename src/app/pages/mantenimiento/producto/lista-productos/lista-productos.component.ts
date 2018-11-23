@@ -29,4 +29,22 @@ export class ListaProductosComponent implements OnInit {
     init_factura_inputs();
     this.store.dispatch(new fromProductos.LoadProductos());
   }
+
+  buscarNombre() {
+    const re = new RegExp('ab+c');
+  }
+
+  ordenarDesc() {
+    this.productos.sort((a, b) => {
+      const nameA = a.descripcion.toLowerCase();
+      const nameB = b.descripcion.toLowerCase();
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+      return 0;
+    });
+  }
 }
