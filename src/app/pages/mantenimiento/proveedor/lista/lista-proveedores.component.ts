@@ -7,6 +7,7 @@ import { AppState } from 'src/app/store/app.reducer';
 import * as fromProveedor from '../../../../store/actions';
 import { Usuario } from 'src/app/models/usuario';
 import swal from 'sweetalert2';
+declare function init_factura_inputs();
 
 @Component({
   selector: 'app-lista-proveedores',
@@ -36,7 +37,9 @@ export class ListaProveedorComponent implements OnInit {
         });
     }
 
-  ngOnInit() {}
+  ngOnInit() {
+    init_factura_inputs();
+  }
 
   public abrirModal() {
     this.modalProveedorService.mostrarModal();
