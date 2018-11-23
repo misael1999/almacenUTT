@@ -64,12 +64,46 @@ export class ListaProveedorComponent implements OnInit {
     this.modalProveedorActualizarService.mostrarModal();
   }
 
+  public ordenarNombre() {
+    this.proveedores.sort((a, b) => {
+      const nameA = a.nombre.toLowerCase();
+      const nameB = b.nombre.toLowerCase();
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+      return 0;
+    });
+
+    console.log(this.proveedores);
+  }
+
+  public ordenarIdProveedores() {
+    this.proveedores.sort((a, b) => {
+      const idA = a.idProveedor;
+      const idB = b.idProveedor;
+      if (idA < idB) {
+        return -1;
+      }
+      if (idA > idB) {
+        return 1;
+      }
+      return 0;
+    });
+
+    console.log(this.proveedores);
+  }
+
   eliminarProveedor(proveedor: Proveedor) {
     const swalWithBootstrapButtons = swal.mixin({
       confirmButtonClass: 'btn btn-success',
       cancelButtonClass: 'btn btn-danger',
       buttonsStyling: true,
     });
+
+
 
     swalWithBootstrapButtons({
       title: '¿Estas seguro?',
