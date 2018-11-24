@@ -6,4 +6,5 @@ export * from './factura/factura.actions';
 export * from './factura/facturas.actions';
 export * from './usuario/usuario.actions';
 export * from './usuario/areas.actions';
-
+export * from './vales/vale.actions';
+export * from './vales/vales.actions';

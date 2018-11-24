@@ -12,7 +12,8 @@ import {
   ModalProveedorActualizarService,
   FacturaService,
   LoginGuard,
-  UsuarioService
+  UsuarioService,
+  ValesalidaService
  } from './service.index';
 
 

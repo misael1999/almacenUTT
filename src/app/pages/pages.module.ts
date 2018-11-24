@@ -28,6 +28,11 @@ import { ListaUsuariosComponent } from './mantenimiento/usuarios/lista-usuarios/
 import { DescripcionComponent } from './facturas/descripcion/descripcion.component';
 import { UsuariosAreasComponent } from './mantenimiento/usuarios/lista-usuarios/usuarios-areas/usuarios-areas.component';
 import { UsuariosSistemaComponent } from './mantenimiento/usuarios/lista-usuarios/usuarios-sistema/usuarios-sistema.component';
+import { ListaValesComponent } from './vales/lista-vales/lista-vales.component';
+import { ActivosComponent } from './vales/lista-vales/activos/activos.component';
+import { EntregadosComponent } from './vales/lista-vales/entregados/entregados.component';
+import { IngresarValeComponent } from './vales/ingresar-vale/ingresar-vale.component';
+import { DescripcionValeComponent } from './vales/descripcion-vale/descripcion-vale.component';
 
 
 
@@ -53,6 +58,11 @@ import { UsuariosSistemaComponent } from './mantenimiento/usuarios/lista-usuario
         DescripcionComponent,
         UsuariosAreasComponent,
         UsuariosSistemaComponent,
+        ListaValesComponent,
+        ActivosComponent,
+        EntregadosComponent,
+        IngresarValeComponent,
+        DescripcionValeComponent,
     ],
     exports: [
         DashboardComponent,
