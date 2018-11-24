@@ -70,17 +70,90 @@ export class ListaProveedorComponent implements OnInit {
     this.proveedores.sort((a, b) => {
       const idA = a.idProveedor;
       const idB = b.idProveedor;
-      if (idA < idB) {
-        return -1;
-      }
-      if (idA > idB) {
-        return 1;
-      }
-      return 0;
+      return idA - idB;
     });
-
     console.log(this.proveedores);
-  }
+}
+
+
+  public ordenarCalle() {
+    this.proveedores.sort((a, b) => {
+    const calleA = a.calle.toLowerCase();
+    const calleB = b.calle.toLowerCase();
+    if (calleA < calleB) {
+      return -1;
+    }
+    if (calleA > calleB) {
+      return 1;
+    }
+    return 0;
+  });
+  console.log(this.proveedores);
+}
+
+public ordenarTelefono() {
+  this.proveedores.sort((a, b) => {
+    const idA = a.telefono.toLowerCase();
+    const idB = b.telefono.toLowerCase();
+    if (idA < idB) {
+      return -1;
+    }
+    if (idA > idB) {
+      return 1;
+    }
+    return 0;
+  });
+
+  console.log(this.proveedores);
+}
+
+public ordenarRFC() {
+  this.proveedores.sort((a, b) => {
+    const idA = a.rfc.toLowerCase();
+    const idB = b.rfc.toLowerCase();
+    if (idA < idB) {
+      return -1;
+    }
+    if (idA > idB) {
+      return 1;
+    }
+    return 0;
+  });
+
+  console.log(this.proveedores);
+}
+
+public ordenarContacto() {
+  this.proveedores.sort((a, b) => {
+    const idA = a.contacto.toLowerCase();
+    const idB = b.contacto.toLowerCase();
+    if (idA < idB) {
+      return -1;
+    }
+    if (idA > idB) {
+      return 1;
+    }
+    return 0;
+  });
+
+  console.log(this.proveedores);
+}
+
+public ordenarCorreo() {
+  this.proveedores.sort((a, b) => {
+    const idA = a.correo.toLowerCase();
+    const idB = b.correo.toLowerCase();
+    if (idA < idB) {
+      return -1;
+    }
+    if (idA > idB) {
+      return 1;
+    }
+    return 0;
+  });
+
+  console.log(this.proveedores);
+}
 
   eliminarProveedor(proveedor: Proveedor) {
     const swalWithBootstrapButtons = swal.mixin({
