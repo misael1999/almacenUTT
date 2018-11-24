@@ -34,6 +34,7 @@ const LIST_USUARIOS_ROUTES: Routes = [
   { path: '', redirectTo: '/inicio', pathMatch: 'full' }
 ];
 
+<<<<<<< HEAD
 const LIST_VALES_SALIDA_ROUTES: Routes = [
   {path: 'activados', component: ActivosComponent, data:{titulo:'ValesSalida'}},
   {path: 'entregados', component: EntregadosComponent, data: { titulo: 'ValesSalida' }},
@@ -43,6 +44,8 @@ const LIST_VALES_SALIDA_ROUTES: Routes = [
 
 
 
+=======
+>>>>>>> edd7bcee27d652dfec753696d83799e18355be5a
 const pagesRoutes: Routes = [
     {
         path: 'inicio',

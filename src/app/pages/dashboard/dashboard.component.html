@@ -12,6 +12,7 @@
             </div>
         </div>
     </div>
+
     <div class="col-lg-3">
         <div class="card">
             <div class="card-body">
@@ -53,61 +54,162 @@
     </div>
 </div>
 
+<!-- Tablas -->
 <div class="row">
-    <div class="col-lg-6 col-md-12">
+    <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <div class="d-flex">
-                    <div>
-                        <h4 class="card-title"><span class="lstick"></span>Comisiones</h4>
-                    </div>
+                <div class="col-md-4">
+                    <select class="custom-select b-0">
+                    <option selected="">Ordenar por</option>
+                    <option value="1">A - Z</option>
+                    <option value="2">Z - A</option>
+                </select>
+                </div>
+
+
+                <div class="col-md-4">
                     <div class="ml-auto">
-                        <select class="custom-select b-0">
-                            <option selected="">Noviembre 2018</option>
-                            <option value="1">Octubre 2018</option>
-                        </select>
+                        <input type="text" placeholder="Buscar" class="form-control">
                     </div>
                 </div>
-                <div class="table-responsive m-t-20">
-                    <table class="table vm no-th-brd pro-of-month">
+                <div class="table-responsive">
+                    <table id="demo-foo-addrow" class="table m-t-30 table-hover contact-list" data-page-size="10">
                         <thead>
                             <tr>
-                                <th colspan="2">Docente</th>
+                                <th>No</th>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>Area</th>
                                 <th>Estado</th>
+                                <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td style="width:50px;"><span class="round"><img src="../assets/images/users/1.jpg" alt="user" width="50"></span></td>
+                                <td>1</td>
+                                <td>Luis Alberto</td>
+                                <td>Cordova Osorio</td>
+                                <td>TIC'S </td>
+                                <td><span class="label label-danger">Finalizado</span></td>
                                 <td>
-                                    <h6>Córdova</h6><small class="text-muted">Profesor</small></td>
-                                <td><span class="label label-success label-rounded">Finalizado</span></td>
-                            </tr>
-                            <tr class="active">
-                                <td><span class="round"><img src="../assets/images/users/2.jpg" alt="user" width="50"></span></td>
+                                    <button type="button" class="btn btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Eliminar"><i class="ti-trash" aria-hidden="true"></i></button>
+                                </td>
                                 <td>
-                                    <h6>Christian</h6><small class="text-muted">Profesor</small></td>
-                                <td><span class="label label-info label-rounded">Pendiente</span></td>
-                            </tr>
-                            <tr>
-                                <td><span class="round round-success"><img src="../assets/images/users/3.jpg" alt="user" width="50"></span></td>
-                                <td>
-                                    <h6>Juan diego</h6><small class="text-muted">Director de carrera</small></td>
-                                <td><span class="label label-success label-rounded">Finalizado</span></td>
-                            </tr>
-                            <tr>
-                                <td><span class="round round-primary"><img src="../assets/images/users/4.jpg" alt="user" width="50"></span></td>
-                                <td>
-                                    <h6>Octavio</h6><small class="text-muted">Profesor</small></td>
-                                <td><span class="label label-success label-rounded">Finalizado</span></td>
-                            </tr>
-
+                                    <button type="button" class="btn btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Editar"><i class="ti-pencil-alt" aria-hidden="true"></i></button>
+                                </td>
 
                         </tbody>
                     </table>
+                    <div class="paginador d-flex justify-content-center">
+                        <nav aria-label="...">
+                            <ul class="pagination">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1">Anterior</a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item active">
+                                    <a class="page-link" href="#">4 <span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">Siguiente</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button type="button" class="btn btn-info btn-rounded pull-left">Agregar un nuevo Usuario</button>
+
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex">
+                    <div>
+                        <h4 class="card-title"><span class="lstick"></span>Áreas</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="ml-auto">
+                            <select class="custom-select b-0">
+                                        <option selected="">Ordenar por</option>
+                                        <option value="1">A - Z</option>
+                                        <option value="2">Z - A</option>
+                                    </select>
+                        </div>
+
+                    </div>
+                    <div class="col-md-4">
+                        <div class="ml-auto">
+                            <input type="text" placeholder="Buscar" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table id="demo-foo-addrow" class="table m-t-30 table-hover contact-list" data-page-size="10">
+                        <thead>
+                            <tr>
+
+                                <th>No</th>
+                                <th>Nombre</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>TIC'S</td>
+                                <td>
+                                    <button type="button" class="btn btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Eliminar"><i class="ti-trash" aria-hidden="true"></i></button>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Editar"><i class="ti-pencil-alt" aria-hidden="true"></i></button>
+                                </td>
+
+                        </tbody>
+                    </table>
+                    <div class="paginador d-flex justify-content-center">
+                        <nav aria-label="...">
+                            <ul class="pagination">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1">Anterior</a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item active">
+                                    <a class="page-link" href="#">4 <span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">Siguiente</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button type="button" class="btn btn-info btn-rounded pull-left">Agregar nueva Área</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
