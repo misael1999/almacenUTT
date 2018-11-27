@@ -26,7 +26,7 @@ export class UsuariosSistemaComponent implements OnInit {
    }
 
   ngOnInit() {
-    // this.store.dispatch(new fromUsuarios.LoadUsuarios());
+    //  this.store.dispatch(new fromUsuarios.LoadUsuarios());
   }
 
   public ordenaridUsuario() {
