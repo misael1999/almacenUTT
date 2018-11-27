@@ -1,8 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Usuario } from 'src/app/models/usuario';
-import { AppState } from 'src/app/store/app.reducer';
-import { Store } from '@ngrx/store';
-import * as fromUsuarios from '../../../../../store/actions';
 
 @Component({
   selector: 'app-usuarios-sistema',
@@ -11,21 +7,10 @@ import * as fromUsuarios from '../../../../../store/actions';
 })
 export class UsuariosSistemaComponent implements OnInit {
 
-  usuarios: Usuario[];
-  loading: boolean;
-  loaded: boolean;
-  error: any;
-
-  constructor(private store: Store<AppState>) {
-    this.store.select('usuarios').subscribe(usuarios => {
-      this.usuarios = usuarios.usuarios;
-      this.loaded = usuarios.loaded;
-      this.loading = usuarios.loading;
-      this.error = usuarios.error;
-    });
-   }
+  constructor() { }
 
   ngOnInit() {
+<<<<<<< HEAD
     //  this.store.dispatch(new fromUsuarios.LoadUsuarios());
   }
 
@@ -43,6 +28,8 @@ export class UsuariosSistemaComponent implements OnInit {
     });
 
     console.log(this.usuarios);
+=======
+>>>>>>> f866b324ca0a6e6aae0e5fe13f6623f212f492a9
   }
 
 }
