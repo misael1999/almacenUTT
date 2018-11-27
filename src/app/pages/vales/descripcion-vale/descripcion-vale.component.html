@@ -16,8 +16,8 @@
                   <div class="pull-right text-right">
                       <address>
 
-                          <p class="m-t-30"><b> Fecha de expidición :</b> <i class="fa fa-calendar"></i>{{factura.fechaExpedicion | date}}</p>
-                          <p><b> Fecha de elaboración :</b> <i class="fa fa-calendar"></i> {{factura.fechaCreacion | date}}</p>
+                          <p class="m-t-30"><b> Fecha de expidición :</b> <i class="fa fa-calendar"></i>{{vale.fecha | date}}</p>
+                         
                       </address>
                   </div>
               </div>
@@ -39,13 +39,13 @@
                                       </tr>
                                   </thead>
                                   <tbody>
-                                      <tr *ngFor="let producto of productos">
+                                      <!-- <tr *ngFor="let producto of productos">
                                           <td>{{producto.producto.idProducto}}</td>
                                           <td>{{producto.producto.descripcion}}</td>
                                           <td>{{producto.producto.cantidad}}</td>
                                           <td>{{producto.producto.unidad}}</td>
                                           <td>{{producto.producto.precio}} </td>
-                                      </tr>
+                                      </tr> -->
                                   </tbody>
                                   <tfoot>
                                       <tr>
