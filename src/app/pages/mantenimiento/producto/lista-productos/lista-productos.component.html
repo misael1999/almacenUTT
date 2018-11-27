@@ -20,12 +20,12 @@
                     <table id="demo-foo-addrow" class="table m-t-30 table-hover contact-list" data-page-size="10">
                         <thead>
                             <tr>
-                                <th>No</th>
-                                <th>Descripción</th>
-                                <th>Piezas</th>
-                                <th>Unidad</th>
-                                <th>Precio</th>
-                                <th>Acciones</th>
+                                <th class="cursor" (click)="ordenaridProductos()">No <i class="ti-exchange-vertical cursor" aria-hidden="true"></i></th>
+                                <th class="cursor" (click)="ordenarDescripcion()">Descripción <i class="ti-exchange-vertical cursor" aria-hidden="true"></i></th>
+                                <th class="cursor" (click)="ordenarPiezas()">Piezas <i class="ti-exchange-vertical cursor" aria-hidden="true"></i></th>
+                                <th class="cursor" (click)="ordenarUnidad()">Unidad <i class="ti-exchange-vertical cursor" aria-hidden="true"></i></th>
+                                <th class="cursor" (click)="ordenarPrecio()">Precio <i class="ti-exchange-vertical cursor" aria-hidden="true"></i></th>
+                                <th>Acciones </th>
                             </tr>
                         </thead>
                         <tbody>
