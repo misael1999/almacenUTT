@@ -25,8 +25,7 @@ import { effectArreglo } from './store/effects';
   declarations: [
     AppComponent,
     LoginComponent,
-    PagesComponent
-    ],
+    PagesComponent    ],
   imports: [
     BrowserModule,
     AppRoutingModule,

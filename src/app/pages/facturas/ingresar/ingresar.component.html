@@ -7,7 +7,7 @@
                         <div class="card ribbon-wrapper-reverse">
                             <div class="ribbon ribbon-bookmark ribbon-left ribbon-info">Informacion Basica</div>
                             <div class="card-body">
-                                <form [formGroup]="formInformacion" class="floating-labels m-t-40">
+                                <form [formGroup]="formInformacion" class="floating-labels m-t-40" [ngClass]="errorFormulario">
                                     <div class="row">
                                         <!--   input 1    -->
                                         <div class="form-group col-md-2">
@@ -52,7 +52,12 @@
                             <div class="card-body">
                                 <form ngNativeValidate [formGroup]="formProducto" (ngSubmit)="agregarProducto()" class="floating-labels">
                                     <div class="row">
-                                        <div class="form-group col-md-5">
+                                        <div class="form-group col-md-1">
+                                            <input formControlName="clave" type="text" class="form-control" required id="clave">
+                                            <span class="bar"></span>
+                                            <label for="clave">Clave</label>
+                                        </div>
+                                        <div class="form-group col-md-4">
                                             <input formControlName="descripcionProducto" type="text" class="form-control" required id="descripcion">
                                             <span class="bar"></span>
                                             <label for="descripcion">Descripcion del producto</label>
@@ -94,6 +99,7 @@
                             <table id="demo-foo-addrow" class="table m-t-30 table-hover contact-list" data-page-size="10">
                                 <thead class="thead-productos">
                                     <tr>
+                                        <th>Clave</th>
                                         <th>Descripcion</th>
                                         <th>Unidad</th>
                                         <th>Cantidad</th>
@@ -103,6 +109,7 @@
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let producto of productos">
+                                        <td>{{producto.producto.clave}}</td>
                                         <td>{{producto.producto.descripcion}}</td>
                                         <td>{{producto.producto.unidad}}</td>
                                         <td><span class="label label-danger">{{producto.producto.cantidad}}</span></td>

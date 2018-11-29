@@ -3,18 +3,12 @@ export class Usuario {
     public primerNombre: string,
     public apellidoPaterno: string,
     public apellidoMaterno: string,
-    public area: Iarea,
-    public rol: string,
+    public role: string,
     public nombreUsuario: string,
     public password: string,
     public idUsuario?: number,
-    public estado?: boolean,
+    public status?: boolean,
     public segundoNombre?: string,
     ) {}
 }
 
-
-interface Iarea {
-    idArea: string;
-    nombre: string;
-}

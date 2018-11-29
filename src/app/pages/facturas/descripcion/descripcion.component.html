@@ -5,11 +5,9 @@
                 <div class="col-md-6">
                     <div class="pull-left">
                         <h3> &nbsp;<b class="text-danger">{{factura.proveedor.nombre}}</b></h3>
-                        <p class="text-muted m-l-5">Calle 3 Sur 313,
-                            <br/> Centro de la Ciudad,
-                            <br/> Tehuacán Puebla,
-                            <br/> N° - 75700,
-                            <br/> Teléfono <b class="text-danger">01 800 890 0210</b></p>
+                        <p class="text-muted m-l-5">{{factura.proveedor.calle}}
+                            <br/> CP - {{factura.proveedor.codigoPostal}}
+                            <br/> Teléfono <b class="text-danger">{{factura.proveedor.telefono}}</b></p>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -42,55 +40,11 @@
                                         <tr *ngFor="let producto of productos">
                                             <td>{{producto.producto.idProducto}}</td>
                                             <td>{{producto.producto.descripcion}}</td>
-                                            <td>{{producto.producto.cantidad}}</td>
+                                            <td>{{producto.cantidad}}</td>
                                             <td>{{producto.producto.unidad}}</td>
                                             <td>{{producto.producto.precio}} </td>
                                         </tr>
                                     </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <div id="add-contact" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-
-                                                        <div class="modal-body">
-                                                            <form class="form-horizontal form-material">
-                                                                <div class="form-group">
-                                                                    <div class="col-md-12 m-b-20">
-                                                                        <input type="number" class="form-control" placeholder="Cantidad">
-                                                                    </div>
-                                                                    <div class="col-md-12 m-b-20">
-                                                                        <input type="text" class="form-control" placeholder="Unidad"> </div>
-                                                                    <div class="col-md-12 m-b-20">
-                                                                        <input type="text" class="form-control" placeholder="Descripcción">
-                                                                    </div>
-                                                                    <div class="col-md-12 m-b-20">
-                                                                        <input type="text" class="form-control" placeholder="Precio Unitario">
-                                                                    </div>
-                                                                    <div class="col-md-12 m-b-20">
-                                                                        <input type="text" class="form-control" placeholder="Importe">
-                                                                    </div>
-                                                                    <div class="col-md-12 m-b-20">
-                                                                        <input type="text" class="form-control" placeholder="Descuento">
-                                                                    </div>
-                                                                    <div class="col-md-12 m-b-20">
-                                                                        <input type="text" class="form-control" placeholder="Impuesto">
-                                                                    </div>
-                                                                </div>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                    <!-- /.modal-content -->
-                                                </div>
-                                                <!-- /.modal-dialog -->
-                                            </div>
-                                            <td colspan="7">
-                                                <div class="text-right">
-                                                    <ul class="pagination"> </ul>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tfoot>
                                 </table>
                             </div>
                         </div>
@@ -98,10 +52,10 @@
                 </div>
                 <div class="col-md-12">
                     <div class="pull-right m-t-30 text-right">
-                        <p>Sub - Total : $13,848 </p>
+                        <!-- <p>Sub - Total : $13,848 </p>
                         <p>IVA 16% : $138 </p>
-                        <hr>
-                        <h3><b>Total :</b> $13,986 </h3>
+                        <hr> -->
+                        <h3><b>Total :</b> ${{factura.total}} </h3>
                     </div>
                     <div class="clearfix"></div>
                     <hr>

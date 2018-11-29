@@ -26,4 +26,19 @@ export class UsuarioService {
     return this.http.get(URL);
   }
 
+  public getUsuarios() {
+    const URL = URL_SERVICIOS + '/usuarios';
+    return this.http.get(URL);
+  }
+
+  public createUsuario(usuario: Usuario) {
+    const URL = URL_SERVICIOS + '/usuarios';
+    return this.http.post(URL, usuario);
+  }
+
+  public actualizarUsuario(usuario: Usuario) {
+    const URL = URL_SERVICIOS + '/usuarios';
+    return this.http.patch(URL, usuario);
+  }
+
 }

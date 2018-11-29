@@ -6,6 +6,7 @@ import { FacturaEffects } from './factura/factura.effects';
 import { UsuarioEffects } from './usuario/usuario.effects';
 import { FacturasEffects } from './factura/facturas.effects';
 import { AreasEffects } from './usuario/areas.effects';
+import { UsuariosEffects } from './usuario/usuarios.effects';
 
 export const effectArreglo: any[] = [
     AuthEffects,
@@ -15,6 +16,7 @@ export const effectArreglo: any[] = [
     FacturaEffects,
     FacturasEffects,
     UsuarioEffects,
+    UsuariosEffects,
     AreasEffects
 ];
 
@@ -24,6 +26,7 @@ export * from './proveedor/proveedores.effects';
 export * from './producto/productos.effects';
 export * from './factura/factura.effects';
 export * from './usuario/usuario.effects';
+export * from './usuario/usuarios.effects';
 export * from './factura/facturas.effects';
 export * from './usuario/areas.effects';
 

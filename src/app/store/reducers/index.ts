@@ -4,6 +4,8 @@ export * from './proveedor/proveedores.reducer';
 export * from './producto/productos.reducer';
 export * from './factura/factura.reducer';
 export * from './usuario/usuario.reducer';
+export * from './usuario/usuarios.reducer';
 export * from './factura/facturas.reducer';
 export * from './usuario/areas.reducer';
+export * from './ui.reducer';
 

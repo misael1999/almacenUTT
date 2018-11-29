@@ -1,6 +1,5 @@
 import { Usuario } from '../../models/Usuario';
 import * as fromAuth from '../actions';
-import { State } from '@ngrx/store';
 
 // Estado relacionado al login
 export interface AuthState {

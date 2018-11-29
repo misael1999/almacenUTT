@@ -12,7 +12,8 @@ export class Factura {
     public proveedor: any,
     public idUsuario: number,
     public descripcion?: string,
-    public fechaCreacion?: string
+    public fechaCreacion?: string,
+    public total?: number
 
     ) {}
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Store, Action } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
 import * as fromMensajes from '../../../store/actions';
 
@@ -22,27 +22,29 @@ export class ErrorComponent implements OnInit {
         const errorProveedor = resp.proveedor.error;
         const errorUsuario = resp.usuario.error;
         const errorAuth = resp.auth.error;
-
-        // this.error = (errorProveedor != null) ? errorProveedor : null;
-        // this.error = (errorFactura != null) ? errorFactura : errorProveedor;
-        // this.error = (errorAuth != null) ? errorAuth.error : errorFactura;
+        const errorUi = resp.ui.error;
 
         if (errorFactura != null) {
           this.error = errorFactura;
-        } else if (errorAuth != null) {
+          this.cerrarMensaje(new fromMensajes.CreateFacturaEnd());
+        }
+        if (errorAuth != null) {
           this.error = errorAuth.error;
-        } else if (errorProveedor != null) {
+          this.cerrarMensaje(new fromMensajes.LoginUserEnd());
+        }
+        if (errorProveedor != null) {
           this.error = errorProveedor;
-        } else if (errorUsuario != null) {
+          this.cerrarMensaje(new fromMensajes.CreateProveedorEnd());
+        }
+        if (errorUsuario != null) {
           this.error = errorUsuario;
+          this.cerrarMensaje(new fromMensajes.ChangePasswordEnd());
+        }
+        if (errorUi != null) {
+            this.error = resp.ui;
+            this.cerrarMensaje(new fromMensajes.UiMessageErrorEnd());
         }
 
-        if (this.error != null) {
-            this.oculto = '';
-            setTimeout(() => {
-                this.cerrarMensaje();
-            }, 4000);
-        }
     });
 
    }
@@ -50,12 +52,12 @@ export class ErrorComponent implements OnInit {
   ngOnInit() {
   }
 
-  cerrarMensaje() {
-    this.oculto = 'oculto fadeOutDown';
-    this.store.dispatch(new fromMensajes.CreateProveedorEnd());
-    this.store.dispatch(new fromMensajes.CreateFacturaEnd());
-    this.store.dispatch(new fromMensajes.LoginUserEnd());
-    this.store.dispatch(new fromMensajes.ChangePasswordEnd());
+  cerrarMensaje(action: Action) {
+    this.oculto = '';
+    setTimeout(() => {
+      this.store.dispatch(action);
+      this.oculto = 'oculto fadeOutDown';
+    }, 4000);
   }
 
 }

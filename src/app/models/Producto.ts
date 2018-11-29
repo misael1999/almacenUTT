@@ -2,6 +2,7 @@ export class Producto {
 
 constructor(
 
+    public clave: string,
     public descripcion: string,
     public unidad: string,
     public cantidad: string,
@@ -10,7 +11,6 @@ constructor(
     public estado?: number,
     public idProducto?: number,
     public fechaCreacion?: string
-
 ) {}
 
 }

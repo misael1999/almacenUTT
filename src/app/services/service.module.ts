@@ -7,9 +7,10 @@ import {
   LoginService,
   ProveedorService,
   ProductoService,
-  ModalProductoService,
   ModalProveedorService,
   ModalProveedorActualizarService,
+  ModalActualizarUsuarioService,
+  ModalUsuarioService,
   FacturaService,
   LoginGuard,
   UsuarioService
@@ -25,10 +26,11 @@ import {
     LoginService,
     ProveedorService,
     ProductoService,
-    ModalProductoService,
     ModalProveedorService,
-    FacturaService,
+    ModalUsuarioService,
     ModalProveedorActualizarService,
+    ModalActualizarUsuarioService,
+    FacturaService,
     LoginGuard,
     UsuarioService
     // {

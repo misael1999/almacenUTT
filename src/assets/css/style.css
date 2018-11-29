@@ -8069,7 +8069,7 @@ File: scss
 }
 
 .col-informacion {
-    margin-bottom: -30px;
+    margin-bottom: -60px;
 }
 
 .tabla-productos {
@@ -8090,7 +8090,15 @@ File: scss
     margin: 0;
 }
 
+.table-usuarios {
+    margin-top: -25px;
+}
+
 .table-datos table tbody tr td {
     padding-bottom: 0;
     margin-bottom: 0;
+}
+
+.error-campos span.help-block {
+    color: #f5492a;
 }
