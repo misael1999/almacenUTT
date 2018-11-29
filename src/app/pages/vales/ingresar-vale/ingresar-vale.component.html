@@ -1,3 +1,129 @@
-<p>
-  ingresar-vale works!
-</p>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12 col-informacion">
+                        <div class="card ribbon-wrapper-reverse">
+                            <div class="ribbon ribbon-bookmark ribbon-left ribbon-info">Información Básica</div>
+                            <div class="card-body">
+                                <form [formGroup]="formInformacion" class="floating-labels m-t-40">
+                                    <div class="row">
+                                        <!--   input 1    -->
+                                        <div class="form-group col-md-3">
+                                            <input formControlName="numero" type="text" class="form-control" id="folio">
+                                            <span class="bar"></span>
+                                            <label for="folio">Número de requisición</label>
+                                            <span class="help-block"><small>*Obligatorio</small></span>
+                                        </div>
+                                        <div class="form-group col-md-3 m-b-40">
+                                            <input #txtArea formControlName="area" type="text" class="form-control" id="input1">
+                                            <span class="bar"></span>
+                                            <label for="input1">Área</label>
+                                            <span class="help-block"><small>*Obligatorio</small></span>
+                                        </div>
+                                        <div class="form-group col-md-3 m-b-40">
+                                            <input #txtResponsable formControlName="responsable" type="text" class="form-control" id="input1">
+                                            <span class="bar"></span>
+                                            <label for="input2">Responsable del área</label>
+                                            <span class="help-block"><small>*Obligatorio</small></span>
+                                        </div>
+                                        <!--   input 2    -->
+                                        <div class="form-group col-md-3">
+                                            <input formControlName="fecha" type="date" class="form-control" placeholder=""
+                                                id="fecha">
+                                            <label for="fecha"></label>
+                                            <span class="help-block"><small>*Obligatorio</small></span>
+                                        </div>
+
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 col-productos">
+                        <div class="card ribbon-wrapper-reverse card-producto">
+                            <div class="ribbon ribbon-bookmark ribbon-left ribbon-info mb-2">Añadir productos</div>
+                            <div class="card-body">
+                                <form ngNativeValidate [formGroup]="formProducto" (ngSubmit)="agregarProducto()" class="floating-labels">
+                                    <div class="row">
+                                        <div class="form-group col-md-5">
+                                            <input formControlName="descripcionProducto" type="text" class="form-control"
+                                                required id="descripcion">
+                                            <span class="bar"></span>
+                                            <label for="descripcion">Descripción del producto</label>
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <select formControlName="unidad" class="form-control p-0" required id="unidad">
+                                                <option value=""></option>
+                                                <option value="pieza">Pieza</option>
+                                                <option value="caja">Caja</option>
+                                            </select><span class="bar"></span>
+                                            <label for="unidad">Unidad</label>
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <input formControlName="cantidad" type="number" class="form-control"
+                                                required id="cantidad">
+                                            <span class="bar"></span>
+                                            <label for="cantidad">Cantidad</label>
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <input formControlName="precio" type="number" class="form-control" id="precio">
+                                            <span class="bar"></span>
+                                            <label for="precio">Precio</label>
+                                        </div>
+                                        <div class="form-group col-md-1">
+                                            <button type="submit" class="btn btn-sm btn-danger">Agregar</button>
+                                        </div>
+
+
+                                    </div>
+
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--   Table de productos agregados    -->
+
+                    <div class="col-md-12">
+                        <div class="table-responsive tabla-productos">
+                            <table id="demo-foo-addrow" class="table m-t-30 table-hover contact-list" data-page-size="10">
+                                <thead class="thead-productos">
+                                    <tr>
+                                        <th>Descripción</th>
+                                        <th>Unidad</th>
+                                        <th>Cantidad</th>
+                                        <th>Precio</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let producto of productos">
+                                        <td>{{producto.producto.descripcion}}</td>
+                                        <td>{{producto.producto.unidad}}</td>
+                                        <td><span class="label label-danger">{{producto.producto.cantidad}}</span></td>
+                                        <td>{{producto.producto.precio}}</td>
+                                        <td>
+                                            <button type="button" class="btn btn-icon btn-pure btn-outline delete-row-btn"
+                                                data-toggle="tooltip" data-original-title="Eliminar"><i class="ti-trash"
+                                                    aria-hidden="true"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="button-guardar m-3">
+                <button (click)="guardarFactura()" class="btn btn-rounded btn-danger">Guardar vale de salida <i *ngIf="loading"
+                        class="fa fa-spinner fa-spin ml-1"></i></button>
+            </div>
+        </div>
+    </div>
+</div>

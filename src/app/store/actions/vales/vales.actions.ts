@@ -35,7 +35,7 @@ export class LoadValesSalidaEntregadosSuccess implements Action {
 
 export class LoadValesSalidaEntregadosFail implements Action {
     readonly type = LOAD_VALES_SALIDA_ENTREGADOS_FAIL;
-    constructor(public patLoad: any) {}
+    constructor(public payLoad: any) {}
 }
 
 export type valesActions = LoadValesSalidaActivos |

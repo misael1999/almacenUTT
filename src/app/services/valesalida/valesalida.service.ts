@@ -27,5 +27,6 @@ export class ValesalidaService {
 
   public getValeByNumber(numeroRequisicion: number) {
     const URL = URL_SERVICIOS + '/vales?requisicion=' + numeroRequisicion;
+    return this.http.get(URL);
   }
 }

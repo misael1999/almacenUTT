@@ -6,4 +6,5 @@ export * from './factura/factura.reducer';
 export * from './usuario/usuario.reducer';
 export * from './factura/facturas.reducer';
 export * from './usuario/areas.reducer';
-
+export * from './vale/vale.reducer';
+export * from './vale/vales.reducer';

@@ -1,33 +1,33 @@
-import * as fromfactura from '../../actions';
-import { Factura } from '../../../models/Factura';
-import { facturaAcciones, CREATE_FACTURA_END, LOAD_FACTURA } from '../../actions/factura/factura.actions';
+ import * as fromVale from 'src/app/store/actions';
+import { ValeSalida } from 'src/app/models/ValeSalida';
+import { valeSalidaAcciones, CREATE_VALE_SALIDA_END, LOAD_VALE_SALIDA } from 'src/app/store/actions/vales/vale.actions';
 
-export interface FacturaState {
-    factura: Factura;
+
+export interface ValeState {
+    vale: ValeSalida;
     loaded: boolean;
     loading: boolean;
     error: any;
     mensaje: any;
 }
 
-const estadoInicial: FacturaState = {
-    factura: null,
+const estadoInicial: ValeState = {
+    vale: null,
     loaded: false,
     loading: false,
     error: null,
     mensaje: null
 };
 
-export function facturaReducer(state = estadoInicial, action: fromfactura.facturaAcciones): FacturaState {
-
+export function valeReducer(state = estadoInicial, action: fromVale.valeSalidaAcciones): ValeState {
     switch (action.type) {
-        case fromfactura.CREATE_FACTURA:
+        case fromVale.CREATE_VALE_SALIDA:
             return {
                 ...state,
                 loading: true
             };
-            break;
-        case fromfactura.CREATE_FACTURA_SUCCESS:
+        break;
+        case fromVale.CREATE_VALE_SALIDA_SUCCESS:
             return {
                 ...state,
                 loading: false,
@@ -35,53 +35,52 @@ export function facturaReducer(state = estadoInicial, action: fromfactura.factur
                 mensaje: {
                     titulo: action.payload.titulo,
                     mensaje: action.payload.mensaje,
-                    folio: action.payload.folio
+                    numeroRequisicion: action.payload.numeroRequisicion
                 }
             };
-            break;
-        case fromfactura.CREATE_FACTURA_FAIL:
+        break;
+        case fromVale.CREATE_VALE_SALIDA_FAIL:
             return {
                 ...state,
                 loading: false,
                 loaded: false,
-                error: action.payload,
+                error: action.payLoad,
                 mensaje: null
             };
-            break;
-        case fromfactura.CREATE_FACTURA_END:
+        break;
+        case fromVale.CREATE_VALE_SALIDA_END:
             return {
                 ...state,
                 mensaje: null,
                 error: null
             };
-            break;
-        case fromfactura.LOAD_FACTURA:
+        break;
+        case fromVale.LOAD_VALE_SALIDA:
             return {
                 ...state,
                 loading: true
             };
-            break;
-        case fromfactura.LOAD_FACTURA_SUCCESS:
+        break;
+        case fromVale.LOAD_VALE_SALIDA_SUCCESS:
             return {
                 ...state,
                 loading: false,
                 loaded: true,
-                factura: { ...action.factura },
+                vale: { ...action.vale },
                 mensaje: null
             };
-            break;
-        case fromfactura.LOAD_FACTURA_FAIL:
+        break;
+        case fromVale.LOAD_VALE_SALIDA_FAIL:
             return {
                 ...state,
                 loading: false,
                 loaded: true,
-                factura: null,
-                error: action.payload
+                vale: null,
+                error: action.payLoad
             };
-            break;
+        break;
         default:
             return state;
-            break;
+        break;
     }
-
 }
