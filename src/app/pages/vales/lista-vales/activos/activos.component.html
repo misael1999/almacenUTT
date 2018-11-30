@@ -1,39 +1,36 @@
 <div *ngIf="loaded" class="row animated fadeIn">
-  <div class="col-lg-3" *ngFor="let vale of vales">
-      <div class="card card-factura border mt-3">
-          <div class="w-100 box-img">
-              <img class="img-fluid" src="../../../../assets/images/document/factura.png" alt="vale de salida">
-          </div>
-          <div class="card-body">
-              <h4 class="card-title">Número de requisición {{vale.numeroRequisicion}}</h4>
-              <p>Área: {{vale.area.nombre}}</p>
-              <p>Responsable: {{vale.area.responsable}}</p>
-              <p>Elaborado: {{vale.fecha | date}}</p>
-              <a [routerLink]="['/vales', vale.numeroRequisicion]" class="btn btn-primary btn-sm mt-1">Ver vale de salida</a>
-          </div>
-      </div>
-  </div>
+    <div class="col-lg-3" *ngFor="let vale of vales">
+        <div class="card card-factura border mt-3">
+            <div class="card-body">
+                <h4 class="card-title">Número de requisición {{vale.numeroRequisicion}}</h4>
+                <p>Área: {{vale.area.nombre}}</p>
+                <p>Responsable: {{vale.area.responsable}}</p>
+                <p>Elaborado: {{vale.fechaEntrega | date}}</p>
+                <a [routerLink]="['/vales', vale.numeroRequisicion]" class="btn btn-primary btn-sm mt-1">Ver vale de salida</a>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div *ngIf="loading" class="cargando w-100 d-flex justify-content-center p-5 animated fadeIn">
-  <i class="fa fa-spinner fa-spin fa-3x"></i>
-</div>
+<!-- <div *ngIf="loading" class="cargando w-100 d-flex justify-content-center p-5 animated fadeIn">
+    <i class="fa fa-spinner fa-spin fa-3x"></i>
+</div> -->
 
 <div class="row" *ngIf="error != null">
-  <div class="col-lg-12">
-      <div class="alert alert-danger" role="alert">
-          <h4 class="alert-heading">{{error.name}}</h4>
-          <p>{{error.message}}</p>
-          <hr>
-          <p class="mb-0">{{error.status}}</p>
-      </div>
-  </div>
+    <div class="col-lg-12">
+        <div class="alert alert-danger" role="alert">
+            <h4 class="alert-heading">{{error.name}}</h4>
+            <p>{{error.message}}</p>
+            <hr>
+            <p class="mb-0">{{error.status}}</p>
+        </div>
+    </div>
 </div>
 
 <div class="row" *ngIf="loaded && vales.length == 0" class="animated fadeIn">
-  <div class="col-md-12">
-      <div class="alert alert-info  mt-3">
-          <span>No tiene vales de salida hechos <span><a [routerLink]="'/ingresar-vale'">Agregar vale de salida</a></span></span>
-      </div>
-  </div>
+    <div class="col-md-12">
+        <div class="alert alert-info  mt-3">
+            <span>No tiene vales de salida hechos <span><a [routerLink]="'/vales-ingresar'">generar vale de salida</a></span></span>
+        </div>
+    </div>
 </div>

@@ -33,7 +33,8 @@ import {
     ModalActualizarUsuarioService,
     FacturaService,
     LoginGuard,
-    UsuarioService
+    UsuarioService,
+    ValesalidaService
     // {
     //   provide: HTTP_INTERCEPTORS,
     //   useClass: AuthInterceptor,

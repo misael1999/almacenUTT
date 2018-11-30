@@ -5,7 +5,7 @@ import { AppState } from 'src/app/store/app.reducer';
 import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
 import * as fromVales from 'src/app/store/actions';
-declare function init_vales_inputs();
+declare function init_facturas_inputs();
 
 
 @Component({
@@ -22,18 +22,19 @@ export class IngresarValeComponent implements OnInit {
 
   @ViewChild('txtArea') txtArea: ElementRef;
 
-  constructor(private store: Store<AppState>, private router: Router) { 
+  constructor(private store: Store<AppState>, private router: Router) {
     this.store.dispatch(new fromVales.LoadAreas());
     this.store.subscribe(
       resp => {
         this.areas = resp.areas.areas;
         this.loading = resp.vale.loading;
+
       }
     );
   }
 
   ngOnInit() {
-    init_vales_inputs();
+    init_facturas_inputs();
     this.formInformation = new FormGroup({
       numero: new FormControl(null, Validators.required),
       fecha: new FormControl(null, Validators.required),

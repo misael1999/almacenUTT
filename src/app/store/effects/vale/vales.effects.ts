@@ -7,7 +7,7 @@ import { of } from 'rxjs';
 
 @Injectable()
 export class ValesEffects {
-    constructor(private actions$: Actions, private valesService: ValesalidaService){}
+    constructor(private actions$: Actions, private valesService: ValesalidaService) {}
 
     @Effect()
     loadValesSalidaActivos = this.actions$.ofType(fromVales.LOAD_VALES_SALIDA_ACTIVOS)
@@ -17,7 +17,6 @@ export class ValesEffects {
                                             .pipe(
                                                 map(data => new fromVales.LoadValesSalidaActivosSuccess(data['vales'])),
                                                 catchError(error => {
-                                                    console.log(error);
                                                     return of(new fromVales.LoadValesSalidaActivosFail(error));
                                                 })
                                             );
@@ -33,7 +32,6 @@ export class ValesEffects {
                                                     map(data => new fromVales.LoadValesSalidaEntregadosSuccess(data['vales'])),
                                                     catchError(
                                                         error => {
-                                                            console.log(error);
                                                             return of(new fromVales.LoadValesSalidaEntregadosFail(error));
                                                         }
                                                     )

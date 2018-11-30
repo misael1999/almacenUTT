@@ -23,6 +23,8 @@ export class LoadValesSalidaActivosFail implements Action {
     constructor(public payLoad: any) {}
 }
 
+// ----  VALES DE SALIDAS ENTREGADOS   ---- //
+
 export class LoadValesSalidaEntregados implements Action {
     readonly type = LOAD_VALES_SALIDA_ENTREGADOS;
     constructor() {}

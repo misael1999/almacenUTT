@@ -25,5 +25,21 @@ export class ProveedoresEffects {
                     );
             })
         );
+
+    @Effect()
+    searchProveedores$ = this.actions$.ofType(proveedoresActions.SEARCH_PROVEEDORES)
+        .pipe(
+            mergeMap(action => {
+                return this.proveedorService.getProveedoresByNombre(action['termino'])
+                    .pipe(
+                       map(data => {
+                            return new proveedoresActions.SearchProveedoresSuccess(data['proveedores']);
+                       }),
+                       catchError(error => {
+                            return of(new proveedoresActions.SearchProveedoresFail(error));
+                       })
+                    );
+            })
+        );
 }
 

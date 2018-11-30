@@ -1,9 +1,6 @@
 <div *ngIf="loaded" class="row animated fadeIn">
-    <div class="col-lg-2" *ngFor="let factura of facturas">
+    <div class="col-lg-3" *ngFor="let factura of facturas">
         <div class="card card-factura border mt-3">
-            <div class="w-100 box-img">
-                <img class="img-fluid" src="../../../../assets/images/document/factura.png" alt="factura">
-            </div>
             <div class="card-body">
                 <h4 class="card-title">Folio {{factura.folio}}</h4>
                 <p>Proveedor: {{factura.proveedor.nombre}}</p>

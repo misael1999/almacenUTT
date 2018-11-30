@@ -36,8 +36,8 @@ const LIST_USUARIOS_ROUTES: Routes = [
 ];
 
 const LIST_VALES_SALIDA_ROUTES: Routes = [
-  {path: 'activados', component: ActivosComponent, data:{titulo:'ValesSalida'}},
-  {path: 'entregados', component: EntregadosComponent, data: { titulo: 'ValesSalida' }},
+  {path: 'activados', component: ActivosComponent, data: {titulo: 'Vales de salida'}},
+  {path: 'entregados', component: EntregadosComponent, data: { titulo: 'Vale de salida' }},
   {path: '', redirectTo: '/inicio', pathMatch: 'full'}
 ];
 
@@ -59,9 +59,9 @@ const pagesRoutes: Routes = [
     {path: 'facturas/:folio', component: DescripcionComponent, data: { titulo: 'Descripcion' } },
     {path: 'usuarios', component: ListaUsuariosComponent, children: LIST_USUARIOS_ROUTES, data: { titulo: 'Lista de usuarios' } },
     {path: 'cargar-factura', component: CargarFacturaComponent, data: { titulo: 'Cargar factura' } },
-    {path: 'vales', component: ListaValesComponent, children: LIST_VALES_SALIDA_ROUTES, data: { titulo:'Lista vales de salida' }},
-    {path: 'vales-ingresar', component: IngresarValeComponent, data: { titulo: 'Ingresar vale de salida'}},
-    {path: 'vales/:numero', component: DescripcionValeComponent, data: {titulo: 'Descripcion'}},
+    {path: 'vales', component: ListaValesComponent, children: LIST_VALES_SALIDA_ROUTES, data: { titulo: 'Lista vales de salida' }},
+    {path: 'vales-ingresar', component: IngresarValeComponent, data: { titulo: 'Generar vale de salida'}},
+    {path: 'vales/:numero', component: DescripcionValeComponent, data: {titulo: 'Descripcion vale de salida'}},
     // Mantenimientos
     // {
     //     path: 'usuarios',

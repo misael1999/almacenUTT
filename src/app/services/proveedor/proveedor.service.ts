@@ -19,6 +19,12 @@ export class ProveedorService {
     return this._http.get(URL);
   }
 
+  public getProveedoresByNombre(termino: string) {
+    const URL = URL_SERVICIOS + '/proveedores/' + termino;
+    return this._http.get(URL);
+
+  }
+
   public deleteProveedor(proveedor: Proveedor) {
     const URL = URL_SERVICIOS + '/proveedores';
     return this._http.patch(URL, proveedor);

@@ -23,10 +23,10 @@ export class EntregadosComponent implements OnInit {
               this.loaded = vales.loaded;
               this.error = vales.error;
             });
-    this.store.dispatch(new fromVales.LoadValesSalidaEntregados());
   }
 
   ngOnInit() {
+    this.store.dispatch(new fromVales.LoadValesSalidaEntregados());
   }
 
 }

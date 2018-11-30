@@ -23,12 +23,11 @@ export class IngresarComponent implements OnInit {
   productos: any = [];
   folio: string;
   errorFormulario = '';
+  proveedor: Proveedor;
 
   @ViewChild('txtProveedor') txtProveedor: ElementRef;
 
   constructor(private store: Store<AppState>, private router: Router) {
-      this.store.dispatch(new fromFactura.LoadProveedores());
-
 
       this.store
         .subscribe(resp => {
@@ -61,9 +60,18 @@ export class IngresarComponent implements OnInit {
     });
   }
 
-  colocarText(nombre: string) {
-    this.txtProveedor.nativeElement.value = nombre;
-    this.proveedores = null;
+  colocarText(proveedor: Proveedor) {
+    this.txtProveedor.nativeElement.value = proveedor.nombre;
+    this.proveedor = proveedor;
+    this.proveedores = [];
+  }
+
+  buscarProveedor(termino: string) {
+    if (termino.length < 3) {
+      this.proveedores = [];
+      return;
+    }
+    this.store.dispatch(new fromFactura.SearchProveedores(termino));
   }
 
 
@@ -85,8 +93,6 @@ export class IngresarComponent implements OnInit {
   }
 
   guardarFactura() {
-    const proveedor = new Proveedor('vacio', 1);
-    proveedor.idProveedor = 1;
     const fechaExp = new Date(this.formInformacion.value.fecha);
     // ----  VALIDAMOS QUE EL FORMULARIO ESTE COMPLETO   ---- //
     if (this.formInformacion.invalid) {
@@ -97,9 +103,14 @@ export class IngresarComponent implements OnInit {
     }
 
     if (fechaExp.getFullYear() > (new Date().getFullYear() + 1)) {
-        const mensaje =  new Mensaje(null,'Fecha de expedicion invalida');
+        const mensaje =  new Mensaje(null, 'Fecha de expedicion invalida');
         this.store.dispatch(new fromFactura.UiMessageError(mensaje));
         return;
+    }
+
+    if (this.proveedor == null) {
+      this.store.dispatch(new fromFactura.UiMessageError(new Mensaje(null, 'Ingrese un proveedor valido')));
+      return;
     }
 
     // ----  CREAMOS UN OBJETO DE FACTURA   ---- //
@@ -107,7 +118,7 @@ export class IngresarComponent implements OnInit {
       this.formInformacion.value.folio,
       this.formInformacion.value.fecha,
       this.productos,
-      proveedor,
+      this.proveedor,
       1,
       this.formInformacion.value.descripcion
     );

@@ -17,12 +17,11 @@
                                             <span class="help-block"><small>*Obligatorio</small></span>
                                         </div>
                                         <div class="form-group col-md-5 m-b-40">
-                                            <input #txtProveedor formControlName="proveedor" type="text" class="form-control" id="input1">
+                                            <input #txtProveedor (keyup)="buscarProveedor(txtProveedor.value)" formControlName="proveedor" type="text" class="form-control" id="input1">
                                             <span class="bar"></span>
                                             <label for="input1">Nombre del proveedor</label>
-                                            <div class="typehead-proveedores w-100 d-none">
-                                                <p (click)="colocarText('comex')">comex</p>
-                                                <p>ferrepat</p>
+                                            <div *ngIf="proveedores.length > 0" class="typehead-proveedores w-100">
+                                                <p *ngFor="let proveedor of proveedores" (click)="colocarText(proveedor)">{{proveedor.nombre}}</p>
                                             </div>
                                             <span class="help-block"><small>*Obligatorio</small></span>
                                         </div>

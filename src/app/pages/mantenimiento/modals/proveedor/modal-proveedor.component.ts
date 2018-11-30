@@ -7,6 +7,7 @@ import * as fromProveedor from '../../../../store/actions';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
 import swal from 'sweetalert2';
+import { Mensaje } from 'src/app/models/Mensaje';
 
 
 @Component({
@@ -72,7 +73,7 @@ export class ModalProveedorComponent implements OnInit {
   public crearProveedor(): void {
 
     if (this.formProveedor.invalid) {
-      console.log(this.formProveedor);
+      this.store.dispatch(new fromProveedor.UiMessageError(new Mensaje(null, 'Ingrese los campos obligatorios')));
       return;
   }
 

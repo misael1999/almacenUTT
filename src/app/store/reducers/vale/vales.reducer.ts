@@ -1,6 +1,5 @@
 import * as fromVales from 'src/app/store/actions';
 import { ValeSalida } from 'src/app/models/ValeSalida';
-import { LOAD_VALES_SALIDA_ENTREGADOS } from 'src/app/store/actions/vales/vales.actions';
 
 
 export interface ValesState {
@@ -75,7 +74,6 @@ export function valesReducer (state = estadoInicial, action: fromVales.valesActi
                 error: action.payLoad
             };
         break;
-
         default:
             return state;
         break;

@@ -1,64 +1,56 @@
 <div class="row my-3">
     <div class="col-12">
-      <div class="card">
-        <div class="cardy-body">
-          <div class="row">
-  
-            <div class="col-md-3">
-              <div class="box-button">
-                <br>
-                <button [routerLink]="'/vales-ingresar'" class="btn btn-rounded btn-info">Nuevo vale de salida <i class="fa fa-plus ml-1"></i></button>
-              </div>
-            </div>
-  
-            <div class="col-md-3">
-              <br>
-              <div class="form-group">
-                <input type="date" class="form-control" id="wdate2"> </div>
-            </div>
-  
-            <div class="col-md-3">
-              <br>
-              <div class="form-group">
-                <div class="controls">
-                    <select name="select" id="select" required class="form-control">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+
+                    <div class="col-md-3">
+                        <br>
+                        <div class="form-group">
+                            <input type="date" class="form-control" id="wdate2"> </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <br>
+                        <div class="form-group">
+                            <div class="controls">
+                                <select name="select" id="select" required class="form-control">
                         <option value="">Ordenar por..</option>
                         <option value="1">A - Z</option>
                         <option value="2">Z - A</option>
                     </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="floating-labels m-t-20">
+                            <div class="form-group m-b-10">
+                                <input type="text" class="form-control input-sm" id="input9"><span class="bar"></span>
+                                <label for="input9">Buscar vale de salida</label>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-            </div>
-  
-            <div class="col-md-3">
-              <div class="floating-labels m-t-20">
-                <div class="form-group m-b-10">
-                  <input type="text" class="form-control input-sm" id="input9"><span class="bar"></span>
-                  <label for="input9">Buscar vale de salida</label>
-                </div>
-              </div>
-            </div>
-  
-          </div>
         </div>
-      </div>
     </div>
-  </div>
+</div>
 
 <div class="row">
-  <div class="col-md-12">
-      <div class="card">
-          <div class="card-body p-b-0">
-              <!-- Nav tabs -->
-              <ul class="nav nav-tabs customtab tab-facturas" role="tablist">
-                  <li class="nav-item"> <a class="nav-link" [routerLink]="'/vales/activados'" routerLinkActive="active"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Vales de salida hechos</span></a> </li>
-                  <li class="nav-item"> <a class="nav-link" [routerLink]="'/vales/entregados'" routerLinkActive="active"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Vales de salida enregados</span></a> </li>
-              </ul>
-              <!-- Tab panes -->
-              <div class="tab-content">
-                  <router-outlet></router-outlet>
-              </div>
-          </div>
-      </div>
-  </div>
-
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body p-b-0">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs customtab tab-facturas" role="tablist">
+                    <li class="nav-item"> <a class="nav-link" [routerLink]="'/vales/activados'" routerLinkActive="active"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Vales de salida hechos</span></a> </li>
+                    <li class="nav-item"> <a class="nav-link" [routerLink]="'/vales/entregados'" routerLinkActive="active"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Vales de salida entregados</span></a> </li>
+                </ul>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -42,6 +42,30 @@ export interface ProveedoresState {
                 provedores: []
             };
             break;
+        case fromProveedores.SEARCH_PROVEEDORES:
+            return {
+                ...state,
+                loading: true
+            };
+            break;
+        case fromProveedores.SEARCH_PROVEEDORES_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                loaded: true,
+                error: null,
+                provedores: [...action.proveedores]
+            };
+            break;
+        case fromProveedores.SEARCH_PROVEEDORES_FAIL:
+            return {
+                ...state,
+                loading: false,
+                loaded: true,
+                error: null,
+                provedores: null
+            };
+            break;
         default:
         return state;
             break;
