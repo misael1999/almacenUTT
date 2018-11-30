@@ -13,7 +13,8 @@ import {
   ModalUsuarioService,
   FacturaService,
   LoginGuard,
-  UsuarioService
+  UsuarioService,
+  ValesalidaService
  } from './service.index';
 
 

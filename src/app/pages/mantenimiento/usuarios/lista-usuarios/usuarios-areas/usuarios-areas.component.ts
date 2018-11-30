@@ -30,4 +30,52 @@ export class UsuariosAreasComponent implements OnInit {
     this.store.dispatch(new fromAreas.LoadAreas());
   }
 
+  public ordenarIdArea() {
+    this.areas.sort((a, b) => {
+      const idA = a.idArea;
+      const idB = b.idArea;
+      if (idA < idB) {
+        return -1;
+      }
+      if (idA > idB) {
+        return 1;
+      }
+      return 0;
+    });
+
+    console.log(this.areas);
+  }
+
+  public ordenarNombre() {
+    this.areas.sort((a, b) => {
+      const idA = a.nombre.toLowerCase;
+      const idB = b.nombre.toLowerCase;
+      if (idA < idB) {
+        return -1;
+      }
+      if (idA > idB) {
+        return 1;
+      }
+      return 0;
+    });
+
+    console.log(this.areas);
+  }
+
+  public ordenarResponsable() {
+    this.areas.sort((a, b) => {
+      const idA = a.responsable.toLowerCase;
+      const idB = b.responsable.toLowerCase;
+      if (idA < idB) {
+        return -1;
+      }
+      if (idA > idB) {
+        return 1;
+      }
+      return 0;
+    });
+
+    console.log(this.areas);
+  }
+
 }

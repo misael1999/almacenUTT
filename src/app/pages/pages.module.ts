@@ -32,6 +32,11 @@ import { ModalUsuarioSistemasComponent } from './mantenimiento/modals/usuarios/m
 // tslint:disable-next-line:max-line-length
 import { ModalActualizarUsuarioComponent } from './mantenimiento/modals/usuarios/modal-actualizar-usuario/modal-actualizar-usuario.component';
 import { CargarFacturaComponent } from './facturas/cargar-factura/cargar-factura.component';
+import { ListaValesComponent } from './vales/lista-vales/lista-vales.component';
+import { ActivosComponent } from './vales/lista-vales/activos/activos.component';
+import { EntregadosComponent } from './vales/lista-vales/entregados/entregados.component';
+import { IngresarValeComponent } from './vales/ingresar-vale/ingresar-vale.component';
+import { DescripcionValeComponent } from './vales/descripcion-vale/descripcion-vale.component';
 
 
 
@@ -59,7 +64,12 @@ import { CargarFacturaComponent } from './facturas/cargar-factura/cargar-factura
         FacturasComponent,
         ModalUsuarioSistemasComponent,
         ModalActualizarUsuarioComponent,
-        CargarFacturaComponent
+        CargarFacturaComponent,
+        ListaValesComponent,
+        ActivosComponent,
+        EntregadosComponent,
+        IngresarValeComponent,
+        DescripcionValeComponent,
     ],
     exports: [
         DashboardComponent,

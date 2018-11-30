@@ -13,6 +13,12 @@ import { ListaUsuariosComponent } from './mantenimiento/usuarios/lista-usuarios/
 import { UsuariosAreasComponent } from './mantenimiento/usuarios/lista-usuarios/usuarios-areas/usuarios-areas.component';
 import { UsuariosSistemaComponent } from './mantenimiento/usuarios/lista-usuarios/usuarios-sistema/usuarios-sistema.component';
 import { CargarFacturaComponent } from './facturas/cargar-factura/cargar-factura.component';
+import { ListaValesComponent } from './vales/lista-vales/lista-vales.component';
+import { ActivosComponent } from './vales/lista-vales/activos/activos.component';
+import { EntregadosComponent } from './vales/lista-vales/entregados/entregados.component';
+import { IngresarValeComponent } from './vales/ingresar-vale/ingresar-vale.component';
+import { DescripcionValeComponent } from './vales/descripcion-vale/descripcion-vale.component';
+
 
 
 // Guards
@@ -27,6 +33,12 @@ const LIST_USUARIOS_ROUTES: Routes = [
   { path: 'area', component: UsuariosAreasComponent, data: {titulo: 'Usuarios'} },
   { path: 'sistema', component: UsuariosSistemaComponent, data: {titulo: 'Usuarios'} },
   { path: '', redirectTo: '/inicio', pathMatch: 'full' }
+];
+
+const LIST_VALES_SALIDA_ROUTES: Routes = [
+  {path: 'activados', component: ActivosComponent, data:{titulo:'ValesSalida'}},
+  {path: 'entregados', component: EntregadosComponent, data: { titulo: 'ValesSalida' }},
+  {path: '', redirectTo: '/inicio', pathMatch: 'full'}
 ];
 
 
@@ -47,6 +59,9 @@ const pagesRoutes: Routes = [
     {path: 'facturas/:folio', component: DescripcionComponent, data: { titulo: 'Descripcion' } },
     {path: 'usuarios', component: ListaUsuariosComponent, children: LIST_USUARIOS_ROUTES, data: { titulo: 'Lista de usuarios' } },
     {path: 'cargar-factura', component: CargarFacturaComponent, data: { titulo: 'Cargar factura' } },
+    {path: 'vales', component: ListaValesComponent, children: LIST_VALES_SALIDA_ROUTES, data: { titulo:'Lista vales de salida' }},
+    {path: 'vales-ingresar', component: IngresarValeComponent, data: { titulo: 'Ingresar vale de salida'}},
+    {path: 'vales/:numero', component: DescripcionValeComponent, data: {titulo: 'Descripcion'}},
     // Mantenimientos
     // {
     //     path: 'usuarios',

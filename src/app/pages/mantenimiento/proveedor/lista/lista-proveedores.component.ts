@@ -7,6 +7,7 @@ import { AppState } from 'src/app/store/app.reducer';
 import * as fromProveedor from '../../../../store/actions';
 import { Usuario } from 'src/app/models/usuario';
 import swal from 'sweetalert2';
+declare function init_factura_inputs();
 
 @Component({
   selector: 'app-lista-proveedores',
@@ -36,7 +37,9 @@ export class ListaProveedorComponent implements OnInit {
         });
     }
 
-  ngOnInit() {}
+  ngOnInit() {
+    init_factura_inputs();
+  }
 
   public abrirModal() {
     this.modalProveedorService.mostrarModal();
@@ -47,12 +50,126 @@ export class ListaProveedorComponent implements OnInit {
     this.modalProveedorActualizarService.mostrarModal();
   }
 
+  public ordenarNombre() {
+    this.proveedores.sort((a, b) => {
+      const nameA = a.nombre.toLowerCase();
+      const nameB = b.nombre.toLowerCase();
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+      return 0;
+    });
+
+    console.log(this.proveedores);
+  }
+
+  public ordenarIdProveedores() {
+    this.proveedores.sort((a, b) => {
+      const idA = a.idProveedor;
+      const idB = b.idProveedor;
+      if (idA < idB) {
+        return -1;
+      }
+      if (idA > idB) {
+        return 1;
+      }
+      return 0;
+    });
+
+    console.log(this.proveedores);
+  }
+
+  public ordenarCalle() {
+    this.proveedores.sort((a, b) => {
+      const idA = a.calle.toLowerCase;
+      const idB = b.calle.toLowerCase;
+      if (idA < idB) {
+        return -1;
+      }
+      if (idA > idB) {
+        return 1;
+      }
+      return 0;
+    });
+
+    console.log(this.proveedores);
+  }
+
+  public ordenarTelefono() {
+    this.proveedores.sort((a, b) => {
+      const idA = a.telefono.toLowerCase;
+      const idB = b.telefono.toLowerCase;
+      if (idA < idB) {
+        return -1;
+      }
+      if (idA > idB) {
+        return 1;
+      }
+      return 0;
+    });
+
+    console.log(this.proveedores);
+  }
+
+  public ordenarRfc() {
+    this.proveedores.sort((a, b) => {
+      const idA = a.rfc.toLowerCase;
+      const idB = b.rfc.toLowerCase;
+      if (idA < idB) {
+        return -1;
+      }
+      if (idA > idB) {
+        return 1;
+      }
+      return 0;
+    });
+
+    console.log(this.proveedores);
+  }
+
+  public ordenarContacto() {
+    this.proveedores.sort((a, b) => {
+      const idA = a.contacto.toLowerCase;
+      const idB = b.contacto.toLowerCase;
+      if (idA < idB) {
+        return -1;
+      }
+      if (idA > idB) {
+        return 1;
+      }
+      return 0;
+    });
+
+    console.log(this.proveedores);
+  }
+
+  public ordenarCorreo() {
+    this.proveedores.sort((a, b) => {
+      const idA = a.correo.toLowerCase;
+      const idB = b.correo.toLowerCase;
+      if (idA < idB) {
+        return -1;
+      }
+      if (idA > idB) {
+        return 1;
+      }
+      return 0;
+    });
+
+    console.log(this.proveedores);
+  }
+
   eliminarProveedor(proveedor: Proveedor) {
     const swalWithBootstrapButtons = swal.mixin({
       confirmButtonClass: 'btn btn-success',
       cancelButtonClass: 'btn btn-danger',
       buttonsStyling: true,
     });
+
+
 
     swalWithBootstrapButtons({
       title: '¿Estas seguro?',

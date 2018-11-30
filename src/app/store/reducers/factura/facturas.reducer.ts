@@ -7,16 +7,16 @@ export interface FacturasState {
     loaded: boolean;
     loading: boolean;
     error: any;
-  }
+}
 
-  const estadoInicial: FacturasState = {
+const estadoInicial: FacturasState = {
     facturas: [],
     loaded: false,
     loading: false,
     error: null,
-  };
+};
 
-  export function facturasReducer(state = estadoInicial, action: fromFacturas.facturasAcciones): FacturasState {
+export function facturasReducer(state = estadoInicial, action: fromFacturas.facturasAcciones): FacturasState {
 
     switch (action.type) {
         // ----  ACCIONES DE FACTURAS EN ALMACEN/ACTIVAS   ---- //
@@ -44,8 +44,8 @@ export interface FacturasState {
                 error: action.payload
             };
             break;
-            // ---- ACCIONES DE FACTURAS ENTREGADAS    ---- //
-            case fromFacturas.LOAD_FACTURAS_ENTREGADAS:
+        // ---- ACCIONES DE FACTURAS ENTREGADAS    ---- //
+        case fromFacturas.LOAD_FACTURAS_ENTREGADAS:
             return {
                 ...state,
                 loading: true
@@ -74,5 +74,5 @@ export interface FacturasState {
             break;
     }
 
-  }
+}
 

@@ -8,17 +8,17 @@ export interface FacturaState {
     loading: boolean;
     error: any;
     mensaje: any;
-  }
+}
 
-  const estadoInicial: FacturaState = {
+const estadoInicial: FacturaState = {
     factura: null,
     loaded: false,
     loading: false,
     error: null,
     mensaje: null
-  };
+};
 
-  export function facturaReducer(state = estadoInicial, action: fromfactura.facturaAcciones): FacturaState {
+export function facturaReducer(state = estadoInicial, action: fromfactura.facturaAcciones): FacturaState {
 
     switch (action.type) {
         case fromfactura.CREATE_FACTURA:
@@ -66,7 +66,7 @@ export interface FacturaState {
                 ...state,
                 loading: false,
                 loaded: true,
-                factura: {...action.factura},
+                factura: { ...action.factura },
                 mensaje: null
             };
             break;
@@ -80,8 +80,8 @@ export interface FacturaState {
             };
             break;
         default:
-        return state;
+            return state;
             break;
     }
 
-  }
+}

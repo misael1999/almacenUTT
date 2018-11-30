@@ -12,6 +12,8 @@ export interface AppState {
     usuarios: reducers.UsuariosState;
     areas: reducers.AreasState;
     ui: reducers.UiState;
+    vale: reducers.ValeState;
+    vales: reducers.ValesState;
 }
 
 export const appReducers: ActionReducerMap<AppState> = {
@@ -24,7 +26,9 @@ export const appReducers: ActionReducerMap<AppState> = {
     usuario: reducers.usuarioReducer,
     usuarios: reducers.usuariosReducer,
     areas: reducers.areasReducer,
-    ui: reducers.uiReducer
+    ui: reducers.uiReducer,
+    vale: reducers.valeReducer,
+    vales: reducers.valesReducer
 };
 
 

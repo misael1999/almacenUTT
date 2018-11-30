@@ -8,4 +8,5 @@ export * from './usuario/usuario.actions';
 export * from './usuario/usuarios.actions';
 export * from './usuario/areas.actions';
 export * from './ui.actions';
-
+export * from './vales/vale.actions';
+export * from './vales/vales.actions';

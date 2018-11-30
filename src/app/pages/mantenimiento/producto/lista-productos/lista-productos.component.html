@@ -3,16 +3,30 @@
         <div class="card">
             <div class="card-body">
 
+                <div class="row">
+                    <div class="col-md-7">
+                        <br>
+                        <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#add-proveedor">Agregar nuevo producto</button>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="floating-labels m-t-20">
+                            <div class="form-group m-b-10">
+                                <input type="text" class="form-control input-sm" id="input9"><span class="bar"></span>
+                                <label for="input9">Buscar Producto</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="table-responsive table-datos">
                     <table id="demo-foo-addrow" class="table m-t-30 table-hover contact-list" data-page-size="10">
                         <thead>
                             <tr>
-                                <th>No</th>
-                                <th>Descripcion</th>
-                                <th>Piezas</th>
-                                <th>Unidad</th>
-                                <th>Precio</th>
-                                <th>Acciones</th>
+                                <th class="cursor" (click)="ordenaridProductos()">No <i class="ti-exchange-vertical cursor" aria-hidden="true"></i></th>
+                                <th class="cursor" (click)="ordenarDescripcion()">Descripción <i class="ti-exchange-vertical cursor" aria-hidden="true"></i></th>
+                                <th class="cursor" (click)="ordenarPiezas()">Piezas <i class="ti-exchange-vertical cursor" aria-hidden="true"></i></th>
+                                <th class="cursor" (click)="ordenarUnidad()">Unidad <i class="ti-exchange-vertical cursor" aria-hidden="true"></i></th>
+                                <th class="cursor" (click)="ordenarPrecio()">Precio <i class="ti-exchange-vertical cursor" aria-hidden="true"></i></th>
+                                <th>Acciones </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -30,7 +44,6 @@
                         </tbody>
                         <tfoot>
                             <tr>
-
                                 <td colspan="7">
                                     <div class="text-right">
                                         <ul class="pagination"> </ul>

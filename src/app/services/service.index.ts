@@ -6,6 +6,7 @@ export { LoginService } from './login/login.service';
 export { ProveedorService } from './proveedor/proveedor.service';
 export { UsuarioService } from './usuario/usuario.service';
 export { LoginGuard } from './guards/login.guard';
+export { ValesalidaService } from './valesalida/valesalida.service';
 // tslint:disable-next-line:max-line-length
 export { ModalProveedorActualizarService } from '../pages/mantenimiento/modals/proveedor/modal-proveedor-actualizar/modal-proveedor-actualizar.service';
 export { ModalUsuarioService } from '../pages/mantenimiento/modals/usuarios/modal-usuario-sistemas/modal-usuario.service';

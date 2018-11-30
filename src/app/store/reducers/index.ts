@@ -8,4 +8,5 @@ export * from './usuario/usuarios.reducer';
 export * from './factura/facturas.reducer';
 export * from './usuario/areas.reducer';
 export * from './ui.reducer';
-
+export * from './vale/vale.reducer';
+export * from './vale/vales.reducer';
