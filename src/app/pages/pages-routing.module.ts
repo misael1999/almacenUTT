@@ -12,6 +12,7 @@ import { DescripcionComponent } from './facturas/descripcion/descripcion.compone
 import { ListaUsuariosComponent } from './mantenimiento/usuarios/lista-usuarios/lista-usuarios.component';
 import { UsuariosAreasComponent } from './mantenimiento/usuarios/lista-usuarios/usuarios-areas/usuarios-areas.component';
 import { UsuariosSistemaComponent } from './mantenimiento/usuarios/lista-usuarios/usuarios-sistema/usuarios-sistema.component';
+import { CargarFacturaComponent } from './facturas/cargar-factura/cargar-factura.component';
 
 
 // Guards
@@ -45,7 +46,7 @@ const pagesRoutes: Routes = [
     {path: 'seguridad', component: SeguridadComponent, data: { titulo: 'Seguridad' } },
     {path: 'facturas/:folio', component: DescripcionComponent, data: { titulo: 'Descripcion' } },
     {path: 'usuarios', component: ListaUsuariosComponent, children: LIST_USUARIOS_ROUTES, data: { titulo: 'Lista de usuarios' } },
-
+    {path: 'cargar-factura', component: CargarFacturaComponent, data: { titulo: 'Cargar factura' } },
     // Mantenimientos
     // {
     //     path: 'usuarios',
