@@ -7,7 +7,7 @@ import { AppState } from 'src/app/store/app.reducer';
 import * as fromProveedor from '../../../../store/actions';
 import { Usuario } from 'src/app/models/usuario';
 import swal from 'sweetalert2';
-declare function init_factura_inputs();
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-lista-proveedores',
@@ -22,11 +22,11 @@ export class ListaProveedorComponent implements OnInit {
   error: any;
   loaded: boolean;
   proveedores: Proveedor[];
+  page = 0;
 
   constructor(private provedorService: ProveedorService,
     private store: Store<AppState>, private modalProveedorService: ModalProveedorService,
-     private modalProveedorActualizarService: ModalProveedorActualizarService) {
-      store.dispatch(new fromProveedor.LoadProveedores());
+     private modalProveedorActualizarService: ModalProveedorActualizarService, private activateRoute: ActivatedRoute) {
       this.store.select('proveedores')
         .subscribe(proveedores => {
           this.proveedores = proveedores.provedores;
@@ -35,10 +35,19 @@ export class ListaProveedorComponent implements OnInit {
           this.error = proveedores.error;
 
         });
+
+        this.activateRoute.params
+          .subscribe(params => {
+               this.page = params['page'];
+               if (this.page === undefined) {
+                   this.page = 0;
+               }
+          });
+
     }
 
   ngOnInit() {
-    init_factura_inputs();
+    this.store.dispatch(new fromProveedor.LoadProveedores(this.page));
   }
 
   public abrirModal() {
@@ -63,7 +72,6 @@ export class ListaProveedorComponent implements OnInit {
       return 0;
     });
 
-    console.log(this.proveedores);
   }
 
   public ordenarIdProveedores() {
@@ -79,13 +87,12 @@ export class ListaProveedorComponent implements OnInit {
       return 0;
     });
 
-    console.log(this.proveedores);
   }
 
   public ordenarCalle() {
     this.proveedores.sort((a, b) => {
-      const idA = a.calle.toLowerCase;
-      const idB = b.calle.toLowerCase;
+      const idA = a.calle.toLowerCase();
+      const idB = b.calle.toLowerCase();
       if (idA < idB) {
         return -1;
       }
@@ -95,13 +102,12 @@ export class ListaProveedorComponent implements OnInit {
       return 0;
     });
 
-    console.log(this.proveedores);
   }
 
   public ordenarTelefono() {
     this.proveedores.sort((a, b) => {
-      const idA = a.telefono.toLowerCase;
-      const idB = b.telefono.toLowerCase;
+      const idA = a.telefono.toLowerCase();
+      const idB = b.telefono.toLowerCase();
       if (idA < idB) {
         return -1;
       }
@@ -111,13 +117,12 @@ export class ListaProveedorComponent implements OnInit {
       return 0;
     });
 
-    console.log(this.proveedores);
   }
 
   public ordenarRfc() {
     this.proveedores.sort((a, b) => {
-      const idA = a.rfc.toLowerCase;
-      const idB = b.rfc.toLowerCase;
+      const idA = a.rfc.toLowerCase();
+      const idB = b.rfc.toLowerCase();
       if (idA < idB) {
         return -1;
       }
@@ -127,13 +132,12 @@ export class ListaProveedorComponent implements OnInit {
       return 0;
     });
 
-    console.log(this.proveedores);
   }
 
   public ordenarContacto() {
     this.proveedores.sort((a, b) => {
-      const idA = a.contacto.toLowerCase;
-      const idB = b.contacto.toLowerCase;
+      const idA = a.contacto.toLowerCase();
+      const idB = b.contacto.toLowerCase();
       if (idA < idB) {
         return -1;
       }
@@ -143,13 +147,12 @@ export class ListaProveedorComponent implements OnInit {
       return 0;
     });
 
-    console.log(this.proveedores);
   }
 
   public ordenarCorreo() {
     this.proveedores.sort((a, b) => {
-      const idA = a.correo.toLowerCase;
-      const idB = b.correo.toLowerCase;
+      const idA = a.correo.toLowerCase();
+      const idB = b.correo.toLowerCase();
       if (idA < idB) {
         return -1;
       }
@@ -159,7 +162,6 @@ export class ListaProveedorComponent implements OnInit {
       return 0;
     });
 
-    console.log(this.proveedores);
   }
 
   eliminarProveedor(proveedor: Proveedor) {

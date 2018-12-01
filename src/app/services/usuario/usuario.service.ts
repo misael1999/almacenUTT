@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { URL_SERVICIOS } from '../../global/config';
 import { Usuario } from '../../models/Usuario';
+import { Area } from '../../models/Area';
 
 @Injectable()
 export class UsuarioService {
@@ -24,6 +25,16 @@ export class UsuarioService {
   public getAreas() {
     const URL = URL_SERVICIOS + '/areas';
     return this.http.get(URL);
+  }
+
+  public createArea(area: Area) {
+    const URL = URL_SERVICIOS + '/areas';
+    return this.http.post(URL, area);
+  }
+
+  public actualizarArea(area: Area) {
+    const URL = URL_SERVICIOS + '/areas';
+    return this.http.patch(URL, area);
   }
 
   public getUsuarios() {

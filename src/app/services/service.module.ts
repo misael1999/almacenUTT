@@ -10,13 +10,14 @@ import {
   ModalProveedorService,
   ModalProveedorActualizarService,
   ModalActualizarUsuarioService,
+  ModalActualizarAreaService,
   ModalUsuarioService,
   FacturaService,
   LoginGuard,
   UsuarioService,
-  ValesalidaService
+  ValesalidaService,
+  ModalAreaService
  } from './service.index';
-
 
 @NgModule({
   imports: [
@@ -34,7 +35,9 @@ import {
     FacturaService,
     LoginGuard,
     UsuarioService,
-    ValesalidaService
+    ValesalidaService,
+    ModalAreaService,
+    ModalActualizarAreaService
     // {
     //   provide: HTTP_INTERCEPTORS,
     //   useClass: AuthInterceptor,

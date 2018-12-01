@@ -37,6 +37,8 @@ import { ActivosComponent } from './vales/lista-vales/activos/activos.component'
 import { EntregadosComponent } from './vales/lista-vales/entregados/entregados.component';
 import { IngresarValeComponent } from './vales/ingresar-vale/ingresar-vale.component';
 import { DescripcionValeComponent } from './vales/descripcion-vale/descripcion-vale.component';
+import { ModalAreaComponent } from './mantenimiento/modals/usuarios/modal-area/modal-area.component';
+import { ModalActualizarAreaComponent } from './mantenimiento/modals/usuarios/modal-actualizar-area/modal-actualizar-area.component';
 
 
 
@@ -70,6 +72,8 @@ import { DescripcionValeComponent } from './vales/descripcion-vale/descripcion-v
         EntregadosComponent,
         IngresarValeComponent,
         DescripcionValeComponent,
+        ModalAreaComponent,
+        ModalActualizarAreaComponent
     ],
     exports: [
         DashboardComponent,
@@ -86,7 +90,6 @@ import { DescripcionValeComponent } from './vales/descripcion-vale/descripcion-v
         HttpClientModule,
         FormsModule,
         ReactiveFormsModule
-
     ]
 })
 export class PagesModule { }

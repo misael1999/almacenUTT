@@ -5,7 +5,7 @@ import { AppState } from 'src/app/store/app.reducer';
 import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
 import * as fromVales from 'src/app/store/actions';
-declare function init_facturas_inputs();
+declare function init_factura_inputs();
 
 
 @Component({
@@ -34,7 +34,7 @@ export class IngresarValeComponent implements OnInit {
   }
 
   ngOnInit() {
-    init_facturas_inputs();
+    init_factura_inputs();
     this.formInformation = new FormGroup({
       numero: new FormControl(null, Validators.required),
       fecha: new FormControl(null, Validators.required),

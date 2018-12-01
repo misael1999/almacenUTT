@@ -14,10 +14,11 @@ export class ProveedoresEffects {
     loadProveedores$ = this.actions$.ofType(proveedoresActions.LOAD_PROVEEDORES)
         .pipe(
             mergeMap(action => {
-                return this.proveedorService.getProveedores()
+                const page = action['page'];
+                return this.proveedorService.getProveedores(page)
                     .pipe(
                        map(data => {
-                            return new proveedoresActions.LoadProveedoresSuccess(data['proveedores']);
+                            return new proveedoresActions.LoadProveedoresSuccess(data['proveedores']['content']);
                        }),
                        catchError(error => {
                             return of(new proveedoresActions.LoadProveedoresFail(error));

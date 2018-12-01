@@ -23,6 +23,7 @@ export class ErrorComponent implements OnInit {
         const errorUsuario = resp.usuario.error;
         const errorAuth = resp.auth.error;
         const errorUi = resp.ui.error;
+        const errorArea = resp.area.error;
 
         if (errorFactura != null) {
           this.error = errorFactura;
@@ -43,6 +44,10 @@ export class ErrorComponent implements OnInit {
         if (errorUi != null) {
             this.error = resp.ui;
             this.cerrarMensaje(new fromMensajes.UiMessageErrorEnd());
+        }
+        if (errorArea != null) {
+            this.error = resp.ui;
+            this.cerrarMensaje(new fromMensajes.CreateAreaEnd());
         }
 
     });

@@ -9,6 +9,7 @@ import { AreasEffects } from './usuario/areas.effects';
 import { UsuariosEffects } from './usuario/usuarios.effects';
 import { ValeEffects } from './vale/vale.effects';
 import { ValesEffects } from './vale/vales.effects';
+import { AreaEffects } from './usuario/area.effects';
 
 export const effectArreglo: any[] = [
     AuthEffects,
@@ -20,6 +21,7 @@ export const effectArreglo: any[] = [
     UsuarioEffects,
     UsuariosEffects,
     AreasEffects,
+    AreaEffects,
     ValeEffects,
     ValesEffects
 ];
@@ -33,6 +35,7 @@ export * from './usuario/usuario.effects';
 export * from './usuario/usuarios.effects';
 export * from './factura/facturas.effects';
 export * from './usuario/areas.effects';
+export * from './usuario/area.effects';
 export * from './vale/vale.effects';
 export * from './vale/vales.effects';
 

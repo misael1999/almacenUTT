@@ -3,9 +3,8 @@ import { Usuario } from '../../../../../models/Usuario';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
 import * as fromUsuarios from '../../../../../store/actions';
-import { ModalUsuarioService } from '../../../../../services/service.index';
+import { ModalUsuarioService, ModalActualizarUsuarioService } from '../../../../../services/service.index';
 import swal from 'sweetalert2';
-import { ModalActualizarUsuarioService } from '../../../modals/usuarios/modal-actualizar-usuario/modal-actualizar-usuario.service';
 
 @Component({
   selector: 'app-usuarios-sistema',

@@ -11,6 +11,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { ErrorComponent } from './mensaje/error/error.component';
 import { SuccessComponent } from './mensaje/success/success.component';
+import { PaginatorComponent } from './paginator/paginator.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { SuccessComponent } from './mensaje/success/success.component';
         NopagefoundComponent,
         ErrorComponent,
         SuccessComponent,
+        PaginatorComponent,
     ],
     exports: [
         NopagefoundComponent,
@@ -34,7 +36,9 @@ import { SuccessComponent } from './mensaje/success/success.component';
         BreadcrumbsComponent,
         NopagefoundComponent,
         ErrorComponent,
-        SuccessComponent
+        SuccessComponent,
+        PaginatorComponent,
+
     ]
 })
 export class SharedModule { }

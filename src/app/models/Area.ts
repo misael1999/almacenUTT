@@ -1,6 +1,7 @@
 export class Area {
     constructor(public nombre: string,
                 public responsable: string,
-                public idArea: string) {}
+                public status: boolean,
+                public idArea?: string) {}
 }
 

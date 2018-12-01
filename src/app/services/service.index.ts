@@ -12,3 +12,5 @@ export { ModalUsuarioService } from '../pages/mantenimiento/modals/usuarios/moda
 // tslint:disable-next-line:max-line-length
 export { ModalActualizarUsuarioService } from '../pages/mantenimiento/modals/usuarios/modal-actualizar-usuario/modal-actualizar-usuario.service';
 export { ValesalidaService } from './valesalida/valesalida.service';
+export { ModalAreaService } from '../pages/mantenimiento/modals/usuarios/modal-area/modal-area.service';
+export { ModalActualizarAreaService } from '../pages/mantenimiento/modals/usuarios/modal-actualizar-area/modal-actualizar-area.service';

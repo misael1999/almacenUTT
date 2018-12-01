@@ -10,7 +10,7 @@ export const SEARCH_PROVEEDORES_FAIL = '[Proveedores] Search Proveedores FAIL';
 
 export class LoadProveedores implements Action {
     readonly type = LOAD_PROVEEDORES;
-    constructor() {}
+    constructor(public page: number) {}
 }
 
 export class LoadProveedoresSuccess implements Action {

@@ -14,8 +14,8 @@ export class ProveedorService {
     return this._http.post(URL, proveedor);
   }
 
-  public getProveedores() {
-    const URL = URL_SERVICIOS + '/proveedores';
+  public getProveedores(page: number) {
+    const URL = URL_SERVICIOS + '/proveedores/page/' + page;
     return this._http.get(URL);
   }
 

@@ -8,13 +8,12 @@
                     <table id="demo-foo-addrow" class="table m-t-30 table-hover contact-list" data-page-size="10">
                         <thead>
                             <tr>
-                                <th class="cursor" (click)="ordenarIdProveedores()">No <i class="ti-exchange-vertical cursor" aria-hidden="true"></i></th>
-                                <th class="cursor" (click)="ordenarNombre()">Nombre <i class="ti-exchange-vertical cursor" aria-hidden="true"></i></th>
-                                <th class="cursor" (click)="ordenarCalle()">Calle <i class="ti-exchange-vertical cursor" aria-hidden="true"></i></th>
-                                <th class="cursor" (click)="ordenarTelefono()">Teléfono <i class="ti-exchange-vertical cursor" aria-hidden="true"></i></th>
-                                <th class="cursor" (click)="ordenarRfc()">RFC <i class="ti-exchange-vertical cursor" aria-hidden="true"></i></th>
-                                <th class="cursor" (click)="ordenarContacto()">Contacto <i class="ti-exchange-vertical cursor" aria-hidden="true"></i></th>
-                                <th class="cursor" (click)="ordenarCorreo()">Correo <i class="ti-exchange-vertical cursor" aria-hidden="true"></i></th>
+                                <th class="cursor">No</th>
+                                <th class="cursor">Nombre</th>
+                                <th class="cursor">Teléfono</th>
+                                <th class="cursor">RFC</th>
+                                <th class="cursor">Contacto</th>
+                                <th class="cursor">Correo</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
@@ -22,7 +21,6 @@
                             <tr *ngFor="let proveedor of proveedores">
                                 <td>{{proveedor.idProveedor}}</td>
                                 <td>{{proveedor.nombre}}</td>
-                                <td>{{proveedor.calle}}</td>
                                 <td><span class="label label-danger">{{proveedor.telefono}}</span> </td>
                                 <td>{{proveedor.rfc}}</td>
                                 <td>{{proveedor.contacto}}</td>
@@ -34,32 +32,14 @@
 
                         </tbody>
                     </table>
-                    <div class="paginador d-flex justify-content-center">
-                        <nav aria-label="...">
-                            <ul class="pagination">
-                                <li class="page-item disabled">
-                                    <a class="page-link" href="#" tabindex="-1">Anterior</a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item active">
-                                    <a class="page-link" href="#">4 <span class="sr-only">(current)</span></a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">Siguiente</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-
                 </div>
+
             </div>
+
         </div>
     </div>
 </div>
-
+<app-paginator></app-paginator>
 <!-- CUADRO DE CARGANDO -->
 
 <div class="row" *ngIf="loading">

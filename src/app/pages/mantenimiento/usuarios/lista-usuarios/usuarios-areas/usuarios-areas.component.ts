@@ -3,6 +3,8 @@ import { Area } from '../../../../../models/Area';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
 import * as fromAreas from '../../../../../store/actions';
+import { ModalAreaService, ModalActualizarAreaService } from '../../../../../services/service.index';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-usuarios-areas',
@@ -16,7 +18,8 @@ export class UsuariosAreasComponent implements OnInit {
   loaded: boolean;
   error: any;
 
-  constructor(private store: Store<AppState>) {
+  constructor(private store: Store<AppState>,
+    private modalAreaService: ModalAreaService, private modalActualizarAreaService: ModalActualizarAreaService) {
     this.store.select('areas')
       .subscribe(areas => {
         this.areas = areas.areas;
@@ -28,6 +31,47 @@ export class UsuariosAreasComponent implements OnInit {
 
   ngOnInit() {
     this.store.dispatch(new fromAreas.LoadAreas());
+  }
+
+  abrirModal() {
+    this.modalAreaService.mostrarModal();
+  }
+
+  actualizarArea(area: Area) {
+    this.store.dispatch(new fromAreas.SelectArea(area));
+    this.modalActualizarAreaService.mostrarModal();
+
+  }
+
+  eliminarArea(area: Area) {
+    const swalWithBootstrapButtons = swal.mixin({
+      confirmButtonClass: 'btn btn-success',
+      cancelButtonClass: 'btn btn-danger',
+      buttonsStyling: true,
+    });
+
+    swalWithBootstrapButtons({
+      title: '¿Estas seguro de eliminar a ' + area.nombre + '?',
+      text: 'No se podra revertir',
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Si, eliminalo!',
+      cancelButtonText: 'No, cancelar!',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.value) {
+        area.status = false;
+        this.store.dispatch(new fromAreas.UpdateArea(area));
+      } else if (
+        result.dismiss === swal.DismissReason.cancel
+      ) {
+        swalWithBootstrapButtons(
+          'Cancelado',
+          'El proveedor ' + area.nombre + ' no ha sido eliminado :)',
+          'error'
+        );
+      }
+    });
   }
 
   public ordenarIdArea() {
@@ -43,7 +87,6 @@ export class UsuariosAreasComponent implements OnInit {
       return 0;
     });
 
-    console.log(this.areas);
   }
 
   public ordenarNombre() {
@@ -59,7 +102,6 @@ export class UsuariosAreasComponent implements OnInit {
       return 0;
     });
 
-    console.log(this.areas);
   }
 
   public ordenarResponsable() {
@@ -75,7 +117,6 @@ export class UsuariosAreasComponent implements OnInit {
       return 0;
     });
 
-    console.log(this.areas);
   }
 
 }

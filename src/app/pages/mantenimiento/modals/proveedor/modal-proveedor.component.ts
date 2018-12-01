@@ -35,7 +35,7 @@ export class ModalProveedorComponent implements OnInit {
           if (this.mensaje != null) {
             this.cerrarModal();
             this.formProveedor.reset();
-            this.store.dispatch(new fromProveedor.LoadProveedores());
+            this.store.dispatch(new fromProveedor.LoadProveedores(undefined));
           }
 
         });
