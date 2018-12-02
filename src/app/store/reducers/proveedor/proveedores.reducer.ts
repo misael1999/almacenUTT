@@ -6,6 +6,7 @@ export interface ProveedoresState {
     loaded: boolean;
     loading: boolean;
     error: any;
+    pageable: any;
   }
 
   const estadoInicial: ProveedoresState = {
@@ -13,6 +14,7 @@ export interface ProveedoresState {
     loaded: false,
     loading: false,
     error: null,
+    pageable: null
   };
 
   export function proveedoresReducer(state = estadoInicial, action: fromProveedores.proveedoresAcciones ): ProveedoresState {
@@ -30,8 +32,18 @@ export interface ProveedoresState {
                 loading: false,
                 loaded: true,
                 error: null,
-                provedores: [...action.proveedores]
-            };
+                provedores: [...action.proveedores],
+                pageable: {
+                    pageable: action.pageable.pageable,
+                    totalPages: action.pageable.totalPages,
+                    totalElements: action.pageable.totalElements,
+                    last: action.pageable.last,
+                    size: action.pageable.size,
+                    number: action.pageable.number,
+                    numberOfElements: action.pageable.numberOfElements,
+                    first: action.pageable.first
+                    }
+                };
             break;
         case fromProveedores.LOAD_PROVEEDORES_FAIL:
             return {
@@ -39,6 +51,15 @@ export interface ProveedoresState {
                 loading: false,
                 loaded: false,
                 error: action.payload,
+                provedores: []
+            };
+            break;
+        case fromProveedores.LOAD_PROVEEDORES_END:
+            return {
+                ...state,
+                loading: false,
+                loaded: false,
+                error: null,
                 provedores: []
             };
             break;

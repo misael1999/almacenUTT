@@ -7,8 +7,13 @@ export class ProductoService {
 
   constructor(private http: HttpClient) { }
 
-  public getProductos() {
-    const URL = URL_SERVICIOS + '/productos';
+  public getProductos(page: number) {
+    const URL = URL_SERVICIOS + '/productos/page/' + page;
+    return this.http.get(URL);
+  }
+
+  public getProductosByDescripcion(descripcion: string) {
+    const URL = URL_SERVICIOS + '/productos/todos/' + descripcion;
     return this.http.get(URL);
   }
 

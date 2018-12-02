@@ -1,28 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ProveedorService, ModalProveedorActualizarService, ModalProveedorService } from 'src/app/services/service.index';
 import { Proveedor } from '../../../../models/Proveedor';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
 import * as fromProveedor from '../../../../store/actions';
-import { Usuario } from 'src/app/models/usuario';
 import swal from 'sweetalert2';
 import { ActivatedRoute } from '@angular/router';
+declare function init_factura_inputs();
 
 @Component({
   selector: 'app-lista-proveedores',
   templateUrl: './lista-proveedores.component.html',
   styles: []
 })
-export class ListaProveedorComponent implements OnInit {
+export class ListaProveedorComponent implements OnInit, OnDestroy {
 
-  // formProveedor: FormGroup;
-  // usuario: Usuario;
   loading: boolean;
   error: any;
   loaded: boolean;
   proveedores: Proveedor[];
   page = 0;
+  pageable: any;
 
   constructor(private provedorService: ProveedorService,
     private store: Store<AppState>, private modalProveedorService: ModalProveedorService,
@@ -33,21 +32,26 @@ export class ListaProveedorComponent implements OnInit {
           this.loaded = proveedores.loaded;
           this.loading = proveedores.loading;
           this.error = proveedores.error;
-
+          this.pageable = proveedores.pageable;
         });
 
         this.activateRoute.params
           .subscribe(params => {
                this.page = params['page'];
-               if (this.page === undefined) {
+               if (this.page === undefined || this.page < 0) {
                    this.page = 0;
                }
+               this.store.dispatch(new fromProveedor.LoadProveedores((this.page - 1)));
           });
 
     }
 
   ngOnInit() {
-    this.store.dispatch(new fromProveedor.LoadProveedores(this.page));
+    init_factura_inputs();
+  }
+
+  ngOnDestroy() {
+    this.store.dispatch(new fromProveedor.LoadProveedoresEnd());
   }
 
   public abrirModal() {
@@ -57,6 +61,10 @@ export class ListaProveedorComponent implements OnInit {
   actualizarProveedor(proveedor: Proveedor) {
     this.store.dispatch(new fromProveedor.SelectProveedor(proveedor));
     this.modalProveedorActualizarService.mostrarModal();
+  }
+
+  buscarProveedor(termino: string) {
+    this.store.dispatch(new fromProveedor.SearchProveedores(termino));
   }
 
   public ordenarNombre() {

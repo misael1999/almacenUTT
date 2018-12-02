@@ -11,7 +11,6 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { ErrorComponent } from './mensaje/error/error.component';
 import { SuccessComponent } from './mensaje/success/success.component';
-import { PaginatorComponent } from './paginator/paginator.component';
 
 
 @NgModule({
@@ -27,7 +26,6 @@ import { PaginatorComponent } from './paginator/paginator.component';
         NopagefoundComponent,
         ErrorComponent,
         SuccessComponent,
-        PaginatorComponent,
     ],
     exports: [
         NopagefoundComponent,
@@ -37,7 +35,6 @@ import { PaginatorComponent } from './paginator/paginator.component';
         NopagefoundComponent,
         ErrorComponent,
         SuccessComponent,
-        PaginatorComponent,
 
     ]
 })

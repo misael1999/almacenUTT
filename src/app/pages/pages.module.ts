@@ -39,6 +39,8 @@ import { IngresarValeComponent } from './vales/ingresar-vale/ingresar-vale.compo
 import { DescripcionValeComponent } from './vales/descripcion-vale/descripcion-vale.component';
 import { ModalAreaComponent } from './mantenimiento/modals/usuarios/modal-area/modal-area.component';
 import { ModalActualizarAreaComponent } from './mantenimiento/modals/usuarios/modal-actualizar-area/modal-actualizar-area.component';
+import { PaginatorComponent } from './mantenimiento/proveedor/lista/paginator/paginator.component';
+import { PaginatorProductoComponent } from './mantenimiento/producto/lista-productos/paginator-producto/paginator-producto.component';
 
 
 
@@ -73,8 +75,10 @@ import { ModalActualizarAreaComponent } from './mantenimiento/modals/usuarios/mo
         IngresarValeComponent,
         DescripcionValeComponent,
         ModalAreaComponent,
-        ModalActualizarAreaComponent
-    ],
+        ModalActualizarAreaComponent,
+        PaginatorComponent,
+        PaginatorProductoComponent
+        ],
     exports: [
         DashboardComponent,
         IngresarComponent,
@@ -84,7 +88,6 @@ import { ModalActualizarAreaComponent } from './mantenimiento/modals/usuarios/mo
     ],
     imports: [
         CommonModule,
-        SharedModule,
         PagesRoutingModule,
         FormsModule,
         HttpClientModule,

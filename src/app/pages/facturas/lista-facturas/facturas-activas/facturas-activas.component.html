@@ -1,12 +1,17 @@
-<div *ngIf="loaded" class="row animated fadeIn">
-    <div class="col-lg-3" *ngFor="let factura of facturas">
-        <div class="card card-factura border mt-3">
+<div *ngIf="loaded" class="row animated fadeIn mt-3">
+    <div class="col-lg-3 col-md-6" *ngFor="let factura of facturas">
+        <div class="card card-inverse" style="background-color: #333; border-color: #333;">
+            <div class="card-header">
+                <h4 class="m-b-0 text-white">Folio: <span class="label label-warning"> {{factura.folio | uppercase}}</span></h4>
+            </div>
             <div class="card-body">
-                <h4 class="card-title">Folio {{factura.folio}}</h4>
-                <p>Proveedor: {{factura.proveedor.nombre}}</p>
-                <p>Total productos: {{factura.items.length}}</p>
-                <p>Elaborado: {{factura.fechaCreacion | date}}</p>
-                <a [routerLink]="['/facturas', factura.folio]" class="btn btn-primary btn-sm mt-1">Ver factura</a>
+                <h5>Proveedor: {{factura.proveedor.nombre}}</h5>
+                <p class="card-text">Total de productos: {{factura.items.length}}</p>
+                <p> Elaborado: <span class="label label-info"> {{factura.fechaCreacion | date}}</span> </p>
+            </div>
+            <div class="card-footer">
+                <a [routerLink]="['/facturas', factura.folio]" class="btn btn-inverse">Ver factura </a>
+
             </div>
         </div>
     </div>

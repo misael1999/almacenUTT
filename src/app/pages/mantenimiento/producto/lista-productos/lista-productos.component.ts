@@ -3,6 +3,7 @@ import { Producto } from '../../../../models/Producto';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
 import * as fromProductos from '../../../../store/actions';
+import { ActivatedRoute } from '@angular/router';
 declare function init_factura_inputs();
 
 @Component({
@@ -15,19 +16,38 @@ export class ListaProductosComponent implements OnInit {
   loading: boolean;
   loaded: boolean;
   error: any;
+  page = 0;
+  pageable: any;
 
-  constructor(private store: Store<AppState>) {
+  constructor(private store: Store<AppState>, private activatedRoute: ActivatedRoute) {
     this.store.select('productos').subscribe(productos => {
       this.productos = productos.productos;
       this.loading = productos.loading;
       this.loaded = productos.loaded;
       this.error = productos.error;
+      this.pageable = productos.pageable;
     });
+
+    this.activatedRoute.params
+      .subscribe(params => {
+        this.page = params['page'];
+        if (this.page === undefined || this.page < 0) {
+          this.page = 0;
+        }
+        this.store.dispatch(new fromProductos.LoadProductos(this.page - 1));
+      });
   }
 
   ngOnInit() {
     init_factura_inputs();
-    this.store.dispatch(new fromProductos.LoadProductos());
+  }
+
+  buscarProducto(termino: string) {
+    if (termino.length === 0) {
+      this.store.dispatch(new fromProductos.LoadProductos(this.page - 1));
+      return;
+    }
+    this.store.dispatch(new fromProductos.SearchProductos(termino));
   }
 
   public ordenaridProductos() {
@@ -43,13 +63,12 @@ export class ListaProductosComponent implements OnInit {
       return 0;
     });
 
-    console.log(this.productos);
   }
 
   public ordenarDescripcion() {
     this.productos.sort((a, b) => {
-      const idA = a.descripcion.toLowerCase;
-      const idB = b.descripcion.toLowerCase;
+      const idA = a.descripcion.toLowerCase();
+      const idB = b.descripcion.toLowerCase();
       if (idA < idB) {
         return -1;
       }
@@ -59,13 +78,12 @@ export class ListaProductosComponent implements OnInit {
       return 0;
     });
 
-    console.log(this.productos);
   }
 
   public ordenarPiezas() {
     this.productos.sort((a, b) => {
-      const idA = a.cantidad.toLowerCase;
-      const idB = b.cantidad.toLowerCase;
+      const idA = a.cantidad;
+      const idB = b.cantidad;
       if (idA < idB) {
         return -1;
       }
@@ -75,13 +93,12 @@ export class ListaProductosComponent implements OnInit {
       return 0;
     });
 
-    console.log(this.productos);
   }
 
   public ordenarUnidad() {
     this.productos.sort((a, b) => {
-      const idA = a.unidad.toLowerCase;
-      const idB = b.unidad.toLowerCase;
+      const idA = a.unidad.toLowerCase();
+      const idB = b.unidad.toLowerCase();
       if (idA < idB) {
         return -1;
       }
@@ -91,7 +108,6 @@ export class ListaProductosComponent implements OnInit {
       return 0;
     });
 
-    console.log(this.productos);
   }
 
   public ordenarPrecio() {
@@ -107,6 +123,5 @@ export class ListaProductosComponent implements OnInit {
       return 0;
     });
 
-    console.log(this.productos);
   }
 }

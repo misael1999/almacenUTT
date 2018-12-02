@@ -3,6 +3,7 @@ import { Proveedor } from '../../../models/Proveedor';
 export const LOAD_PROVEEDORES = '[Proveedores] Load proveedores';
 export const LOAD_PROVEEDORES_SUCCESS = '[Proveedores] Load proveedores SUCCESS';
 export const LOAD_PROVEEDORES_FAIL = '[Proveedores] Load Proveedores FAIL';
+export const LOAD_PROVEEDORES_END = '[Proveedores] Load Proveedores end';
 
 export const SEARCH_PROVEEDORES = '[Proveedores] Search proveedores';
 export const SEARCH_PROVEEDORES_SUCCESS = '[Proveedores] Search proveedores SUCCESS';
@@ -15,12 +16,17 @@ export class LoadProveedores implements Action {
 
 export class LoadProveedoresSuccess implements Action {
     readonly type = LOAD_PROVEEDORES_SUCCESS;
-    constructor(public proveedores: Proveedor[]) {}
+    constructor(public proveedores: Proveedor[], public pageable: any) {}
 }
 
 export class LoadProveedoresFail implements Action {
     readonly type = LOAD_PROVEEDORES_FAIL;
     constructor(public payload: any) {}
+}
+
+export class LoadProveedoresEnd implements Action {
+    readonly type = LOAD_PROVEEDORES_END;
+    constructor() {}
 }
 
 // ----  BUSCAR PROVEEDORES   ---- //
@@ -44,6 +50,7 @@ export class SearchProveedoresFail implements Action {
 export type proveedoresAcciones = LoadProveedores |
                                 LoadProveedoresSuccess |
                                 LoadProveedoresFail |
+                                LoadProveedoresEnd |
                                 SearchProveedores |
                                 SearchProveedoresSuccess |
                                 SearchProveedoresFail;

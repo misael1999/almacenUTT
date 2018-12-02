@@ -5,7 +5,6 @@ import { map, switchMap, catchError } from 'rxjs/operators';
 import {ProveedorService } from 'src/app/services/service.index';
 import { of } from 'rxjs';
 import { ProductoService } from '../../../services/producto/producto.service';
-import { LoadProductosSuccess } from '../../actions/producto/productos.actions';
 
 
 @Injectable()
@@ -16,13 +15,29 @@ export class ProductosEffects {
     loadProductos$ = this.actions$.ofType(productosActions.LOAD_PRODUCTOS)
         .pipe(
             switchMap(action => {
-                return this.productoService.getProductos()
+                return this.productoService.getProductos(action['page'])
                     .pipe(
                        map(data => {
-                            return new productosActions.LoadProductosSuccess(data['productos']);
+                            return new productosActions.LoadProductosSuccess(data['productos']['content'], data['productos']);
                        }),
                        catchError(error => {
                             return of(new productosActions.LoadProductosFail(error));
+                       })
+                    );
+            })
+        );
+
+    @Effect()
+    SerachProductos$ = this.actions$.ofType(productosActions.SEARCH_PRODUCTOS)
+        .pipe(
+            switchMap(action => {
+                return this.productoService.getProductosByDescripcion(action['termino'])
+                    .pipe(
+                       map(data => {
+                            return new productosActions.SearchProductosSuccess(data['productos']);
+                       }),
+                       catchError(error => {
+                            return of(new productosActions.SearchProductosFail(error));
                        })
                     );
             })

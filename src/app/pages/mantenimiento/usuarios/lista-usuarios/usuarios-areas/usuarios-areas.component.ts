@@ -91,8 +91,8 @@ export class UsuariosAreasComponent implements OnInit {
 
   public ordenarNombre() {
     this.areas.sort((a, b) => {
-      const idA = a.nombre.toLowerCase;
-      const idB = b.nombre.toLowerCase;
+      const idA = a.nombre.toLowerCase();
+      const idB = b.nombre.toLowerCase();
       if (idA < idB) {
         return -1;
       }
@@ -106,8 +106,8 @@ export class UsuariosAreasComponent implements OnInit {
 
   public ordenarResponsable() {
     this.areas.sort((a, b) => {
-      const idA = a.responsable.toLowerCase;
-      const idB = b.responsable.toLowerCase;
+      const idA = a.responsable.toLowerCase();
+      const idB = b.responsable.toLowerCase();
       if (idA < idB) {
         return -1;
       }

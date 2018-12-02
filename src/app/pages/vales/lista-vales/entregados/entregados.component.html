@@ -2,15 +2,20 @@
     <i class="fa fa-spinner fa-spin fa-3x"></i>
 </div>
 
-<div *ngIf="loaded" class="row animated fadeIn">
-    <div class="col-md-3" *ngFor="let vale of vales">
-        <div class="card card-factura border mt-3">
-            <div class="card-body">
-                <h4 class="card-title">Número de Requisición {{vale.numeroRequisicion}}</h4>
-                <p>Área solicitante: {{vale.area.nombre}}</p>
-                <p>Responsable: {{vale.area.responsable}}</p>
-                <p>Elaborado: {{vale.fechaEntrega | date}}</p>
-                <a [routerLink]="['/vales', vale.numeroRequisicion]" class="btn btn-danger btn-sm mt-1">Ver vale de salida</a>
+<div *ngIf="loaded" class="row animated fadeIn mt-3">
+    <div class="col-lg-3 col-md-6" *ngFor="let vale of vales">
+        <div class="card card-info card-vale">
+            <div class="card-header">
+                <h4 class="m-b-0 text-white">No° requisicion: <span class="label label-warning"> {{vale.numeroRequisicion}}</span></h4>
+            </div>
+            <div class="card-body text-white">
+                <p>Área: <span class="label label-danger">{{vale.area.nombre}}</span></p>
+                <p>Responsable: <span class="label label-danger">{{vale.area.responsable}}</span></p>
+                <p>Elaborado: <span class="label label-danger">{{vale.fechaEntrega | date}}</span></p>
+
+            </div>
+            <div class="card-footer">
+                <a [routerLink]="['/vales', vale.numeroRequisicion]" class="btn btn-inverse">Ver vale </a>
             </div>
         </div>
     </div>

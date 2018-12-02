@@ -18,7 +18,8 @@ export class ProveedoresEffects {
                 return this.proveedorService.getProveedores(page)
                     .pipe(
                        map(data => {
-                            return new proveedoresActions.LoadProveedoresSuccess(data['proveedores']['content']);
+                            // tslint:disable-next-line:max-line-length
+                            return new proveedoresActions.LoadProveedoresSuccess(data['proveedores']['content'], data['proveedores']);
                        }),
                        catchError(error => {
                             return of(new proveedoresActions.LoadProveedoresFail(error));

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 import { Proveedor } from '../../../models/Proveedor';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
@@ -14,7 +14,7 @@ declare function init_factura_inputs();
   selector: 'app-ingresar',
   templateUrl: './ingresar.component.html'
 })
-export class IngresarComponent implements OnInit {
+export class IngresarComponent implements OnInit, OnDestroy {
 
   proveedores: Proveedor[];
   loading: boolean;
@@ -58,6 +58,10 @@ export class IngresarComponent implements OnInit {
       cantidad: new FormControl(null, Validators.required),
       precio: new FormControl(null)
     });
+  }
+
+  ngOnDestroy() {
+    this.store.dispatch(new fromFactura.LoadProveedoresEnd());
   }
 
   colocarText(proveedor: Proveedor) {

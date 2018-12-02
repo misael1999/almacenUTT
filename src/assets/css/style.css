@@ -8005,36 +8005,9 @@ File: scss
     background-color: #134a66;
 }
 
-.card-factura {
-    height: 250px;
-    width: 200px;
-    max-width: 200px;
-    max-height: 250px;
-    border: 1px solid #f2f2f2;
-}
-
-
-/* .card-factura img {
-    height: 100px;
-    width: 75px;
-} */
-
-.card-factura .box-img {
-    display: flex;
-    justify-content: center;
-    overflow: hidden;
-    height: 200px;
-}
-
-.card-factura .card-body h4 {
-    margin: 5px 0;
-    padding: 0;
-}
-
-.card-factura .card-body p {
-    font-size: 80%;
-    margin: 2px;
-    padding: 0;
+.card-vale {
+    max-height: 326px;
+    min-height: 326px;
 }
 
 .typehead-proveedores {

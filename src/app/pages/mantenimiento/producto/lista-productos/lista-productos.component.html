@@ -1,58 +1,46 @@
-<div class="row">
+<div class="row" *ngIf="loaded">
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-
                 <div class="row">
-                    <div class="col-md-7">
-                        <br>
-                        <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#add-proveedor">Agregar nuevo producto</button>
+                    <div class="col-md-5 mb-3">
+                        <form class="form-material">
+                            <div class="form-group">
+                                <input #txtBuscar (keyup)="buscarProducto(txtBuscar.value)" type="text" id="example-email2" name="example-email" class="form-control" placeholder="Buscar producto"> </div>
+                        </form>
                     </div>
-                    <div class="col-md-5">
-                        <div class="floating-labels m-t-20">
-                            <div class="form-group m-b-10">
-                                <input type="text" class="form-control input-sm" id="input9"><span class="bar"></span>
-                                <label for="input9">Buscar Producto</label>
-                            </div>
+                </div>
+                <div class="row" *ngIf="loaded && productos.length == 0">
+                    <div class="col-lg-12">
+                        <div class="alert alert-info" role="alert">
+                            <h4 class="alert-heading">No se encontraron productos</h4>
                         </div>
                     </div>
                 </div>
-                <div class="table-responsive table-datos">
-                    <table id="demo-foo-addrow" class="table m-t-30 table-hover contact-list" data-page-size="10">
+                <div *ngIf="loaded && productos.length > 0" class="table-responsive">
+                    <table class="table table-hover">
                         <thead>
                             <tr>
                                 <th class="cursor" (click)="ordenaridProductos()">No <i class="ti-exchange-vertical cursor" aria-hidden="true"></i></th>
+                                <th class="cursor" (click)="ordenaridProductos()">Clave <i class="ti-exchange-vertical cursor" aria-hidden="true"></i></th>
                                 <th class="cursor" (click)="ordenarDescripcion()">Descripción <i class="ti-exchange-vertical cursor" aria-hidden="true"></i></th>
                                 <th class="cursor" (click)="ordenarPiezas()">Piezas <i class="ti-exchange-vertical cursor" aria-hidden="true"></i></th>
                                 <th class="cursor" (click)="ordenarUnidad()">Unidad <i class="ti-exchange-vertical cursor" aria-hidden="true"></i></th>
                                 <th class="cursor" (click)="ordenarPrecio()">Precio <i class="ti-exchange-vertical cursor" aria-hidden="true"></i></th>
-                                <th>Acciones </th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr *ngFor="let producto of productos">
                                 <td>{{producto.idProducto}}</td>
+                                <td>{{producto.clave}}</td>
                                 <td>{{producto.descripcion}}</td>
                                 <td>{{producto.cantidad}}</td>
                                 <td><span class="label label-danger">{{producto.unidad}}</span></td>
                                 <td>{{producto.precio}}</td>
-                                <td>
-                                    <button type="button" class="btn btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Eliminar"><i class="ti-trash" aria-hidden="true"></i></button>
-                                    <button type="button" class="btn btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Editar"><i class="ti-pencil-alt" aria-hidden="true"></i></button>
-                                </td>
                             </tr>
                         </tbody>
-                        <tfoot>
-                            <tr>
-                                <td colspan="7">
-                                    <div class="text-right">
-                                        <ul class="pagination"> </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tfoot>
                     </table>
-                    <app-paginator></app-paginator>
+                    <app-paginator-producto *ngIf="pageable != null" [paginador]="pageable"></app-paginator-producto>
                 </div>
             </div>
         </div>

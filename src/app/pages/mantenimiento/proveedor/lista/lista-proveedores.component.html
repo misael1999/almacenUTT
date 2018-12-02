@@ -1,19 +1,35 @@
 <div class="row" *ngIf="loaded">
-    <div class="col-12">
+    <div class="col-lg-12">
         <div class="card">
             <div class="card-body">
-                <button (click)="abrirModal()" type="button" class="btn btn-info btn-rounded pull-left">Agregar nuevo proveedor</button>
+                <div class="row">
+                    <div class="col-md-7 mb-3">
+                        <button (click)="abrirModal()" type="button" class="btn btn-info btn-rounded">Nuevo proveedor <i class="fa fa-plus ml-1"></i></button>
+                    </div>
+                    <div class="col-md-5 mb-3">
+                        <form class="form-material">
+                            <div class="form-group">
+                                <input #txtBuscar (keyup)="buscarProveedor(txtBuscar.value)" type="text" id="example-email2" name="example-email" class="form-control" placeholder="Buscar proveedor"> </div>
+                        </form>
+                    </div>
+                </div>
 
-                <div class="table-responsive table-datos">
-                    <table id="demo-foo-addrow" class="table m-t-30 table-hover contact-list" data-page-size="10">
+                <div class="row" *ngIf="loaded && proveedores.length == 0">
+                    <div class="col-lg-12">
+                        <div class="alert alert-info" role="alert">
+                            <h4 class="alert-heading">No se encontraron proveedores</h4>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="loaded && proveedores.length > 0" class="table-responsive">
+                    <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th class="cursor">No</th>
-                                <th class="cursor">Nombre</th>
-                                <th class="cursor">Teléfono</th>
-                                <th class="cursor">RFC</th>
-                                <th class="cursor">Contacto</th>
-                                <th class="cursor">Correo</th>
+                                <th class="cursor" (click)="ordenarIdProveedores()">No <i class="ti-exchange-vertical cursor" aria-hidden="true"></i></th>
+                                <th class="cursor" (click)="ordenarNombre()">Nombre <i class="ti-exchange-vertical cursor" aria-hidden="true"></i></th>
+                                <th class="cursor" (click)="ordenarTelefono()">Teléfono <i class="ti-exchange-vertical cursor" aria-hidden="true"></i></th>
+                                <th class="cursor" (click)="ordenarContacto()">Contacto <i class="ti-exchange-vertical cursor" aria-hidden="true"></i></th>
+                                <th class="cursor" (click)="ordenarCorreo()">Correo <i class="ti-exchange-vertical cursor" aria-hidden="true"></i></th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
@@ -22,7 +38,6 @@
                                 <td>{{proveedor.idProveedor}}</td>
                                 <td>{{proveedor.nombre}}</td>
                                 <td><span class="label label-danger">{{proveedor.telefono}}</span> </td>
-                                <td>{{proveedor.rfc}}</td>
                                 <td>{{proveedor.contacto}}</td>
                                 <td>{{proveedor.correo}}</td>
                                 <td>
@@ -32,14 +47,12 @@
 
                         </tbody>
                     </table>
+                    <app-paginator *ngIf="pageable != null" [paginador]="pageable"></app-paginator>
                 </div>
-
             </div>
-
         </div>
     </div>
 </div>
-<app-paginator></app-paginator>
 <!-- CUADRO DE CARGANDO -->
 
 <div class="row" *ngIf="loading">
@@ -63,5 +76,7 @@
         </div>
     </div>
 </div>
+
+
 <app-modal-proveedor></app-modal-proveedor>
 <app-modal-proveedor-actualizar></app-modal-proveedor-actualizar>

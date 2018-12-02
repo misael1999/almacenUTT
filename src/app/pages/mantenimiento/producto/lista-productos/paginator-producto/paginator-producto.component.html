@@ -1,0 +1,9 @@
+<div class="w-100 d-flex justify-content-center">
+    <ul class="pagination modal-2">
+        <li><a *ngIf="!pageable.first" class="prev" [routerLink]="['/productos/page', (pageable.pageable.pageNumber + 1) - 1]"> &laquo; </a></li>
+        <li><a [routerLink]="['/productos/page', 1]">primera</a></li>
+        <li><a routerLinkActive="active" [routerLink]="['/productos/page', page]" *ngFor="let page of totalPages">{{page}}</a></li>
+        <li><a [routerLink]="['/productos/page', pageable.totalPages]">ultima</a></li>
+        <li><a *ngIf="!pageable.last" class="next" [routerLink]="['/productos/page', (pageable.pageable.pageNumber + 1) + 1]">  &raquo;</a></li>
+    </ul>
+</div>
