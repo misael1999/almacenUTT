@@ -14,18 +14,18 @@ export class FacturaService {
     return this.http.post(URL, factura);
   }
 
-  public getFacturasActivas() {
-    const URL = URL_SERVICIOS + '/facturas';
+  public getFacturasActivas(page: number) {
+    const URL = URL_SERVICIOS + '/facturas/page/' + page;
     return this.http.get(URL);
   }
 
-  public getFacturasEntregadas() {
-    const URL = URL_SERVICIOS + '/facturas?entregadas=si';
+  public getFacturasEntregadas(page: number) {
+    const URL = URL_SERVICIOS + '/facturas/page/' + page + '?entregadas=si';
     return this.http.get(URL);
   }
 
   public getFacturaByFolio(folioFactura: number) {
-    const URL = URL_SERVICIOS + '/facturas?folio=' + folioFactura;
+    const URL = URL_SERVICIOS + '/facturas/' + folioFactura;
     return this.http.get(URL);
   }
 

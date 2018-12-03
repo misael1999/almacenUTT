@@ -15,10 +15,10 @@ export class FacturasEffects {
     loadFacturasActivas$ = this.actions$.ofType(facturasActions.LOAD_FACTURAS_ACTIVAS)
         .pipe(
             mergeMap(action => {
-                return this.facturaService.getFacturasActivas()
+                return this.facturaService.getFacturasActivas(action['page'])
                     .pipe(
                        map(data => {
-                            return new facturasActions.LoadFacturasActivasSuccess(data['facturas']);
+                            return new facturasActions.LoadFacturasActivasSuccess(data['facturas']['content'], data['facturas']);
                        }),
                        catchError(error => {
                             return of(new facturasActions.LoadFacturasActivasFail(error));
@@ -32,10 +32,10 @@ export class FacturasEffects {
     loadFacturasEntregadas$ = this.actions$.ofType(facturasActions.LOAD_FACTURAS_ENTREGADAS)
         .pipe(
             mergeMap(action => {
-                return this.facturaService.getFacturasEntregadas()
+                return this.facturaService.getFacturasEntregadas(action['page'])
                     .pipe(
                         map(data => {
-                            return new facturasActions.LoadFacturasEntregadasSuccess(data['facturas']);
+                            return new facturasActions.LoadFacturasEntregadasSuccess(data['facturas']['content'], data['facturas']);
                         }),
                         catchError(error => {
                             return of(new facturasActions.LoadFacturasEntregadasFail(error));

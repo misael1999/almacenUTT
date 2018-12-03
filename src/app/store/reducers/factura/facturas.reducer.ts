@@ -7,6 +7,7 @@ export interface FacturasState {
     loaded: boolean;
     loading: boolean;
     error: any;
+    pageable: any;
 }
 
 const estadoInicial: FacturasState = {
@@ -14,6 +15,7 @@ const estadoInicial: FacturasState = {
     loaded: false,
     loading: false,
     error: null,
+    pageable: null
 };
 
 export function facturasReducer(state = estadoInicial, action: fromFacturas.facturasAcciones): FacturasState {
@@ -32,7 +34,17 @@ export function facturasReducer(state = estadoInicial, action: fromFacturas.fact
                 loading: false,
                 loaded: true,
                 facturas: action.facturas,
-                error: null
+                error: null,
+                pageable: {
+                    pageable: action.pageable.pageable,
+                    totalPages: action.pageable.totalPages,
+                    totalElements: action.pageable.totalElements,
+                    last: action.pageable.last,
+                    size: action.pageable.size,
+                    number: action.pageable.number,
+                    numberOfElements: action.pageable.numberOfElements,
+                    first: action.pageable.first
+                    }
             };
             break;
         case fromFacturas.LOAD_FACTURAS_ACTIVAS_FAIL:
@@ -57,7 +69,17 @@ export function facturasReducer(state = estadoInicial, action: fromFacturas.fact
                 loading: false,
                 loaded: true,
                 facturas: action.facturas,
-                error: null
+                error: null,
+                pageable: {
+                    pageable: action.pageable.pageable,
+                    totalPages: action.pageable.totalPages,
+                    totalElements: action.pageable.totalElements,
+                    last: action.pageable.last,
+                    size: action.pageable.size,
+                    number: action.pageable.number,
+                    numberOfElements: action.pageable.numberOfElements,
+                    first: action.pageable.first
+                    }
             };
             break;
         case fromFacturas.LOAD_FACTURAS_ENTREGADAS_FAIL:

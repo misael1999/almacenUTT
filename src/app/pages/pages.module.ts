@@ -27,7 +27,6 @@ import { ListaUsuariosComponent } from './mantenimiento/usuarios/lista-usuarios/
 import { DescripcionComponent } from './facturas/descripcion/descripcion.component';
 import { UsuariosAreasComponent } from './mantenimiento/usuarios/lista-usuarios/usuarios-areas/usuarios-areas.component';
 import { UsuariosSistemaComponent } from './mantenimiento/usuarios/lista-usuarios/usuarios-sistema/usuarios-sistema.component';
-import { FacturasComponent } from './facturas/facturas.component';
 import { ModalUsuarioSistemasComponent } from './mantenimiento/modals/usuarios/modal-usuario-sistemas/modal-usuario-sistemas.component';
 // tslint:disable-next-line:max-line-length
 import { ModalActualizarUsuarioComponent } from './mantenimiento/modals/usuarios/modal-actualizar-usuario/modal-actualizar-usuario.component';
@@ -41,6 +40,10 @@ import { ModalAreaComponent } from './mantenimiento/modals/usuarios/modal-area/m
 import { ModalActualizarAreaComponent } from './mantenimiento/modals/usuarios/modal-actualizar-area/modal-actualizar-area.component';
 import { PaginatorComponent } from './mantenimiento/proveedor/lista/paginator/paginator.component';
 import { PaginatorProductoComponent } from './mantenimiento/producto/lista-productos/paginator-producto/paginator-producto.component';
+// tslint:disable-next-line:max-line-length
+import { PaginatorFacturaActivasComponent } from './facturas/lista-facturas/facturas-activas/paginator-factura-activas/paginator-factura-activas.component';
+// tslint:disable-next-line:max-line-length
+import { PaginatorFacturaEntregadasComponent } from './facturas/lista-facturas/facturas-entregadas/paginator-factura-entregadas/paginator-factura-entregadas.component';
 
 
 
@@ -65,7 +68,6 @@ import { PaginatorProductoComponent } from './mantenimiento/producto/lista-produ
         DescripcionComponent,
         UsuariosAreasComponent,
         UsuariosSistemaComponent,
-        FacturasComponent,
         ModalUsuarioSistemasComponent,
         ModalActualizarUsuarioComponent,
         CargarFacturaComponent,
@@ -77,7 +79,9 @@ import { PaginatorProductoComponent } from './mantenimiento/producto/lista-produ
         ModalAreaComponent,
         ModalActualizarAreaComponent,
         PaginatorComponent,
-        PaginatorProductoComponent
+        PaginatorProductoComponent,
+        PaginatorFacturaActivasComponent,
+        PaginatorFacturaEntregadasComponent
         ],
     exports: [
         DashboardComponent,

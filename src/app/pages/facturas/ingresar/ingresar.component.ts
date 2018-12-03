@@ -8,6 +8,7 @@ import { Producto } from '../../../models/Producto';
 import { Factura } from '../../../models/Factura';
 import { Router } from '@angular/router';
 import { Mensaje } from '../../../models/Mensaje';
+import { filter } from 'rxjs/operators';
 declare function init_factura_inputs();
 
 @Component({
@@ -76,6 +77,12 @@ export class IngresarComponent implements OnInit, OnDestroy {
       return;
     }
     this.store.dispatch(new fromFactura.SearchProveedores(termino));
+  }
+
+  eliminarProducto(producto: Producto) {
+    this.productos = this.productos.filter((p) => {
+      return producto.clave !== p.producto.clave;
+    });
   }
 
 

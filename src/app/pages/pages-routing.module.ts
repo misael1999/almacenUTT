@@ -24,8 +24,8 @@ import { DescripcionValeComponent } from './vales/descripcion-vale/descripcion-v
 // Guards
 
 const LIST_FACTURAS_ROUTES: Routes = [
-  { path: 'entregadas', component: FacturasEntregadasComponent, data: {titulo: 'Facturas'} },
-  { path: 'almacen', component: FacturasActivasComponent, data: {titulo: 'Facturas'} },
+  { path: 'entregadas/page/:page', component: FacturasEntregadasComponent, data: {titulo: 'Facturas'} },
+  { path: 'almacen/page/:page', component: FacturasActivasComponent, data: {titulo: 'Facturas'} },
   { path: '', redirectTo: '/inicio', pathMatch: 'full' }
 ];
 

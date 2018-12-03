@@ -10,12 +10,12 @@ export const LOAD_FACTURAS_ENTREGADAS_FAIL = '[Facturas] load facturas entregada
 
 export class LoadFacturasActivas implements Action {
     readonly type = LOAD_FACTURAS_ACTIVAS;
-    constructor() {}
+    constructor(public page: number) {}
 }
 
 export class LoadFacturasActivasSuccess implements Action {
     readonly type = LOAD_FACTURAS_ACTIVAS_SUCCESS;
-    constructor(public facturas: Factura[]) {}
+    constructor(public facturas: Factura[], public pageable: any) {}
 }
 
 export class LoadFacturasActivasFail implements Action {
@@ -25,12 +25,12 @@ export class LoadFacturasActivasFail implements Action {
 
 export class LoadFacturasEntregadas implements Action {
     readonly type = LOAD_FACTURAS_ENTREGADAS;
-    constructor() {}
+    constructor(public page: number) {}
 }
 
 export class LoadFacturasEntregadasSuccess implements Action {
     readonly type = LOAD_FACTURAS_ENTREGADAS_SUCCESS;
-    constructor(public facturas: Factura[]) {}
+    constructor(public facturas: Factura[], public pageable: any) {}
 }
 
 export class LoadFacturasEntregadasFail implements Action {

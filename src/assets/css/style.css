@@ -7985,6 +7985,13 @@ File: scss
     display: none;
 }
 
+.card-factura {
+    max-height: 283px;
+    min-height: 283px;
+    max-width: 232px;
+    min-width: 232px;
+}
+
 .fondo-negro {
     background-color: rgba( 0, 0, 0, 0.4);
     position: fixed;
@@ -8074,4 +8081,9 @@ File: scss
 
 .error-campos span.help-block {
     color: #f5492a;
+}
+
+.activo {
+    background: rgb(235, 223, 223);
+    color: #fff;
 }
