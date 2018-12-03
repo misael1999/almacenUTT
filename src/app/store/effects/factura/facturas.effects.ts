@@ -4,7 +4,6 @@ import * as facturasActions from '../../actions';
 import { map, catchError, mergeMap } from 'rxjs/operators';
 import {FacturaService } from 'src/app/services/service.index';
 import { of } from 'rxjs';
-import { LOAD_FACTURAS_ENTREGADAS } from '../../actions/factura/facturas.actions';
 
 
 @Injectable()
@@ -43,6 +42,23 @@ export class FacturasEffects {
                     );
             })
         );
+
+
+    @Effect()
+        searchFacturas$ = this.actions$.ofType(facturasActions.SEARCH_FACTURAS)
+            .pipe(
+                mergeMap(action => {
+                    return this.facturaService.getFacturaLikeTermino(action['termino'])
+                        .pipe(
+                            map(data => {
+                                return new facturasActions.SearchFacturasSuccess(data['facturas']);
+                            }),
+                            catchError(error => {
+                                return of(new facturasActions.SearchFacturasFail(error));
+                            })
+                        );
+                })
+            );
 
 }
 

@@ -16,7 +16,9 @@ export function uiReducer(state = estadoInicial, action: fromUi.uiAcciones): UiS
         case fromUi.UI_MESSAGE_SUCCESS:
             return {
                 ...state,
-                mensaje: action.payload.mensaje
+                mensaje: {
+                    mensaje: action.payload.mensaje
+                }
             };
             break;
         case fromUi.UI_MESSAGE_SUCCESS_END:

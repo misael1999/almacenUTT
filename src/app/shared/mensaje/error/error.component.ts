@@ -65,4 +65,8 @@ export class ErrorComponent implements OnInit {
     }, 4000);
   }
 
+  cerrarAlerta() {
+    this.oculto = 'oculto fadeOutDown';
+  }
+
 }

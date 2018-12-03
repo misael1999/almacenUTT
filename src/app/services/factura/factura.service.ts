@@ -29,4 +29,17 @@ export class FacturaService {
     return this.http.get(URL);
   }
 
+  public getFacturaLikeTermino(termino) {
+    const URL = URL_SERVICIOS + '/facturas/todo/' + termino;
+    return this.http.get(URL);
+  }
+
+  public subirArchivo(archivo: File, folioFactura: string) {
+    const URL = URL_SERVICIOS + '/facturas/upload';
+    const formData = new FormData();
+    formData.append('archivo', archivo);
+    formData.append('folio', folioFactura);
+    return this.http.patch(URL, formData);
+  }
+
 }

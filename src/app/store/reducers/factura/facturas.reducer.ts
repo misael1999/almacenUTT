@@ -1,6 +1,6 @@
 import * as fromFacturas from '../../actions';
 import { Factura } from 'src/app/models/Factura';
-import { LOAD_FACTURAS_ENTREGADAS } from '../../actions/factura/facturas.actions';
+import { LOAD_FACTURAS_ENTREGADAS, SEARCH_FACTURAS } from '../../actions/factura/facturas.actions';
 
 export interface FacturasState {
     facturas: Factura[];
@@ -25,7 +25,8 @@ export function facturasReducer(state = estadoInicial, action: fromFacturas.fact
         case fromFacturas.LOAD_FACTURAS_ACTIVAS:
             return {
                 ...state,
-                loading: true
+                loading: true,
+                loaded: false
             };
             break;
         case fromFacturas.LOAD_FACTURAS_ACTIVAS_SUCCESS:
@@ -83,6 +84,33 @@ export function facturasReducer(state = estadoInicial, action: fromFacturas.fact
             };
             break;
         case fromFacturas.LOAD_FACTURAS_ENTREGADAS_FAIL:
+            return {
+                ...state,
+                loading: false,
+                loaded: false,
+                facturas: [],
+                error: action.payload
+            };
+            break;
+            // ----  SEARCH FACTURAS   ---- //
+            case fromFacturas.SEARCH_FACTURAS:
+            return {
+                ...state,
+                loading: true,
+                loaded: false
+
+            };
+            break;
+        case fromFacturas.SEARCH_FACTURAS_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                loaded: true,
+                facturas: action.facturas,
+                error: null,
+            };
+            break;
+        case fromFacturas.SEARCH_FACTURAS_FAIL:
             return {
                 ...state,
                 loading: false,

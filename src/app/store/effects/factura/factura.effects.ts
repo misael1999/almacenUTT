@@ -21,7 +21,6 @@ export class FacturaEffects {
                             return new facturaActions.CreateFacturaSuccess(data);
                        }),
                        catchError(error => {
-                           console.log(error);
                             return of(new facturaActions.CreateFacturaFail(error));
                        })
                     );
@@ -39,11 +38,26 @@ export class FacturaEffects {
                             return new facturaActions.LoadFacturaSuccess(data['factura']);
                         }),
                         catchError(error => {
-                            console.log(error);
                             return of(new facturaActions.LoadFacturaFail(error));
                         })
                     );
             })
         );
+    @Effect()
+    uploadArchivoFactura$ = this.actions$.ofType(facturaActions.UPLOAD_ARCHIVO_FACTURA)
+        .pipe(
+            mergeMap(action => {
+                return this.facturaService.subirArchivo(action['archivo'], action['folio'])
+                    .pipe(
+                        map(data => {
+                            return new facturaActions.UploadArchivoFacturaSuccess(data);
+                        }),
+                        catchError(error => {
+                            return of(new facturaActions.UploadArchivoFacturaFail(error));
+                        })
+                    );
+            })
+        );
+
 
 }

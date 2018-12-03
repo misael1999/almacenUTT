@@ -13,7 +13,8 @@ export class Factura {
     public idUsuario: number,
     public descripcion?: string,
     public fechaCreacion?: string,
-    public total?: number
+    public total?: number,
+    public documento?: string,
 
     ) {}
 

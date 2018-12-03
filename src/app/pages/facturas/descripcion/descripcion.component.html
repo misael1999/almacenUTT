@@ -60,8 +60,8 @@
                     <div class="clearfix"></div>
                     <hr>
                     <div class="text-right">
-                        <!-- <button class="btn btn-danger" type="submit"> Generar Vale de Salida </button> -->
-                        <button id="print" class="btn btn-danger" type="button"> <span><i class="fa fa-print"></i> Imprimir </span> </button>
+                        <button *ngIf="factura.documento" class="btn btn-danger mx-2" type="submit"> Descargar factura con firmas </button>
+                        <button id="print" class="btn btn-danger" type="button"> <span><i class="fa fa-print"></i> Generar vale de salida </span> </button>
                     </div>
                 </div>
             </div>

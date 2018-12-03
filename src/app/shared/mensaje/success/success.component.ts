@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Store, Action } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
 import * as fromMensajes from '../../../store/actions';
 
@@ -23,36 +23,45 @@ export class SuccessComponent implements OnInit {
         const mensajeProveedor = resp.proveedor.mensaje;
         const mensajeUsuario = resp.usuario.mensaje;
         const mensajeArea = resp.area.mensaje;
+        const mensajeUi = resp.ui.mensaje;
 
-
+        if (mensajeArea != null) {
+          this.mensaje = mensajeArea;
+          this.cerrarMensaje(new fromMensajes.CreateAreaEnd());
+        }
+        if (mensajeProveedor != null) {
+          this.mensaje = mensajeProveedor;
+          this.cerrarMensaje(new fromMensajes.CreateProveedorEnd());
+        }
+        if (mensajeUsuario != null) {
+          this.mensaje = mensajeUsuario;
+          this.cerrarMensaje(new fromMensajes.CreateUsuarioEnd());
+        }
         if (mensajeFactura != null) {
           this.mensaje = mensajeFactura;
-        } else if (mensajeProveedor != null) {
-          this.mensaje = mensajeProveedor;
-        } else if (mensajeUsuario != null) {
-          this.mensaje = mensajeUsuario;
-        } else if (mensajeArea != null) {
-          this.mensaje = mensajeArea;
+          this.cerrarMensaje(new fromMensajes.CreateFacturaEnd());
         }
-        if (this.mensaje != null) {
-            this.oculto = '';
-            setTimeout(() => {
-                this.cerrarMensaje();
-            }, 4000);
+        if (mensajeUi != null) {
+          this.mensaje = resp.ui;
+          this.cerrarMensaje(new fromMensajes.UiMessageSuccessEnd());
         }
+
     });
   }
 
   ngOnInit() {
   }
 
-  cerrarMensaje() {
+  cerrarMensaje(action: Action) {
+    this.oculto = '';
+    setTimeout(() => {
+      this.store.dispatch(action);
+      this.oculto = 'oculto';
+    }, 4000);
+  }
+
+  cerrarAlerta() {
     this.oculto = 'oculto';
-    this.store.dispatch(new fromMensajes.CreateProveedorEnd());
-    this.store.dispatch(new fromMensajes.CreateFacturaEnd());
-    this.store.dispatch(new fromMensajes.LoginUserEnd());
-    this.store.dispatch(new fromMensajes.ChangePasswordEnd());
-    this.store.dispatch(new fromMensajes.CreateAreaEnd());
   }
 
 }

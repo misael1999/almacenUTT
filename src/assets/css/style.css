@@ -8087,3 +8087,8 @@ File: scss
     background: rgb(235, 223, 223);
     color: #fff;
 }
+
+.activo:hover {
+    background: rgb(235, 223, 223);
+    color: #fff;
+}

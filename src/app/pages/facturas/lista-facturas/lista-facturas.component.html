@@ -1,45 +1,16 @@
-<div class="col-12">
-    <div class="card">
-        <div class="card-body">
-            <div class="row">
-
-                <div class="col-md-3">
-                    <br>
-                    <div class="form-group">
-                        <input type="date" class="form-control" id="wdate2"> </div>
-                </div>
-
-                <div class="col-md-3">
-                    <br>
-                    <div class="form-group">
-                        <div class="controls">
-                            <select name="select" id="select" required class="form-control">
-                      <option value="">Ordenar por..</option>
-                      <option value="1">A - Z</option>
-                      <option value="2">Z - A</option>
-                  </select>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="floating-labels m-t-20">
-                        <div class="form-group m-b-10">
-                            <input type="text" class="form-control input-sm" id="input9"><span class="bar"></span>
-                            <label for="input9">Buscar Factura</label>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="row">
     <div class="col-md-12">
         <div class="card">
+
             <div class="card-body p-b-0">
+                <div class="row">
+                    <div class="col-md-3">
+                        <form class="form-material">
+                            <div class="form-group">
+                                <input #txtBuscar (keyup)="buscarFactura(txtBuscar.value)" type="text" class="form-control" placeholder="Buscar factura"> </div>
+                        </form>
+                    </div>
+                </div>
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs customtab tab-facturas" role="tablist">
                     <li class="nav-item"> <a class="nav-link" [routerLink]="'/facturas/almacen/page/1'" routerLinkActive="active"><span
