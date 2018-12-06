@@ -34,6 +34,16 @@ export class FacturaService {
     return this.http.get(URL);
   }
 
+  public getFacturasWithDocuments(page: number) {
+    const URL = URL_SERVICIOS + '/facturas/documentos/' + page;
+    return this.http.get(URL);
+  }
+
+  public downloadFactura(nombreDocumento: string) {
+    const URL = URL_SERVICIOS + '/facturas/documento/' + nombreDocumento;
+    return this.http.get(URL);
+  }
+
   public subirArchivo(archivo: File, folioFactura: string) {
     const URL = URL_SERVICIOS + '/facturas/upload';
     const formData = new FormData();

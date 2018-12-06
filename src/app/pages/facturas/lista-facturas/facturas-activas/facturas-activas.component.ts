@@ -4,6 +4,9 @@ import { AppState } from 'src/app/store/app.reducer';
 import { Factura } from '../../../../models/Factura';
 import * as fromFacturas from '../../../../store/actions';
 import { ActivatedRoute } from '@angular/router';
+import { Usuario } from '../../../../models/Usuario';
+declare function init_selectPicker();
+
 
 @Component({
   selector: 'app-facturas-activas',
@@ -17,8 +20,11 @@ export class FacturasActivasComponent implements OnInit {
   loaded: boolean;
   error: any;
   pageable: any;
+  usuario: Usuario;
 
-  constructor(private store: Store<AppState>, private activatedRoute: ActivatedRoute) {
+  constructor(private store: Store<AppState>,
+    private activatedRoute: ActivatedRoute) {
+      this.usuario = JSON.parse(localStorage.getItem('usuario'));
       this.store.select('facturas')
         .subscribe(facturas => {
           this.facturas = facturas.facturas;
@@ -42,6 +48,7 @@ export class FacturasActivasComponent implements OnInit {
    }
 
   ngOnInit() {
+    init_selectPicker();
   }
 
 }

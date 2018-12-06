@@ -8,6 +8,10 @@ export const LOAD_FACTURAS_ENTREGADAS = '[Facturas] load facturas entregadas';
 export const LOAD_FACTURAS_ENTREGADAS_SUCCESS = '[Facturas] load facturas entregadas SUCCESS';
 export const LOAD_FACTURAS_ENTREGADAS_FAIL = '[Facturas] load facturas entregadas FAIL';
 
+export const LOAD_FACTURAS_WITH_DOCUMENTS = '[Facturas] load facturas documents';
+export const LOAD_FACTURAS_WITH_DOCUMENTS_SUCCESS = '[Facturas] load facturas documents SUCCESS';
+export const LOAD_FACTURAS_WITH_DOCUMENTS_FAIL = '[Facturas] load facturas documents FAIL';
+
 export const SEARCH_FACTURAS = '[Facturas] Search facturas';
 export const SEARCH_FACTURAS_SUCCESS = '[Facturas] Search facturas SUCCESS';
 export const SEARCH_FACTURAS_FAIL = '[Facturas] Search facturas FAIL';
@@ -43,6 +47,24 @@ export class LoadFacturasEntregadasFail implements Action {
     constructor(public payload: any) {}
 }
 
+// FACTURAS CON DOCUMENTOS
+
+export class LoadFacturasWithDocuments implements Action {
+    readonly type = LOAD_FACTURAS_WITH_DOCUMENTS;
+    constructor(public page: number) {}
+}
+
+export class LoadFacturasWithDocumentsSuccess implements Action {
+    readonly type = LOAD_FACTURAS_WITH_DOCUMENTS_SUCCESS;
+    constructor(public facturas: Factura[], public pageable: any) {}
+}
+
+export class LoadFacturasWithDocumentsFail implements Action {
+    readonly type = LOAD_FACTURAS_WITH_DOCUMENTS_FAIL;
+    constructor(public payload: any) {}
+}
+
+
 // ----  BUSCAR FACTURAS   ---- //
 
 export class SearchFacturas implements Action {
@@ -70,5 +92,8 @@ export type facturasAcciones =  LoadFacturasActivas |
                                 LoadFacturasEntregadasFail |
                                 SearchFacturas |
                                 SearchFacturasSuccess |
-                                SearchFacturasFail;
+                                SearchFacturasFail |
+                                LoadFacturasWithDocuments |
+                                LoadFacturasWithDocumentsSuccess |
+                                LoadFacturasWithDocumentsFail;
 

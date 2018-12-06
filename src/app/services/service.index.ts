@@ -14,3 +14,6 @@ export { ModalActualizarUsuarioService } from '../pages/mantenimiento/modals/usu
 export { ValesalidaService } from './valesalida/valesalida.service';
 export { ModalAreaService } from '../pages/mantenimiento/modals/usuarios/modal-area/modal-area.service';
 export { ModalActualizarAreaService } from '../pages/mantenimiento/modals/usuarios/modal-actualizar-area/modal-actualizar-area.service';
+export { SidebarService } from './shared/sidebar.service';
+export { AdminGuard } from './guards/admin.guard';
+

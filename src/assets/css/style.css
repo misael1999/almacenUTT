@@ -7990,6 +7990,8 @@ File: scss
     min-height: 283px;
     max-width: 232px;
     min-width: 232px;
+    background: #2a3153;
+    color: #fff;
 }
 
 .fondo-negro {
@@ -8015,6 +8017,8 @@ File: scss
 .card-vale {
     max-height: 326px;
     min-height: 326px;
+    background: #2a3153;
+    color: #fff;
 }
 
 .typehead-proveedores {
@@ -8091,4 +8095,22 @@ File: scss
 .activo:hover {
     background: rgb(235, 223, 223);
     color: #fff;
+}
+
+.col-nombre {
+    display: flex;
+    align-content: center;
+    padding-top: 15px;
+    overflow: hidden;
+}
+
+.col-nombre span {
+    display: flex;
+    align-content: center;
+}
+
+.nombre-documento {
+    font-size: 75%;
+    color: #8d8282;
+    margin-left: 5px;
 }

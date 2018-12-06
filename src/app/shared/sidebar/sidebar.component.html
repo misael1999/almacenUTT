@@ -8,34 +8,46 @@
         <nav class="sidebar-nav">
             <ul id="sidebarnav">
                 <li class="user-profile">
-                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><img src="../assets/images/users/3.jpg" alt="user" /><span class="hide-menu">{{usuario.primerNombre}} {{usuario.apellidoPaterno}}</span></a>
+                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div style="width:10px;"><span class="round">{{letraUsuario}}</span></div>
+                            </div>
+                            <div class="col-md-8 col-nombre">
+                                <span class="hide-menu">{{usuario.primerNombre}}</span>
+                            </div>
+                        </div>
+                    </a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a routerLinkActive="active" class="cursor" [routerLink]="'/seguridad'">Seguridad</a></li>
                         <li><a class="cursor" (click)="logout()">Cerrar sesión</a></li>
                     </ul>
                 </li>
                 <li class="nav-devider"></li>
+                <li class="nav-small-cap">Entradas y salidas</li>
                 <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-file-document"></i><span class="hide-menu">Facturas</span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a routerLinkActive="active" class="cursor" [routerLink]="'/facturas-ingresar'">Agregar factura </a></li>
                         <li><a routerLinkActive="active" class="cursor" [routerLink]="'/facturas/almacen/page/1'">Lista de facturas </a></li>
-                        <li><a routerLinkActive="active" class="cursor" [routerLink]="'/cargar-factura'">Subir documento</a></li>
-                        <li><a>Reportes</a></li>
+                        <li><a routerLinkActive="active" class="cursor" [routerLink]="'/cargar-factura/subir'">Subir documento</a></li>
                     </ul>
                 </li>
-                <li class="nav-devider"></li>
                 <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-file-export"></i><span class="hide-menu">Vales de salidas</span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a routerLinkActive="active" class="cursor" [routerLink]="'/vales-ingresar'">Generar vale </a></li>
                         <li><a routerLinkActive="active" class="cursor" [routerLink]="'/vales/activados'">Lista de vales </a></li>
-                        <li><a>Reportes</a></li>
                     </ul>
                 </li>
+                <li class="nav-small-cap">Herramientas</li>
+                <li><a class="waves-effect waves-dark cursor" aria-expanded="false"><i class="mdi mdi-chart-line"></i><span class="hide-menu">Estadisticas</span></a></li>
+                <li><a class="waves-effect waves-dark cursor" aria-expanded="false"><i class="mdi mdi-file-chart"></i><span class="hide-menu">Generar reportes</span></a></li>
+                <li><a class="waves-effect waves-dark cursor" aria-expanded="false"><i class="mdi mdi-history"></i><span class="hide-menu">Historial</span></a></li>
+
                 <li class="nav-small-cap">Mantenimiento</li>
                 <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-folder-lock"></i><span class="hide-menu">Administrar </span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a routerLinkActive="active" [routerLink]="'/proveedores/page/1'">Proveedores</a></li>
-                        <li><a routerLinkActive="active" [routerLink]="'/usuarios/area'">Usuarios</a></li>
+                        <li><a *ngIf="usuario.role === 'ROLE_ADMIN'" routerLinkActive="active" [routerLink]="'/usuarios/area'">Usuarios</a></li>
                         <li><a routerLinkActive="active" [routerLink]="'/productos/page/1'">Productos</a></li>
                     </ul>
                 </li>

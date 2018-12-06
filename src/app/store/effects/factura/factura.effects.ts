@@ -59,5 +59,13 @@ export class FacturaEffects {
             })
         );
 
+    @Effect()
+    downloadArchivoFactura$ = this.actions$.ofType(facturaActions.DOWNLOAD_ARCHIVO_FACTURA)
+        .pipe(
+            mergeMap(action => {
+                return this.facturaService.downloadFactura(action['nombreArchivo']);
+            })
+        );
+
 
 }

@@ -30,7 +30,7 @@ import { UsuariosSistemaComponent } from './mantenimiento/usuarios/lista-usuario
 import { ModalUsuarioSistemasComponent } from './mantenimiento/modals/usuarios/modal-usuario-sistemas/modal-usuario-sistemas.component';
 // tslint:disable-next-line:max-line-length
 import { ModalActualizarUsuarioComponent } from './mantenimiento/modals/usuarios/modal-actualizar-usuario/modal-actualizar-usuario.component';
-import { CargarFacturaComponent } from './facturas/cargar-factura/cargar-factura.component';
+import { CargarFacturaComponent } from './facturas/subida-documento/cargar-factura/cargar-factura.component';
 import { ListaValesComponent } from './vales/lista-vales/lista-vales.component';
 import { ActivosComponent } from './vales/lista-vales/activos/activos.component';
 import { EntregadosComponent } from './vales/lista-vales/entregados/entregados.component';
@@ -44,6 +44,8 @@ import { PaginatorProductoComponent } from './mantenimiento/producto/lista-produ
 import { PaginatorFacturaActivasComponent } from './facturas/lista-facturas/facturas-activas/paginator-factura-activas/paginator-factura-activas.component';
 // tslint:disable-next-line:max-line-length
 import { PaginatorFacturaEntregadasComponent } from './facturas/lista-facturas/facturas-entregadas/paginator-factura-entregadas/paginator-factura-entregadas.component';
+import { SubidaDocumentoComponent } from './facturas/subida-documento/subida-documento.component';
+import { FacturasDocumentosComponent } from './facturas/subida-documento/facturas-documentos/facturas-documentos.component';
 
 
 
@@ -81,7 +83,9 @@ import { PaginatorFacturaEntregadasComponent } from './facturas/lista-facturas/f
         PaginatorComponent,
         PaginatorProductoComponent,
         PaginatorFacturaActivasComponent,
-        PaginatorFacturaEntregadasComponent
+        PaginatorFacturaEntregadasComponent,
+        SubidaDocumentoComponent,
+        FacturasDocumentosComponent
         ],
     exports: [
         DashboardComponent,

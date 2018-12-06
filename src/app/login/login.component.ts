@@ -4,6 +4,8 @@ import { LoginService } from '../services/service.index';
 import { Store } from '@ngrx/store';
 import { AppState } from '../store/app.reducer';
 import * as authActions from '../store/actions';
+import { Mensaje } from '../models/Mensaje';
+import { Router } from '@angular/router';
 
 declare function init_plugins();
 @Component({
@@ -16,11 +18,15 @@ export class LoginComponent implements OnInit {
   public formLogin: FormGroup;
   public loading = false;
 
-  constructor( public loginService: LoginService, private store: Store<AppState> ) {
+  constructor( public loginService: LoginService,
+    private store: Store<AppState>, private router: Router ) {
 
       this.store.select('auth')
           .subscribe(auth => {
             this.loading = auth.loading;
+            if (auth.usuario != null) {
+              this.router.navigate(['/inicio']);
+            }
           });
 
    }
@@ -37,6 +43,7 @@ export class LoginComponent implements OnInit {
   public login() {
 
     if (this.formLogin.invalid) {
+      this.store.dispatch(new authActions.UiMessageError(new Mensaje(null, 'Ingrese el usuario y contraseña')))
       return;
     }
 

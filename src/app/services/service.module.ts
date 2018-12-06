@@ -14,9 +14,11 @@ import {
   ModalUsuarioService,
   FacturaService,
   LoginGuard,
+  AdminGuard,
   UsuarioService,
   ValesalidaService,
-  ModalAreaService
+  ModalAreaService,
+  SidebarService
  } from './service.index';
 
 @NgModule({
@@ -34,10 +36,12 @@ import {
     ModalActualizarUsuarioService,
     FacturaService,
     LoginGuard,
+    AdminGuard,
     UsuarioService,
     ValesalidaService,
     ModalAreaService,
-    ModalActualizarAreaService
+    ModalActualizarAreaService,
+    SidebarService
     // {
     //   provide: HTTP_INTERCEPTORS,
     //   useClass: AuthInterceptor,

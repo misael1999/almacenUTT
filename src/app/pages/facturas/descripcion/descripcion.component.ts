@@ -5,6 +5,8 @@ import { ActivatedRoute } from '@angular/router';
 import * as fromFactura from '../../../store/actions';
 import { Factura } from '../../../models/Factura';
 import { Producto } from '../../../models/Producto';
+import { DownloadArchivoFactura } from '../../../store/actions/factura/factura.actions';
+import { URL_SERVICIOS } from '../../../global/config';
 
 
 @Component({
@@ -42,6 +44,10 @@ export class DescripcionComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  descargarArchivo(nombreArchivo: string) {
+    window.open(URL_SERVICIOS + '/facturas/documento/' + nombreArchivo, '_blank');
   }
 
 }

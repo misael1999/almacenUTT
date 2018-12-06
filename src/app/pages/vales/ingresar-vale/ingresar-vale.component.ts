@@ -6,6 +6,7 @@ import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
 import * as fromVales from 'src/app/store/actions';
 declare function init_factura_inputs();
+declare function init_selectPicker();
 
 
 @Component({
@@ -35,6 +36,7 @@ export class IngresarValeComponent implements OnInit {
 
   ngOnInit() {
     init_factura_inputs();
+    init_selectPicker();
     this.formInformation = new FormGroup({
       numero: new FormControl(null, Validators.required),
       fecha: new FormControl(null, Validators.required),

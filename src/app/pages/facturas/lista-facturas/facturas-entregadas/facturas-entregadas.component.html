@@ -1,27 +1,34 @@
-<div *ngIf="loading" class="cargando w-100 d-flex justify-content-center p-5">
-    <i class="fa fa-spinner fa-spin fa-3x"></i>
+<div class="col-md-12 mt-4">
+    <select class="selectpicker m-b-20 m-r-10" data-style="btn-info btn-outline-info">
+        <option data-tokens="ketchup mustard">Ordenar por</option>
+        <option data-tokens="mustard">Mas recientes</option>
+        <option data-tokens="frosting">Mas antiguos</option>
+    </select>
 </div>
-
 <div *ngIf="loaded" class="row mt-3">
     <div class="col-lg-3 col-md-6" *ngFor="let factura of facturas">
-        <div class="card card-inverse card-factura" style="background-color: #333; border-color: #333;">
+        <div class="card card-factura text-white">
             <div class="card-header">
                 <h4 class="m-b-0 text-white">Folio: <span class="label label-warning"> {{factura.folio | uppercase}}</span></h4>
             </div>
             <div class="card-body">
-                <h5>Proveedor: {{factura.proveedor.nombre}}</h5>
+                <h5 class="text-white">Proveedor: {{factura.proveedor.nombre}}</h5>
                 <p class="card-text">Total de productos: {{factura.items.length}}</p>
                 <p> Elaborado: <span class="label label-info"> {{factura.fechaCreacion | date}}</span> </p>
             </div>
-            <div class="card-footer">
+            <div class="card-footer d-flex justify-content-between">
                 <a [routerLink]="['/facturas', factura.folio]" class="btn btn-inverse">Ver factura </a>
-
+                <a *ngIf="usuario.role === 'ROLE_ADMIN'" [routerLink]="['/facturas', factura.folio]" class="btn btn-danger"><i class="mdi mdi-pencil"></i></a>
             </div>
         </div>
     </div>
     <div class="col-lg-12">
         <app-paginator-factura-entregadas [paginador]="pageable"></app-paginator-factura-entregadas>
     </div>
+</div>
+
+<div *ngIf="loading" class="cargando w-100 d-flex justify-content-center p-5">
+    <i class="fa fa-spinner fa-spin fa-3x"></i>
 </div>
 
 <div class="row" *ngIf="error != null">

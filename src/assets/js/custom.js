@@ -149,6 +149,7 @@ function init_plugins() {
 
 
 
+
 }
 
 function init_factura_inputs() {
@@ -165,6 +166,10 @@ function init_factura_inputs() {
     // $('#date-format').bootstrapMaterialDatePicker({ format: 'dddd DD MMMM YYYY - HH:mm' });
 
     // $('#min-date').bootstrapMaterialDatePicker({ format: 'DD/MM/YYYY HH:mm', minDate: new Date() });
+}
+
+function init_selectPicker() {
+    $('.selectpicker').selectpicker();
 }
 
 function init_upload() {

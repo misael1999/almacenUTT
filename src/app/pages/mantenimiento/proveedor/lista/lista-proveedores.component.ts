@@ -1,12 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { ProveedorService, ModalProveedorActualizarService, ModalProveedorService } from 'src/app/services/service.index';
+import { ProveedorService, ModalProveedorActualizarService, ModalProveedorService, LoginService } from 'src/app/services/service.index';
 import { Proveedor } from '../../../../models/Proveedor';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
 import * as fromProveedor from '../../../../store/actions';
 import swal from 'sweetalert2';
 import { ActivatedRoute } from '@angular/router';
+import { Usuario } from '../../../../models/Usuario';
 declare function init_factura_inputs();
 
 @Component({
@@ -22,10 +22,13 @@ export class ListaProveedorComponent implements OnInit, OnDestroy {
   proveedores: Proveedor[];
   page = 0;
   pageable: any;
+  usuario: Usuario;
 
   constructor(private provedorService: ProveedorService,
     private store: Store<AppState>, private modalProveedorService: ModalProveedorService,
-     private modalProveedorActualizarService: ModalProveedorActualizarService, private activateRoute: ActivatedRoute) {
+    private modalProveedorActualizarService: ModalProveedorActualizarService,
+    private activateRoute: ActivatedRoute, private loginService: LoginService) {
+      this.usuario = loginService.usuario;
       this.store.select('proveedores')
         .subscribe(proveedores => {
           this.proveedores = proveedores.provedores;

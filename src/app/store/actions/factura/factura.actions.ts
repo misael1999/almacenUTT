@@ -14,6 +14,9 @@ export const UPLOAD_ARCHIVO_FACTURA_SUCCESS = '[Factura] Upload archivo SUCCESS'
 export const UPLOAD_ARCHIVO_FACTURA_FAIL = '[Factura] Upload archivo FAIL';
 export const UPLOAD_ARCHIVO_FACTURA_END = '[Factura] Upload archivo END';
 
+export const DOWNLOAD_ARCHIVO_FACTURA = '[Factura] Download archivo factura';
+export const DOWNLOAD_ARCHIVO_FACTURA_SUCCESS = '[Factura] Download archivo SUCCESS';
+export const DOWNLOAD_ARCHIVO_FACTURA_FAIL = '[Factura] Download archivo FAIL';
 
 
 export class CreateFactura implements Action {
@@ -82,6 +85,26 @@ export class UploadArchivoFacturaEnd implements Action {
     constructor() {}
 }
 
+// ----  DESCARGAR ARCHIVO   ---- //
+
+export class DownloadArchivoFactura implements Action {
+    readonly type = DOWNLOAD_ARCHIVO_FACTURA;
+    constructor(public nombreArchivo: string) {}
+}
+
+export class DownloadArchivoFacturaSuccess implements Action {
+
+    readonly type = DOWNLOAD_ARCHIVO_FACTURA_SUCCESS;
+    constructor() {}
+}
+
+export class DownloadArchivoFacturaFail implements Action {
+
+    readonly type = DOWNLOAD_ARCHIVO_FACTURA_FAIL;
+    constructor(public payload: any) {}
+}
+
+
 export type facturaAcciones = CreateFactura |
                                 CreateFacturaSuccess |
                                 CreateFacturaFail |
@@ -92,5 +115,8 @@ export type facturaAcciones = CreateFactura |
                                 UploadArchivoFactura |
                                 UploadArchivoFacturaSuccess |
                                 UploadArchivoFacturaFail |
-                                UploadArchivoFacturaEnd;
+                                UploadArchivoFacturaEnd |
+                                DownloadArchivoFactura |
+                                DownloadArchivoFacturaSuccess |
+                                DownloadArchivoFacturaFail;
 

@@ -22,7 +22,6 @@ export class LoginService {
           this.usuario = auth.usuario;
           this.token = auth.token;
           this.guardarStorage(this.usuario, this.token);
-          this.router.navigate(['/inicio']);
         }
     });
 
@@ -61,6 +60,9 @@ export class LoginService {
   public logout() {
     this.store.dispatch(new LogoutUser());
     localStorage.clear();
+    this.token = null;
+    this.usuario = null;
+    this.router.navigate(['/login']);
   }
 
 }

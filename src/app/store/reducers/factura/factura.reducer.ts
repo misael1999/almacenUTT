@@ -114,6 +114,30 @@ export function facturaReducer(state = estadoInicial, action: fromfactura.factur
                 error: null
             };
             break;
+        // ----  DESCARGAR ARCHIVO   ---- //
+        case fromfactura.DOWNLOAD_ARCHIVO_FACTURA:
+            return {
+                ...state,
+                loading: false,
+                loaded: false,
+            };
+            break;
+        case fromfactura.DOWNLOAD_ARCHIVO_FACTURA_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                loaded: true
+            };
+            break;
+        case fromfactura.DOWNLOAD_ARCHIVO_FACTURA_FAIL:
+            return {
+                ...state,
+                loading: false,
+                loaded: false,
+                error: action.payload,
+                mensaje: null
+            };
+            break;
         default:
             return state;
             break;

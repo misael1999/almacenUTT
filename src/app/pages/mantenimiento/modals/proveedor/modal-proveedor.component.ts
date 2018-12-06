@@ -6,7 +6,6 @@ import { Proveedor } from '../../../../models/Proveedor';
 import * as fromProveedor from '../../../../store/actions';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
-import swal from 'sweetalert2';
 import { Mensaje } from 'src/app/models/Mensaje';
 
 
@@ -35,7 +34,7 @@ export class ModalProveedorComponent implements OnInit {
           if (this.mensaje != null) {
             this.cerrarModal();
             this.formProveedor.reset();
-            this.store.dispatch(new fromProveedor.LoadProveedores(undefined));
+            this.store.dispatch(new fromProveedor.LoadProveedores(0));
           }
 
         });

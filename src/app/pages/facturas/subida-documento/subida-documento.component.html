@@ -1,0 +1,25 @@
+<div class="row">
+
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="vtabs customvtab">
+                    <ul class="nav nav-tabs tabs-vertical" role="tablist">
+                        <li class="nav-item"> <a class="nav-link" [routerLink]="'/cargar-factura/subir'" routerLinkActive="active"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Subir factura</span> </a> </li>
+                        <li class="nav-item"> <a class="nav-link" [routerLink]="'/cargar-factura/documentos/page/1'" routerLinkActive="active"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Documentos</span></a> </li>
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content pt-0 pl-3">
+                        <div class="tab-pane active" id="home3" role="tabpanel">
+                            <div>
+                                <router-outlet></router-outlet>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -8,7 +8,6 @@ import { Producto } from '../../../models/Producto';
 import { Factura } from '../../../models/Factura';
 import { Router } from '@angular/router';
 import { Mensaje } from '../../../models/Mensaje';
-import { filter } from 'rxjs/operators';
 declare function init_factura_inputs();
 
 @Component({
@@ -35,7 +34,9 @@ export class IngresarComponent implements OnInit, OnDestroy {
           this.proveedores = resp.proveedores.provedores;
           this.loading = resp.factura.loading;
            if (resp.factura.mensaje != null) {
-              this.router.navigate(['/facturas', resp.factura.mensaje.folio]);
+             setTimeout(() => {
+               this.router.navigate(['/facturas', resp.factura.mensaje.folio]);
+             }, 2000);
           }
       });
 
@@ -72,7 +73,7 @@ export class IngresarComponent implements OnInit, OnDestroy {
   }
 
   buscarProveedor(termino: string) {
-    if (termino.length < 3) {
+    if (termino.length < 2) {
       this.proveedores = [];
       return;
     }
@@ -107,6 +108,7 @@ export class IngresarComponent implements OnInit, OnDestroy {
     const fechaExp = new Date(this.formInformacion.value.fecha);
     // ----  VALIDAMOS QUE EL FORMULARIO ESTE COMPLETO   ---- //
     if (this.formInformacion.invalid) {
+      this.txtProveedor.nativeElement.value = '';
         const mensaje =  new Mensaje(null, 'Ingrese los campos obligatorios');
         this.store.dispatch(new fromFactura.UiMessageError(mensaje));
         this.errorFormulario = 'error-campos';
@@ -114,12 +116,14 @@ export class IngresarComponent implements OnInit, OnDestroy {
     }
 
     if (fechaExp.getFullYear() > (new Date().getFullYear() + 1)) {
+        this.txtProveedor.nativeElement.value = '';
         const mensaje =  new Mensaje(null, 'Fecha de expedicion invalida');
         this.store.dispatch(new fromFactura.UiMessageError(mensaje));
         return;
     }
 
     if (this.proveedor == null) {
+      this.txtProveedor.nativeElement.value = '';
       this.store.dispatch(new fromFactura.UiMessageError(new Mensaje(null, 'Ingrese un proveedor valido')));
       return;
     }
@@ -133,6 +137,7 @@ export class IngresarComponent implements OnInit, OnDestroy {
       1,
       this.formInformacion.value.descripcion
     );
+
     // ----  MANDAMOS LA ACCION DE CREAR FACTURA   ---- //
     this.store.dispatch(new fromFactura.CreateFactura(factura));
 
