@@ -21,6 +21,9 @@ import { DescripcionValeComponent } from './vales/descripcion-vale/descripcion-v
 import { AdminGuard } from '../services/guards/admin.guard';
 import { SubidaDocumentoComponent } from './facturas/subida-documento/subida-documento.component';
 import { FacturasDocumentosComponent } from './facturas/subida-documento/facturas-documentos/facturas-documentos.component';
+import { EstadisticasComponent } from './estadisticas/estadisticas.component';
+import { GenerarReportesComponent } from './generar-reportes/generar-reportes.component';
+import { HistorialComponent } from './historial/historial.component';
 
 
 
@@ -67,6 +70,9 @@ const pagesRoutes: Routes = [
     // tslint:disable-next-line:max-line-length
     {path: 'productos/page/:page', component: ListaProductosComponent, data: { titulo: 'Lista de productos' } },
     {path: 'seguridad', component: SeguridadComponent, data: { titulo: 'Seguridad' } },
+    {path: 'estadisticas', component: EstadisticasComponent, data: { titulo: 'Estadisticas' } },
+    {path: 'reportes', component: GenerarReportesComponent, data: { titulo: 'Reportes' } },
+    {path: 'historial', component: HistorialComponent, data: { titulo: 'Reportes' } },
     {path: 'facturas/:folio', component: DescripcionComponent, data: { titulo: 'Descripcion' } },
     // tslint:disable-next-line:max-line-length
     {path: 'usuarios', component: ListaUsuariosComponent, canActivate: [ AdminGuard ], children: LIST_USUARIOS_ROUTES, data: { titulo: 'Lista de usuarios' } },

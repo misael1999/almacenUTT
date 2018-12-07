@@ -1,0 +1,127 @@
+<div class="row">
+    <div class="col-lg-3">
+        <div class="card bg-info">
+            <div class="card-body">
+                <div class="d-flex no-block">
+                    <div class="m-r-20 align-self-center"><img src="../../../assets/images/icon/income-w.png" alt="Income" /></div>
+                    <div class="align-self-center">
+                        <h6 class="text-white m-t-10 m-b-0">Reporte de productos</h6>
+
+                        <a class="mt-3 text-white btn btn-inverse btn-sm d-block" data-toggle="modal" data-target="#responsive-modal">Generar reporte</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <div class="card bg-success">
+            <div class="card-body">
+                <div class="d-flex no-block">
+                    <div class="m-r-20 align-self-center"><img src="../../../assets/images/icon/expense-w.png" alt="Income" /></div>
+                    <div class="align-self-center">
+                        <h6 class="text-white m-t-10 m-b-0">Total Expense</h6>
+                        <h2 class="m-t-0 text-white">236,000</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <div class="card bg-primary">
+            <div class="card-body">
+                <div class="d-flex no-block">
+                    <div class="m-r-20 align-self-center"><img src="../../../assets/images/icon/assets-w.png" alt="Income" /></div>
+                    <div class="align-self-center">
+                        <h6 class="text-white m-t-10 m-b-0">Total Assets</h6>
+                        <h2 class="m-t-0 text-white">987,563</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <div class="card bg-danger">
+            <div class="card-body">
+                <div class="d-flex no-block">
+                    <div class="m-r-20 align-self-center"><img src="../../../assets/images/icon/staff-w.png" alt="Income" /></div>
+                    <div class="align-self-center">
+                        <h6 class="text-white m-t-10 m-b-0">Total Staff</h6>
+                        <h2 class="m-t-0 text-white">987,563</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="responsive-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Opciones</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <div id="accordionexample" class="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="card">
+                        <div class="card-header" role="tab" id="headingOne">
+                            <h5 class="mb-0">
+                                <a data-toggle="collapse" data-parent="#accordionexample" href="#collapseexaOne" aria-expanded="true" aria-controls="collapseexaOne">
+                            Basico
+                          </a>
+                            </h5>
+                        </div>
+
+                        <div id="collapseexaOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+                            <div class="card-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label class="control-label d-block">Seleccione el mes:</label>
+                                        <select class="form-control" data-style="btn-primary">
+                                      <option *ngFor="let mes of meses" value="{{mes.numero}}" >{{mes.mes}}</option>
+                                    </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="message-text" class="control-label d-block">Seleccione el año</label>
+                                        <select class="form-control" data-style="btn-info">
+                                      <option *ngFor="let ano of anos" value="{{ano}}" >{{ano}}</option>
+                                    </select>
+                                    </div>
+
+                                    <div class="mt-2">
+                                        <button type="button" class="btn btn-danger waves-effect waves-light">Generar reporte</button>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" role="tab" id="headingTwo">
+                            <h5 class="mb-0">
+                                <a class="collapsed" data-toggle="collapse" data-parent="#accordionexample" href="#collapseexaTwo" aria-expanded="false" aria-controls="collapseexaTwo">
+                            Avanzado
+                          </a>
+                            </h5>
+                        </div>
+                        <div id="collapseexaTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+                            <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+
+                                <div class="mt-2">
+                                    <button type="button" class="btn btn-danger waves-effect waves-light">Generar reporte</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
+
+            </div>
+        </div>
+    </div>
+</div>

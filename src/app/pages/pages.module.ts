@@ -46,6 +46,13 @@ import { PaginatorFacturaActivasComponent } from './facturas/lista-facturas/fact
 import { PaginatorFacturaEntregadasComponent } from './facturas/lista-facturas/facturas-entregadas/paginator-factura-entregadas/paginator-factura-entregadas.component';
 import { SubidaDocumentoComponent } from './facturas/subida-documento/subida-documento.component';
 import { FacturasDocumentosComponent } from './facturas/subida-documento/facturas-documentos/facturas-documentos.component';
+import { EstadisticasComponent } from './estadisticas/estadisticas.component';
+
+// Graficas
+import { ChartsModule } from 'ng2-charts';
+import { GraficaValesComponent } from './estadisticas/grafica-vales/grafica-vales.component';
+import { GenerarReportesComponent } from './generar-reportes/generar-reportes.component';
+import { HistorialComponent } from './historial/historial.component';
 
 
 
@@ -85,7 +92,11 @@ import { FacturasDocumentosComponent } from './facturas/subida-documento/factura
         PaginatorFacturaActivasComponent,
         PaginatorFacturaEntregadasComponent,
         SubidaDocumentoComponent,
-        FacturasDocumentosComponent
+        FacturasDocumentosComponent,
+        EstadisticasComponent,
+        GraficaValesComponent,
+        GenerarReportesComponent,
+        HistorialComponent
         ],
     exports: [
         DashboardComponent,
@@ -100,7 +111,8 @@ import { FacturasDocumentosComponent } from './facturas/subida-documento/factura
         FormsModule,
         HttpClientModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        ChartsModule
     ]
 })
 export class PagesModule { }

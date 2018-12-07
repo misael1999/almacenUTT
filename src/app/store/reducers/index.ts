@@ -11,3 +11,4 @@ export * from './usuario/area.reducer';
 export * from './ui.reducer';
 export * from './vale/vale.reducer';
 export * from './vale/vales.reducer';
+export * from './estadistica/estadisticas.reducer';

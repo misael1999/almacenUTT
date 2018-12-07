@@ -11,3 +11,4 @@ export * from './usuario/area.actions';
 export * from './ui.actions';
 export * from './vales/vale.actions';
 export * from './vales/vales.actions';
+export * from './estadistica/estadisticas.actions';

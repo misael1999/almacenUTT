@@ -16,4 +16,4 @@ export { ModalAreaService } from '../pages/mantenimiento/modals/usuarios/modal-a
 export { ModalActualizarAreaService } from '../pages/mantenimiento/modals/usuarios/modal-actualizar-area/modal-actualizar-area.service';
 export { SidebarService } from './shared/sidebar.service';
 export { AdminGuard } from './guards/admin.guard';
-
+export { EstadisticaService } from './estadistica/estadistica.service';
