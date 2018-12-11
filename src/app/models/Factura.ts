@@ -8,7 +8,7 @@ export class Factura {
     constructor(
     public folio: string,
     public fechaExpedicion: string,
-    public items: Producto[],
+    public items: any[],
     public proveedor: any,
     public idUsuario: number,
     public descripcion?: string,

@@ -5,12 +5,12 @@ constructor(
     public clave: string,
     public descripcion: string,
     public unidad: string,
-    public cantidad: string,
+    public cantidad: number,
     public precio: number,
     public idUsuario?: number,
-    public estado?: number,
     public idProducto?: number,
-    public fechaCreacion?: string
+    public fechaCreacion?: string,
+    public status?: boolean
 ) {}
 
 }

@@ -9,13 +9,13 @@ import { LoadValeSalidaFail } from 'src/app/store/actions';
 
 @Injectable()
 export class ValeEffects {
-    constructor(private actions$: Actions, private valeService: ValesalidaService){}
+    constructor(private actions$: Actions, private valeService: ValesalidaService) {}
 
     @Effect()
     crearVale$ = this.actions$.ofType(valeActions.CREATE_VALE_SALIDA)
                     .pipe(
                         mergeMap(action => {
-                            const vale  = action['vale'];
+                            const vale  = action['valeSalida'];
                             return this.valeService.agregarValeSalida(vale)
                                 .pipe(
                                     map(data => new valeActions.CreateValeSalidaSuccess(data)),

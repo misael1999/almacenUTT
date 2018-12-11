@@ -1,8 +1,7 @@
 <div class="col-md-12 mt-4">
-    <select class="selectpicker m-b-20 m-r-10" data-style="btn-info btn-outline-info">
-                <option data-tokens="ketchup mustard">Ordenar por</option>
-                <option data-tokens="mustard">Mas recientes</option>
-                <option data-tokens="frosting">Mas antiguos</option>
+    <select class="selectpicker m-b-20 m-r-10" data-style="btn-info btn-outline-info" (change)="ordenar($event.target.value)">
+        <option value="asc">Mas antiguos</option>
+                <option value="desc" >Mas recientes</option>
             </select>
 </div>
 <div *ngIf="loaded && facturas.length > 0" class="row mt-3">

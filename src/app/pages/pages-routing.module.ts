@@ -49,7 +49,7 @@ const LIST_SUBIDAS_DOCUMENTOS: Routes = [
 ];
 
 const LIST_VALES_SALIDA_ROUTES: Routes = [
-  {path: 'activados', component: ActivosComponent, data: {titulo: 'Vales de salida'}},
+  {path: 'activos/page/:page', component: ActivosComponent, data: {titulo: 'Vales de salida'}},
   {path: 'entregados', component: EntregadosComponent, data: { titulo: 'Vale de salida' }},
   {path: '', redirectTo: '/inicio', pathMatch: 'full'}
 ];

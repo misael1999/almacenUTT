@@ -26,7 +26,7 @@ export class EntregadosComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.store.dispatch(new fromVales.LoadValesSalidaEntregados());
+    // this.store.dispatch(new fromVales.LoadValesSalidaEntregados());
   }
 
 }

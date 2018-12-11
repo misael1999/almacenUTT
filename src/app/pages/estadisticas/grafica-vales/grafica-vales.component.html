@@ -1,5 +1,10 @@
-<div *ngIf="fecha1">
+<div *ngIf="loaded">
+    <h4>Total de vales de salidas por area en los ultimos 3 meses</h4>
     <div style="display: block">
         <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
     </div>
+</div>
+
+<div *ngIf="loading" class="cargando w-100 d-flex justify-content-center p-5">
+    <i class="fa fa-spinner fa-spin fa-3x"></i>
 </div>

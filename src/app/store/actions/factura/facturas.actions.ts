@@ -18,7 +18,7 @@ export const SEARCH_FACTURAS_FAIL = '[Facturas] Search facturas FAIL';
 
 export class LoadFacturasActivas implements Action {
     readonly type = LOAD_FACTURAS_ACTIVAS;
-    constructor(public page: number) {}
+    constructor(public page: number, public ordenar: string) {}
 }
 
 export class LoadFacturasActivasSuccess implements Action {
@@ -34,7 +34,7 @@ export class LoadFacturasActivasFail implements Action {
 // ----  FACTURAS ENTREGADAS   ---- //
 export class LoadFacturasEntregadas implements Action {
     readonly type = LOAD_FACTURAS_ENTREGADAS;
-    constructor(public page: number) {}
+    constructor(public page: number, public ordenar: string) {}
 }
 
 export class LoadFacturasEntregadasSuccess implements Action {

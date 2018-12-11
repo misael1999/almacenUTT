@@ -13,9 +13,10 @@ export class ValesEffects {
     loadValesSalidaActivos = this.actions$.ofType(fromVales.LOAD_VALES_SALIDA_ACTIVOS)
                             .pipe(
                                 mergeMap(action => {
-                                    return this.valesService.getValesActivos()
+                                    return this.valesService.getValesActivos(action['page'], action['ordenar'])
                                             .pipe(
-                                                map(data => new fromVales.LoadValesSalidaActivosSuccess(data['vales'])),
+                                                // tslint:disable-next-line:max-line-length
+                                                map(data => new fromVales.LoadValesSalidaActivosSuccess(data['vales']['content'], data['vales'])),
                                                 catchError(error => {
                                                     return of(new fromVales.LoadValesSalidaActivosFail(error));
                                                 })
@@ -24,15 +25,15 @@ export class ValesEffects {
                             );
 
     @Effect()
-    loadValesSalidaEntregados = this.actions$.ofType(fromVales.LOAD_VALES_SALIDA_ENTREGADOS)
+    loadValesSalidaArea = this.actions$.ofType(fromVales.LOAD_VALES_SALIDA_AREA)
                                     .pipe(
                                         mergeMap(action => {
-                                            return this.valesService.getValesEntregados()
+                                            return this.valesService.getValesByIdArea(action['idArea'])
                                                 .pipe(
-                                                    map(data => new fromVales.LoadValesSalidaEntregadosSuccess(data['vales'])),
+                                                    map(data => new fromVales.LoadValesSalidaAreaSuccess(data['vales'])),
                                                     catchError(
                                                         error => {
-                                                            return of(new fromVales.LoadValesSalidaEntregadosFail(error));
+                                                            return of(new fromVales.LoadValesSalidaAreaFail(error));
                                                         }
                                                     )
                                                 );

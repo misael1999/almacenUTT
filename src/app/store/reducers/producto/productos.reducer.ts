@@ -1,6 +1,5 @@
 import { Producto } from '../../../models/Producto';
 import * as fromProductos from '../../actions';
-import { SEARCH_PRODUCTOS } from '../../actions/producto/productos.actions';
 
 export interface ProductosState {
     productos: Producto[];

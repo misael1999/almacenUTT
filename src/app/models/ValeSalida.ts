@@ -1,14 +1,12 @@
 import {Area} from './Area';
+import { ValeProducto } from './ValeProducto';
 
 export class ValeSalida {
     constructor(public numeroRequisicion: number,
-        public cantidadSolicitada: number,
-        public cantidadEntregada: number,
-        public unidadMedida: string,
-        public descripcion: string,
-        public fechaEntrega: string,
         public area: Area,
+        public items: ValeProducto[],
         public idValeSalida?: number,
+        public fechaEntrega?: string,
         public status?: boolean,
         public idUsuario?: number ) {
 

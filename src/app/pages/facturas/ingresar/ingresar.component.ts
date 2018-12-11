@@ -24,6 +24,7 @@ export class IngresarComponent implements OnInit, OnDestroy {
   folio: string;
   errorFormulario = '';
   proveedor: Proveedor;
+  fechaHoy;
 
   @ViewChild('txtProveedor') txtProveedor: ElementRef;
 
@@ -45,7 +46,8 @@ export class IngresarComponent implements OnInit, OnDestroy {
    // ----  INICIAR LOS FORMULARIOS   ---- //
   ngOnInit() {
     init_factura_inputs();
-
+    const date = new Date();
+    this.fechaHoy = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
     this.formInformacion = new FormGroup({
       folio: new FormControl(null, Validators.required),
       proveedor: new FormControl(null, Validators.required),

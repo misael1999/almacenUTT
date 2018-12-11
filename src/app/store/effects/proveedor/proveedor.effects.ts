@@ -4,7 +4,6 @@ import * as proveedorActions from '../../actions';
 import { map, switchMap, catchError, mergeMap } from 'rxjs/operators';
 import {ProveedorService } from 'src/app/services/service.index';
 import { of } from 'rxjs';
-import { UPDATE_PROVEEDOR, UpdateProveedorSuccess, UpdateProveedorFail } from '../../actions/proveedor/proveedor.actions';
 
 
 @Injectable()

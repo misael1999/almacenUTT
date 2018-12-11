@@ -4,6 +4,9 @@ import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
 import * as fromProductos from '../../../../store/actions';
 import { ActivatedRoute } from '@angular/router';
+import { Usuario } from '../../../../models/Usuario';
+import { ModalProductoService } from '../../../../services/service.index';
+import swal from 'sweetalert2';
 declare function init_factura_inputs();
 
 @Component({
@@ -18,21 +21,25 @@ export class ListaProductosComponent implements OnInit {
   error: any;
   page = 0;
   pageable: any;
+  usuario: Usuario;
 
-  constructor(private store: Store<AppState>, private activatedRoute: ActivatedRoute) {
-    this.store.select('productos').subscribe(productos => {
-      this.productos = productos.productos;
-      this.loading = productos.loading;
-      this.loaded = productos.loaded;
-      this.error = productos.error;
-      this.pageable = productos.pageable;
+  constructor(private store: Store<AppState>,
+    private activatedRoute: ActivatedRoute, private modalProductoService: ModalProductoService) {
+    this.usuario = JSON.parse(localStorage.getItem('usuario'));
+    this.store.select('productos')
+      .subscribe(productos => {
+        this.productos = productos.productos;
+        this.loading = productos.loading;
+        this.loaded = productos.loaded;
+        this.error = productos.error;
+        this.pageable = productos.pageable;
     });
 
     this.activatedRoute.params
       .subscribe(params => {
         this.page = params['page'];
         if (this.page === undefined || this.page < 0) {
-          this.page = 0;
+          this.page = 1;
         }
         this.store.dispatch(new fromProductos.LoadProductos(this.page - 1));
       });
@@ -48,6 +55,11 @@ export class ListaProductosComponent implements OnInit {
       return;
     }
     this.store.dispatch(new fromProductos.SearchProductos(termino));
+  }
+
+  actualizarProducto(producto: Producto) {
+    this.store.dispatch(new fromProductos.SelectProducto(producto));
+    this.modalProductoService.mostrarModal();
   }
 
   public ordenaridProductos() {
@@ -123,5 +135,37 @@ export class ListaProductosComponent implements OnInit {
       return 0;
     });
 
+  }
+
+  eliminarProducto(producto: Producto) {
+    const swalWithBootstrapButtons = swal.mixin({
+      confirmButtonClass: 'btn btn-success',
+      cancelButtonClass: 'btn btn-danger',
+      buttonsStyling: true,
+    });
+
+    swalWithBootstrapButtons({
+      title: '¿Estas seguro?',
+      text: 'No se podra revertir',
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Si, eliminalo!',
+      cancelButtonText: 'No, cancelar!',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.value) {
+        producto.status = false;
+        this.store.dispatch(new fromProductos.UpdateProducto(producto));
+      } else if (
+        // Read more about handling dismissals
+        result.dismiss === swal.DismissReason.cancel
+      ) {
+        swalWithBootstrapButtons(
+          'Cancelado',
+          'El producto ' + producto.descripcion + ' no ha sido eliminado :)',
+          'error'
+        );
+      }
+    });
   }
 }

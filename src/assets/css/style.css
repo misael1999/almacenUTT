@@ -7994,6 +7994,10 @@ File: scss
     color: #fff;
 }
 
+.item-factura:hover {
+    background-color: rgba(109, 103, 103, 0.315);
+}
+
 .fondo-negro {
     background-color: rgba( 0, 0, 0, 0.4);
     position: fixed;
@@ -8015,8 +8019,8 @@ File: scss
 }
 
 .card-vale {
-    max-height: 326px;
-    min-height: 326px;
+    max-height: 330px;
+    min-height: 330px;
     background: #2a3153;
     color: #fff;
 }
@@ -8113,4 +8117,8 @@ File: scss
     font-size: 75%;
     color: #8d8282;
     margin-left: 5px;
+}
+
+.lb-vale-item {
+    font-size: 80%;
 }

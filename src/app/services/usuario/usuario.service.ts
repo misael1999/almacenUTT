@@ -17,7 +17,7 @@ export class UsuarioService {
 
   public cambiarPassword(passwordAnterior: string, passwordNueva: string) {
 
-    const URL = URL_SERVICIOS + '/usuarios/password/' + this.usuario.idUsuario;
+    const URL = URL_SERVICIOS + '/usuarios/password';
     return this.http.patch(URL, {passwordAnterior, passwordNueva});
 
   }

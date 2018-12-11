@@ -14,13 +14,13 @@ export class FacturaService {
     return this.http.post(URL, factura);
   }
 
-  public getFacturasActivas(page: number) {
-    const URL = URL_SERVICIOS + '/facturas/page/' + page;
+  public getFacturasActivas(page: number, ordenar: string) {
+    const URL = URL_SERVICIOS + '/facturas/page/' + page + '?ordenar=' + ordenar;
     return this.http.get(URL);
   }
 
-  public getFacturasEntregadas(page: number) {
-    const URL = URL_SERVICIOS + '/facturas/page/' + page + '?entregadas=si';
+  public getFacturasEntregadas(page: number, ordenar: string) {
+    const URL = URL_SERVICIOS + '/facturas/page/' + page + '?entregadas=si&ordenar=' + ordenar;
     return this.http.get(URL);
   }
 

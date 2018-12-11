@@ -27,8 +27,8 @@ export class ListaProveedorComponent implements OnInit, OnDestroy {
   constructor(private provedorService: ProveedorService,
     private store: Store<AppState>, private modalProveedorService: ModalProveedorService,
     private modalProveedorActualizarService: ModalProveedorActualizarService,
-    private activateRoute: ActivatedRoute, private loginService: LoginService) {
-      this.usuario = loginService.usuario;
+    private activateRoute: ActivatedRoute) {
+      this.usuario = JSON.parse(localStorage.getItem('usuario'));
       this.store.select('proveedores')
         .subscribe(proveedores => {
           this.proveedores = proveedores.provedores;
@@ -181,8 +181,6 @@ export class ListaProveedorComponent implements OnInit, OnDestroy {
       cancelButtonClass: 'btn btn-danger',
       buttonsStyling: true,
     });
-
-
 
     swalWithBootstrapButtons({
       title: '¿Estas seguro?',

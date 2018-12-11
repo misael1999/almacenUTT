@@ -13,13 +13,18 @@ export class ValesalidaService {
     return this.http.post(URL, vale);
   }
 
-  public getValesActivos() {
-    const URL = URL_SERVICIOS + '/vales';
+  public getValesActivos(page: number, ordenar: string) {
+    const URL = URL_SERVICIOS + '/vales/page/' + page + '?ordenar=' + ordenar;
     return this.http.get(URL);
   }
 
-  public getValesEntregados() {
-    const URL = URL_SERVICIOS + '/vales?entregadas=si';
+  public getValesEntregados(page: number, ordenar: string) {
+    const URL = URL_SERVICIOS + '/vales/page/' + page + '?entregadas=si&ordenar=' + ordenar ;
+    return this.http.get(URL);
+  }
+
+  public getValesByIdArea(idArea: number) {
+    const URL = URL_SERVICIOS + '/vales/' + idArea ;
     return this.http.get(URL);
   }
 

@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-declare function init_selectPicker();
-
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/store/app.reducer';
+import { Producto } from '../../models/Producto';
+import * as fromReportes from '../../store/actions';
+import { Mensaje } from 'src/app/models/Mensaje';
+import { URL_SERVICIOS } from '../../global/config';
 @Component({
   selector: 'app-generar-reportes',
   templateUrl: './generar-reportes.component.html',
@@ -14,15 +18,32 @@ export class GenerarReportesComponent implements OnInit {
    {numero: '12', mes: 'Diciembre'}];
 
    anos: any[] = [];
+   productos: Producto[];
+   mes: number;
+   ano: number;
 
-  constructor() {
-    init_selectPicker();
+  constructor(private store: Store<AppState>) {
     for (let i = 2017; i < 2030; i++) {
       this.anos.push(i + 1);
     }
+    this.store.select('reportes')
+      .subscribe(reportes => {
+        this.productos = reportes.productos;
+
+      });
    }
 
   ngOnInit() {
   }
+
+  public reporteProductos() {
+
+    if (this.ano === undefined || this.mes === undefined) {
+      this.store.dispatch(new fromReportes.UiMessageError(new Mensaje(null, 'Selecciona el mes y el año')));
+      return;
+    }
+    window.open(URL_SERVICIOS + '/reportes/productos?mes=' + this.mes + '&ano=' + this.ano);
+  }
+
 
 }

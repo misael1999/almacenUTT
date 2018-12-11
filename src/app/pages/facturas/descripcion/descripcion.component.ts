@@ -47,7 +47,7 @@ export class DescripcionComponent implements OnInit {
   }
 
   descargarArchivo(nombreArchivo: string) {
-    window.open(URL_SERVICIOS + '/facturas/documento/' + nombreArchivo, '_blank');
+    window.open(URL_SERVICIOS + '/facturas/descargar/documento/' + nombreArchivo, '_blank');
   }
 
 }

@@ -17,3 +17,5 @@ export { ModalActualizarAreaService } from '../pages/mantenimiento/modals/usuari
 export { SidebarService } from './shared/sidebar.service';
 export { AdminGuard } from './guards/admin.guard';
 export { EstadisticaService } from './estadistica/estadistica.service';
+export { ReporteService } from './reporte/reporte.service';
+export { ModalProductoService } from '../pages/mantenimiento/modals/producto/modal-producto.service';

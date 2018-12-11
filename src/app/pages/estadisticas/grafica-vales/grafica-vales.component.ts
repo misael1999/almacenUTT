@@ -21,11 +21,14 @@ export class GraficaValesComponent implements OnInit {
     responsive: true
   };
   barChartData: any[];
+  loading: boolean;
+  loaded: boolean;
 
   constructor(private store: Store<AppState>) {
     this.store.select('estadisticas')
       .subscribe(estadistica => {
-
+      this.loaded = estadistica.loaded;
+      this.loading = estadistica.loading;
 
         if (estadistica.estadisticasVale != null) {
           this.fecha1 = estadistica.estadisticasVale.fecha1;

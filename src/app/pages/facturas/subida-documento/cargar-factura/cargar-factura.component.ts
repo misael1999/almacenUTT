@@ -34,7 +34,7 @@ export class CargarFacturaComponent implements OnInit {
           }
 
         });
-        this.store.dispatch(new fromFacturas.LoadFacturasEntregadas(0));
+        this.store.dispatch(new fromFacturas.LoadFacturasEntregadas(0, 'asc'));
 
    }
 
@@ -52,7 +52,7 @@ export class CargarFacturaComponent implements OnInit {
 
   buscarFactura(termino: string) {
     if (termino.length === 0) {
-      this.store.dispatch(new fromFacturas.LoadFacturasEntregadas(0));
+      this.store.dispatch(new fromFacturas.LoadFacturasEntregadas(0, 'asc'));
     }
     this.store.dispatch(new fromFacturas.SearchFacturas(termino));
   }

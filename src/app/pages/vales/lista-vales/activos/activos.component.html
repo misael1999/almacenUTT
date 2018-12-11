@@ -1,3 +1,18 @@
+<div class="row">
+    <div class="col-md-6 mt-4">
+        <select class="selectpicker m-b-20 m-r-10" data-style="btn-info btn-outline-info" (change)="ordenar($event.target.value)">
+                    <option value="asc">Mas antiguos</option>
+                    <option value="desc" >Mas recientes</option>
+                </select>
+    </div>
+    <div *ngIf="areas" class="col-md-6 mt-4 d-flex justify-content-end">
+        <p class="p-2 m-0">Filtrar por area</p>
+        <select class="form-control w-50" data-style="btn-info btn-outline-info" (change)="filtrarArea($event.target.value)">
+                <option value="0">Elige el area</option>
+                <option *ngFor="let area of areas" value="{{area.idArea}}">{{area.nombre}}</option>
+            </select>
+    </div>
+</div>
 <div *ngIf="loaded" class="row animated fadeIn mt-3">
     <div class="col-lg-3 col-md-6" *ngFor="let vale of vales">
         <div class="card card-vale">
@@ -5,9 +20,12 @@
                 <h4 class="m-b-0 text-white">No° requisicion: <span class="label label-warning"> {{vale.numeroRequisicion}}</span></h4>
             </div>
             <div class="card-body text-white">
-                <p>Área: <span class="label label-danger">{{vale.area.nombre}}</span></p>
-                <p>Responsable: <span class="label label-danger">{{vale.area.responsable}}</span></p>
-                <p>Elaborado: <span class="label label-danger">{{vale.fechaEntrega | date}}</span></p>
+                <p class="p-0 m-0">Área:</p>
+                <span class="label label-danger">{{vale.area.nombre}}</span>
+                <p class="p-0 m-0">Responsable:</p>
+                <span class="label label-danger">{{vale.area.responsable}}</span>
+                <p class="p-0 m-0">Fecha de entrega:</p>
+                <span class="label label-danger">{{vale.fechaEntrega | date}}</span>
 
             </div>
             <div class="card-footer">
@@ -15,11 +33,15 @@
             </div>
         </div>
     </div>
+    <div class="col-lg-12">
+        <app-paginator-vales [paginador]="pageable"></app-paginator-vales>
+
+    </div>
 </div>
 
-<!-- <div *ngIf="loading" class="cargando w-100 d-flex justify-content-center p-5 animated fadeIn">
+<div *ngIf="loading" class="cargando w-100 d-flex justify-content-center p-5 animated fadeIn">
     <i class="fa fa-spinner fa-spin fa-3x"></i>
-</div> -->
+</div>
 
 <div class="row" *ngIf="error != null">
     <div class="col-lg-12">

@@ -1,15 +1,15 @@
-<div class="fondo-negro animated fadeIn" [ngClass]="modalProductoService.oculto">
+<div *ngIf="producto" class="fondo-negro animated fadeIn" [ngClass]="modalProductoService.oculto">
 
     <div class="modal" style="display: block;" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Proveedor</h5>
+                    <h5 class="modal-title">Producto</h5>
                     <button (click)="cerrarModal()" type="button" class="close cursor" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
                 </div>
-                <form [formGroup]="formProducto" (ngSubmit)="crearProducto()">
+                <form [formGroup]="formProducto" (ngSubmit)="actualizarProducto()">
                     <div class="modal-body modal-proveedor">
 
                         <div class="row">
@@ -19,27 +19,31 @@
                                         <div class="form-body">
                                             <div class="row">
 
-                                                <div class="col-md-6">
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label>Clave:</label>
+                                                        <input formControlName="clave" type="text" autocomplete="of" class="form-control" placeholder="Escribe el Nombre">
+
+
+                                                        <small class="form-control-feedback"> </small>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-9">
                                                     <div class="form-group">
                                                         <label>Descripción:</label>
                                                         <input formControlName="descripcion" type="text" autocomplete="of" class="form-control" placeholder="Escribe el Nombre">
 
 
-                                                        <small class="form-control-feedback"> </small> </div>
-                                                    <h4 class="m-b-10">Información</h4>
-
+                                                        <small class="form-control-feedback"> </small>
+                                                    </div>
                                                 </div>
-                                                <!--/span-->
-                                                <div class="col-md-6">
-                                                </div>
-                                                <!--/span-->
                                             </div>
 
                                             <div class="row p-t-20">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Piezas:</label>
-                                                        <input formControlName="piezas" type="text" id="calle" class="form-control" placeholder="Escribe la calle">
+                                                        <input formControlName="cantidad" type="text" id="calle" class="form-control" placeholder="Escribe la calle">
                                                         <small class="form-control-feedback"> </small> </div>
                                                 </div>
                                                 <!--/span-->
@@ -67,7 +71,7 @@
                     </div>
                     <div class="modal-footer justify-content-center">
                         <div class="form-actions">
-                            <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Guardar producto</button>
+                            <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Actualizar producto</button>
                         </div>
                         <button (click)="cerrarModal()" type="button" class="btn btn-secondary ml-auto">Cerrar</button>
                     </div>

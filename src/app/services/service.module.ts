@@ -19,7 +19,9 @@ import {
   ValesalidaService,
   ModalAreaService,
   SidebarService,
-  EstadisticaService
+  EstadisticaService,
+  ReporteService,
+  ModalProductoService
  } from './service.index';
 
 @NgModule({
@@ -43,12 +45,14 @@ import {
     ModalAreaService,
     ModalActualizarAreaService,
     SidebarService,
-    EstadisticaService
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: AuthInterceptor,
-    //   multi: true,
-    // },
+    EstadisticaService,
+    ReporteService,
+    ModalProductoService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
   ],
   declarations: []
 })

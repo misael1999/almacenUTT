@@ -3,7 +3,7 @@ import { Factura } from '../../../../models/Factura';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
 import * as fromFacturas from '../../../../store/actions';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Usuario } from '../../../../models/Usuario';
 declare function init_selectPicker();
 
@@ -21,8 +21,10 @@ export class FacturasEntregadasComponent implements OnInit {
   error: any;
   pageable: any;
   usuario: Usuario;
+  orden = 'asc';
 
-  constructor(private store: Store<AppState>, private activatedRoute: ActivatedRoute) {
+  constructor(private store: Store<AppState>,
+    private activatedRoute: ActivatedRoute, private router: Router) {
     this.usuario = JSON.parse(localStorage.getItem('usuario'));
     this.store.select('facturas')
         .subscribe(facturas => {
@@ -39,12 +41,18 @@ export class FacturasEntregadasComponent implements OnInit {
               if (page === undefined || page < 0) {
                 page = 0;
               }
-              this.store.dispatch(new fromFacturas.LoadFacturasEntregadas(page - 1));
+              this.store.dispatch(new fromFacturas.LoadFacturasEntregadas((page - 1), this.orden));
           });
    }
 
   ngOnInit() {
     init_selectPicker();
+  }
+
+  ordenar(orden) {
+    this.orden = orden;
+    this.store.dispatch(new fromFacturas.LoadFacturasEntregadas(0, this.orden));
+    this.router.navigate(['/facturas/entregadas/page/1']);
   }
 
 }

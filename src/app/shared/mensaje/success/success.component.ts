@@ -24,6 +24,7 @@ export class SuccessComponent implements OnInit {
         const mensajeUsuario = resp.usuario.mensaje;
         const mensajeArea = resp.area.mensaje;
         const mensajeUi = resp.ui.mensaje;
+        const mensajeProducto = resp.producto.mensaje;
 
         if (mensajeArea != null) {
           this.mensaje = mensajeArea;
@@ -44,6 +45,10 @@ export class SuccessComponent implements OnInit {
         if (mensajeUi != null) {
           this.mensaje = resp.ui;
           this.cerrarMensaje(new fromMensajes.UiMessageSuccessEnd());
+        }
+        if (mensajeProducto != null) {
+          this.mensaje = mensajeProducto;
+          this.cerrarMensaje(new fromMensajes.CreateProductoEnd());
         }
 
     });

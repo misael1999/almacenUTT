@@ -10,7 +10,7 @@ import { LoginGuard } from './services/service.index';
 
 
 const appRoutes: Routes = [
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent, data: {titulo: 'Login'} },
   {
       path: '',
       component: PagesComponent,

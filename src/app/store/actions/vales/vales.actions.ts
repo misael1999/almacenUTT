@@ -1,26 +1,75 @@
 
 import { Action } from '@ngrx/store';
 import { ValeSalida } from 'src/app/models/ValeSalida';
+import { ValeProducto } from 'src/app/models/ValeProducto';
 export const LOAD_VALES_SALIDA_ACTIVOS = '[ValeSalida] Load vales salida activos';
 export const LOAD_VALES_SALIDA_ACTIVOS_SUCCESS = '[ValeSalida] Load vales salida activos SUCCESS';
 export const LOAD_VALES_SALIDA_ACTIVOS_FAIL = '[ValeSalida] Load vales salida activos FAIL';
+
 export const LOAD_VALES_SALIDA_ENTREGADOS = '[ValeSalida] Load vales salida entregados';
 export const LOAD_VALES_SALIDA_ENTREGADOS_SUCCESS = '[ValeSalida] Load vales salida entregados SUCCESS';
 export const LOAD_VALES_SALIDA_ENTREGADOS_FAIL = '[ValeSalida] Load vales salida entregados FAIL';
 
+export const LOAD_VALES_SALIDA_AREA = '[ValeSalida] Load vales salida area';
+export const LOAD_VALES_SALIDA_AREA_SUCCESS = '[ValeSalida] Load vales salida area SUCCESS';
+export const LOAD_VALES_SALIDA_AREA_FAIL = '[ValeSalida] Load vales salida area FAIL';
+
+export const ADD_VALE_ITEM = '[ValeSalida] Add vale item';
+export const REMOVE_VALE_ITEM = '[ValeSalida] Remove vale item';
+export const CLEAN_VALE_ITEM = '[ValeSalida] Clean vale item';
+
+
 export class LoadValesSalidaActivos implements Action {
     readonly type = LOAD_VALES_SALIDA_ACTIVOS;
-    constructor() {}
+    constructor(public page: number, public ordenar: string) {}
 }
 
 export class LoadValesSalidaActivosSuccess implements Action {
     readonly type = LOAD_VALES_SALIDA_ACTIVOS_SUCCESS;
-    constructor(public vales: ValeSalida[]) {}
+    constructor(public vales: ValeSalida[], public pageable: any) {}
 }
 
 export class LoadValesSalidaActivosFail implements Action {
     readonly type = LOAD_VALES_SALIDA_ACTIVOS_FAIL;
     constructor(public payLoad: any) {}
+}
+
+// ----  VALES DE SALIDAS AREA   ---- //
+
+export class LoadValesSalidaArea implements Action {
+    readonly type = LOAD_VALES_SALIDA_AREA;
+    constructor(public idArea: number) {}
+}
+
+export class LoadValesSalidaAreaSuccess implements Action {
+    readonly type = LOAD_VALES_SALIDA_AREA_SUCCESS;
+    constructor(public vales: ValeSalida[]) {}
+}
+
+export class LoadValesSalidaAreaFail implements Action {
+    readonly type = LOAD_VALES_SALIDA_AREA_FAIL;
+    constructor(public payLoad: any) {}
+}
+
+export class AddValeItem implements Action {
+
+    readonly type = ADD_VALE_ITEM;
+    constructor(public valeProducto: ValeProducto) {}
+
+}
+
+export class RemoveValeItem implements Action {
+
+    readonly type = REMOVE_VALE_ITEM;
+    constructor(public clave: string) {}
+
+}
+
+export class CleanValesItems implements Action {
+
+    readonly type = CLEAN_VALE_ITEM;
+    constructor() {}
+
 }
 
 // ----  VALES DE SALIDAS ENTREGADOS   ---- //
@@ -45,4 +94,10 @@ export type valesActions = LoadValesSalidaActivos |
                             LoadValesSalidaActivosFail |
                             LoadValesSalidaEntregados |
                             LoadValesSalidaEntregadosSuccess |
-                            LoadValesSalidaEntregadosFail;
+                            LoadValesSalidaEntregadosFail |
+                            LoadValesSalidaArea |
+                            LoadValesSalidaAreaSuccess |
+                            LoadValesSalidaAreaFail |
+                            AddValeItem |
+                            RemoveValeItem |
+                            CleanValesItems;

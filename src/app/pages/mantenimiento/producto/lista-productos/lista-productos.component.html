@@ -6,7 +6,7 @@
                     <div class="col-md-5 mb-3">
                         <form class="form-material">
                             <div class="form-group">
-                                <input #txtBuscar (keyup)="buscarProducto(txtBuscar.value)" type="text" id="example-email2" name="example-email" class="form-control" placeholder="Buscar producto"> </div>
+                                <input #txtBuscar (keyup)="buscarProducto(txtBuscar.value)" type="text" id="example-email2" name="example-email" class="form-control" placeholder="Buscar producto por clave o descripcion"> </div>
                         </form>
                     </div>
                 </div>
@@ -21,22 +21,25 @@
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th class="cursor" (click)="ordenaridProductos()">No <i class="ti-exchange-vertical cursor" aria-hidden="true"></i></th>
                                 <th class="cursor" (click)="ordenaridProductos()">Clave <i class="ti-exchange-vertical cursor" aria-hidden="true"></i></th>
                                 <th class="cursor" (click)="ordenarDescripcion()">Descripción <i class="ti-exchange-vertical cursor" aria-hidden="true"></i></th>
                                 <th class="cursor" (click)="ordenarPiezas()">Piezas <i class="ti-exchange-vertical cursor" aria-hidden="true"></i></th>
                                 <th class="cursor" (click)="ordenarUnidad()">Unidad <i class="ti-exchange-vertical cursor" aria-hidden="true"></i></th>
                                 <th class="cursor" (click)="ordenarPrecio()">Precio <i class="ti-exchange-vertical cursor" aria-hidden="true"></i></th>
+                                <th *ngIf="usuario.role === 'ROLE_ADMIN'" class="cursor">Acciones <i class="t☻i-exchange-vertical cursor" aria-hidden="true"></i></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr *ngFor="let producto of productos">
-                                <td>{{producto.idProducto}}</td>
                                 <td>{{producto.clave}}</td>
                                 <td>{{producto.descripcion}}</td>
                                 <td>{{producto.cantidad}}</td>
                                 <td><span class="label label-danger">{{producto.unidad}}</span></td>
                                 <td>{{producto.precio}}</td>
+                                <td *ngIf="usuario.role === 'ROLE_ADMIN'">
+                                    <button type="button" (click)="eliminarProducto(producto)" class="btn btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Eliminar"><i class="ti-trash" aria-hidden="true"></i></button>
+                                    <button type="button" (click)="actualizarProducto(producto)" class="btn btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Editar"><i class="ti-pencil-alt" aria-hidden="true"></i></button>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -66,3 +69,5 @@
         </div>
     </div>
 </div>
+
+<app-modal-producto></app-modal-producto>

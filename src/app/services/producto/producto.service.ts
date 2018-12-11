@@ -1,11 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { URL_SERVICIOS } from '../../global/config';
+import { Producto } from '../../models/Producto';
 
 @Injectable()
 export class ProductoService {
 
   constructor(private http: HttpClient) { }
+
+
+  public agregarProducto(producto: Producto) {
+    const URL = URL_SERVICIOS + '/productos';
+    return this.http.post(URL, producto);
+  }
+
+  public actualizarProducto(producto: Producto) {
+    const URL = URL_SERVICIOS + '/productos';
+    return this.http.patch(URL, producto);
+  }
 
   public getProductos(page: number) {
     const URL = URL_SERVICIOS + '/productos/page/' + page;

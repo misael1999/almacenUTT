@@ -53,6 +53,10 @@ import { ChartsModule } from 'ng2-charts';
 import { GraficaValesComponent } from './estadisticas/grafica-vales/grafica-vales.component';
 import { GenerarReportesComponent } from './generar-reportes/generar-reportes.component';
 import { HistorialComponent } from './historial/historial.component';
+import { GraficaGastosComponent } from './estadisticas/grafica-gastos/grafica-gastos.component';
+import { ModalProductoComponent } from './mantenimiento/modals/producto/modal-producto.component';
+import { PaginatorValesComponent } from './vales/lista-vales/activos/paginator-vales/paginator-vales.component';
+import { ValeItemComponent } from './vales/ingresar-vale/vale-item/vale-item.component';
 
 
 
@@ -96,7 +100,11 @@ import { HistorialComponent } from './historial/historial.component';
         EstadisticasComponent,
         GraficaValesComponent,
         GenerarReportesComponent,
-        HistorialComponent
+        HistorialComponent,
+        GraficaGastosComponent,
+        ModalProductoComponent,
+        PaginatorValesComponent,
+        ValeItemComponent
         ],
     exports: [
         DashboardComponent,

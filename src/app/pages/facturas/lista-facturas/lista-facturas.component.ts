@@ -3,8 +3,6 @@ import { AppState } from 'src/app/store/app.reducer';
 import { Store } from '@ngrx/store';
 import * as fromFacturas from '../../../store/actions';
 import { Router } from '@angular/router';
-declare function init_factura_inputs();
-declare function init_datarange_picker();
 
 @Component({
   selector: 'app-lista-facturas',
@@ -16,12 +14,11 @@ export class ListaFacturasComponent implements OnInit {
   constructor(private store: Store<AppState>, private router: Router) { }
 
   ngOnInit() {
-    init_factura_inputs();
-    init_datarange_picker();
   }
 
   buscarFactura(termino: string) {
      if (termino.length === 0) {
+      this.store.dispatch(new fromFacturas.LoadFacturasActivas(0, 'asc'));
        this.router.navigate(['/facturas/almacen/page/1']);
     }
     this.store.dispatch(new fromFacturas.SearchFacturas(termino));

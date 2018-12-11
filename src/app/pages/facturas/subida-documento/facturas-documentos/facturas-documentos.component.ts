@@ -48,7 +48,7 @@ export class FacturasDocumentosComponent implements OnInit {
   }
 
   descargar(nombreDocumento) {
-    window.open(URL_SERVICIOS + '/facturas/documento/' + nombreDocumento, '_blank');
+    window.open(URL_SERVICIOS + '/facturas/descargar/documento/' + nombreDocumento, '_blank');
   }
 
 }

@@ -6,6 +6,7 @@ export interface AppState {
     proveedor: reducers.ProveedorState;
     proveedores: reducers.ProveedoresState;
     productos: reducers.ProductosState;
+    producto: reducers.ProductoState;
     factura: reducers.FacturaState;
     facturas: reducers.FacturasState;
     usuario: reducers.UsuarioState;
@@ -16,11 +17,13 @@ export interface AppState {
     vale: reducers.ValeState;
     vales: reducers.ValesState;
     estadisticas: reducers.EstadisticaState;
+    reportes: reducers.ReportesState;
 }
 
 export const appReducers: ActionReducerMap<AppState> = {
     auth: reducers.authReducer,
     productos: reducers.productosReducer,
+    producto: reducers.productoReducer,
     proveedor: reducers.proveedorReducer,
     proveedores: reducers.proveedoresReducer,
     factura: reducers.facturaReducer,
@@ -32,7 +35,8 @@ export const appReducers: ActionReducerMap<AppState> = {
     ui: reducers.uiReducer,
     vale: reducers.valeReducer,
     vales: reducers.valesReducer,
-    estadisticas: reducers.estadisticaReducer
+    estadisticas: reducers.estadisticaReducer,
+    reportes: reducers.reportesReducer
 };
 
 
