@@ -33,7 +33,7 @@ export class ValeEffects {
                             mergeMap(
                                 action => {
                                     const numeroRequisicion = action['numeroRequisicion'];
-                                    return this.valeService.getValeByNumber(numeroRequisicion)
+                                    return this.valeService.getValeByNumeroRequisicion(numeroRequisicion)
                                         .pipe(
                                             map(data => new valeActions.LoadValeSalidaSuccess(data['vale'])),
                                             catchError( error => {

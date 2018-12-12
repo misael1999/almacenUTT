@@ -10,7 +10,7 @@ export class ValesEffects {
     constructor(private actions$: Actions, private valesService: ValesalidaService) {}
 
     @Effect()
-    loadValesSalidaActivos = this.actions$.ofType(fromVales.LOAD_VALES_SALIDA_ACTIVOS)
+    loadValesSalidaActivos$ = this.actions$.ofType(fromVales.LOAD_VALES_SALIDA_ACTIVOS)
                             .pipe(
                                 mergeMap(action => {
                                     return this.valesService.getValesActivos(action['page'], action['ordenar'])
@@ -25,7 +25,7 @@ export class ValesEffects {
                             );
 
     @Effect()
-    loadValesSalidaArea = this.actions$.ofType(fromVales.LOAD_VALES_SALIDA_AREA)
+    loadValesSalidaArea$ = this.actions$.ofType(fromVales.LOAD_VALES_SALIDA_AREA)
                                     .pipe(
                                         mergeMap(action => {
                                             return this.valesService.getValesByIdArea(action['idArea'])
@@ -34,6 +34,21 @@ export class ValesEffects {
                                                     catchError(
                                                         error => {
                                                             return of(new fromVales.LoadValesSalidaAreaFail(error));
+                                                        }
+                                                    )
+                                                );
+                                        })
+                                    );
+        @Effect()
+    SearchValesSalidas$ = this.actions$.ofType(fromVales.SEARCH_VALES)
+                                    .pipe(
+                                        mergeMap(action => {
+                                            return this.valesService.getValesLikeTermino(action['termino'])
+                                                .pipe(
+                                                    map(data => new fromVales.SearchValesSuccess(data['vales'])),
+                                                    catchError(
+                                                        error => {
+                                                            return of(new fromVales.SearchValesFail(error));
                                                         }
                                                     )
                                                 );

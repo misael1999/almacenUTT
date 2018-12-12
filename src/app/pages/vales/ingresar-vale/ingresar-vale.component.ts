@@ -41,6 +41,12 @@ export class IngresarValeComponent implements OnInit, OnDestroy {
         this.facturas = resp.facturas.facturas;
         this.valesProductos = resp.vales.valeProductos;
 
+        if (resp.vale.mensaje != null) {
+            setTimeout(() => {
+              this.router.navigate(['/vales', this.numeroRequisicion]);
+            }, 1500);
+        }
+
       }
     );
   }
@@ -98,7 +104,8 @@ export class IngresarValeComponent implements OnInit, OnDestroy {
     const valeSalida = new ValeSalida(
       this.numeroRequisicion,
       this.areaSeleccionada,
-      this.valesProductos
+      this.valesProductos,
+      this.factura
       );
 
     this.store.dispatch(new fromVales.CreateValeSalida(valeSalida));
@@ -138,8 +145,12 @@ export class IngresarValeComponent implements OnInit, OnDestroy {
   }
 
   seleccionarArea(idArea: number) {
+    if (Number(idArea) === 0) {
+      this.areaSeleccionada = null;
+    } else {
     const area = new Area(' ', ' ', true, Number(idArea));
     this.areaSeleccionada = area;
+      }
   }
 
 }

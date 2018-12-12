@@ -28,8 +28,14 @@ export class ValesalidaService {
     return this.http.get(URL);
   }
 
-  public getValeByNumber(idVale: number) {
-    const URL = URL_SERVICIOS + '/vales?id=' + idVale;
+  public getValeByNumeroRequisicion(numeroRequision: number) {
+    const URL = URL_SERVICIOS + '/vales/requisicion/' + numeroRequision;
     return this.http.get(URL);
   }
+
+  public getValesLikeTermino(termino) {
+    const URL = URL_SERVICIOS + '/vales/todo/' + termino;
+    return this.http.get(URL);
+  }
+
 }

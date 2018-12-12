@@ -38,7 +38,7 @@
                                     </thead>
                                     <tbody>
                                         <tr *ngFor="let producto of productos">
-                                            <td>{{producto.producto.idProducto}}</td>
+                                            <td>{{producto.producto.clave}}</td>
                                             <td>{{producto.producto.descripcion}}</td>
                                             <td>{{producto.cantidad}}</td>
                                             <td>{{producto.producto.unidad}}</td>
@@ -61,7 +61,6 @@
                     <hr>
                     <div class="text-right">
                         <button *ngIf="factura.documento" (click)="descargarArchivo(factura.documento)" class="btn btn-danger mx-2" type="submit"> Descargar factura con firmas <i class="mdi mdi-download ml-2"></i> </button>
-                        <button id="print" class="btn btn-danger" type="button"> <span><i class="fa fa-print"></i> Generar vale de salida </span> </button>
                     </div>
                 </div>
             </div>

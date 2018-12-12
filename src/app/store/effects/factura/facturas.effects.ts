@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect } from '@ngrx/effects';
 import * as facturasActions from '../../actions';
-import { map, catchError, mergeMap } from 'rxjs/operators';
+import { map, catchError, mergeMap, debounceTime } from 'rxjs/operators';
 import {FacturaService } from 'src/app/services/service.index';
 import { of } from 'rxjs';
 
@@ -50,6 +50,7 @@ export class FacturasEffects {
                 mergeMap(action => {
                     return this.facturaService.getFacturaLikeTermino(action['termino'])
                         .pipe(
+                            debounceTime(1000),
                             map(data => {
                                 return new facturasActions.SearchFacturasSuccess(data['facturas']);
                             }),

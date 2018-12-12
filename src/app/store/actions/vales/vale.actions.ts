@@ -30,7 +30,7 @@ export class CreateValeSalidaEnd implements Action {
 
 export class LoadValeSalida implements Action {
     readonly type = LOAD_VALE_SALIDA;
-    constructor(public numero: number) {}
+    constructor(public numeroRequisicion: number) {}
 }
 
 export class LoadValeSalidaSuccess implements Action {

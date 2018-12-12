@@ -54,8 +54,8 @@ export class ActivosComponent implements OnInit {
     this.router.navigate(['/vales/activos/page/1']);
   }
 
-  filtrarArea(idArea: string) {
-    if (idArea === '0') {
+  filtrarArea(idArea: number) {
+    if (Number(idArea) === 0) {
       return;
     }
     this.store.dispatch(new fromVales.LoadValesSalidaArea(Number(idArea)));

@@ -6,7 +6,7 @@
                     <div class="col-md-3">
                         <form class="form-material">
                             <div class="form-group">
-                                <input #txtBuscar type="text" class="form-control" placeholder="Buscar vale de salida"> </div>
+                                <input #txtBuscar (keyup)="buscarVale(txtBuscar.value)" type="text" class="form-control" placeholder="Buscar vale de salida"> </div>
                         </form>
                     </div>
                 </div>

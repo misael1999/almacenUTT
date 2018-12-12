@@ -17,9 +17,10 @@ export class ListaFacturasComponent implements OnInit {
   }
 
   buscarFactura(termino: string) {
-     if (termino.length === 0) {
+     if (termino.length < 2) {
       this.store.dispatch(new fromFacturas.LoadFacturasActivas(0, 'asc'));
        this.router.navigate(['/facturas/almacen/page/1']);
+       return;
     }
     this.store.dispatch(new fromFacturas.SearchFacturas(termino));
   }

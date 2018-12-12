@@ -87,6 +87,32 @@ export function valesReducer (state = estadoInicial, action: fromVales.valesActi
             error: action.payLoad
         };
         break;
+        case fromVales.SEARCH_VALES:
+        return {
+            ...state,
+            loading: true
+        };
+        break;
+
+        case fromVales.SEARCH_VALES_SUCCESS:
+        return {
+            ...state,
+            loading: false,
+            loaded: true,
+            vales: [...action.vales],
+            error: null
+        };
+        break;
+
+        case fromVales.SEARCH_VALES_FAIL:
+        return {
+            ...state,
+            loading: false,
+            loaded: false,
+            vales: [],
+            error: action.payload
+        };
+        break;
         case fromVales.ADD_VALE_ITEM:
         return {
             ...state,

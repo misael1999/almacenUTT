@@ -1,5 +1,5 @@
 <div *ngIf="loaded">
-    <h4>Total de vales de salidas por area en los ultimos 3 meses</h4>
+    <h4>Vales de salidas en los ultimos 3 meses</h4>
     <div style="display: block">
         <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
     </div>

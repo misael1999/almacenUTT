@@ -25,6 +25,7 @@ export class ErrorComponent implements OnInit {
         const errorUi = resp.ui.error;
         const errorArea = resp.area.error;
         const errorProducto = resp.producto.error;
+        const errorVale = resp.vale.error;
 
         if (errorFactura != null) {
           this.error = errorFactura;
@@ -53,7 +54,11 @@ export class ErrorComponent implements OnInit {
         if (errorProducto != null) {
           this.error = errorProducto;
           this.cerrarMensaje(new fromMensajes.CreateProductoEnd());
-      }
+        }
+        if (errorVale != null) {
+          this.error = errorVale;
+          this.cerrarMensaje(new fromMensajes.CreateValeSalidaEnd());
+        }
 
     });
 

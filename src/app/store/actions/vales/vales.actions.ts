@@ -19,6 +19,11 @@ export const REMOVE_VALE_ITEM = '[ValeSalida] Remove vale item';
 export const CLEAN_VALE_ITEM = '[ValeSalida] Clean vale item';
 
 
+export const SEARCH_VALES = '[ValeSalida] Search vales';
+export const SEARCH_VALES_SUCCESS = '[ValeSalida] Search vales SUCCESS';
+export const SEARCH_VALES_FAIL = '[ValeSalida] Search vales FAIL';
+
+
 export class LoadValesSalidaActivos implements Action {
     readonly type = LOAD_VALES_SALIDA_ACTIVOS;
     constructor(public page: number, public ordenar: string) {}
@@ -72,6 +77,21 @@ export class CleanValesItems implements Action {
 
 }
 
+export class SearchVales implements Action {
+    readonly type = SEARCH_VALES;
+    constructor(public termino: string) {}
+}
+
+export class SearchValesSuccess implements Action {
+    readonly type = SEARCH_VALES_SUCCESS;
+    constructor(public vales: ValeSalida[]) {}
+}
+
+export class SearchValesFail implements Action {
+    readonly type = SEARCH_VALES_FAIL;
+    constructor(public payload: any) {}
+}
+
 // ----  VALES DE SALIDAS ENTREGADOS   ---- //
 
 export class LoadValesSalidaEntregados implements Action {
@@ -100,4 +120,7 @@ export type valesActions = LoadValesSalidaActivos |
                             LoadValesSalidaAreaFail |
                             AddValeItem |
                             RemoveValeItem |
-                            CleanValesItems;
+                            CleanValesItems |
+                            SearchVales |
+                            SearchValesSuccess |
+                            SearchValesFail;
