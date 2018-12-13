@@ -5,7 +5,7 @@
                 <div class="d-flex no-block">
                     <div class="m-r-20 align-self-center"><img src="../../../assets/images/icon/income-w.png" alt="Income" /></div>
                     <div class="align-self-center">
-                        <h6 class="text-white m-t-10 m-b-0">Reporte de productos</h6>
+                        <h6 class="text-white m-t-10 m-b-0">Reporte de productos por mes</h6>
 
                         <a class="mt-3 text-white btn btn-inverse btn-sm d-block" data-toggle="modal" data-target="#responsive-modal">Generar reporte</a>
                     </div>
@@ -33,8 +33,8 @@
                 <div class="d-flex no-block">
                     <div class="m-r-20 align-self-center"><img src="../../../assets/images/icon/assets-w.png" alt="Income" /></div>
                     <div class="align-self-center">
-                        <h6 class="text-white m-t-10 m-b-0">Reporte de proveedores</h6>
-                        <a class="mt-3 text-white btn btn-inverse btn-sm d-block" data-toggle="modal" data-target="#responsive-modal">Generar reporte</a>
+                        <h6 class="text-white m-t-10 m-b-0">Reporte de productos por proveedor</h6>
+                        <a class="mt-3 text-white btn btn-inverse btn-sm d-block" data-toggle="modal" data-target="#responsive-modal-proveedores">Generar reporte</a>
 
                     </div>
                 </div>
@@ -47,8 +47,8 @@
                 <div class="d-flex no-block">
                     <div class="m-r-20 align-self-center"><img src="../../../assets/images/icon/staff-w.png" alt="Income" /></div>
                     <div class="align-self-center">
-                        <h6 class="text-white m-t-10 m-b-0">Reporte de gastos totales</h6>
-                        <a class="mt-3 text-white btn btn-inverse btn-sm d-block" data-toggle="modal" data-target="#responsive-modal">Generar reporte</a>
+                        <h6 class="text-white m-t-10 m-b-0">Reporte de gastos por area</h6>
+                        <a class="mt-3 text-white btn btn-inverse btn-sm d-block" data-toggle="modal" data-target="#responsive-modal-gastos">Generar reporte</a>
                     </div>
                 </div>
             </div>
@@ -56,6 +56,7 @@
     </div>
 </div>
 
+<!--   MODAL REPORTE PRODUCTOS    -->
 <div id="responsive-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -64,100 +65,89 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             </div>
             <div class="modal-body">
-                <div id="accordionexample" class="accordion" role="tablist" aria-multiselectable="true">
-                    <div class="card">
-                        <div class="card-header" role="tab" id="headingOne">
-                            <h5 class="mb-0">
-                                <a data-toggle="collapse" data-parent="#accordionexample" href="#collapseexaOne" aria-expanded="true" aria-controls="collapseexaOne">
-                            Basico
-                          </a>
-                            </h5>
-                        </div>
-
-                        <div id="collapseexaOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
-                            <div class="card-body">
-                                <form>
-                                    <div class="form-group">
-                                        <label class="control-label d-block">Seleccione el mes:</label>
-                                        <select [(ngModel)]="mes" name="mes" class="form-control" data-style="btn-primary">
-                                      <option *ngFor="let mes of meses" value="{{mes.numero}}" >{{mes.mes}}</option>
-                                    </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="message-text" class="control-label d-block">Seleccione el año</label>
-                                        <select [(ngModel)]="ano" name="ano" class="form-control" data-style="btn-info">
-                                      <option *ngFor="let ano of anos" value="{{ano}}" >{{ano}}</option>
-                                    </select>
-                                    </div>
-
-                                    <div class="mt-2">
-                                        <button (click)="reporteProductos()" type="button" class="btn btn-danger waves-effect waves-light">Generar reporte</button>
-                                    </div>
-
-                                </form>
-                            </div>
-                        </div>
+                <form>
+                    <div class="form-group">
+                        <label class="control-label d-block">Seleccione el mes:</label>
+                        <select [(ngModel)]="mes" name="mes" class="form-control" data-style="btn-primary">
+                                  <option *ngFor="let mes of meses" value="{{mes.numero}}" >{{mes.mes}}</option>
+                                </select>
                     </div>
-                    <div class="card">
-                        <div class="card-header" role="tab" id="headingTwo">
-                            <h5 class="mb-0">
-                                <a class="collapsed" data-toggle="collapse" data-parent="#accordionexample" href="#collapseexaTwo" aria-expanded="false" aria-controls="collapseexaTwo">
-                            Avanzado
-                          </a>
-                            </h5>
-                        </div>
-                        <div id="collapseexaTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
-                            <div class="card-body">
-                                <form>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <label for="message-text" class="control-label d-block">Seleccione la area</label>
-                                            <select class="form-control" data-style="btn-info">
-                                                                            <option>Tecnologias de la informacion y comunicacion</option>
-                                                                          </select>
-                                        </div>
-                                        <div class="col-md-12 mt-2">
-                                            <label for="message-text" class="control-label d-block">Seleccione las fechas</label>
-                                        </div>
-
-                                        <div class="col-md-5">
-                                            <input type="date" class="form-control">
-                                        </div>
-                                        <div class="col-md-2 d-flex justify-content-center m-0 p-0">
-                                            <div class="bg-info text-white rounded d-flex align-content-center justify-content-center">
-                                                <span class="px-2 d-flex align-content-center">a</span>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5">
-
-                                            <input type="date" class="form-control">
-                                        </div>
-
-                                        <div class="col-md-6 my-3">
-                                            <label for="message-text" class="control-label d-block">Seleccione el año</label>
-                                            <select class="form-control" data-style="btn-info">
-                                                <option *ngFor="let ano of anos" value="{{ano}}" >{{ano}}</option>
-                                              </select>
-                                        </div>
-                                        <div class="col-md-12 mt-3 d-flex justify-content-end">
-                                            <div class="mt-2">
-                                                <button type="button" class="btn btn-danger waves-effect waves-light">Generar reporte</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-
-                            </div>
-                        </div>
+                    <div class="form-group">
+                        <label for="message-text" class="control-label d-block">Seleccione el año</label>
+                        <select [(ngModel)]="ano" name="ano" class="form-control" data-style="btn-info">
+                                  <option *ngFor="let ano of anos" value="{{ano}}" >{{ano}}</option>
+                                </select>
                     </div>
-
-                </div>
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
-
+                    <div class="mt-2">
+                        <button (click)="reporteProductos()" type="button" class="btn btn-danger waves-effect waves-light">Generar reporte</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+
 </div>
+<!--   ============= FIN MODAL PRODUCTOS =================    -->
+
+<!--   MODAL REPORTE PROVEEDORES    -->
+<div id="responsive-modal-proveedores" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Opciones</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <div class="form-group col-md-12 m-b-40">
+                            <label for="input1">Nombre del proveedor</label>
+                            <input class="form-control" #txtProveedor (keyup)="buscarProveedor(txtProveedor.value)" type="text" id="input1">
+                            <span class="bar"></span>
+                            <div *ngIf="proveedores.length > 0" class="typehead-proveedores w-100">
+                                <p *ngFor="let proveedor of proveedores" (click)="colocarText(proveedor)">{{proveedor.nombre}}</p>
+                            </div>
+                            <span class="help-block"><small>*Obligatorio</small></span>
+                        </div>
+                    </div>
+                    <div class="mt-2">
+                        <button (click)="reporteProductosProveedores()" type="button" class="btn btn-danger waves-effect waves-light">Generar reporte</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!--   ============= FIN MODAL PRODUCTOS =================    -->
+
+<!--   MODAL GASTOS AREAS  -->
+<div id="responsive-modal-gastos" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Opciones</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <div class="form-group col-md-12 m-b-40">
+                            <label for="">Del</label>
+                            <input #txtFecha1 type="date" class="form-control">
+                            <label for="">Al</label>
+                            <input #txtFecha2 type="date" class="form-control">
+                        </div>
+                    </div>
+                    <div class="mt-2">
+                        <button (click)="reporteGastosAreas()" type="button" class="btn btn-danger waves-effect waves-light">Generar reporte</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!--   ============= FIN MODAL PRODUCTOS =================    -->

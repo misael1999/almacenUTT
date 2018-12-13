@@ -17,6 +17,10 @@ export const CHANGE_PASSWORD_SUCCESS = '[Usuario] Change Password SUCCESS';
 export const CHANGE_PASSWORD_FAIL = '[Usuario] Change Password FAIL';
 export const CHANGE_PASSWORD_END = '[Usuario] Change Password END';
 
+export const LOAD_USUARIO = '[Usuario] Load usuario';
+export const LOAD_USUARIO_SUCCESS = '[Usuario] Load usuario SUCCESS';
+export const LOAD_USUARIO_FAIL = '[Usuario] Load usuario FAIL';
+
 
 // ----  CAMBIAR CONTRASEÑA   ---- //
 
@@ -89,6 +93,22 @@ export class UpdateUsuarioEnd implements Action {
     constructor() {}
 }
 
+export class LoadUsuario implements Action {
+    readonly type = LOAD_USUARIO;
+    constructor(public nombreUsuario: string) {}
+}
+
+export class LoadUsuarioSuccess implements Action {
+    readonly type = LOAD_USUARIO_SUCCESS;
+    constructor(public usuario: Usuario) {}
+}
+
+export class LoadUsuarioFail implements Action {
+    readonly type = LOAD_USUARIO_FAIL;
+    constructor(public payload: any) {}
+}
+
+
 export type UsuarioAcciones = ChangePassword |
                             ChangePasswordSuccess |
                             ChangePasswordFail |
@@ -101,4 +121,7 @@ export type UsuarioAcciones = ChangePassword |
                             UpdateUsuario |
                             UpdateUsuarioSuccess |
                             UpdateUsuarioFail |
-                            UpdateUsuarioEnd;
+                            UpdateUsuarioEnd |
+                            LoadUsuario |
+                            LoadUsuarioSuccess |
+                            LoadUsuarioFail;

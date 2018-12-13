@@ -1,0 +1,28 @@
+<div class="row" *ngIf="usuarios && loaded">
+    <div class="div w-100">
+        <h4>Elige al usuario</h4>
+    </div>
+    <div *ngFor="let usuario of usuarios" class="col-md-3">
+        <div class="card card-outline-success">
+            <div class="card-header">
+                <h4 class="m-b-0 text-white">{{usuario.primerNombre}} {{usuario.apellidoPaterno}}</h4>
+            </div>
+            <div class="card-body">
+                <p>Usuario: {{usuario.nombreUsuario}}</p>
+                <a [routerLink]="['/privilegios', usuario.nombreUsuario]" class="btn btn-inverse btn-sm">Editar privilegios <i class="fa fa-edit"></i></a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="row" *ngIf="error != null">
+    <div class="col-lg-12">
+        <div class="alert alert-danger" role="alert">
+            <h4 class="alert-heading">{{error.name}}</h4>
+            <p>{{error.message}}</p>
+            <hr>
+            <p class="mb-0">{{error.status}}</p>
+        </div>
+    </div>
+</div>

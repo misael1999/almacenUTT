@@ -8122,3 +8122,31 @@ File: scss
 .lb-vale-item {
     font-size: 80%;
 }
+
+.privilegios {
+    border: 2px solid #f2f2f2;
+    /* border-radius: 15px; */
+}
+
+.privilegios>ul {
+    padding: 10px 0px 0px 0px;
+    margin: 0;
+}
+
+.privilegios>ul>li {
+    list-style: none;
+    text-decoration: none;
+    padding: 8px;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.privilegios>ul>li:hover {
+    background: rgba(72, 121, 150, 0.247);
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+}
+
+.col-opciones-privilegios {
+    justify-content: center;
+    align-content: center;
+}

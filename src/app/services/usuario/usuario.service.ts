@@ -52,4 +52,13 @@ export class UsuarioService {
     return this.http.patch(URL, usuario);
   }
 
+  public getUsuarioByNombreUsuario(nombreUsuario: string) {
+    const URL = URL_SERVICIOS + '/usuarios/' + nombreUsuario;
+    return this.http.get(URL);
+  }
+  public getPrivilegios() {
+    const URL = URL_SERVICIOS + '/privilegios';
+    return this.http.get(URL);
+  }
+
 }

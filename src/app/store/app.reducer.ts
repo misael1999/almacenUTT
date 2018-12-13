@@ -18,6 +18,7 @@ export interface AppState {
     vales: reducers.ValesState;
     estadisticas: reducers.EstadisticaState;
     reportes: reducers.ReportesState;
+    privilegios: reducers.PrivilegiosState;
 }
 
 export const appReducers: ActionReducerMap<AppState> = {
@@ -36,7 +37,8 @@ export const appReducers: ActionReducerMap<AppState> = {
     vale: reducers.valeReducer,
     vales: reducers.valesReducer,
     estadisticas: reducers.estadisticaReducer,
-    reportes: reducers.reportesReducer
+    reportes: reducers.reportesReducer,
+    privilegios: reducers.privilegiosReducer
 };
 
 

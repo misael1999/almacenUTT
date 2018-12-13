@@ -24,6 +24,8 @@ import { FacturasDocumentosComponent } from './facturas/subida-documento/factura
 import { EstadisticasComponent } from './estadisticas/estadisticas.component';
 import { GenerarReportesComponent } from './generar-reportes/generar-reportes.component';
 import { HistorialComponent } from './historial/historial.component';
+import { PrivilegiosComponent } from './mantenimiento/privilegios/privilegios.component';
+import { PriveligioUsuarioComponent } from './mantenimiento/privilegios/priveligio-usuario/priveligio-usuario.component';
 
 
 
@@ -33,12 +35,6 @@ import { HistorialComponent } from './historial/historial.component';
 const LIST_FACTURAS_ROUTES: Routes = [
   { path: 'entregadas/page/:page', component: FacturasEntregadasComponent, data: {titulo: 'Facturas'} },
   { path: 'almacen/page/:page', component: FacturasActivasComponent, data: {titulo: 'Facturas'} },
-  { path: '', redirectTo: '/inicio', pathMatch: 'full' }
-];
-
-const LIST_USUARIOS_ROUTES: Routes = [
-  { path: 'area', component: UsuariosAreasComponent, data: {titulo: 'Usuarios'} },
-  { path: 'sistema', component: UsuariosSistemaComponent, data: {titulo: 'Usuarios'} },
   { path: '', redirectTo: '/inicio', pathMatch: 'full' }
 ];
 
@@ -75,7 +71,10 @@ const pagesRoutes: Routes = [
     {path: 'historial', component: HistorialComponent, data: { titulo: 'Reportes' } },
     {path: 'facturas/:folio', component: DescripcionComponent, data: { titulo: 'Descripcion' } },
     // tslint:disable-next-line:max-line-length
-    {path: 'usuarios', component: ListaUsuariosComponent, canActivate: [ AdminGuard ], children: LIST_USUARIOS_ROUTES, data: { titulo: 'Lista de usuarios' } },
+    {path: 'usuarios', component: UsuariosSistemaComponent, canActivate: [ AdminGuard ], data: { titulo: 'Lista de usuarios' } },
+    {path: 'areas', component: UsuariosAreasComponent, data: { titulo: 'Lista de areas' } },
+    {path: 'privilegios', component: PrivilegiosComponent, data: { titulo: 'Privilegios' } },
+    {path: 'privilegios/:nombreUsuario', component: PriveligioUsuarioComponent, data: { titulo: 'Privilegios' } },
     {path: 'cargar-factura', component: SubidaDocumentoComponent, children: LIST_SUBIDAS_DOCUMENTOS, data: { titulo: 'Cargar factura' } },
     {path: 'vales', component: ListaValesComponent, children: LIST_VALES_SALIDA_ROUTES, data: { titulo: 'Lista vales de salida' }},
     {path: 'vales-ingresar', component: IngresarValeComponent, data: { titulo: 'Generar vale de salida'}},

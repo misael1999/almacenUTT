@@ -59,5 +59,22 @@ export class UsuarioEffects {
                         );
                 })
             );
+
+    @Effect()
+        loadUsuario$ = this.actions$.ofType(usuariosActions.LOAD_USUARIO)
+            .pipe(
+                mergeMap(action => {
+                    const usuario = action['nombreUsuario'];
+                    return this.usuarioService.getUsuarioByNombreUsuario(usuario)
+                        .pipe(
+                           map(data => {
+                                return new usuariosActions.LoadUsuarioSuccess(data['usuario']);
+                           }),
+                           catchError(error => {
+                                return of(new usuariosActions.LoadUsuarioFail(error));
+                           })
+                        );
+                })
+            );
 }
 

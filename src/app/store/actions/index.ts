@@ -14,5 +14,6 @@ export * from './vales/vale.actions';
 export * from './vales/vales.actions';
 export * from './estadistica/estadisticas.actions';
 export * from './reporte/reportes.actions';
+export * from './usuario/privilegios.actions';
 
 

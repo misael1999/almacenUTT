@@ -1,43 +1,43 @@
-import * as fromUsuarios from '../../actions';
-import { Usuario } from '../../../models/Usuario';
+import * as fromPrivilegios from '../../actions';
+import { Privilegio } from '../../../models/Privilegio';
 
-export interface UsuariosState {
-    usuarios: Usuario[];
+export interface PrivilegiosState {
+    privilegios: Privilegio[];
     loaded: boolean;
     loading: boolean;
     error: any;
   }
 
-  const estadoInicial: UsuariosState = {
-    usuarios: [],
+  const estadoInicial: PrivilegiosState = {
+    privilegios: [],
     loaded: false,
     loading: false,
     error: null,
   };
 
-  export function usuariosReducer(state = estadoInicial, action: fromUsuarios.usuariosAcciones): UsuariosState {
+  export function privilegiosReducer(state = estadoInicial, action: fromPrivilegios.privilegiosAcciones): PrivilegiosState {
 
     switch (action.type) {
-        case fromUsuarios.LOAD_USUARIOS:
+        case fromPrivilegios.LOAD_PRIVILEGIOS:
             return {
                 ...state,
                 loading: true
             };
             break;
-        case fromUsuarios.LOAD_USUARIOS_SUCCESS:
+        case fromPrivilegios.LOAD_PRIVILEGIOS_SUCCESS:
             return {
                 ...state,
                 loading: false,
                 loaded: true,
-                usuarios: action.usuarios
+                privilegios: action.privilegios
             };
             break;
-        case fromUsuarios.LOAD_USUARIOS_FAIL:
+        case fromPrivilegios.LOAD_PRIVILEGIOS_FAIL:
             return {
                 ...state,
                 loading: false,
                 loaded: true,
-                usuarios: [],
+                privilegios: [],
                 error: action.payload
             };
             break;

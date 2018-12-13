@@ -124,6 +124,29 @@ export interface UsuarioState {
                 mensaje: null
             };
             break;
+        // OBTENER_USUARIO
+        case fromUsuarios.LOAD_USUARIO:
+            return {
+            ...state,
+            loading: true,
+            };
+        break;
+        case fromUsuarios.LOAD_USUARIO_SUCCESS:
+            return {
+            ...state,
+            loading: false,
+            loaded: true,
+            usuario: action.usuario
+            };
+        break;
+        case fromUsuarios.LOAD_USUARIO_FAIL:
+            return {
+                ...state,
+                loading: false,
+                loaded: false,
+                error: action.payload
+            };
+        break;
     }
 
   }

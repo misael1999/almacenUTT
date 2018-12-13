@@ -29,8 +29,6 @@ export class ModalActualizarUsuarioComponent implements OnInit {
     this.loading = usuario.loading;
     this.usuario = usuario.usuario;
 
-    console.log(this.usuario);
-
     if (this.usuario != null) {
       this.formUsuario = new FormGroup({
         primerNombre: new FormControl( this.usuario.primerNombre , Validators.required ),

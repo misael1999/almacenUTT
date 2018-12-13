@@ -1,0 +1,62 @@
+<div class="row" *ngIf="usuario && loaded">
+    <div class="col-md-4">
+
+        <div class="card card-outline-inverse">
+            <div class="card-header">
+                <h4 class="m-b-0 text-white">Informacion del usuario</h4>
+            </div>
+            <div class="card-body">
+                <ul class="list-group">
+
+                    <li class="list-group-item">Nombre: {{usuario.primerNombre}} {{usuario.segundoNombre}}</li>
+
+                    <li class="list-group-item">Apellidos: {{usuario.apellidoPaterno}} {{usuario.apellidoMaterno}}</li>
+
+                    <li class="list-group-item">Nombre de usuario: {{usuario.nombreUsuario}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="card card-outline-inverse">
+            <div class="card-header">
+                <h4 class="m-b-0 text-white">Añadir privilegios</h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div *ngIf="privilegios" class="col-md-5">
+                        <h5>Privilegios disponibles</h5>
+                        <div class="privilegios p-disponibles">
+                            <ul>
+                                <li (click)="agregarPrivilegio(privilegio)" *ngFor="let privilegio of privilegios">{{privilegio.nombre}}</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2 col-opciones-privilegios">
+                        <button (click)="agregarTodo()" class="btn btn-warning btn-sm my-1">todo <i class="mdi mdi-arrow-right"></i></button>
+                        <button (click)="quitarTodo()" class="btn btn-danger btn-sm"><i class="mdi mdi-arrow-left"></i> quitar todo</button>
+                    </div>
+
+
+                    <div class="col-md-5">
+                        <h5>Privilegios de {{usuario.nombreUsuario}}</h5>
+
+                        <div class="privilegios p-usuario">
+                            <ul>
+                                <li (click)="quitarPrivilegios(privilegioUsuario.privilegio)" *ngFor="let privilegioUsuario of usuario.privilegios">
+                                    {{privilegioUsuario.privilegio.nombre}}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <button (click)="guardarPrivilegios()" class="btn btn-success btn-block">Guardar privilegios</button>
+        </div>
+
+    </div>
+</div>

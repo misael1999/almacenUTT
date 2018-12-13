@@ -1,3 +1,5 @@
+import { Privilegio } from './Privilegio';
+import { PrivilegioUsuario } from './PrivilegioUsuario';
 export class Usuario {
     constructor(
     public primerNombre: string,
@@ -9,6 +11,7 @@ export class Usuario {
     public idUsuario?: number,
     public status?: boolean,
     public segundoNombre?: string,
+    public privilegios?: PrivilegioUsuario[]
     ) {}
 }
 

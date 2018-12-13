@@ -2,7 +2,9 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <!-- <button type="button" class="btn btn-info btn-rounded pull-left" (click)="abrirModal()">Agregar nuevo proveedor</button> -->
+                <div class="m-3">
+                    <button (click)="agregarUsuario()" class="btn btn-rounded btn-info">Agregar usuario <i class="mdi mdi-plus ml-2"></i></button>
+                </div>
 
                 <div class="table-responsive table-datos table-usuarios">
                     <table id="demo-foo-addrow" class="table m-t-30 table-hover contact-list" data-page-size="10">
@@ -35,9 +37,7 @@
             </div>
         </div>
     </div>
-    <div class="ml-3">
-        <button (click)="agregarUsuario()" class="btn btn-rounded btn-info">Agregar usuario <i class="mdi mdi-plus ml-2"></i></button>
-    </div>
+
 </div>
 
 <div *ngIf="loading" class="cargando w-100 d-flex justify-content-center p-5 animated fadeIn">

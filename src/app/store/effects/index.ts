@@ -13,6 +13,7 @@ import { AreaEffects } from './usuario/area.effects';
 import { EstadisticasEffects } from './estadistica/estadisticas.effects';
 import { ReportesEffects } from './reporte/reportes.effects';
 import { ProductoEffects } from './producto/producto.effects';
+import { PrivilegiosEffects } from './usuario/privilegios.effects';
 
 export const effectArreglo: any[] = [
     AuthEffects,
@@ -29,7 +30,8 @@ export const effectArreglo: any[] = [
     ValeEffects,
     ValesEffects,
     EstadisticasEffects,
-    ReportesEffects
+    ReportesEffects,
+    PrivilegiosEffects
 ];
 
 export * from './auth.effects';
@@ -47,4 +49,5 @@ export * from './vale/vale.effects';
 export * from './vale/vales.effects';
 export * from './estadistica/estadisticas.effects';
 export * from './reporte/reportes.effects';
+export * from './usuario/privilegios.effects';
 

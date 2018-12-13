@@ -57,6 +57,8 @@ import { GraficaGastosComponent } from './estadisticas/grafica-gastos/grafica-ga
 import { ModalProductoComponent } from './mantenimiento/modals/producto/modal-producto.component';
 import { PaginatorValesComponent } from './vales/lista-vales/activos/paginator-vales/paginator-vales.component';
 import { ValeItemComponent } from './vales/ingresar-vale/vale-item/vale-item.component';
+import { PrivilegiosComponent } from './mantenimiento/privilegios/privilegios.component';
+import { PriveligioUsuarioComponent } from './mantenimiento/privilegios/priveligio-usuario/priveligio-usuario.component';
 
 
 
@@ -104,7 +106,9 @@ import { ValeItemComponent } from './vales/ingresar-vale/vale-item/vale-item.com
         GraficaGastosComponent,
         ModalProductoComponent,
         PaginatorValesComponent,
-        ValeItemComponent
+        ValeItemComponent,
+        PrivilegiosComponent,
+        PriveligioUsuarioComponent
         ],
     exports: [
         DashboardComponent,
