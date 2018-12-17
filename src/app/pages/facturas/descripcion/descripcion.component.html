@@ -52,15 +52,21 @@
                 </div>
                 <div class="col-md-12">
                     <div class="pull-right m-t-30 text-right">
-                        <!-- <p>Sub - Total : $13,848 </p>
-                        <p>IVA 16% : $138 </p>
-                        <hr> -->
                         <h3><b>Total :</b> ${{factura.total}} </h3>
                     </div>
                     <div class="clearfix"></div>
                     <hr>
-                    <div class="text-right">
-                        <button *ngIf="factura.documento" (click)="descargarArchivo(factura.documento)" class="btn btn-danger mx-2" type="submit"> Descargar factura con firmas <i class="mdi mdi-download ml-2"></i> </button>
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <button *ngIf="factura.documento" (click)="descargarArchivo(factura.documento)" class="btn btn-danger mx-2" type="submit"> Descargar factura con firmas <i class="mdi mdi-download ml-2"></i> </button>
+                        </div>
+                        <div>
+                            <button *ngIf="usuario.role === 'ROLE_ADMIN'" [routerLink]="['/facturas/editar', folio]" class="btn btn-warning mx-2" type="submit"> Editar factura <i class="mdi mdi-pencil ml-2"></i> </button>
+                        </div>
+                    </div>
+                    <div class="descripcion mt-2">
+                        <p class="p-0 m-0 text-danger">**Descripción de la factura:</p>
+                        <span>{{factura.descripcion}}</span>
                     </div>
                 </div>
             </div>
@@ -68,6 +74,4 @@
     </div>
 </div>
 
-<div *ngIf="loading" class="cargando w-100 d-flex justify-content-center p-5 animated fadeIn">
-    <i class="fa fa-spinner fa-spin fa-3x"></i>
-</div>
+<app-loading *ngIf="loading"></app-loading>

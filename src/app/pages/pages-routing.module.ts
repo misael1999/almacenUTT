@@ -26,6 +26,8 @@ import { GenerarReportesComponent } from './generar-reportes/generar-reportes.co
 import { HistorialComponent } from './historial/historial.component';
 import { PrivilegiosComponent } from './mantenimiento/privilegios/privilegios.component';
 import { PriveligioUsuarioComponent } from './mantenimiento/privilegios/priveligio-usuario/priveligio-usuario.component';
+import { VerificaTokenGuard } from '../services/service.index';
+import { EditarFacturaComponent } from './facturas/editar-factura/editar-factura.component';
 
 
 
@@ -57,28 +59,37 @@ const pagesRoutes: Routes = [
     {
         path: 'inicio',
         component: DashboardComponent,
-        // canActivate: [ VerificaTokenGuard ],
+        canActivate: [ VerificaTokenGuard ],
         data: { titulo: 'Inicio' }
     },
-    {path: 'facturas-ingresar', component: IngresarComponent, data: { titulo: 'Ingresar factura' } },
-    {path: 'facturas', component: ListaFacturasComponent, children: LIST_FACTURAS_ROUTES , data: { titulo: 'Lista de facturas' } },
-    {path: 'proveedores/page/:page', component: ListaProveedorComponent, data: { titulo: 'Lista de proveedores' } },
+    {path: 'facturas-ingresar', component: IngresarComponent, canActivate: [ VerificaTokenGuard ], data: { titulo: 'Ingresar factura' } },
+    {path: 'facturas/editar/:folio', component: EditarFacturaComponent,
+     canActivate: [ VerificaTokenGuard ], data: { titulo: 'Editar factura' } },
+    {path: 'facturas', component: ListaFacturasComponent, children: LIST_FACTURAS_ROUTES ,
+     canActivate: [ VerificaTokenGuard ], data: { titulo: 'Lista de facturas' } },
+    {path: 'proveedores/page/:page', component: ListaProveedorComponent,
+     canActivate: [ VerificaTokenGuard ], data: { titulo: 'Lista de proveedores' } },
     // tslint:disable-next-line:max-line-length
-    {path: 'productos/page/:page', component: ListaProductosComponent, data: { titulo: 'Lista de productos' } },
-    {path: 'seguridad', component: SeguridadComponent, data: { titulo: 'Seguridad' } },
-    {path: 'estadisticas', component: EstadisticasComponent, data: { titulo: 'Estadisticas' } },
-    {path: 'reportes', component: GenerarReportesComponent, data: { titulo: 'Reportes' } },
-    {path: 'historial', component: HistorialComponent, data: { titulo: 'Reportes' } },
-    {path: 'facturas/:folio', component: DescripcionComponent, data: { titulo: 'Descripcion' } },
+    {path: 'productos/page/:page', component: ListaProductosComponent, canActivate: [ VerificaTokenGuard ], data: { titulo: 'Lista de productos' } },
+    {path: 'seguridad', component: SeguridadComponent, canActivate: [ VerificaTokenGuard ], data: { titulo: 'Seguridad' } },
+    {path: 'estadisticas', component: EstadisticasComponent, canActivate: [ VerificaTokenGuard ], data: { titulo: 'Estadisticas' } },
+    {path: 'reportes', component: GenerarReportesComponent, canActivate: [ VerificaTokenGuard ], data: { titulo: 'Reportes' } },
+    {path: 'historial', component: HistorialComponent, canActivate: [ VerificaTokenGuard ], data: { titulo: 'Reportes' } },
+    {path: 'facturas/:folio', component: DescripcionComponent, canActivate: [ VerificaTokenGuard ], data: { titulo: 'Descripcion' } },
     // tslint:disable-next-line:max-line-length
-    {path: 'usuarios', component: UsuariosSistemaComponent, canActivate: [ AdminGuard ], data: { titulo: 'Lista de usuarios' } },
-    {path: 'areas', component: UsuariosAreasComponent, data: { titulo: 'Lista de areas' } },
-    {path: 'privilegios', component: PrivilegiosComponent, data: { titulo: 'Privilegios' } },
-    {path: 'privilegios/:nombreUsuario', component: PriveligioUsuarioComponent, data: { titulo: 'Privilegios' } },
-    {path: 'cargar-factura', component: SubidaDocumentoComponent, children: LIST_SUBIDAS_DOCUMENTOS, data: { titulo: 'Cargar factura' } },
-    {path: 'vales', component: ListaValesComponent, children: LIST_VALES_SALIDA_ROUTES, data: { titulo: 'Lista vales de salida' }},
-    {path: 'vales-ingresar', component: IngresarValeComponent, data: { titulo: 'Generar vale de salida'}},
-    {path: 'vales/:numero', component: DescripcionValeComponent, data: {titulo: 'Descripcion vale de salida'}},
+    {path: 'usuarios', component: UsuariosSistemaComponent, canActivate: [ AdminGuard, VerificaTokenGuard ], data: { titulo: 'Lista de usuarios' } },
+    {path: 'areas', component: UsuariosAreasComponent, canActivate: [ VerificaTokenGuard ], data: { titulo: 'Lista de areas' } },
+    {path: 'privilegios', component: PrivilegiosComponent, canActivate: [ VerificaTokenGuard ], data: { titulo: 'Privilegios' } },
+    {path: 'privilegios/:nombreUsuario', component: PriveligioUsuarioComponent,
+    canActivate: [ VerificaTokenGuard ], data: { titulo: 'Privilegios' } },
+    {path: 'cargar-factura', component: SubidaDocumentoComponent, children: LIST_SUBIDAS_DOCUMENTOS,
+     canActivate: [ VerificaTokenGuard ], data: { titulo: 'Cargar factura' } },
+    {path: 'vales', component: ListaValesComponent, children: LIST_VALES_SALIDA_ROUTES,
+     canActivate: [ VerificaTokenGuard ], data: { titulo: 'Lista vales de salida' }},
+    {path: 'vales-ingresar', component: IngresarValeComponent,
+     canActivate: [ VerificaTokenGuard ], data: { titulo: 'Generar vale de salida'}},
+    {path: 'vales/:numero', component: DescripcionValeComponent,
+     canActivate: [ VerificaTokenGuard ], data: {titulo: 'Descripcion vale de salida'}},
     { path: '', redirectTo: '/inicio', pathMatch: 'full' }
 ];
 

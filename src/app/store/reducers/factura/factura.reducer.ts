@@ -1,6 +1,5 @@
 import * as fromfactura from '../../actions';
 import { Factura } from '../../../models/Factura';
-import { facturaAcciones, CREATE_FACTURA_END, LOAD_FACTURA, UPLOAD_ARCHIVO_FACTURA } from '../../actions/factura/factura.actions';
 
 export interface FacturaState {
     factura: Factura;
@@ -55,6 +54,41 @@ export function facturaReducer(state = estadoInicial, action: fromfactura.factur
                 error: null
             };
             break;
+        // ACTUALIZAR FACTURA
+        case fromfactura.UPDATE_FACTURA:
+            return {
+                ...state,
+                loading: true
+            };
+            break;
+        case fromfactura.UPDATE_FACTURA_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                loaded: true,
+                mensaje: {
+                    titulo: action.payload.titulo,
+                    mensaje: action.payload.mensaje,
+                    folio: action.payload.folio
+                }
+            };
+            break;
+        case fromfactura.UPDATE_FACTURA_FAIL:
+            return {
+                ...state,
+                loading: false,
+                loaded: false,
+                error: action.payload,
+                mensaje: null
+            };
+            break;
+        case fromfactura.UPDATE_FACTURA_END:
+            return {
+                ...state,
+                mensaje: null,
+                error: null
+            };
+            break;
         // OBTENER FACTURA
         case fromfactura.LOAD_FACTURA:
             return {
@@ -78,6 +112,15 @@ export function facturaReducer(state = estadoInicial, action: fromfactura.factur
                 loaded: true,
                 factura: null,
                 error: action.payload
+            };
+            break;
+        case fromfactura.LOAD_FACTURA_END:
+            return {
+                ...state,
+                loading: false,
+                loaded: true,
+                factura: null,
+                error: null
             };
             break;
         // UPLOAD ARCHIVO FACTURA

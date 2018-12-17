@@ -13,6 +13,11 @@ export class EstadisticaService {
       return this.http.get(URL);
   }
 
+  public getInfoDashboard() {
+    const URL = URL_SERVICIOS + '/dashboard';
+    return this.http.get(URL);
+  }
+
 
 }
 

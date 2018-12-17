@@ -7,35 +7,35 @@
                         <div class="card ribbon-wrapper-reverse">
                             <div class="ribbon ribbon-bookmark ribbon-left ribbon-info">Información Básica</div>
                             <div class="card-body">
-                                <form [formGroup]="formInformacion" class="floating-labels m-t-40" [ngClass]="errorFormulario">
+                                <form [formGroup]="formInformacion" class="m-t-40" [ngClass]="errorFormulario">
                                     <div class="row">
                                         <!--   input 1    -->
                                         <div class="form-group col-md-2">
+                                            <label for="folio">Folio</label>
                                             <input formControlName="folio" type="text" class="form-control" id="folio">
                                             <span class="bar"></span>
-                                            <label for="folio">Folio</label>
                                             <span class="help-block"><small>*Obligatorio</small></span>
                                         </div>
                                         <div class="form-group col-md-5 m-b-40">
-                                            <input #txtProveedor (keyup)="buscarProveedor(txtProveedor.value)" formControlName="proveedor" type="text" class="form-control" id="input1">
-                                            <span class="bar"></span>
                                             <label for="input1">Nombre del proveedor</label>
-                                            <div *ngIf="proveedores.length > 0" class="typehead-proveedores w-100">
-                                                <p *ngFor="let proveedor of proveedores" (click)="colocarText(proveedor)">{{proveedor.nombre}}</p>
+                                            <div class="search-results style-http style-3">
+                                                <input formControlName="proveedor" (keyup)="buscarProveedor(query)" [(ngModel)]="query" name="query" type="text" [value]="query" id="input1" ngxTypeahead class="col-sm-12 form-control" [taUrl]="url" [taParams]="params" [taApi]="api" (taSelected)="handleHttpResultSelected($event)"
+                                                    autocomplete="off">
                                             </div>
+                                            <span class="bar"></span>
                                             <span class="help-block"><small>*Obligatorio</small></span>
                                         </div>
                                         <!--   input 2    -->
                                         <div class="form-group col-md-5">
+                                            <label for="fecha">Fecha de expedición</label>
                                             <input formControlName="fecha" type="date" class="form-control" id="date" placeholder="" id="fecha">
-                                            <label for="fecha"></label>
                                             <span class="help-block"><small>*Obligatorio</small></span>
 
                                         </div>
                                         <div class="form-group col-md-12 m-b-0">
+                                            <label for="input7">Descripción</label>
                                             <textarea formControlName="descripcion" class="form-control" rows="4" id="input7"></textarea>
                                             <span class="bar"></span>
-                                            <label for="input7">Descripción</label>
                                         </div>
                                     </div>
                                 </form>
@@ -49,35 +49,35 @@
                         <div class="card ribbon-wrapper-reverse card-producto">
                             <div class="ribbon ribbon-bookmark ribbon-left ribbon-info mb-2">Añadir productos</div>
                             <div class="card-body">
-                                <form ngNativeValidate [formGroup]="formProducto" (ngSubmit)="agregarProducto()" class="floating-labels">
+                                <form ngNativeValidate [formGroup]="formProducto" (ngSubmit)="agregarProducto()">
                                     <div class="row">
                                         <div class="form-group col-md-1">
-                                            <input formControlName="clave" type="text" class="form-control" required id="clave">
-                                            <span class="bar"></span>
                                             <label for="clave">Clave</label>
+                                            <input #txtClave autocomplete="off" formControlName="clave" type="text" class="form-control" required id="clave">
+                                            <span class="bar"></span>
                                         </div>
                                         <div class="form-group col-md-4">
-                                            <input formControlName="descripcionProducto" type="text" class="form-control" required id="descripcion">
-                                            <span class="bar"></span>
                                             <label for="descripcion">Descripción del producto</label>
+                                            <input autocomplete="off" formControlName="descripcionProducto" type="text" class="form-control" required id="descripcion">
+                                            <span class="bar"></span>
                                         </div>
                                         <div class="form-group col-md-2">
+                                            <label for="unidad">Unidad</label>
                                             <select formControlName="unidad" class="form-control p-0" required id="unidad">
                                                                 <option value=""></option>
                                                                 <option value="pieza">Pieza</option>
                                                                 <option value="caja">Caja</option>
                                                             </select><span class="bar"></span>
-                                            <label for="unidad">Unidad</label>
                                         </div>
                                         <div class="form-group col-md-2">
-                                            <input formControlName="cantidad" type="number" class="form-control" required id="cantidad">
-                                            <span class="bar"></span>
                                             <label for="cantidad">Cantidad</label>
+                                            <input autocomplete="off" formControlName="cantidad" type="number" class="form-control" required id="cantidad">
+                                            <span class="bar"></span>
                                         </div>
                                         <div class="form-group col-md-2">
-                                            <input formControlName="precio" type="text" class="form-control" id="precio">
-                                            <span class="bar"></span>
                                             <label for="precio">Precio unitario</label>
+                                            <input autocomplete="off" formControlName="precio" type="text" class="form-control" id="precio">
+                                            <span class="bar"></span>
                                         </div>
                                         <div class="form-group col-md-1">
                                             <button type="submit" class="btn btn-sm btn-danger">Agregar</button>

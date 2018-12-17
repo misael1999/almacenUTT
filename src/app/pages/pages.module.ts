@@ -59,7 +59,14 @@ import { PaginatorValesComponent } from './vales/lista-vales/activos/paginator-v
 import { ValeItemComponent } from './vales/ingresar-vale/vale-item/vale-item.component';
 import { PrivilegiosComponent } from './mantenimiento/privilegios/privilegios.component';
 import { PriveligioUsuarioComponent } from './mantenimiento/privilegios/priveligio-usuario/priveligio-usuario.component';
+import { ReporteProductosComponent } from './generar-reportes/reporte-productos/reporte-productos.component';
+import { ReporteAreasComponent } from './generar-reportes/reporte-areas/reporte-areas.component';
+import { ReporteProductosProveedorComponent } from './generar-reportes/reporte-productos-proveedor/reporte-productos-proveedor.component';
+import { ReporteGastosAreaComponent } from './generar-reportes/reporte-gastos-area/reporte-gastos-area.component';
 
+import { NgxTypeaheadModule } from 'ngx-typeahead';
+import { EditarFacturaComponent } from './facturas/editar-factura/editar-factura.component';
+import { EditarValeComponent } from './vales/editar-vale/editar-vale.component';
 
 
 // Pipe Module
@@ -108,7 +115,13 @@ import { PriveligioUsuarioComponent } from './mantenimiento/privilegios/privelig
         PaginatorValesComponent,
         ValeItemComponent,
         PrivilegiosComponent,
-        PriveligioUsuarioComponent
+        PriveligioUsuarioComponent,
+        ReporteProductosComponent,
+        ReporteAreasComponent,
+        ReporteProductosProveedorComponent,
+        ReporteGastosAreaComponent,
+        EditarFacturaComponent,
+        EditarValeComponent
         ],
     exports: [
         DashboardComponent,
@@ -124,7 +137,9 @@ import { PriveligioUsuarioComponent } from './mantenimiento/privilegios/privelig
         HttpClientModule,
         FormsModule,
         ReactiveFormsModule,
-        ChartsModule
+        ChartsModule,
+        SharedModule,
+        NgxTypeaheadModule
     ]
 })
 export class PagesModule { }

@@ -4,7 +4,7 @@ import * as facturaActions from '../../actions';
 import { map, catchError, mergeMap } from 'rxjs/operators';
 import { FacturaService } from 'src/app/services/service.index';
 import { of } from 'rxjs';
-
+import { saveAs } from 'file-saver';
 
 @Injectable()
 export class FacturaEffects {
@@ -22,6 +22,22 @@ export class FacturaEffects {
                        }),
                        catchError(error => {
                             return of(new facturaActions.CreateFacturaFail(error));
+                       })
+                    );
+            })
+        );
+    @Effect()
+    updateFactura$ = this.actions$.ofType(facturaActions.UPDATE_FACTURA)
+        .pipe(
+            mergeMap(action => {
+                const factura = action['factura'];
+                return this.facturaService.actulizarFactura(factura)
+                    .pipe(
+                       map(data => {
+                            return new facturaActions.UpdateFacturaSuccess(data);
+                       }),
+                       catchError(error => {
+                            return of(new facturaActions.UpdateFacturaFail(error));
                        })
                     );
             })
@@ -63,7 +79,17 @@ export class FacturaEffects {
     downloadArchivoFactura$ = this.actions$.ofType(facturaActions.DOWNLOAD_ARCHIVO_FACTURA)
         .pipe(
             mergeMap(action => {
-                return this.facturaService.downloadFactura(action['nombreArchivo']);
+                const archivo = action['nombreArchivo'];
+                return this.facturaService.downloadFactura(archivo)
+                    .pipe(
+                        map(data => {
+                            saveAs(data, archivo);
+                            return new facturaActions.DownloadArchivoFacturaSuccess();
+                        }),
+                        catchError(error => {
+                            return of(new facturaActions.UploadArchivoFacturaFail(error));
+                        })
+                    );
             })
         );
 

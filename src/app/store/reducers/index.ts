@@ -16,4 +16,5 @@ export * from './estadistica/estadisticas.reducer';
 export * from './estadistica/estadisticas.reducer';
 export * from './reporte/reportes.reducer';
 export * from './usuario/privilegios.reducer';
+export * from './dashboard/dashboard.reducer';
 

@@ -48,7 +48,7 @@ export class FacturasDocumentosComponent implements OnInit {
   }
 
   descargar(nombreDocumento) {
-    window.open(URL_SERVICIOS + '/facturas/descargar/documento/' + nombreDocumento, '_blank');
+    this.store.dispatch(new fromFacturas.DownloadArchivoFactura(nombreDocumento));
   }
 
 }

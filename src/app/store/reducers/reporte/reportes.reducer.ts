@@ -2,19 +2,15 @@ import { Producto } from '../../../models/Producto';
 import * as fromReportes from '../../actions';
 
 export interface ReportesState {
-    productos: Producto[];
     loaded: boolean;
     loading: boolean;
     error: any;
-    pageable: any;
   }
 
   const estadoInicial: ReportesState = {
-    productos: [],
     loaded: false,
     loading: false,
     error: null,
-    pageable: null
   };
 
   export function reportesReducer(state = estadoInicial, action: fromReportes.reportesAcciones): ReportesState {
@@ -30,17 +26,6 @@ export interface ReportesState {
                 ...state,
                 loading: false,
                 loaded: true,
-                productos: [...action.productos],
-                pageable: {
-                    pageable: action.pageable.pageable,
-                    totalPages: action.pageable.totalPages,
-                    totalElements: action.pageable.totalElements,
-                    last: action.pageable.last,
-                    size: action.pageable.size,
-                    number: action.pageable.number,
-                    numberOfElements: action.pageable.numberOfElements,
-                    first: action.pageable.first
-                    }
             };
             break;
         case fromReportes.LOAD_REPORTE_PRODUCTOS_FAIL:
@@ -48,8 +33,86 @@ export interface ReportesState {
                 ...state,
                 loading: false,
                 loaded: false,
-                error: action.payload,
-                productos: []
+                error: action.payload
+            };
+            break;
+    // ----  REPORTES POR AREA   ---- //
+        case fromReportes.LOAD_REPORTE_AREAS:
+            return {
+                ...state,
+                loading: true
+            };
+        case fromReportes.LOAD_REPORTE_AREAS_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                loaded: true,
+            };
+            break;
+        case fromReportes.LOAD_REPORTE_AREAS_FAIL:
+            return {
+                ...state,
+                loading: false,
+                loaded: false,
+                error: action.payload
+            };
+            break;
+            // ----  REPORTES DE PRODUCTOS POR PROVEEDOR   ---- //
+        case fromReportes.LOAD_REPORTE_PRODUCTOS_PROVEEDORES:
+            return {
+                ...state,
+                loading: true
+            };
+        case fromReportes.LOAD_REPORTE_PRODUCTOS_PROVEEDORES_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                loaded: true,
+            };
+            break;
+        case fromReportes.LOAD_REPORTE_PRODUCTOS_PROVEEDORES_FAIL:
+            return {
+                ...state,
+                loading: false,
+                loaded: false,
+                error: action.payload
+            };
+            break;
+        case fromReportes.LOAD_REPORTES_END:
+            return {
+                ...state,
+                loading: false,
+                loaded: false,
+                error: null
+            };
+            break;
+        // ----  REPORTES DE GASTOS DE AREAS   ---- //
+        case fromReportes.LOAD_REPORTE_GASTOS_AREA:
+            return {
+                ...state,
+                loading: true
+            };
+        case fromReportes.LOAD_REPORTE_GASTOS_AREA_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                loaded: true,
+            };
+            break;
+        case fromReportes.LOAD_REPORTE_GASTOS_AREA_FAIL:
+            return {
+                ...state,
+                loading: false,
+                loaded: false,
+                error: action.payload
+            };
+            break;
+        case fromReportes.LOAD_REPORTES_END:
+            return {
+                ...state,
+                loading: false,
+                loaded: false,
+                error: null
             };
             break;
         default:

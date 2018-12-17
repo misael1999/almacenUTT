@@ -1,12 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
 import { ActivatedRoute } from '@angular/router';
 import * as fromFactura from '../../../store/actions';
 import { Factura } from '../../../models/Factura';
-import { Producto } from '../../../models/Producto';
-import { DownloadArchivoFactura } from '../../../store/actions/factura/factura.actions';
-import { URL_SERVICIOS } from '../../../global/config';
+import { Usuario } from '../../../models/Usuario';
 
 
 @Component({
@@ -14,20 +12,22 @@ import { URL_SERVICIOS } from '../../../global/config';
   templateUrl: './descripcion.component.html',
   styles: []
 })
-export class DescripcionComponent implements OnInit {
+export class DescripcionComponent implements OnInit, OnDestroy {
 
   factura: Factura;
   loading: boolean;
   loaded: boolean;
   error: any;
   productos: any[];
+  usuario: Usuario;
+  folio: string;
 
   constructor(private store: Store<AppState>, private activatedRoute: ActivatedRoute) {
 
     this.activatedRoute.params
       .subscribe(params => {
-        const folio = params['folio'];
-          this.store.dispatch(new fromFactura.LoadFactura(folio));
+        this.folio = params['folio'];
+          this.store.dispatch(new fromFactura.LoadFactura(this.folio));
       });
 
       this.store.select('factura')
@@ -44,10 +44,16 @@ export class DescripcionComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.usuario = JSON.parse(localStorage.getItem('usuario'));
+  }
+
+  ngOnDestroy() {
+    this.store.dispatch(new fromFactura.LoadFacturaEnd());
   }
 
   descargarArchivo(nombreArchivo: string) {
-    window.open(URL_SERVICIOS + '/facturas/descargar/documento/' + nombreArchivo, '_blank');
+    this.store.dispatch(new fromFactura.DownloadArchivoFactura(nombreArchivo));
+
   }
 
 }

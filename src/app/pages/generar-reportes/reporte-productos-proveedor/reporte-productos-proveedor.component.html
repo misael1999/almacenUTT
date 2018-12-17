@@ -1,0 +1,51 @@
+<div class="card bg-primary">
+    <div class="card-body">
+        <div class="d-flex no-block">
+            <div class="m-r-20 align-self-center"><img src="../../../assets/images/icon/assets-w.png" alt="Income" /></div>
+            <div class="align-self-center">
+                <h6 class="text-white m-t-10 m-b-0">Reporte de productos por proveedor</h6>
+                <a class="mt-3 text-white btn btn-inverse btn-sm d-block" data-toggle="modal" data-target="#responsive-modal-proveedores">Generar reporte</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--   MODAL REPORTE PROVEEDORES    -->
+<div id="responsive-modal-proveedores" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Opciones</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <div class="form-group col-md-12 m-b-40">
+                            <label for="input1">Nombre del proveedor</label>
+                            <!-- <input class="form-control" #txtProveedor (keyup)="buscarProveedor(txtProveedor.value)" type="text" id="input1">
+                            <span class="bar"></span>
+                            <div *ngIf="proveedores.length > 0" class="typehead-proveedores w-100">
+                                <p *ngFor="let proveedor of proveedores" (click)="colocarText(proveedor)">{{proveedor.nombre}}</p>
+                            </div> -->
+                            <div class="search-results style-http style-3">
+                                <input (keyup)="buscarProveedor(query)" [(ngModel)]="query" name="query" type="text" [value]="query" placeholder="Buscar proveedor" ngxTypeahead class="col-sm-12 form-control" [taUrl]="url" [taParams]="params" [taApi]="api" (taSelected)="handleHttpResultSelected($event)"
+                                    autocomplete="off">
+                            </div>
+                            <span class="help-block"><small>*Obligatorio</small></span>
+                        </div>
+                    </div>
+                    <div class="mt-2">
+                        <button [disabled]="loading" (click)="reporteProductosProveedores()" type="button" class="btn btn-danger waves-effect waves-light">
+                            Generar reporte <i *ngIf="loading" class="fa fa-spinner fa-spin"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!--   ============= FIN MODAL REPORTE PROVEEDORES  =================    -->

@@ -15,5 +15,6 @@ export * from './vales/vales.actions';
 export * from './estadistica/estadisticas.actions';
 export * from './reporte/reportes.actions';
 export * from './usuario/privilegios.actions';
+export * from './dashboard/dashboard.actions';
 
 

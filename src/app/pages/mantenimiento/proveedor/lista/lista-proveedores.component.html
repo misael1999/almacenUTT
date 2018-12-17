@@ -55,14 +55,7 @@
 </div>
 <!-- CUADRO DE CARGANDO -->
 
-<div class="row" *ngIf="loading">
-    <div class="col-lg-12">
-
-        <div class="d-flex justify-content-center">
-            <i class="fa fa-spinner fa-spin fa-3x"></i>
-        </div>
-    </div>
-</div>
+<app-loading *ngIf="loading"></app-loading>
 
 <!--   MENSAJE DE ERROR    -->
 

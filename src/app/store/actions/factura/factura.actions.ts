@@ -5,16 +5,22 @@ export const CREATE_FACTURA_SUCCESS = '[Factura] Create factura SUCCESS';
 export const CREATE_FACTURA_FAIL = '[Factura] Create factura FAIL';
 export const CREATE_FACTURA_END = '[Factura] Create factura END';
 
+export const UPDATE_FACTURA = '[Factura] Update factura';
+export const UPDATE_FACTURA_SUCCESS = '[Factura] Update factura SUCCESS';
+export const UPDATE_FACTURA_FAIL = '[Factura] Update factura FAIL';
+export const UPDATE_FACTURA_END = '[Factura] Update factura END';
+
 export const LOAD_FACTURA = '[Factura] Load factura';
 export const LOAD_FACTURA_SUCCESS = '[Factura] Load factura SUCCESS';
 export const LOAD_FACTURA_FAIL = '[Factura] Load factura FAIL';
+export const LOAD_FACTURA_END = '[Factura] Load factura END';
 
 export const UPLOAD_ARCHIVO_FACTURA = '[Factura] Upload archivo factura';
 export const UPLOAD_ARCHIVO_FACTURA_SUCCESS = '[Factura] Upload archivo SUCCESS';
 export const UPLOAD_ARCHIVO_FACTURA_FAIL = '[Factura] Upload archivo FAIL';
 export const UPLOAD_ARCHIVO_FACTURA_END = '[Factura] Upload archivo END';
 
-export const DOWNLOAD_ARCHIVO_FACTURA = '[Factura] Download archivo factura';
+export const DOWNLOAD_ARCHIVO_FACTURA = '[Factura] Download archivo';
 export const DOWNLOAD_ARCHIVO_FACTURA_SUCCESS = '[Factura] Download archivo SUCCESS';
 export const DOWNLOAD_ARCHIVO_FACTURA_FAIL = '[Factura] Download archivo FAIL';
 
@@ -41,6 +47,30 @@ export class CreateFacturaEnd implements Action {
     constructor() {}
 }
 
+// ACTUALIZAR FACTURA
+
+export class UpdateFactura implements Action {
+    readonly type = UPDATE_FACTURA;
+    constructor(public factura: Factura) {}
+}
+
+export class UpdateFacturaSuccess implements Action {
+
+    readonly type = UPDATE_FACTURA_SUCCESS;
+    constructor(public payload: any) {}
+}
+
+export class UpdateFacturaFail implements Action {
+
+    readonly type = UPDATE_FACTURA_FAIL;
+    constructor(public payload: any) {}
+}
+export class UpdateFacturaEnd implements Action {
+
+    readonly type = UPDATE_FACTURA_END;
+    constructor() {}
+}
+
 // CARGAR FACTURA
 
 export class LoadFactura implements Action {
@@ -58,6 +88,11 @@ export class LoadFacturaFail implements Action {
 
     readonly type = LOAD_FACTURA_FAIL;
     constructor(public payload: any) {}
+}
+export class LoadFacturaEnd implements Action {
+
+    readonly type = LOAD_FACTURA_END;
+    constructor() {}
 }
 
 // SUBIR ARCHIVO FACTURA
@@ -109,9 +144,14 @@ export type facturaAcciones = CreateFactura |
                                 CreateFacturaSuccess |
                                 CreateFacturaFail |
                                 CreateFacturaEnd |
+                                UpdateFactura |
+                                UpdateFacturaSuccess |
+                                UpdateFacturaFail |
+                                UpdateFacturaEnd |
                                 LoadFactura |
                                 LoadFacturaSuccess |
                                 LoadFacturaFail |
+                                LoadFacturaEnd |
                                 UploadArchivoFactura |
                                 UploadArchivoFacturaSuccess |
                                 UploadArchivoFacturaFail |

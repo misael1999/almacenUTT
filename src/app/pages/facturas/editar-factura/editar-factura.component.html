@@ -1,0 +1,248 @@
+<div class="row" *ngIf="factura && loaded">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12 col-informacion">
+                        <div class="card ribbon-wrapper-reverse">
+                            <div class="ribbon ribbon-bookmark ribbon-left ribbon-danger">Editar información Básica</div>
+                            <div class="card-body">
+                                <form [formGroup]="formInformacion" class="m-t-40" [ngClass]="errorFormulario">
+                                    <div class="row">
+                                        <!--   input 1    -->
+                                        <div class="form-group col-md-2">
+                                            <label for="folio">Folio</label>
+                                            <input formControlName="folio" type="text" class="form-control" id="folio">
+                                            <span class="bar"></span>
+                                            <span class="help-block"><small>*Obligatorio</small></span>
+                                        </div>
+                                        <div class="form-group col-md-5 m-b-40">
+                                            <label for="input1">Nombre del proveedor</label>
+                                            <div class="search-results style-http style-3">
+                                                <input formControlName="proveedor" (keyup)="buscarProveedor(query)" [(ngModel)]="query" name="query" type="text" [value]="query" id="input1" ngxTypeahead class="col-sm-12 form-control" [taUrl]="url" [taParams]="params" [taApi]="api" (taSelected)="handleHttpResultSelected($event)"
+                                                    autocomplete="off">
+                                            </div>
+                                            <span class="bar"></span>
+                                            <span class="help-block"><small>*Obligatorio</small></span>
+                                        </div>
+                                        <!--   input 2    -->
+                                        <div class="form-group col-md-5">
+                                            <label for="fecha">Fecha de expedicion</label>
+                                            <input formControlName="fecha" type="date" class="form-control" id="date" placeholder="" id="fecha">
+                                            <span class="help-block"><small>*Obligatorio</small></span>
+
+                                        </div>
+                                        <div class="form-group col-md-12 m-b-0">
+                                            <label for="input7">Descripción</label>
+                                            <textarea formControlName="descripcion" class="form-control" rows="4" id="input7"></textarea>
+                                            <span class="bar"></span>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card ribbon-wrapper-reverse card-producto">
+                            <div class="ribbon ribbon-bookmark ribbon-left ribbon-danger mb-2">Editar productos</div>
+                            <div class="card-body">
+                                <!-- <form ngNativeValidate [formGroup]="formProducto" (ngSubmit)="agregarProducto()">
+                                    <div class="row">
+                                        <div class="form-group col-md-1">
+                                            <label for="clave">Clave</label>
+                                            <input #txtClave autocomplete="off" formControlName="clave" type="text" class="form-control" required id="clave">
+                                            <span class="bar"></span>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="descripcion">Descripción del producto</label>
+                                            <input autocomplete="off" formControlName="descripcionProducto" type="text" class="form-control" required id="descripcion">
+                                            <span class="bar"></span>
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="unidad">Unidad</label>
+                                            <select formControlName="unidad" class="form-control p-0" required id="unidad">
+                                                                <option value=""></option>
+                                                                <option value="pieza">Pieza</option>
+                                                                <option value="caja">Caja</option>
+                                                            </select><span class="bar"></span>
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="cantidad">Cantidad</label>
+                                            <input autocomplete="off" formControlName="cantidad" type="number" class="form-control" required id="cantidad">
+                                            <span class="bar"></span>
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="precio">Precio unitario</label>
+                                            <input autocomplete="off" formControlName="precio" type="text" class="form-control" id="precio">
+                                            <span class="bar"></span>
+                                        </div>
+                                        <div class="form-group col-md-1">
+                                            <button type="submit" class="btn btn-sm btn-danger">Agregar</button>
+                                        </div>
+
+
+                                    </div>
+
+                                </form> -->
+                                <!--   Table de productos agregados    -->
+
+                                <div class="col-md-12 m-0">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>Clave</th>
+                                                    <th>Descripcion</th>
+                                                    <th>Unidad</th>
+                                                    <th>Cantidad</th>
+                                                    <th>Precio</th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let producto of productos">
+                                                    <td>{{producto.producto.clave}}</td>
+                                                    <td>{{producto.producto.descripcion}}</td>
+                                                    <td>{{producto.producto.unidad}}</td>
+                                                    <td><span class="label label-danger">{{producto.cantidad}}</span></td>
+                                                    <td>{{producto.producto.precio}}</td>
+                                                    <td>
+                                                        <button (click)="eliminarProducto(producto)" type="button" class="btn btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Eliminar"><i class="ti-trash" aria-hidden="true"></i></button>
+                                                        <button (click)="iniciarFormularioEditarProducto(producto)" type="button" class="btn btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Editar"><i class="ti-pencil" aria-hidden="true"></i></button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="boton-add">
+                                            <button class="btn btn-sm btn-outline-info" data-toggle="modal" data-target="#modal-agregar-producto">Agregar nuevo producto</button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="button-guardar mt-1">
+                    <button (click)="guardarFactura()" class="btn btn-rounded btn-danger">Guardar cambios <i *ngIf="loading" class="fa fa-spinner fa-spin ml-1"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-loading *ngIf="loading"></app-loading>
+
+<!--   MODAL AGREGAR PRODUCTO    -->
+<div id="modal-agregar-producto" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Nuevo producto</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="formProducto" (ngSubmit)="agregarProducto()">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label class="control-label d-block">Clave</label>
+                                <input formControlName="clave" type="text" class="form-control">
+
+                            </div>
+                            <div class="col-md-9">
+                                <label class="control-label d-block">Descripcion</label>
+                                <input formControlName="descripcionProducto" type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label class="control-label d-block">Unidad medida</label>
+                                <select formControlName="unidad" type="text" class="form-control">
+                                  <option value="pieza">Pieza</option>
+                                  <option value="caja">Caja</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="control-label d-block">Cantidad</label>
+                                <input formControlName="cantidad" type="text" class="form-control">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="control-label d-block">Precio</label>
+                                <input formControlName="precio" type="text" class="form-control">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="mt-2">
+                        <button type="submit" class="btn btn-danger waves-effect waves-light">
+                          Agregar </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!--   ============= FIN MODAL PRODUCTOS =================    -->
+
+<!--   MODAL EDITAR PRODUCTO    -->
+<div id="modal-editar-producto" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Editar producto</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <form *ngIf="productoEditar" [formGroup]="formProductoEditar" (ngSubmit)="actualizarProducto()">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label class="control-label d-block">Clave</label>
+                                <input formControlName="claveE" type="text" class="form-control">
+
+                            </div>
+                            <div class="col-md-9">
+                                <label class="control-label d-block">Descripcion</label>
+                                <input formControlName="descripcionProductoE" type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label class="control-label d-block">Unidad medida</label>
+                                <select formControlName="unidadE" type="text" class="form-control">
+                                      <option value="pieza">Pieza</option>
+                                      <option value="caja">Caja</option>
+                                    </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="control-label d-block">Cantidad</label>
+                                <input formControlName="cantidadE" type="text" class="form-control">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="control-label d-block">Precio</label>
+                                <input formControlName="precioE" type="text" class="form-control">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="mt-2">
+                        <button [disabled]="loading" type="submit" class="btn btn-danger waves-effect waves-light">
+                               Guardar <i *ngIf="loading" class="fa fa-spinner fa-spin"></i> </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!--   ============= FIN MODAL PRODUCTOS =================    -->

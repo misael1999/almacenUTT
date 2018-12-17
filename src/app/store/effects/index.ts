@@ -14,6 +14,7 @@ import { EstadisticasEffects } from './estadistica/estadisticas.effects';
 import { ReportesEffects } from './reporte/reportes.effects';
 import { ProductoEffects } from './producto/producto.effects';
 import { PrivilegiosEffects } from './usuario/privilegios.effects';
+import { DashboardEffects } from './dashboard/dashboard.effects';
 
 export const effectArreglo: any[] = [
     AuthEffects,
@@ -31,7 +32,8 @@ export const effectArreglo: any[] = [
     ValesEffects,
     EstadisticasEffects,
     ReportesEffects,
-    PrivilegiosEffects
+    PrivilegiosEffects,
+    DashboardEffects
 ];
 
 export * from './auth.effects';
@@ -50,4 +52,5 @@ export * from './vale/vales.effects';
 export * from './estadistica/estadisticas.effects';
 export * from './reporte/reportes.effects';
 export * from './usuario/privilegios.effects';
+export * from './dashboard/dashboard.effects';
 

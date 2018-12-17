@@ -25,8 +25,10 @@
         "@ngrx/store-devtools": "^6.1.2",
         "chart.js": "^2.7.3",
         "core-js": "^2.5.4",
+        "file-saver": "^2.0.0",
         "jspdf": "^1.4.1",
         "ng2-charts": "^1.6.0",
+        "ngx-typeahead": "^6.0.0",
         "rxjs": "~6.3.3",
         "sweetalert2": "^7.28.11",
         "zone.js": "~0.8.26"

@@ -14,6 +14,11 @@ export class FacturaService {
     return this.http.post(URL, factura);
   }
 
+  public actulizarFactura(factura: Factura) {
+    const URL = URL_SERVICIOS + '/facturas';
+    return this.http.patch(URL, factura);
+  }
+
   public getFacturasActivas(page: number, ordenar: string) {
     const URL = URL_SERVICIOS + '/facturas/page/' + page + '?ordenar=' + ordenar;
     return this.http.get(URL);
@@ -40,8 +45,8 @@ export class FacturaService {
   }
 
   public downloadFactura(nombreDocumento: string) {
-    const URL = URL_SERVICIOS + '/facturas/documento/' + nombreDocumento;
-    return this.http.get(URL);
+    const URL = URL_SERVICIOS + '/facturas/descargar/documento/' + nombreDocumento;
+    return this.http.get(URL, {responseType: 'blob'});
   }
 
   public subirArchivo(archivo: File, folioFactura: string) {

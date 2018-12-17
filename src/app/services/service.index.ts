@@ -19,3 +19,4 @@ export { AdminGuard } from './guards/admin.guard';
 export { EstadisticaService } from './estadistica/estadistica.service';
 export { ReporteService } from './reporte/reporte.service';
 export { ModalProductoService } from '../pages/mantenimiento/modals/producto/modal-producto.service';
+export { VerificaTokenGuard } from './guards/verifica-token.guard';

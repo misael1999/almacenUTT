@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, OnDestroy } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Proveedor } from '../../../models/Proveedor';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
@@ -8,23 +8,27 @@ import { Producto } from '../../../models/Producto';
 import { Factura } from '../../../models/Factura';
 import { Router } from '@angular/router';
 import { Mensaje } from '../../../models/Mensaje';
+import { URL_SERVICIOS } from '../../../global/config';
 declare function init_factura_inputs();
 
 @Component({
   selector: 'app-ingresar',
   templateUrl: './ingresar.component.html'
 })
-export class IngresarComponent implements OnInit, OnDestroy {
+export class IngresarComponent implements OnInit {
 
-  proveedores: Proveedor[];
   loading: boolean;
   formInformacion: FormGroup;
   formProducto: FormGroup;
   productos: any = [];
   folio: string;
   errorFormulario = '';
-  proveedor: Proveedor;
-  fechaHoy;
+  proveedor: Proveedor = new Proveedor(' ', 1);
+  @ViewChild('txtClave') txtClave: ElementRef;
+  public url = '';
+  public api = 'http';
+  public params = {};
+  public query = '';
 
   @ViewChild('txtProveedor') txtProveedor: ElementRef;
 
@@ -32,7 +36,6 @@ export class IngresarComponent implements OnInit, OnDestroy {
 
       this.store
         .subscribe(resp => {
-          this.proveedores = resp.proveedores.provedores;
           this.loading = resp.factura.loading;
            if (resp.factura.mensaje != null) {
              setTimeout(() => {
@@ -47,11 +50,11 @@ export class IngresarComponent implements OnInit, OnDestroy {
   ngOnInit() {
     init_factura_inputs();
     const date = new Date();
-    this.fechaHoy = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
+    const fechaHoy = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
     this.formInformacion = new FormGroup({
       folio: new FormControl(null, Validators.required),
-      proveedor: new FormControl(null, Validators.required),
-      fecha: new FormControl(null, Validators.required),
+      proveedor: new FormControl(null),
+      fecha: new FormControl(fechaHoy, Validators.required),
       descripcion: new FormControl(null)
     });
 
@@ -64,23 +67,6 @@ export class IngresarComponent implements OnInit, OnDestroy {
     });
   }
 
-  ngOnDestroy() {
-    this.store.dispatch(new fromFactura.LoadProveedoresEnd());
-  }
-
-  colocarText(proveedor: Proveedor) {
-    this.txtProveedor.nativeElement.value = proveedor.nombre;
-    this.proveedor = proveedor;
-    this.proveedores = [];
-  }
-
-  buscarProveedor(termino: string) {
-    if (termino.length < 2) {
-      this.proveedores = [];
-      return;
-    }
-    this.store.dispatch(new fromFactura.SearchProveedores(termino));
-  }
 
   eliminarProducto(producto: Producto) {
     this.productos = this.productos.filter((p) => {
@@ -104,13 +90,13 @@ export class IngresarComponent implements OnInit, OnDestroy {
 
     this.productos.push({producto: producto, cantidad: this.formProducto.value.cantidad});
     this.formProducto.reset();
+    this.txtClave.nativeElement.focus();
   }
 
   guardarFactura() {
     const fechaExp = new Date(this.formInformacion.value.fecha);
     // ----  VALIDAMOS QUE EL FORMULARIO ESTE COMPLETO   ---- //
     if (this.formInformacion.invalid) {
-      this.txtProveedor.nativeElement.value = '';
         const mensaje =  new Mensaje(null, 'Ingrese los campos obligatorios');
         this.store.dispatch(new fromFactura.UiMessageError(mensaje));
         this.errorFormulario = 'error-campos';
@@ -124,11 +110,8 @@ export class IngresarComponent implements OnInit, OnDestroy {
         return;
     }
 
-    if (this.proveedor == null) {
-      this.txtProveedor.nativeElement.value = '';
-      this.store.dispatch(new fromFactura.UiMessageError(new Mensaje(null, 'Ingrese un proveedor valido')));
-      return;
-    }
+    this.proveedor.nombre = this.query;
+
 
     // ----  CREAMOS UN OBJETO DE FACTURA   ---- //
     const factura = new Factura(
@@ -143,6 +126,14 @@ export class IngresarComponent implements OnInit, OnDestroy {
     // ----  MANDAMOS LA ACCION DE CREAR FACTURA   ---- //
     this.store.dispatch(new fromFactura.CreateFactura(factura));
 
+  }
+
+  buscarProveedor(termino: string) {
+    this.url = URL_SERVICIOS + '/proveedores/todo/' + termino;
+  }
+
+  public handleHttpResultSelected (result) {
+    this.query = result;
   }
 
 }

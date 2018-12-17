@@ -19,6 +19,7 @@ export class ErrorComponent implements OnInit {
       .subscribe(resp => {
         this.error = null;
         const errorFactura = resp.factura.error;
+        const errorProductos = resp.productos.error;
         const errorProveedor = resp.proveedor.error;
         const errorUsuario = resp.usuario.error;
         const errorAuth = resp.auth.error;
@@ -26,6 +27,7 @@ export class ErrorComponent implements OnInit {
         const errorArea = resp.area.error;
         const errorProducto = resp.producto.error;
         const errorVale = resp.vale.error;
+        const errorReportes = resp.reportes.error;
 
         if (errorFactura != null) {
           this.error = errorFactura;
@@ -58,6 +60,11 @@ export class ErrorComponent implements OnInit {
         if (errorVale != null) {
           this.error = errorVale;
           this.cerrarMensaje(new fromMensajes.CreateValeSalidaEnd());
+        }
+        if (errorReportes != null) {
+          this.error = {error: {mensaje: 'Ha ocurrido un error'}};
+          this.cerrarMensaje(new fromMensajes.LoadReportesEnd());
+
         }
 
     });
