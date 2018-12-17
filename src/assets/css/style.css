@@ -8150,3 +8150,12 @@ File: scss
     justify-content: center;
     align-content: center;
 }
+
+.txt-titulo {
+    font-size: 100%;
+    font-weight: bold;
+}
+
+.txt-text {
+    font-size: 85%;
+}

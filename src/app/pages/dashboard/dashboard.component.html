@@ -62,19 +62,30 @@
     <div class="col-md-5">
         <div class="card">
             <div class="card-body">
-                <div class="d-flex no-block">
-                    <h4 class="card-title"><span class="lstick"></span>Nuevos productos</h4>
-                </div>
-                <div class="message-box contact-box">
-                    <div class="message-widget contact-widget" *ngFor="let producto of info.productosRecientes.content">
-                        <!-- Message -->
-                        <a href="#">
-                            <div class="user-img"> <img src="../../../assets/images/box.png" alt="user" class="img-circle"> <span class="profile-status online pull-right"></span> </div>
-                            <div class="mail-contnet">
-                                <p class="m-b-0">{{producto.descripcion}}</p>
-                            </div>
-                        </a>
+                <div class="d-flex">
+                    <div>
+                        <h4 class="card-title"><span class="lstick"></span>Productos recientes</h4>
                     </div>
+
+                </div>
+                <div class="table-responsive m-t-20">
+                    <table class="table vm no-th-brd pro-of-month">
+                        <thead>
+                            <tr>
+                                <th>Descripcion</th>
+                                <th>Proveedor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let producto of info.productosRecientes.content">
+                                <td>
+                                    <h6>{{producto.descripcion}}</h6><small class="text-muted">${{producto.precio}}</small></td>
+                                <td><span class="label label-success label-rounded">{{producto.unidad}}</span></td>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
