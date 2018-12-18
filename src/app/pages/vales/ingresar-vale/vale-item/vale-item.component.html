@@ -1,27 +1,30 @@
-<li class="list-group-item">
-    <form class="form-material">
-        <div class="row">
-            <div class="col-md-5 d-flex align-content-center">
-                <input [formControl]="chkField" [checked]="agregado" type="checkbox" class="check" id="minimal-checkbox-{{index}}">
-                <label for="minimal-checkbox-{{index}}">{{productoFactura.producto.descripcion}}</label>
-            </div>
-            <div class="col-md-6" *ngIf="agregado">
-                <div class="row">
-                    <div class="col-md-4">
-                        <label class="lb-vale-item" for="">Cantidad solicitada</label>
-                        <input (blur)="agregarValeProducto()" type="number" name="cantidadSolicitada" [(ngModel)]="cantidadSolicitada" class="form-control">
-                    </div>
-                    <div class="col-md-4">
-                        <label class="lb-vale-item" for="">Cantidad entregada</label>
-                        <input (blur)="agregarValeProducto()" name="cantidadEntregada" [(ngModel)]="cantidadEntregada" type="number" class="form-control">
-                    </div>
-                    <div class="col-md-4">
-                        <label class="lb-vale-item" for="">Cantidad comprada</label>
-                        <input type="number" disabled="disabled" value="{{productoFactura.cantidad}}" class="form-control">
-                    </div>
-                </div>
-
-            </div>
+<hr>
+<form class="form-material">
+    <div class="row">
+        <div class="col-md-4 d-flex align-content-center">
+            <input [formControl]="chkField" [checked]="agregado" type="checkbox" class="check" id="minimal-checkbox-{{index}}">
+            <label for="minimal-checkbox-{{index}}">{{productoFactura.producto.descripcion}}</label>
         </div>
-    </form>
-</li>
+        <div class="col-md-8" *ngIf="agregado">
+            <div class="row">
+                <div class="col-md-3">
+                    <label class="lb-vale-item" for="">Cantidad solicitada</label>
+                    <input (blur)="agregarValeProducto()" type="number" name="cantidadSolicitada" [(ngModel)]="cantidadSolicitada" class="form-control">
+                </div>
+                <div class="col-md-3">
+                    <label class="lb-vale-item" for="">Cantidad entregada</label>
+                    <input (blur)="agregarValeProducto()" name="cantidadEntregada" [(ngModel)]="cantidadEntregada" type="number" class="form-control">
+                </div>
+                <div class="col-md-3">
+                    <label class="lb-vale-item" for="">Unidad</label>
+                    <input type="number" value="{{productoFactura.producto.unidadMedida}}" class="form-control">
+                </div>
+                <div class="col-md-3">
+                    <label class="lb-vale-item" for="">Cantidad restante</label>
+                    <input type="number" disabled="disabled" value="{{productoFactura.cantidadRestante}}" class="form-control">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</form>

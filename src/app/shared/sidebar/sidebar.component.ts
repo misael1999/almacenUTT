@@ -17,7 +17,7 @@ export class SidebarComponent implements OnInit {
   constructor(private _loginService: LoginService,
     private _router: Router, private sidebarService: SidebarService) {
     this.usuario = _loginService.usuario;
-    this.letraUsuario = this.usuario.primerNombre.charAt(0) + this.usuario.apellidoPaterno.charAt(0);
+    this.letraUsuario = this.usuario.nombre.charAt(0) + this.usuario.apellidoPaterno.charAt(0);
    }
 
   ngOnInit() {}

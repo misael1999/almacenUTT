@@ -3,7 +3,7 @@
         <li><a *ngIf="!pageable.first" class="prev" [routerLink]="['/facturas/almacen/page', (pageable.pageable.pageNumber + 1) - 1]"> &laquo; </a></li>
         <li><a [routerLink]="['/facturas/almacen/page', 1]">primera</a></li>
         <li><a routerLinkActive="active" [routerLink]="['/facturas/almacen/page', page]" *ngFor="let page of totalPages">{{page}}</a></li>
-        <li><a [routerLink]="['/facturas/almacen/page', pageable.totalPages]">ultima</a></li>
+        <li><a [routerLink]="['/facturas/almacen/page', pageable.totalPages]">última</a></li>
         <li><a *ngIf="!pageable.last" class="next" [routerLink]="['/facturas/almacen/page', (pageable.pageable.pageNumber + 1) + 1]">  &raquo;</a></li>
     </ul>
 </div>

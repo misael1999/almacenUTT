@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../store/app.reducer';
 import * as fromDashboard from '../../store/actions';
+import { Producto } from '../../models/Producto';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,6 +14,7 @@ export class DashboardComponent implements OnInit {
   info: any;
   loading: boolean;
   loaded: boolean;
+  productos: Producto[] = [];
 
   constructor(private store: Store<AppState>) {
       this.store.dispatch(new fromDashboard.LoadInfo());
@@ -21,6 +23,9 @@ export class DashboardComponent implements OnInit {
           this.info = dashbaord.info;
           this.loaded = dashbaord.loaded;
           this.loading = dashbaord.loading;
+          if (this.info != null) {
+            this.productos = this.info.productosRecientes.content;
+          }
         });
    }
 

@@ -1,4 +1,4 @@
-<div class="row" *ngIf="loaded">
+<div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-body">
@@ -6,7 +6,10 @@
                 <div class="m-3">
                     <button (click)="abrirModal()" class="btn btn-rounded btn-info">Agregar area <i class="mdi mdi-plus ml-2"></i></button>
                 </div>
-                <div class="table-responsive table-datos table-usuarios">
+                <div *ngIf="loaded && areas.length === 0" class="alert alert-info">
+                    <p>No hay áreas que mostrar</p>
+                </div>
+                <div *ngIf="loaded && areas.length > 0" class="table-responsive table-datos table-usuarios">
                     <table id="demo-foo-addrow" class="table m-t-30 table-hover contact-list" data-page-size="10">
                         <thead>
                             <tr>
@@ -36,6 +39,8 @@
     </div>
 
 </div>
+
+
 
 <app-loading *ngIf="loading"></app-loading>
 

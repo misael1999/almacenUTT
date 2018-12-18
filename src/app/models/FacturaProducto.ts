@@ -3,7 +3,8 @@ export class FacturaProducto {
     constructor (
         public idFacturaProducto: number,
         public cantidad: number,
-        public producto: Producto
+        public producto: Producto,
+        public cantidadRestante?: number
     ) {}
 }
 

@@ -50,7 +50,7 @@ export class ErrorComponent implements OnInit {
             this.cerrarMensaje(new fromMensajes.UiMessageErrorEnd());
         }
         if (errorArea != null) {
-            this.error = resp.ui;
+            this.error = errorArea;
             this.cerrarMensaje(new fromMensajes.CreateAreaEnd());
         }
         if (errorProducto != null) {

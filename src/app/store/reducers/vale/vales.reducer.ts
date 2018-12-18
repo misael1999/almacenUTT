@@ -123,7 +123,7 @@ export function valesReducer (state = estadoInicial, action: fromVales.valesActi
         return {
             ...state,
             valeProductos: state.valeProductos
-                .filter(valeProducto => valeProducto.producto.clave !== action.clave)
+                .filter(valeProducto => valeProducto.facturaProducto.idFacturaProducto !== action.idFacturaProducto)
         };
         break;
         case fromVales.CLEAN_VALE_ITEM:

@@ -13,7 +13,7 @@
             </select>
     </div>
 </div>
-<div *ngIf="loaded" class="row animated fadeIn mt-3">
+<div *ngIf="loaded && vales.length > 0" class="row animated fadeIn mt-3">
     <div class="col-lg-3 col-md-6" *ngFor="let vale of vales">
         <div class="card card-vale">
             <div class="card-header">
@@ -29,7 +29,7 @@
 
             </div>
             <div class="card-footer">
-                <a [routerLink]="['/vales', vale.numeroRequisicion]" class="btn btn-inverse">Ver vale </a>
+                <a [routerLink]="['/vales', vale.idValeSalida]" class="btn btn-inverse">Ver vale </a>
             </div>
         </div>
     </div>
@@ -55,7 +55,7 @@
 <div class="row" *ngIf="loaded && vales.length == 0" class="animated fadeIn">
     <div class="col-md-12">
         <div class="alert alert-info  mt-3">
-            <span>No tiene vales de salida hechos <span><a [routerLink]="'/vales-ingresar'">generar vale de salida</a></span></span>
+            <span>No hay ningun vale de salida <span><a [routerLink]="'/vales-ingresar'">generar vale de salida</a></span></span>
         </div>
     </div>
 </div>

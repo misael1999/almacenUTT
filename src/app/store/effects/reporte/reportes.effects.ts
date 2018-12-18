@@ -83,5 +83,24 @@ export class ReportesEffects {
                     );
             })
         );
+@Effect()
+    generateValeSalida$ = this.actions$.ofType(reportesActions.GENERATE_VALE_SALIDA)
+        .pipe(
+            switchMap(action => {
+                return this.reporteService.generateValeSalida(action['idVale'])
+                    .pipe(
+                       map((data: any) => {
+                        const res = new Blob([data], { type: 'application/pdf' });
+                        const fileURL = URL.createObjectURL(res);
+                        window.open(fileURL);
+                        return new reportesActions.GenerateValeSalidaSuccess();
+                       }),
+                       catchError(error => {
+                            return of(new reportesActions.GenerateValeSalidaFail(error));
+                       })
+                    );
+            })
+        );
 }
+
 

@@ -5,11 +5,11 @@
     <div *ngFor="let usuario of usuarios" class="col-md-3">
         <div class="card card-outline-success">
             <div class="card-header">
-                <h4 class="m-b-0 text-white">{{usuario.primerNombre}} {{usuario.apellidoPaterno}}</h4>
+                <h4 class="m-b-0 text-white">{{usuario.nombre}} {{usuario.apellidoPaterno}}</h4>
             </div>
             <div class="card-body">
                 <p>Usuario: {{usuario.nombreUsuario}}</p>
-                <a [routerLink]="['/privilegios', usuario.nombreUsuario]" class="btn btn-inverse btn-sm">Editar privilegios <i class="fa fa-edit"></i></a>
+                <a [routerLink]="['/usuarios', usuario.nombreUsuario]" class="btn btn-inverse btn-sm">Editar privilegios <i class="fa fa-edit"></i></a>
             </div>
         </div>
     </div>

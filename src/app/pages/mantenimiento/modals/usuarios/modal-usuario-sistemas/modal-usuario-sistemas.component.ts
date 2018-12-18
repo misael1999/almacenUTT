@@ -6,6 +6,7 @@ import { AppState } from 'src/app/store/app.reducer';
 import * as fromUsuario from '../../../../../store/actions';
 import { Mensaje } from 'src/app/models/Mensaje';
 import { Usuario } from '../../../../../models/Usuario';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-modal-usuario-sistemas',
@@ -17,7 +18,8 @@ export class ModalUsuarioSistemasComponent implements OnInit {
   formUsuario: FormGroup;
   loading: boolean;
   loaded: boolean;
-  constructor(public modalUsuarioService: ModalUsuarioService, private store: Store<AppState>) { 
+  constructor(public modalUsuarioService: ModalUsuarioService,
+    private store: Store<AppState>, private router: Router) {
 
     this.store.select('usuario')
       .subscribe(usuario => {
@@ -27,6 +29,7 @@ export class ModalUsuarioSistemasComponent implements OnInit {
 
         if (this.mensaje != null) {
           this.cerrarModal();
+          this.router.navigate(['/usuarios', this.formUsuario.value.nombreUsuario ]);
           this.formUsuario.reset();
           this.store.dispatch(new fromUsuario.LoadUsuarios());
         }
@@ -37,8 +40,7 @@ export class ModalUsuarioSistemasComponent implements OnInit {
 
   ngOnInit() {
     this.formUsuario = new FormGroup({
-      primerNombre: new FormControl( null , Validators.required ),
-      segundoNombre: new FormControl( null),
+      nombre: new FormControl( null , Validators.required ),
       apellidoPaterno: new FormControl(null, Validators.required),
       apellidoMaterno: new FormControl( null, Validators.required),
       role: new FormControl( null, Validators.required),
@@ -58,7 +60,7 @@ export class ModalUsuarioSistemasComponent implements OnInit {
     }
 
     const usuario = new Usuario(
-      this.formUsuario.value.primerNombre,
+      this.formUsuario.value.nombre,
       this.formUsuario.value.apellidoPaterno,
       this.formUsuario.value.apellidoMaterno,
       this.formUsuario.value.role,
@@ -66,7 +68,6 @@ export class ModalUsuarioSistemasComponent implements OnInit {
       this.formUsuario.value.password,
       null,
       true,
-      this.formUsuario.value.segundoNombre,
     );
 
     this.store.dispatch(new fromUsuario.CreateUsuario(usuario));

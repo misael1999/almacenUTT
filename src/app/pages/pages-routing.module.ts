@@ -80,7 +80,7 @@ const pagesRoutes: Routes = [
     {path: 'usuarios', component: UsuariosSistemaComponent, canActivate: [ AdminGuard, VerificaTokenGuard ], data: { titulo: 'Lista de usuarios' } },
     {path: 'areas', component: UsuariosAreasComponent, canActivate: [ VerificaTokenGuard ], data: { titulo: 'Lista de areas' } },
     {path: 'privilegios', component: PrivilegiosComponent, canActivate: [ VerificaTokenGuard ], data: { titulo: 'Privilegios' } },
-    {path: 'privilegios/:nombreUsuario', component: PriveligioUsuarioComponent,
+    {path: 'usuarios/:nombreUsuario', component: PriveligioUsuarioComponent,
     canActivate: [ VerificaTokenGuard ], data: { titulo: 'Privilegios' } },
     {path: 'cargar-factura', component: SubidaDocumentoComponent, children: LIST_SUBIDAS_DOCUMENTOS,
      canActivate: [ VerificaTokenGuard ], data: { titulo: 'Cargar factura' } },

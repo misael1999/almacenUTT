@@ -30,4 +30,9 @@ export class ReporteService {
     return this.http.get(URL, {responseType: 'blob'});
   }
 
+  public generateValeSalida(idVale: number) {
+    const URL = URL_SERVICIOS + '/generar/vales/' + idVale;
+    return this.http.get(URL, {responseType: 'blob'});
+  }
+
 }

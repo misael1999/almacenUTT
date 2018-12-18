@@ -29,7 +29,7 @@ export class IngresarValeComponent implements OnInit, OnDestroy {
   valesProductos: ValeProducto[] = [];
   areaSeleccionada: Area;
   numeroRequisicion: number;
-
+  idVale: number;
 
   constructor(private store: Store<AppState>, private router: Router) {
     this.store.dispatch(new fromVales.LoadFacturasActivas(0, 'desc'));
@@ -40,10 +40,10 @@ export class IngresarValeComponent implements OnInit, OnDestroy {
         this.loading = resp.vale.loading;
         this.facturas = resp.facturas.facturas;
         this.valesProductos = resp.vales.valeProductos;
-
+        this.idVale = resp.vale.idValeSalida;
         if (resp.vale.mensaje != null) {
             setTimeout(() => {
-              this.router.navigate(['/vales', this.numeroRequisicion]);
+              this.router.navigate(['/vales', this.idVale]);
             }, 1500);
         }
 
@@ -107,7 +107,6 @@ export class IngresarValeComponent implements OnInit, OnDestroy {
       this.valesProductos,
       this.factura
       );
-
     this.store.dispatch(new fromVales.CreateValeSalida(valeSalida));
   }
 

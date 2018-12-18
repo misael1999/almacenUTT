@@ -4,6 +4,7 @@ import * as fromVale from '../../../../store/actions';
 import { AppState } from 'src/app/store/app.reducer';
 import { Store } from '@ngrx/store';
 import { ValeProducto } from '../../../../models/ValeProducto';
+import { FacturaProducto } from '../../../../models/FacturaProducto';
 
 @Component({
   selector: 'app-vale-item',
@@ -12,7 +13,7 @@ import { ValeProducto } from '../../../../models/ValeProducto';
 })
 export class ValeItemComponent implements OnInit {
 
-  @Input() productoFactura: any;
+  @Input() productoFactura: FacturaProducto;
   @Input() index: any;
   chkField: FormControl;
   agregado = false;
@@ -34,7 +35,7 @@ export class ValeItemComponent implements OnInit {
         .subscribe( () => {
           this.agregado = !this.agregado;
           if (!this.agregado) {
-            this.store.dispatch(new fromVale.RemoveValeItem(this.productoFactura.producto.clave));
+            this.store.dispatch(new fromVale.RemoveValeItem(this.productoFactura.idFacturaProducto));
           }
         });
   }
@@ -44,15 +45,15 @@ export class ValeItemComponent implements OnInit {
       const valeProducto = new ValeProducto(
         Number(this.cantidadSolicitada),
         Number(this.cantidadEntregada),
-        this.productoFactura.producto.unidad,
-        this.productoFactura.producto
+        this.productoFactura.producto.unidadMedida,
+        this.productoFactura
       );
       const valeExist = this.valesProductos.find((vProducto: ValeProducto) => {
-          return vProducto.producto.clave === valeProducto.producto.clave;
+          return vProducto.facturaProducto.idFacturaProducto === valeProducto.facturaProducto.idFacturaProducto;
       });
 
       if (valeExist !== undefined) {
-        this.store.dispatch(new fromVale.RemoveValeItem(valeExist.producto.clave));
+        this.store.dispatch(new fromVale.RemoveValeItem(valeExist.facturaProducto.idFacturaProducto));
       }
 
         this.store.dispatch(new fromVale.AddValeItem(valeProducto));

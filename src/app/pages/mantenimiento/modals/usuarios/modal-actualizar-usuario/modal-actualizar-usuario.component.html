@@ -22,20 +22,11 @@
                                                     <h4 class="">Informacion personal</h4>
                                                     <hr>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-8">
                                                     <div class="form-group">
-                                                        <label class="control-label">Primer nombre:</label>
-                                                        <input formControlName="primerNombre" type="text" id="calle" class="form-control">
+                                                        <label class="control-label">Nombre(s):</label>
+                                                        <input formControlName="nombre" type="text" id="calle" class="form-control">
                                                         <small class="form-control-feedback"> </small> </div>
-                                                </div>
-                                                <!--/span-->
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label class="control-label">
-                                                            Segundo nombre:</label>
-                                                        <input formControlName="segundoNombre" type="text" id="numero_lote" class="form-control">
-                                                        <small class="form-control-feedback"> </small> </div>
-
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group">
@@ -93,7 +84,6 @@
                         <div class="form-actions">
                             <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Actualizar usuario <i *ngIf="loading" class="fa fa-spinner fa-spin"></i></button>
                         </div>
-                        <button (click)="cerrarModal()" type="button" class="btn btn-secondary ml-auto">Cerrar</button>
                     </div>
                 </form>
             </div>

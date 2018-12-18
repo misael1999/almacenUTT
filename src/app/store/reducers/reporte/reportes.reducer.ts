@@ -1,4 +1,3 @@
-import { Producto } from '../../../models/Producto';
 import * as fromReportes from '../../actions';
 
 export interface ReportesState {
@@ -100,6 +99,26 @@ export interface ReportesState {
             };
             break;
         case fromReportes.LOAD_REPORTE_GASTOS_AREA_FAIL:
+            return {
+                ...state,
+                loading: false,
+                loaded: false,
+                error: action.payload
+            };
+            break;
+        case fromReportes.GENERATE_VALE_SALIDA:
+            return {
+                ...state,
+                loading: true
+            };
+        case fromReportes.GENERATE_VALE_SALIDA_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                loaded: true,
+            };
+            break;
+        case fromReportes.GENERATE_VALE_SALIDA_FAIL:
             return {
                 ...state,
                 loading: false,

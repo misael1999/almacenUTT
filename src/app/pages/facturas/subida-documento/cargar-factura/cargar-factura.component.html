@@ -23,7 +23,7 @@
                 </div>
                 <div *ngIf="facturas.length == 0 && loaded" class="w-100">
                     <div class="alert alert-info" role="alert">
-                        <strong>No tienes facturas entregadas <a [routerLink]="'/vales-ingresar'">generar vale de salida</a></strong>
+                        <strong>No tienes facturas completadas <a [routerLink]="'/vales-ingresar'">generar vale de salida</a></strong>
                     </div>
                 </div>
                 <div *ngIf="loaded" class="list-group">

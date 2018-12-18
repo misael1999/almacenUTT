@@ -107,20 +107,6 @@ export class ListaProductosComponent implements OnInit {
 
   }
 
-  public ordenarUnidad() {
-    this.productos.sort((a, b) => {
-      const idA = a.unidad.toLowerCase();
-      const idB = b.unidad.toLowerCase();
-      if (idA < idB) {
-        return -1;
-      }
-      if (idA > idB) {
-        return 1;
-      }
-      return 0;
-    });
-
-  }
 
   public ordenarPrecio() {
     this.productos.sort((a, b) => {

@@ -4,7 +4,7 @@ constructor(
 
     public clave: string,
     public descripcion: string,
-    public unidad: string,
+    public unidadMedida: string,
     public cantidad: number,
     public precio: number,
     public idUsuario?: number,

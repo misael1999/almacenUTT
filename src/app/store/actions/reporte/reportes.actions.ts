@@ -15,6 +15,10 @@ export const LOAD_REPORTE_GASTOS_AREA = '[Reportes] Load reporte gasto areas';
 export const LOAD_REPORTE_GASTOS_AREA_SUCCESS = '[Reportes] Load reporte gasto areas SUCCESS';
 export const LOAD_REPORTE_GASTOS_AREA_FAIL = '[Reportes] Load reporte gasto areas FAIL';
 
+export const GENERATE_VALE_SALIDA = '[Reportes] Generate vale salida';
+export const GENERATE_VALE_SALIDA_SUCCESS = '[Reportes] Generate vale salida SUCCESS';
+export const GENERATE_VALE_SALIDA_FAIL = '[Reportes] Generate vale salida FAIL';
+
 export const LOAD_REPORTES_END = '[Reportes] Load reporte END';
 
 export class LoadReporteProductos implements Action {
@@ -83,6 +87,21 @@ export class LoadReporteGastoAreasFail implements Action {
     constructor(public payload: any) {}
 }
 
+export class GenerateValeSalida implements Action {
+    readonly type = GENERATE_VALE_SALIDA;
+    constructor(public idVale: number) {}
+}
+
+export class GenerateValeSalidaSuccess implements Action {
+    readonly type = GENERATE_VALE_SALIDA_SUCCESS;
+    constructor() {}
+}
+
+export class GenerateValeSalidaFail implements Action {
+    readonly type = GENERATE_VALE_SALIDA_FAIL;
+    constructor(public payload: any) {}
+}
+
 // ----  END   ---- //
 export class LoadReportesEnd implements Action {
     readonly type = LOAD_REPORTES_END;
@@ -101,4 +120,7 @@ export type reportesAcciones = LoadReporteProductos |
                                 LoadReporteGastoAreas |
                                 LoadReporteGastoAreasSuccess |
                                 LoadReporteGastoAreasFail |
-                                LoadReportesEnd;
+                                LoadReportesEnd |
+                                GenerateValeSalida |
+                                GenerateValeSalidaSuccess |
+                                GenerateValeSalidaFail;

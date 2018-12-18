@@ -66,7 +66,7 @@ export class AddValeItem implements Action {
 export class RemoveValeItem implements Action {
 
     readonly type = REMOVE_VALE_ITEM;
-    constructor(public clave: string) {}
+    constructor(public idFacturaProducto: number) {}
 
 }
 

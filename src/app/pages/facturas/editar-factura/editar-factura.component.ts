@@ -151,7 +151,7 @@ export class EditarFacturaComponent implements OnInit {
     this.formProductoEditar = new FormGroup({
       claveE: new FormControl({value: facturaProducto.producto.clave, disabled: true }, Validators.required),
       descripcionProductoE: new FormControl(facturaProducto.producto.descripcion, Validators.required),
-      unidadE: new FormControl(facturaProducto.producto.unidad , Validators.required),
+      unidadE: new FormControl(facturaProducto.producto.unidadMedida , Validators.required),
       cantidadE: new FormControl(facturaProducto.cantidad, Validators.required),
       precioE: new FormControl(facturaProducto.producto.precio, Validators.required)
     });

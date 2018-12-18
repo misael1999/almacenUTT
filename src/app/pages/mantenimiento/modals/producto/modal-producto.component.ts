@@ -29,7 +29,7 @@ export class ModalProductoComponent implements OnInit {
               clave: new FormControl(this.producto.clave, Validators.required),
               descripcion: new FormControl( this.producto.descripcion),
               cantidad: new FormControl( this.producto.cantidad),
-              unidad: new FormControl(this.producto.unidad),
+              unidad: new FormControl(this.producto.unidadMedida),
               precio: new FormControl( this.producto.precio),
             });
           }

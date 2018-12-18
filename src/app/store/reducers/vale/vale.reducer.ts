@@ -9,6 +9,7 @@ export interface ValeState {
     loading: boolean;
     error: any;
     mensaje: any;
+    idValeSalida: number;
 }
 
 const estadoInicial: ValeState = {
@@ -16,7 +17,8 @@ const estadoInicial: ValeState = {
     loaded: false,
     loading: false,
     error: null,
-    mensaje: null
+    mensaje: null,
+    idValeSalida: null
 };
 
 export function valeReducer(state = estadoInicial, action: fromVale.valeSalidaAcciones): ValeState {
@@ -35,8 +37,9 @@ export function valeReducer(state = estadoInicial, action: fromVale.valeSalidaAc
                 mensaje: {
                     titulo: action.payload.titulo,
                     mensaje: action.payload.mensaje,
-                    numeroRequisicion: action.payload.numeroRequisicion
-                }
+                },
+                idValeSalida: action.payload.idVale
+
             };
         break;
         case fromVale.CREATE_VALE_SALIDA_FAIL:

@@ -33,11 +33,13 @@ export class PriveligioUsuarioComponent implements OnInit {
           this.loaded = resp.usuario.loaded;
           this.error = resp.usuario.error;
           this.privilegios = resp.privilegios.privilegios;
-          this.privilegios = this.privilegios.filter(privilegio => {
-            return !this.usuario.privilegios.find(privilegioUsuario => {
-                return privilegioUsuario.privilegio.idPrivilegio === privilegio.idPrivilegio;
-            });
-          });
+          if (this.privilegios !== null && this.usuario !== null && this.usuario.privilegios !== undefined) {
+            this.privilegios = this.privilegios.filter(privilegio => {
+                return !this.usuario.privilegios.find(privilegioUsuario => {
+                    return privilegioUsuario.privilegio.idPrivilegio === privilegio.idPrivilegio;
+                });
+              });
+          }
         });
    }
 

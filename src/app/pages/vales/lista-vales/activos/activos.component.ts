@@ -40,7 +40,7 @@ export class ActivosComponent implements OnInit {
                       if (page === undefined || page < 0) {
                         page = 1;
                       }
-              this.store.dispatch(new fromVales.LoadValesSalidaActivos(page, this.orden));
+              this.store.dispatch(new fromVales.LoadValesSalidaActivos(page - 1, this.orden));
         });
   }
 

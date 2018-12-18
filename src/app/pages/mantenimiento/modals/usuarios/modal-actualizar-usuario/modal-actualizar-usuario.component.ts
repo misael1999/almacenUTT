@@ -31,8 +31,7 @@ export class ModalActualizarUsuarioComponent implements OnInit {
 
     if (this.usuario != null) {
       this.formUsuario = new FormGroup({
-        primerNombre: new FormControl( this.usuario.primerNombre , Validators.required ),
-        segundoNombre: new FormControl( this.usuario.segundoNombre),
+        nombre: new FormControl( this.usuario.nombre , Validators.required ),
         apellidoPaterno: new FormControl(this.usuario.apellidoPaterno, Validators.required),
         apellidoMaterno: new FormControl( this.usuario.apellidoMaterno, Validators.required),
         role: new FormControl( this.usuario.role, Validators.required),
@@ -71,7 +70,6 @@ export class ModalActualizarUsuarioComponent implements OnInit {
       this.usuario.password,
       this.usuario.idUsuario,
       true,
-      this.formUsuario.value.segundoNombre,
     );
 
     this.store.dispatch(new fromUsuario.UpdateUsuario(usuario));

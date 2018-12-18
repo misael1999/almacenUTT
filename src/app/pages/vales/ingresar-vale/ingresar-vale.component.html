@@ -11,10 +11,10 @@
                 <div class="tab-content tabcontent-border">
                     <div class="tab-pane active" id="home8" role="tabpanel">
                         <!--   ELEGIR FACTURA    -->
-                        <div class="elegirFactura animated fadeIn m-3" *ngIf="paso1">
+                        <div class="elegirFactura animated fadeIn p-3" *ngIf="paso1">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <form class="form-material">
+                                    <form class="form-group">
                                         <div class="form-group">
                                             <input #txtBuscar (keyup)="buscarFactura(txtBuscar.value)" type="text" class="form-control" placeholder="Buscar factura por proveedor, folio"> </div>
                                     </form>
@@ -32,12 +32,17 @@
                             </div>
                         </div>
                         <!--   ELEGIR PRODUCTOS    -->
-                        <div class="elegirProductos animated fadeIn" *ngIf="factura && paso2">
-                            <div class="productos my-5">
-                                <ul class="list-group">
-                                    <app-vale-item *ngFor="let productoFactura of factura.items; let i = index" [productoFactura]="productoFactura" [index]="i"></app-vale-item>
-                                </ul>
+                        <div class="elegirProductos animated fadeIn p-3 " *ngIf="factura && paso2">
+                            <div class="productos my-3">
+                                <button class="btn btn-info btn-sm mb-2">Seleccionar todo</button>
+
+
+                                <app-vale-item *ngFor="let productoFactura of factura.items; let i = index" [productoFactura]="productoFactura" [index]="i"></app-vale-item>
+
                             </div>
+                            <hr>
+                            <button class="btn btn-sm btn-info">Agregar producto de otra factura</button>
+
                             <div class="botones d-flex justify-content-between p-5">
                                 <button (click)="anterior()" class="btn btn-sm btn-danger">Anterior</button>
                                 <button (click)="siguintePaso()" class="btn btn-sm btn-danger">Siguiente</button>

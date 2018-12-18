@@ -41,7 +41,7 @@
                                             <td>{{productoVale.cantidadSolicitada}}</td>
                                             <td>{{productoVale.cantidadEntregada}}</td>
                                             <td>{{productoVale.unidadMedida}}</td>
-                                            <td>{{productoVale.producto.descripcion}}</td>
+                                            <td>{{productoVale.facturaProducto.producto.descripcion}}</td>
                                         </tr>
                                     </tbody>
                                     <tfoot>
@@ -98,7 +98,7 @@
                     <div class="clearfix"></div>
                     <hr>
                     <div class="text-right">
-                        <button (click)="abrirValeSalida()" id="print" class="btn btn-default btn-danger" type="button"> <span><i class="fa fa-print"></i> Imprimir vale de salida</span> </button>
+                        <button [disabled]="loadingVale" (click)="abrirValeSalida()" id="print" class="btn btn-default btn-danger" type="button"> <span><i class="fa fa-print"></i> Imprimir vale de salida <i *ngIf="loadingVale" class="fa fa-spinner fa-spin"></i></span> </button>
                     </div>
                 </div>
             </div>
