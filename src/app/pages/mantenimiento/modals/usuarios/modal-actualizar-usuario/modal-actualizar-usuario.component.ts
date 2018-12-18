@@ -62,7 +62,7 @@ export class ModalActualizarUsuarioComponent implements OnInit {
     }
 
     const usuario = new Usuario(
-      this.formUsuario.value.primerNombre,
+      this.formUsuario.value.nombre,
       this.formUsuario.value.apellidoPaterno,
       this.formUsuario.value.apellidoMaterno,
       this.formUsuario.value.role,

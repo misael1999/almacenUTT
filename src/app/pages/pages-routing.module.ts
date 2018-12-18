@@ -77,8 +77,8 @@ const pagesRoutes: Routes = [
     {path: 'historial', component: HistorialComponent, canActivate: [ VerificaTokenGuard ], data: { titulo: 'Reportes' } },
     {path: 'facturas/:folio', component: DescripcionComponent, canActivate: [ VerificaTokenGuard ], data: { titulo: 'Descripcion' } },
     // tslint:disable-next-line:max-line-length
-    {path: 'usuarios', component: UsuariosSistemaComponent, canActivate: [ AdminGuard, VerificaTokenGuard ], data: { titulo: 'Lista de usuarios' } },
-    {path: 'areas', component: UsuariosAreasComponent, canActivate: [ VerificaTokenGuard ], data: { titulo: 'Lista de areas' } },
+    {path: 'usuarios', component: UsuariosSistemaComponent, canActivate: [ VerificaTokenGuard ], data: { titulo: 'Lista de usuarios' } },
+    {path: 'areas', component: UsuariosAreasComponent, canActivate: [ VerificaTokenGuard ], data: { titulo: 'Lista de áreas' } },
     {path: 'privilegios', component: PrivilegiosComponent, canActivate: [ VerificaTokenGuard ], data: { titulo: 'Privilegios' } },
     {path: 'usuarios/:nombreUsuario', component: PriveligioUsuarioComponent,
     canActivate: [ VerificaTokenGuard ], data: { titulo: 'Privilegios' } },
@@ -89,7 +89,7 @@ const pagesRoutes: Routes = [
     {path: 'vales-ingresar', component: IngresarValeComponent,
      canActivate: [ VerificaTokenGuard ], data: { titulo: 'Generar vale de salida'}},
     {path: 'vales/:numero', component: DescripcionValeComponent,
-     canActivate: [ VerificaTokenGuard ], data: {titulo: 'Descripcion vale de salida'}},
+     canActivate: [ VerificaTokenGuard ], data: {titulo: 'Descripción vale de salida'}},
     { path: '', redirectTo: '/inicio', pathMatch: 'full' }
 ];
 

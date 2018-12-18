@@ -44,15 +44,15 @@
                 <!-- ============================================================== -->
                 <!-- Search -->
                 <!-- ============================================================== -->
-                <li class="nav-item hidden-xs-down search-box"> <a class="nav-link hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>
+                <!-- <li class="nav-item hidden-xs-down search-box"> <a class="nav-link hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>
                     <form class="app-search">
                         <input type="text" class="form-control" placeholder="Busca y enter"> <a class="srh-btn"><i class="ti-close"></i></a> </form>
-                </li>
+                </li> -->
 
                 <!-- ============================================================== -->
                 <!-- Messages -->
                 <!-- ============================================================== -->
-                <li class="nav-item dropdown">
+                <!-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="mdi mdi-message"></i>
                         <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
                     </a>
@@ -63,38 +63,35 @@
                             </li>
                             <li>
                                 <div class="message-center">
-                                    <!-- Message -->
-                                    <a href="#">
-                                        <div class="btn btn-danger btn-circle"><i class="fa fa-link"></i></div>
-                                        <div class="mail-contnet">
-                                            <h5>Nueva comisión</h5> <span class="mail-desc"> Profesor cordova a solicitado una comisión</span> <span class="time">9:30 AM</span> </div>
-                                    </a>
-                                    <!-- Message -->
-                                    <a href="#">
-                                        <div class="btn btn-success btn-circle"><i class="ti-calendar"></i></div>
-                                        <div class="mail-contnet">
-                                            <h5>Reporte mensual</h5> <span class="mail-desc"> Reporte mensual elaborado</span> <span class="time">9:10 AM</span> </div>
-                                    </a>
-                                    <!-- Message -->
-                                    <a href="#">
-                                        <div class="btn btn-info btn-circle"><i class="ti-settings"></i></div>
-                                        <div class="mail-contnet">
-                                            <h5>Revisar facturas</h5> <span class="mail-desc"> Revisa las facturas realizadas</span> <span class="time">9:08 AM</span> </div>
-                                    </a>
-                                    <!-- Message -->
-                                    <a href="#">
-                                        <div class="btn btn-primary btn-circle"><i class="ti-user"></i></div>
-                                        <div class="mail-contnet">
-                                            <h5>Pavan kumar</h5> <span class="mail-desc"> Just see the my admin!</span> <span class="time">9:02 AM</span> </div>
-                                    </a>
-                                </div>
-                            </li>
-                            <li>
-                                <a class="nav-link text-center" href="javascript:void(0);"> <strong>Revisar todas las notificaciones</strong> <i class="fa fa-angle-right"></i> </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
+                                    Message
+                <a href="#">
+                    <div class="btn btn-danger btn-circle"><i class="fa fa-link"></i></div>
+                    <div class="mail-contnet">
+                        <h5>Nueva comisión</h5> <span class="mail-desc"> Profesor cordova a solicitado una comisión</span> <span class="time">9:30 AM</span> </div>
+                </a>
+                <a href="#">
+                    <div class="btn btn-success btn-circle"><i class="ti-calendar"></i></div>
+                    <div class="mail-contnet">
+                        <h5>Reporte mensual</h5> <span class="mail-desc"> Reporte mensual elaborado</span> <span class="time">9:10 AM</span> </div>
+                </a>
+                <a href="#">
+                    <div class="btn btn-info btn-circle"><i class="ti-settings"></i></div>
+                    <div class="mail-contnet">
+                        <h5>Revisar facturas</h5> <span class="mail-desc"> Revisa las facturas realizadas</span> <span class="time">9:08 AM</span> </div>
+                </a>
+                <a href="#">
+                    <div class="btn btn-primary btn-circle"><i class="ti-user"></i></div>
+                    <div class="mail-contnet">
+                        <h5>Pavan kumar</h5> <span class="mail-desc"> Just see the my admin!</span> <span class="time">9:02 AM</span> </div>
+                </a>
+        </div>
+        </li>
+        <li>
+            <a class="nav-link text-center" href="javascript:void(0);"> <strong>Revisar todas las notificaciones</strong> <i class="fa fa-angle-right"></i> </a>
+        </li>
+        </ul>
+        </div>
+        </li> -->-->
                 <!-- ============================================================== -->
                 <!-- End Messages -->
                 <!-- ============================================================== -->
@@ -122,12 +119,7 @@
                                 </div>
                             </li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="#"><i class="ti-user"></i> Mi perfil</a></li>
-                            <li><a href="#"><i class="ti-wallet"></i> Mis archivos</a></li>
-                            <li><a href="#"><i class="ti-email"></i> Configurar cuenta</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#"><i class="ti-settings"></i> Historial de acciones</a></li>
-                            <li role="separator" class="divider"></li>
+                            <li><a [routerLink]="'/seguridad'" href="#"><i class="ti-user"></i>Seguridad</a></li>
                             <li><a class="cursor" (click)="logout()"><i class="fa fa-power-off"></i> Cerrar sesión</a></li>
                         </ul>
                     </div>
@@ -136,6 +128,7 @@
         </div>
     </nav>
 </header>
+
 <!-- ============================================================== -->
 <!-- End Topbar header -->
 <!-- ============================================================== -->

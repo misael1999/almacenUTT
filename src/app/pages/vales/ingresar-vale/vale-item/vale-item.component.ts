@@ -33,7 +33,7 @@ export class ValeItemComponent implements OnInit {
 
     this.chkField.valueChanges
         .subscribe( () => {
-          this.agregado = !this.agregado;
+            this.agregado = !this.agregado;
           if (!this.agregado) {
             this.store.dispatch(new fromVale.RemoveValeItem(this.productoFactura.idFacturaProducto));
           }
@@ -59,5 +59,6 @@ export class ValeItemComponent implements OnInit {
         this.store.dispatch(new fromVale.AddValeItem(valeProducto));
     }
   }
+
 
 }

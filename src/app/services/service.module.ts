@@ -22,7 +22,8 @@ import {
   EstadisticaService,
   ReporteService,
   ModalProductoService,
-  VerificaTokenGuard
+  VerificaTokenGuard,
+  ModalValeAgregarService
  } from './service.index';
 
 @NgModule({
@@ -50,6 +51,7 @@ import {
     ReporteService,
     ModalProductoService,
     VerificaTokenGuard,
+    ModalValeAgregarService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

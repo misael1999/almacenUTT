@@ -16,6 +16,8 @@ export const LOAD_VALES_SALIDA_AREA_FAIL = '[ValeSalida] Load vales salida area 
 
 export const ADD_VALE_ITEM = '[ValeSalida] Add vale item';
 export const REMOVE_VALE_ITEM = '[ValeSalida] Remove vale item';
+export const SELECT_ALL_ITEM = '[ValeSalida] Select all item';
+export const DESELECT_ALL_ITEM = '[ValeSalida] Deselect all item';
 export const CLEAN_VALE_ITEM = '[ValeSalida] Clean vale item';
 
 
@@ -70,6 +72,20 @@ export class RemoveValeItem implements Action {
 
 }
 
+export class SelectAllItem implements Action {
+
+    readonly type = SELECT_ALL_ITEM;
+    constructor() {}
+
+}
+
+export class DeselectAllItem implements Action {
+
+    readonly type = DESELECT_ALL_ITEM;
+    constructor() {}
+
+}
+
 export class CleanValesItems implements Action {
 
     readonly type = CLEAN_VALE_ITEM;
@@ -120,6 +136,8 @@ export type valesActions = LoadValesSalidaActivos |
                             LoadValesSalidaAreaFail |
                             AddValeItem |
                             RemoveValeItem |
+                            SelectAllItem |
+                            DeselectAllItem |
                             CleanValesItems |
                             SearchVales |
                             SearchValesSuccess |

@@ -7,7 +7,7 @@
                         <div class="card ribbon-wrapper-reverse">
                             <div class="ribbon ribbon-bookmark ribbon-left ribbon-danger">Editar información Básica</div>
                             <div class="card-body">
-                                <form [formGroup]="formInformacion" class="m-t-40" [ngClass]="errorFormulario">
+                                <form [formGroup]="formInformacion" class="m-t-40">
                                     <div class="row">
                                         <!--   input 1    -->
                                         <div class="form-group col-md-2">
@@ -49,45 +49,6 @@
                         <div class="card ribbon-wrapper-reverse card-producto">
                             <div class="ribbon ribbon-bookmark ribbon-left ribbon-danger mb-2">Editar productos</div>
                             <div class="card-body">
-                                <!-- <form ngNativeValidate [formGroup]="formProducto" (ngSubmit)="agregarProducto()">
-                                    <div class="row">
-                                        <div class="form-group col-md-1">
-                                            <label for="clave">Clave</label>
-                                            <input #txtClave autocomplete="off" formControlName="clave" type="text" class="form-control" required id="clave">
-                                            <span class="bar"></span>
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                            <label for="descripcion">Descripción del producto</label>
-                                            <input autocomplete="off" formControlName="descripcionProducto" type="text" class="form-control" required id="descripcion">
-                                            <span class="bar"></span>
-                                        </div>
-                                        <div class="form-group col-md-2">
-                                            <label for="unidad">Unidad</label>
-                                            <select formControlName="unidad" class="form-control p-0" required id="unidad">
-                                                                <option value=""></option>
-                                                                <option value="pieza">Pieza</option>
-                                                                <option value="caja">Caja</option>
-                                                            </select><span class="bar"></span>
-                                        </div>
-                                        <div class="form-group col-md-2">
-                                            <label for="cantidad">Cantidad</label>
-                                            <input autocomplete="off" formControlName="cantidad" type="number" class="form-control" required id="cantidad">
-                                            <span class="bar"></span>
-                                        </div>
-                                        <div class="form-group col-md-2">
-                                            <label for="precio">Precio unitario</label>
-                                            <input autocomplete="off" formControlName="precio" type="text" class="form-control" id="precio">
-                                            <span class="bar"></span>
-                                        </div>
-                                        <div class="form-group col-md-1">
-                                            <button type="submit" class="btn btn-sm btn-danger">Agregar</button>
-                                        </div>
-
-
-                                    </div>
-
-                                </form> -->
-                                <!--   Table de productos agregados    -->
 
                                 <div class="col-md-12 m-0">
                                     <div class="table-responsive">

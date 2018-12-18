@@ -13,11 +13,16 @@ export class SidebarComponent implements OnInit {
 
   public usuario: Usuario;
   public letraUsuario: string;
+  public privilegios: any[];
 
   constructor(private _loginService: LoginService,
     private _router: Router, private sidebarService: SidebarService) {
     this.usuario = _loginService.usuario;
+    this.privilegios = [];
     this.letraUsuario = this.usuario.nombre.charAt(0) + this.usuario.apellidoPaterno.charAt(0);
+    this.usuario.privilegios.forEach(privi => {
+        this.privilegios.push(privi.privilegio.nombre);
+    });
    }
 
   ngOnInit() {}

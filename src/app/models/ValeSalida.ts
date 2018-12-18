@@ -7,8 +7,8 @@ export class ValeSalida {
         public area: Area,
         public items: ValeProducto[],
         public factura: Factura,
-        public idValeSalida?: number,
         public fechaEntrega?: string,
+        public idValeSalida?: number,
         public status?: boolean,
         public idUsuario?: number ) {
 

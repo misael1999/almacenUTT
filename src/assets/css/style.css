@@ -8159,3 +8159,11 @@ File: scss
 .txt-text {
     font-size: 85%;
 }
+
+.modal-vale-agregar {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 350px;
+    min-height: 350px;
+    width: 100%;
+}

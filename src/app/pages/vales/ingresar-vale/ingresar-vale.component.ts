@@ -9,6 +9,7 @@ import { Factura } from '../../../models/Factura';
 import { ValeProducto } from '../../../models/ValeProducto';
 import { Mensaje } from 'src/app/models/Mensaje';
 import { ValeSalida } from '../../../models/ValeSalida';
+import { ModalValeAgregarService } from './modal-vale-agregar/modal-area.service';
 
 
 
@@ -30,22 +31,27 @@ export class IngresarValeComponent implements OnInit, OnDestroy {
   areaSeleccionada: Area;
   numeroRequisicion: number;
   idVale: number;
+  fechaEntrega: any;
 
-  constructor(private store: Store<AppState>, private router: Router) {
-    this.store.dispatch(new fromVales.LoadFacturasActivas(0, 'desc'));
-    this.store.dispatch(new fromVales.LoadAreas());
-    this.store.subscribe(
-      resp => {
-        this.areas = resp.areas.areas;
-        this.loading = resp.vale.loading;
-        this.facturas = resp.facturas.facturas;
-        this.valesProductos = resp.vales.valeProductos;
-        this.idVale = resp.vale.idValeSalida;
-        if (resp.vale.mensaje != null) {
-            setTimeout(() => {
-              this.router.navigate(['/vales', this.idVale]);
-            }, 1500);
-        }
+  constructor(private store: Store<AppState>, private router: Router,
+    private modalValeService: ModalValeAgregarService) {
+      const date = new Date();
+      const fechaHoy = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+      this.fechaEntrega = fechaHoy;
+      this.store.dispatch(new fromVales.LoadFacturasActivas(0, 'desc'));
+      this.store.dispatch(new fromVales.LoadAreas());
+      this.store.subscribe(
+        resp => {
+          this.areas = resp.areas.areas;
+          this.loading = resp.vale.loading;
+          this.facturas = resp.facturas.facturas;
+          this.valesProductos = resp.vales.valeProductos;
+          this.idVale = resp.vale.idValeSalida;
+          if (resp.vale.mensaje != null) {
+              setTimeout(() => {
+                this.router.navigate(['/vales', this.idVale]);
+              }, 1500);
+          }
 
       }
     );
@@ -105,7 +111,8 @@ export class IngresarValeComponent implements OnInit, OnDestroy {
       this.numeroRequisicion,
       this.areaSeleccionada,
       this.valesProductos,
-      this.factura
+      this.factura,
+      this.fechaEntrega
       );
     this.store.dispatch(new fromVales.CreateValeSalida(valeSalida));
   }
@@ -150,6 +157,18 @@ export class IngresarValeComponent implements OnInit, OnDestroy {
     const area = new Area(' ', ' ', true, Number(idArea));
     this.areaSeleccionada = area;
       }
+  }
+
+  seleccionarTodo() {
+    this.store.dispatch(new fromVales.SelectAllItem());
+  }
+
+  quitarTodo() {
+    this.store.dispatch(new fromVales.DeselectAllItem());
+  }
+
+  abrirModal() {
+    this.modalValeService.mostrarModal();
   }
 
 }

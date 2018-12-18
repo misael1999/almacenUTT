@@ -68,6 +68,7 @@ import { NgxTypeaheadModule } from 'ngx-typeahead';
 import { EditarFacturaComponent } from './facturas/editar-factura/editar-factura.component';
 import { EditarValeComponent } from './vales/editar-vale/editar-vale.component';
 import { ModalValeAgregarComponent } from './vales/ingresar-vale/modal-vale-agregar/modal-vale-agregar.component';
+import { ItemValeNuevoComponent } from './vales/ingresar-vale/modal-vale-agregar/item-vale-nuevo/item-vale-nuevo.component';
 
 
 // Pipe Module
@@ -123,7 +124,8 @@ import { ModalValeAgregarComponent } from './vales/ingresar-vale/modal-vale-agre
         ReporteGastosAreaComponent,
         EditarFacturaComponent,
         EditarValeComponent,
-        ModalValeAgregarComponent
+        ModalValeAgregarComponent,
+        ItemValeNuevoComponent
         ],
     exports: [
         DashboardComponent,

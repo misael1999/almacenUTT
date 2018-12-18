@@ -10,6 +10,7 @@ export interface ValesState {
     error: any;
     pageable: any;
     valeProductos: ValeProducto[];
+    agregado: boolean;
 }
 
 const estadoInicial: ValesState = {
@@ -18,7 +19,8 @@ const estadoInicial: ValesState = {
     loading: false,
     error: null,
     pageable: null,
-    valeProductos: []
+    valeProductos: [],
+    agregado: false
 };
 
 export function valesReducer (state = estadoInicial, action: fromVales.valesActions): ValesState {
@@ -113,17 +115,22 @@ export function valesReducer (state = estadoInicial, action: fromVales.valesActi
             error: action.payload
         };
         break;
-        case fromVales.ADD_VALE_ITEM:
+            case fromVales.ADD_VALE_ITEM:
         return {
             ...state,
             valeProductos: [...state.valeProductos, action.valeProducto]
         };
         break;
-        case fromVales.REMOVE_VALE_ITEM:
+            case fromVales.REMOVE_VALE_ITEM:
         return {
             ...state,
             valeProductos: state.valeProductos
                 .filter(valeProducto => valeProducto.facturaProducto.idFacturaProducto !== action.idFacturaProducto)
+        };
+        break;
+           case fromVales.SELECT_ALL_ITEM:
+        return {
+            ...state,
         };
         break;
         case fromVales.CLEAN_VALE_ITEM:

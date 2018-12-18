@@ -39,22 +39,18 @@
                     </ul>
                 </li>
                 <li class="nav-small-cap">Herramientas</li>
-                <!-- <li><a routerLinkActive="active" [routerLink]="'/estadisticas'" class="waves-effect cursor"><i class="mdi mdi-chart-line"></i><span class="hide-menu">Estadisticas</span></a></li> -->
                 <li><a routerLinkActive="active" [routerLink]="'/reportes'" class="waves-effect cursor"><i class="mdi mdi-file-chart"></i><span class="hide-menu">Generar reportes</span></a></li>
-                <!-- <li><a routerLinkActive="active" [routerLink]="'/historial'" class="waves-effect waves-dark cursor"><i class="mdi mdi-history"></i><span class="hide-menu">Historial</span></a></li> -->
 
                 <li class="nav-small-cap">Mantenimiento</li>
                 <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-folder-lock"></i><span class="hide-menu">Administrar </span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a routerLinkActive="active" [routerLink]="'/proveedores/page/1'">Proveedores</a></li>
                         <li><a routerLinkActive="active" [routerLink]="'/productos/page/1'">Productos</a></li>
-                        <li><a *ngIf="usuario.role === 'ROLE_ADMIN'" routerLinkActive="active" [routerLink]="'/areas'">Areas</a></li>
+                        <li><a routerLinkActive="active" [routerLink]="'/areas'">Areas</a></li>
                         <li><a *ngIf="usuario.role === 'ROLE_ADMIN'" routerLinkActive="active" [routerLink]="'/privilegios'">Privilegios</a></li>
                         <li><a routerLinkActive="active" [routerLink]="'/usuarios'">Usuarios</a></li>
                     </ul>
                 </li>
-
-
             </ul>
         </nav>
         <!-- End Sidebar navigation -->

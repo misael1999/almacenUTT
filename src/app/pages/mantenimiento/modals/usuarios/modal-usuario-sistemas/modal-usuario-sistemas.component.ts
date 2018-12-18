@@ -18,6 +18,7 @@ export class ModalUsuarioSistemasComponent implements OnInit {
   formUsuario: FormGroup;
   loading: boolean;
   loaded: boolean;
+  nombreUsuario: string;
   constructor(public modalUsuarioService: ModalUsuarioService,
     private store: Store<AppState>, private router: Router) {
 
@@ -28,10 +29,12 @@ export class ModalUsuarioSistemasComponent implements OnInit {
         this.loading = usuario.loading;
 
         if (this.mensaje != null) {
-          this.cerrarModal();
-          this.router.navigate(['/usuarios', this.formUsuario.value.nombreUsuario ]);
-          this.formUsuario.reset();
-          this.store.dispatch(new fromUsuario.LoadUsuarios());
+          this.nombreUsuario = this.formUsuario.value.nombreUsuario;
+          setTimeout(() => {
+            this.router.navigate(['/usuarios', this.nombreUsuario ]);
+            this.formUsuario.reset();
+            this.cerrarModal();
+          }, 1000);
         }
       });
 
