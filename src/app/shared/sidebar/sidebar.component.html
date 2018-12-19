@@ -11,7 +11,7 @@
                     <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
                         <div class="row">
                             <div class="col-md-4">
-                                <div style="width:10px;"><span class="round">{{letraUsuario | uppercase}}</span></div>
+                                <div class="img-rounded-usuario"><span>{{letraUsuario | uppercase}}</span></div>
                             </div>
                             <div class="col-md-8 col-nombre">
                                 <span class="hide-menu">{{usuario.nombre}}</span>
@@ -47,7 +47,6 @@
                         <li><a routerLinkActive="active" [routerLink]="'/proveedores/page/1'">Proveedores</a></li>
                         <li><a routerLinkActive="active" [routerLink]="'/productos/page/1'">Productos</a></li>
                         <li><a routerLinkActive="active" [routerLink]="'/areas'">Areas</a></li>
-                        <li><a *ngIf="usuario.role === 'ROLE_ADMIN'" routerLinkActive="active" [routerLink]="'/privilegios'">Privilegios</a></li>
                         <li><a routerLinkActive="active" [routerLink]="'/usuarios'">Usuarios</a></li>
                     </ul>
                 </li>

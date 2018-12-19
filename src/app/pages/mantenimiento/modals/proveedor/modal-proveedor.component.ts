@@ -49,18 +49,18 @@ export class ModalProveedorComponent implements OnInit {
     this.formProveedor = new FormGroup({
 
       nombre: new FormControl( null , Validators.required ),
-      calle: new FormControl( 'lorem'),
-      numeroLote: new FormControl( '1'),
-      numeroInterior: new FormControl( '1'),
-      colonia: new FormControl( 'lorem'),
-      municipio: new FormControl( 'lorem'),
-      estado: new FormControl( 'lorem'),
-      codigoPostal: new FormControl( '75251'),
-      regimenFiscal: new FormControl( 'lorem'),
-      telefono: new FormControl( '2384080578'),
-      rfc: new FormControl( 'lorem' ),
-      contacto: new FormControl( 'lorem' ),
-      correo: new FormControl( 'lorem@lorem.com' )
+      calle: new FormControl(null),
+      numeroLote: new FormControl( null),
+      numeroInterior: new FormControl(null),
+      colonia: new FormControl(null),
+      municipio: new FormControl(null),
+      estado: new FormControl( null),
+      codigoPostal: new FormControl(null),
+      regimenFiscal: new FormControl( null),
+      telefono: new FormControl( null),
+      rfc: new FormControl(null ),
+      contacto: new FormControl( null ),
+      correo: new FormControl( null )
     });
 
   }

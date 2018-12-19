@@ -71,12 +71,12 @@
                                         </div>
                                         <div class="form-group col-md-2">
                                             <label for="cantidad">Cantidad</label>
-                                            <input autocomplete="off" formControlName="cantidad" type="number" class="form-control" required id="cantidad">
+                                            <input #txtCantidad (change)="verificar($event.target.value)" min="1" autocomplete="off" formControlName="cantidad" type="number" class="form-control" required id="cantidad">
                                             <span class="bar"></span>
                                         </div>
                                         <div class="form-group col-md-2">
                                             <label for="precio">Precio unitario</label>
-                                            <input autocomplete="off" formControlName="precio" type="text" class="form-control" id="precio">
+                                            <input #txtPrecio (change)="verificarPrecio($event.target.value)" min="1" autocomplete="off" formControlName="precio" type="text" class="form-control" id="precio">
                                             <span class="bar"></span>
                                         </div>
                                         <div class="form-group col-md-1">

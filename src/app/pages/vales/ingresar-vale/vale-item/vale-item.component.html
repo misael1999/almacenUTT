@@ -9,19 +9,19 @@
             <div class="row">
                 <div class="col-md-3">
                     <label class="lb-vale-item" for="">Cantidad solicitada</label>
-                    <input (blur)="agregarValeProducto()" type="number" name="cantidadSolicitada" [(ngModel)]="cantidadSolicitada" class="form-control">
+                    <input #txtSolicitada (change)="verificarSolicitada($event.target.value)" (blur)="agregarValeProducto()" type="number" name="cantidadSolicitada" [(ngModel)]="cantidadSolicitada" class="form-control">
                 </div>
                 <div class="col-md-3">
                     <label class="lb-vale-item" for="">Cantidad entregada</label>
-                    <input (blur)="agregarValeProducto()" name="cantidadEntregada" [(ngModel)]="cantidadEntregada" type="number" class="form-control">
+                    <input #txtEntregada (change)="verificarEntregada($event.target.value)" (blur)=" agregarValeProducto() " name="cantidadEntregada " [(ngModel)]="cantidadEntregada " type="number " class="form-control ">
                 </div>
-                <div class="col-md-3">
-                    <label class="lb-vale-item" for="">Unidad</label>
-                    <input type="text" value="{{productoFactura.producto.unidadMedida}}" class="form-control">
+                <div class="col-md-3 ">
+                    <label class="lb-vale-item " for=" ">Unidad</label>
+                    <input type="text " value="{{productoFactura.producto.unidadMedida}} " class="form-control ">
                 </div>
-                <div class="col-md-3">
-                    <label class="lb-vale-item" for="">Cantidad restante</label>
-                    <input type="number" disabled="disabled" value="{{productoFactura.cantidadRestante}}" class="form-control">
+                <div class="col-md-3 ">
+                    <label class="lb-vale-item " for=" ">Cantidad restante</label>
+                    <input #txtComprada type="number " disabled="disabled " value="{{productoFactura.cantidadRestante}} " class="form-control ">
                 </div>
             </div>
 

@@ -87,7 +87,7 @@ export class FacturaEffects {
                             return new facturaActions.DownloadArchivoFacturaSuccess();
                         }),
                         catchError(error => {
-                            return of(new facturaActions.UploadArchivoFacturaFail(error));
+                            return of(new facturaActions.DownloadArchivoFacturaFail(error));
                         })
                     );
             })

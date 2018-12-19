@@ -4,7 +4,8 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-5 mb-3">
-                        <form class="form-material">
+                        <form>
+                            <label for="">Busqueda general</label>
                             <div class="form-group">
                                 <input #txtBuscar (keyup)="buscarProducto(txtBuscar.value)" type="text" id="example-email2" name="example-email" class="form-control" placeholder="Buscar producto por clave o descripcion"> </div>
                         </form>
@@ -59,7 +60,7 @@
     </div>
 </div>
 
-<div class="row" *ngIf="error != null">
+<div class="row" *ngIf="error != null && !loaded">
     <div class="col-lg-12">
         <div class="alert alert-danger" role="alert">
             <h4 class="alert-heading">{{error.error.message}}</h4>

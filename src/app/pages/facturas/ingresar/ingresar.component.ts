@@ -25,6 +25,8 @@ export class IngresarComponent implements OnInit {
   errorFormulario = '';
   proveedor: Proveedor = new Proveedor(' ', 1);
   @ViewChild('txtClave') txtClave: ElementRef;
+  @ViewChild('txtCantidad') txtCantidad: ElementRef;
+  @ViewChild('txtPrecio') txtPrecio: ElementRef;
   public url = '';
   public api = 'http';
   public params = {};
@@ -134,6 +136,18 @@ export class IngresarComponent implements OnInit {
 
   public handleHttpResultSelected (result) {
     this.query = result;
+  }
+
+  verificar(cantidad) {
+    if (Number(cantidad) <= 0) {
+      this.txtCantidad.nativeElement.value = 1;
+    }
+  }
+
+  verificarPrecio(precio) {
+    if (Number(precio) <= 0) {
+      this.txtPrecio.nativeElement.value = 1;
+    }
   }
 
 }

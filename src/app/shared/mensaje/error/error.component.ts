@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Store, Action } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
 import * as fromMensajes from '../../../store/actions';
+import swal from 'sweetalert2';
+import { LoginService } from '../../../services/login/login.service';
 
 @Component({
   selector: 'app-mensaje-error',
@@ -13,7 +15,7 @@ export class ErrorComponent implements OnInit {
   error: any;
   oculto = 'oculto';
 
-  constructor(private store: Store<AppState>) {
+  constructor(private store: Store<AppState>, private loginService: LoginService) {
 
     this.store
       .subscribe(resp => {
@@ -62,9 +64,10 @@ export class ErrorComponent implements OnInit {
           this.cerrarMensaje(new fromMensajes.CreateValeSalidaEnd());
         }
         if (errorReportes != null) {
-          this.error = {error: {mensaje: 'Ha ocurrido un error'}};
-          this.cerrarMensaje(new fromMensajes.LoadReportesEnd());
-
+          // tslint:disable-next-line:max-line-length
+          swal('Ha ocurrido un error', 'Verifique que tenga los permisos necesarios, si el problema persiste comuniquese con el administrador', 'warning');
+          this.store.dispatch(new fromMensajes.LoadReportesEnd());
+          return;
         }
 
     });

@@ -17,10 +17,12 @@ export class UsuariosSistemaComponent implements OnInit {
   loading: boolean;
   loaded: boolean;
   error: any;
+  usuarioToken: Usuario;
 
   constructor(private store: Store<AppState>,
     private modalUsuarioSistemaService: ModalUsuarioService,
     private modalActualizarUsuario: ModalActualizarUsuarioService) {
+      this.usuarioToken = JSON.parse(localStorage.getItem('usuario'));
     this.store.select('usuarios')
     .subscribe(usuarios => {
       this.loading = usuarios.loading;

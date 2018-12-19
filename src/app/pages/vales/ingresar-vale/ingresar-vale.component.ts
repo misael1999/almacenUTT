@@ -114,6 +114,7 @@ export class IngresarValeComponent implements OnInit, OnDestroy {
       this.factura,
       this.fechaEntrega
       );
+    console.log(valeSalida);
     this.store.dispatch(new fromVales.CreateValeSalida(valeSalida));
   }
 

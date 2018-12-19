@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import * as fromVale from '../../../../store/actions';
 import { AppState } from 'src/app/store/app.reducer';
@@ -14,6 +14,9 @@ import { FacturaProducto } from '../../../../models/FacturaProducto';
 export class ValeItemComponent implements OnInit {
 
   @Input() productoFactura: FacturaProducto;
+  @ViewChild('txtSolicitada') txtSolicitada: ElementRef;
+  @ViewChild('txtEntregada') txtEntregada: ElementRef;
+  @ViewChild('txtComprada') txtComprada: ElementRef;
   @Input() index: any;
   chkField: FormControl;
   agregado = false;
@@ -57,6 +60,21 @@ export class ValeItemComponent implements OnInit {
       }
 
         this.store.dispatch(new fromVale.AddValeItem(valeProducto));
+    }
+  }
+
+  verificarSolicitada(cantidad) {
+    if (Number(cantidad) <= 0) {
+      this.txtSolicitada.nativeElement.value = 1;
+    }
+  }
+
+  verificarEntregada(cantidad) {
+    if (Number(cantidad) <= 0) {
+      this.txtEntregada.nativeElement.value = 1;
+    }
+    if (cantidad > Number(this.txtComprada.nativeElement.value)) {
+        this.txtEntregada.nativeElement.value = Number(this.txtComprada.nativeElement.value);
     }
   }
 

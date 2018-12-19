@@ -8,7 +8,7 @@ import swal from 'sweetalert2';
 import { ActivatedRoute } from '@angular/router';
 import { Usuario } from '../../../../models/Usuario';
 declare function init_factura_inputs();
-
+declare var $;
 @Component({
   selector: 'app-lista-proveedores',
   templateUrl: './lista-proveedores.component.html',
@@ -23,6 +23,8 @@ export class ListaProveedorComponent implements OnInit, OnDestroy {
   page = 0;
   pageable: any;
   usuario: Usuario;
+  proveedorVer: Proveedor;
+  letraProveedor: string;
 
   constructor(private provedorService: ProveedorService,
     private store: Store<AppState>, private modalProveedorService: ModalProveedorService,
@@ -68,6 +70,12 @@ export class ListaProveedorComponent implements OnInit, OnDestroy {
 
   buscarProveedor(termino: string) {
     this.store.dispatch(new fromProveedor.SearchProveedores(termino));
+  }
+
+  verProveedor(proveedor: Proveedor) {
+    this.proveedorVer = proveedor;
+    this.letraProveedor = proveedor.nombre.charAt(0).toUpperCase();
+    $('#responsive-modal-proveedor').modal('show');
   }
 
   public ordenarNombre() {

@@ -35,8 +35,8 @@
                         <!--   ELEGIR PRODUCTOS    -->
                         <div class="elegirProductos animated fadeIn p-3 " *ngIf="factura && paso2">
                             <div class="productos my-3">
-                                <button (click)="seleccionarTodo()" class="btn btn-info btn-sm mb-2">Seleccionar todo</button>
-                                <button class="btn btn-danger btn-sm mb-2 mx-1" (click)="quitarTodo()">Deseleccionar todo</button>
+                                <!-- <button (click)="seleccionarTodo()" class="btn btn-info btn-sm mb-2">Seleccionar todo</button>
+                                <button class="btn btn-danger btn-sm mb-2 mx-1" (click)="quitarTodo()">Deseleccionar todo</button> -->
 
                                 <app-vale-item *ngFor="let productoFactura of factura.items; let i = index" [productoFactura]="productoFactura" [index]="i"></app-vale-item>
 
@@ -54,7 +54,7 @@
                             </div>
                         </div>
                         <!--   SELECCIONAR AREA    -->
-                        <div class="seleccionarArea animated fadeIn" *ngIf="paso3">
+                        <div class="seleccionarArea animated p-2 fadeIn" *ngIf="paso3">
                             <div class="row">
                                 <div class="col-md-5 my-5">
                                     <h4>Elige el area</h4>

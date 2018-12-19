@@ -24,7 +24,6 @@ import { FacturasDocumentosComponent } from './facturas/subida-documento/factura
 import { EstadisticasComponent } from './estadisticas/estadisticas.component';
 import { GenerarReportesComponent } from './generar-reportes/generar-reportes.component';
 import { HistorialComponent } from './historial/historial.component';
-import { PrivilegiosComponent } from './mantenimiento/privilegios/privilegios.component';
 import { PriveligioUsuarioComponent } from './mantenimiento/privilegios/priveligio-usuario/priveligio-usuario.component';
 import { VerificaTokenGuard } from '../services/service.index';
 import { EditarFacturaComponent } from './facturas/editar-factura/editar-factura.component';
@@ -79,7 +78,6 @@ const pagesRoutes: Routes = [
     // tslint:disable-next-line:max-line-length
     {path: 'usuarios', component: UsuariosSistemaComponent, canActivate: [ VerificaTokenGuard ], data: { titulo: 'Lista de usuarios' } },
     {path: 'areas', component: UsuariosAreasComponent, canActivate: [ VerificaTokenGuard ], data: { titulo: 'Lista de áreas' } },
-    {path: 'privilegios', component: PrivilegiosComponent, canActivate: [ VerificaTokenGuard ], data: { titulo: 'Privilegios' } },
     {path: 'usuarios/:nombreUsuario', component: PriveligioUsuarioComponent,
     canActivate: [ VerificaTokenGuard ], data: { titulo: 'Privilegios' } },
     {path: 'cargar-factura', component: SubidaDocumentoComponent, children: LIST_SUBIDAS_DOCUMENTOS,

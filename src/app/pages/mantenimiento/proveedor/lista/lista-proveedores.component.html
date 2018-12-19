@@ -7,7 +7,7 @@
                         <button (click)="abrirModal()" type="button" class="btn btn-info btn-rounded">Nuevo proveedor <i class="fa fa-plus ml-1"></i></button>
                     </div>
                     <div class="col-md-5 mb-3">
-                        <form class="form-material">
+                        <form>
                             <div class="form-group">
                                 <input #txtBuscar (keyup)="buscarProveedor(txtBuscar.value)" type="text" id="example-email2" name="example-email" class="form-control" placeholder="Buscar proveedor"> </div>
                         </form>
@@ -40,9 +40,10 @@
                                 <td><span class="label label-danger">{{proveedor.telefono}}</span> </td>
                                 <td>{{proveedor.contacto}}</td>
                                 <td>{{proveedor.correo}}</td>
-                                <td *ngIf="usuario.role === 'ROLE_ADMIN'">
+                                <td>
                                     <button type="button" (click)="eliminarProveedor(proveedor)" class="btn btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Eliminar"><i class="ti-trash" aria-hidden="true"></i></button>
                                     <button type="button" (click)="actualizarProveedor(proveedor)" class="btn btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Editar"><i class="ti-pencil-alt" aria-hidden="true"></i></button>
+                                    <button (click)="verProveedor(proveedor)" type="button" class="btn btn-icon btn-pure btn-outline delete-row-btn"><i class="ti-eye" aria-hidden="true"></i></button>
                                 </td>
 
                         </tbody>
@@ -59,7 +60,7 @@
 
 <!--   MENSAJE DE ERROR    -->
 
-<div class="row" *ngIf="error != null">
+<div class="row" *ngIf="error != null && !loaded">
     <div class="col-lg-12">
         <div class="alert alert-danger" role="alert">
             <h4 class="alert-heading">{{error.name}}</h4>
@@ -73,3 +74,75 @@
 
 <app-modal-proveedor></app-modal-proveedor>
 <app-modal-proveedor-actualizar></app-modal-proveedor-actualizar>
+
+<!-- ============  MODAL-AREAS =================    -->
+<div id="responsive-modal-proveedor" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Datos del proveedor</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body" *ngIf="proveedorVer">
+                <div class="d-flex justify-content-center">
+                    <div class="img-rounded-proveedor">
+                        <h4>{{letraProveedor}}</h4>
+                    </div>
+                </div>
+                <ul class="list-group">
+
+                    <li class="list-group-item">
+                        <span class="titulo-proveedor">Nombre:</span>
+                        <span class="subtitlo-proveedor">{{proveedorVer.nombre}}</span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="titulo-proveedor">Calle:</span>
+                        <span class="subtitlo-proveedor">{{proveedorVer.calle}}</span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="titulo-proveedor">N° lote:</span>
+                        <span class="subtitlo-proveedor">{{proveedorVer.numeroLote}}</span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="titulo-proveedor">N° interior:</span>
+                        <span class="subtitlo-proveedor">{{proveedorVer.numeroInterior}}</span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="titulo-proveedor">Colonia:</span>
+                        <span class="subtitlo-proveedor">{{proveedorVer.colonia}}</span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="titulo-proveedor">Municipio:</span>
+                        <span class="subtitlo-proveedor">{{proveedorVer.municipio}}</span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="titulo-proveedor">Estado:</span>
+                        <span class="subtitlo-proveedor">{{proveedorVer.estado}}</span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="titulo-proveedor">Código postal:</span>
+                        <span class="subtitlo-proveedor">{{proveedorVer.codigoPostal}}</span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="titulo-proveedor">Rfc:</span>
+                        <span class="subtitlo-proveedor">{{proveedorVer.rfc}}</span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="titulo-proveedor">Teléfono:</span>
+                        <span class="subtitlo-proveedor">{{proveedorVer.telefono}}</span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="titulo-proveedor">Contacto:</span>
+                        <span class="subtitlo-proveedor">{{proveedorVer.contacto}}</span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="titulo-proveedor">Correo electrónico:</span>
+                        <span class="subtitlo-proveedor">{{proveedorVer.correo}}</span>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
