@@ -1,7 +1,7 @@
 <div class="card bg-info">
     <div class="card-body">
         <div class="d-flex no-block">
-            <div class="m-r-20 align-self-center"><img src="../../../assets/images/icon/income-w.png" alt="Income" /></div>
+            <div class="m-r-20 align-self-center"><img src="assets/images/icon/income-w.png" alt="Income" /></div>
             <div class="align-self-center">
                 <h6 class="text-white m-t-10 m-b-0">Reporte de productos por mes</h6>
 
@@ -31,7 +31,7 @@
                     <div class="form-group">
                         <label for="message-text" class="control-label d-block">Seleccione el año</label>
                         <select formControlName="anio" class="form-control" data-style="btn-info">
-                                <option value="2018" > 2018 </option>
+                                <option *ngFor="let anio of anios" value="{{anio}}" > {{anio}} </option>
                               </select>
                     </div>
                     <div class="mt-2">

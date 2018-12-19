@@ -17,13 +17,17 @@ export class ReporteProductosComponent implements OnInit {
   {numero: '6', mes: 'Junio'}, {numero: '7', mes: 'Julio'}, {numero: '8', mes: 'Agosto'},
   {numero: '9', mes: 'Septiembre'}, {numero: '10', mes: 'Octubre'}, {numero: '11', mes: 'Noviembre'},
   {numero: '12', mes: 'Diciembre'}];
-
+  anios = [];
   loading: boolean;
   loaded: boolean;
   formReporteProductos: FormGroup;
 
 
   constructor(private store: Store<AppState>) {
+
+    for (let i = 2018; i < 2022; i++) {
+      this.anios.push(i);
+    }
 
     this.store
       .subscribe(resp => {
