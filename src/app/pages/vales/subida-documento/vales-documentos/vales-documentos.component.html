@@ -1,0 +1,9 @@
+<ul class="list-group">
+    <li *ngFor="let vale of vales" class="list-group-item">
+        N° requisición: {{vale.numeroRequisicion}}
+        <p (click)="descargar(vale.documento)" class="p-0 m-0 cursor"><i class="fa fa-file-pdf-o fa-2x"></i><span class="nombre-documento">{{vale.documento}}</span></p>
+
+    </li>
+</ul>
+
+<app-loading *ngIf="loading"></app-loading>

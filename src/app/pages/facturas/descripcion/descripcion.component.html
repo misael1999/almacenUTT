@@ -60,9 +60,6 @@
                     <hr>
                     <div class="d-flex justify-content-between">
                         <div>
-                            <button *ngIf="factura.documento" (click)="descargarArchivo(factura.documento)" class="btn btn-danger mx-2" type="submit"> Descargar factura con firmas <i class="mdi mdi-download ml-2"></i> </button>
-                        </div>
-                        <div>
                             <button *ngIf="usuario.role === 'ROLE_ADMIN'" [routerLink]="['/facturas/editar', folio]" class="btn btn-warning mx-2" type="submit"> Editar factura <i class="mdi mdi-pencil ml-2"></i> </button>
                         </div>
                     </div>

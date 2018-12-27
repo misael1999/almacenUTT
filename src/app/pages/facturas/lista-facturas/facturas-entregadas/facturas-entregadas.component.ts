@@ -21,7 +21,7 @@ export class FacturasEntregadasComponent implements OnInit {
   error: any;
   pageable: any;
   usuario: Usuario;
-  orden = 'asc';
+  orden = 'desc';
 
   constructor(private store: Store<AppState>,
     private activatedRoute: ActivatedRoute, private router: Router) {

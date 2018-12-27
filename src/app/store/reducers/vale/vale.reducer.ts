@@ -58,10 +58,40 @@ export function valeReducer(state = estadoInicial, action: fromVale.valeSalidaAc
                 error: null
             };
         break;
-        case fromVale.LOAD_VALE_SALIDA:
+        // ----  ACTUALIZAR VALE DE SALIDA   ---- //
+        case fromVale.UPDATE_VALE_SALIDA:
             return {
                 ...state,
                 loading: true
+            };
+        break;
+        case fromVale.UPDATE_VALE_SALIDA_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                loaded: true,
+                mensaje: {
+                    titulo: action.payload.titulo,
+                    mensaje: action.payload.mensaje,
+                },
+                idValeSalida: action.payload.idVale
+
+            };
+        break;
+        case fromVale.UPDATE_VALE_SALIDA_FAIL:
+            return {
+                ...state,
+                loading: false,
+                loaded: false,
+                error: action.payLoad,
+                mensaje: null
+            };
+        break;
+        case fromVale.LOAD_VALE_SALIDA:
+            return {
+                ...state,
+                loading: true,
+                loaded: false
             };
         break;
         case fromVale.LOAD_VALE_SALIDA_SUCCESS:
@@ -77,11 +107,69 @@ export function valeReducer(state = estadoInicial, action: fromVale.valeSalidaAc
             return {
                 ...state,
                 loading: false,
-                loaded: true,
+                loaded: false,
                 vale: null,
                 error: action.payLoad
             };
         break;
+         // UPLOAD ARCHIVO FACTURA
+         case fromVale.UPLOAD_ARCHIVO_VALE:
+         return {
+             ...state,
+             loading: true
+         };
+         break;
+     case fromVale.UPLOAD_ARCHIVO_VALE_SUCCESS:
+         return {
+             ...state,
+             loading: false,
+             loaded: true,
+             mensaje: {
+                 titulo: action.payload.titulo,
+                 mensaje: action.payload.mensaje,
+             }
+         };
+         break;
+     case fromVale.UPLOAD_ARCHIVO_VALE_FAIL:
+         return {
+             ...state,
+             loading: false,
+             loaded: false,
+             error: action.payload,
+             mensaje: null
+         };
+         break;
+     case fromVale.UPLOAD_ARCHIVO_VALE_END:
+         return {
+             ...state,
+             mensaje: null,
+             error: null
+         };
+         break;
+     // ----  DESCARGAR ARCHIVO   ---- //
+     case fromVale.DOWNLOAD_ARCHIVO_VALE:
+         return {
+             ...state,
+             loading: false,
+             loaded: false,
+         };
+         break;
+     case fromVale.DOWNLOAD_ARCHIVO_VALE_SUCCESS:
+         return {
+             ...state,
+             loading: false,
+             loaded: true
+         };
+         break;
+     case fromVale.DOWNLOAD_ARCHIVO_VALE_FAIL:
+         return {
+             ...state,
+             loading: false,
+             loaded: false,
+             error: action.payload,
+             mensaje: null
+         };
+         break;
         default:
             return state;
         break;

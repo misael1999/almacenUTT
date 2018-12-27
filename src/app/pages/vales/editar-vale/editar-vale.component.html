@@ -1,3 +1,134 @@
-<p>
-  editar-vale works!
-</p>
+<div class="row" *ngIf="vale">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12 col-informacion">
+                        <div class="card ribbon-wrapper-reverse">
+                            <div class="ribbon ribbon-bookmark ribbon-left ribbon-success">Información</div>
+                            <div class="card-body">
+                                <form [formGroup]="formInformacion" class="m-t-40 form-material">
+                                    <div class="row">
+                                        <!--   input 1    -->
+                                        <div class="form-group col-md-2 m-b-40">
+                                            <label for="input1">N° requisición</label>
+                                            <div class="search-results style-http style-3">
+                                                <input formControlName="requisicion" class="form-control">
+                                            </div>
+                                            <span class="bar"></span>
+                                            <span class="help-block"><small>*Obligatorio</small></span>
+                                        </div>
+                                        <div class="form-group col-md-5">
+                                            <label for="folio">Área</label>
+                                            <select formControlName="area" (change)="cambioArea($event.target.value)" class="form-control">
+                                              <option *ngFor="let area of areas" value="{{area.idArea}}">{{area.nombre}}</option>
+                                            </select>
+                                            <span class="bar"></span>
+                                            <span class="help-block"><small>*Obligatorio</small></span>
+                                        </div>
+                                        <!--   input 2    -->
+                                        <div class="form-group col-md-5">
+                                            <label for="fecha">Fecha de entrega</label>
+                                            <input formControlName="fecha" type="date" class="form-control">
+                                            <span class="help-block"><small>*Obligatorio</small></span>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card ribbon-wrapper-reverse card-producto">
+                            <div class="ribbon ribbon-bookmark ribbon-left ribbon-success mb-2">productos</div>
+                            <div class="card-body">
+                                <div class="col-md-12">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>Cantidad solicitada</th>
+                                                    <th>Cantidad entregada</th>
+                                                    <th>Unidad medida</th>
+                                                    <th>Descripcion</th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let valeProducto of vale.items">
+                                                    <td>{{valeProducto.cantidadSolicitada}}</td>
+                                                    <td>{{valeProducto.cantidadEntregada}}</td>
+                                                    <td>{{valeProducto.unidadMedida}}</td>
+                                                    <td>{{valeProducto.facturaProducto.producto.descripcion}}</td>
+                                                    <td>
+                                                        <button (click)="eliminarValeProducto(valeProducto)" type="button" class="btn btn-icon btn-pure btn-outline delete-row-btn"><i class="ti-trash" aria-hidden="true"></i></button>
+                                                        <button (click)="editarValeProducto(valeProducto)" type="button" class="btn btn-icon btn-pure btn-outline delete-row-btn"><i class="ti-pencil" aria-hidden="true"></i></button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div>
+                                            <button (click)="abrirModal()" class="btn btn-success btn-sm">Agregar producto</button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="button-guardar mt-1">
+                    <button [disabled]="loadingVale" (click)="actualizarVale()" class="btn btn-rounded btn-danger">Guardar vale <i *ngIf="loadingVale" class="fa fa-spinner fa-spin ml-1"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-modal-editar-vale [vale]="vale"></app-modal-editar-vale>
+<app-loading *ngIf="loading"></app-loading>
+
+<!--   MODAL EDITAR PRODUCTO    -->
+<div id="modal-editar-producto" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Editar producto</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <form *ngIf="valeProductoEditar" [formGroup]="formValeProductoEditar" (ngSubmit)="actualizarValeProducto()">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label class="control-label d-block">Descripcion</label>
+                                <input formControlName="descripcion" type="text" class="form-control">
+                            </div>
+                            <div class="col-md-3">
+                                <label class="control-label d-block">Cantidad solicitada</label>
+                                <input formControlName="cantidadSolicitada" type="text" class="form-control">
+                            </div>
+                            <div class="col-md-3">
+                                <label class="control-label d-block">Cantidad entregada</label>
+                                <input formControlName="cantidadEntregada" type="text" class="form-control">
+                            </div>
+                            <div class="col-md-3">
+                                <label class="control-label d-block">Unidad medida</label>
+                                <input formControlName="unidadMedida" type="text" class="form-control">
+                            </div>
+                            <div class="col-md-3">
+                                <label class="control-label d-block">Cantidad restante</label>
+                                <input formControlName="cantidadRestante" type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-info">Guardar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!--   ============= FIN MODAL PRODUCTOS =================    -->

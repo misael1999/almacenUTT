@@ -5,6 +5,7 @@ import { map, catchError, mergeMap } from 'rxjs/operators';
 import { FacturaService } from 'src/app/services/service.index';
 import { of } from 'rxjs';
 import { saveAs } from 'file-saver';
+import swal from 'sweetalert2';
 
 @Injectable()
 export class FacturaEffects {
@@ -55,39 +56,6 @@ export class FacturaEffects {
                         }),
                         catchError(error => {
                             return of(new facturaActions.LoadFacturaFail(error));
-                        })
-                    );
-            })
-        );
-    @Effect()
-    uploadArchivoFactura$ = this.actions$.ofType(facturaActions.UPLOAD_ARCHIVO_FACTURA)
-        .pipe(
-            mergeMap(action => {
-                return this.facturaService.subirArchivo(action['archivo'], action['folio'])
-                    .pipe(
-                        map(data => {
-                            return new facturaActions.UploadArchivoFacturaSuccess(data);
-                        }),
-                        catchError(error => {
-                            return of(new facturaActions.UploadArchivoFacturaFail(error));
-                        })
-                    );
-            })
-        );
-
-    @Effect()
-    downloadArchivoFactura$ = this.actions$.ofType(facturaActions.DOWNLOAD_ARCHIVO_FACTURA)
-        .pipe(
-            mergeMap(action => {
-                const archivo = action['nombreArchivo'];
-                return this.facturaService.downloadFactura(archivo)
-                    .pipe(
-                        map(data => {
-                            saveAs(data, archivo);
-                            return new facturaActions.DownloadArchivoFacturaSuccess();
-                        }),
-                        catchError(error => {
-                            return of(new facturaActions.DownloadArchivoFacturaFail(error));
                         })
                     );
             })

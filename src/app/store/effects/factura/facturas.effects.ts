@@ -61,21 +61,6 @@ export class FacturasEffects {
                 })
             );
 
-    @Effect()
-    LoadFacturaWithDocuments$ = this.actions$.ofType(facturasActions.LOAD_FACTURAS_WITH_DOCUMENTS)
-        .pipe(
-            mergeMap(action => {
-                return this.facturaService.getFacturasWithDocuments(action['page'])
-                    .pipe(
-                         map(data => {
-                            return new facturasActions.LoadFacturasWithDocumentsSuccess(data['facturas']['content'], data['facturas']);
-                        }),
-                        catchError(error => {
-                            return of(new facturasActions.LoadFacturasWithDocumentsFail(error));
-                        })
-                    );
-            })
-        );
 
 }
 

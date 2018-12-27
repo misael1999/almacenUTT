@@ -1,9 +1,0 @@
-<ul class="list-group">
-    <li *ngFor="let factura of facturas" class="list-group-item">
-        Folio: {{factura.folio}}
-        <p (click)="descargar(factura.documento)" class="p-0 m-0 cursor"><i class="fa fa-file-pdf-o fa-2x"></i><span class="nombre-documento">{{factura.documento}}</span></p>
-
-    </li>
-</ul>
-
-<app-loading *ngIf="loading"></app-loading>

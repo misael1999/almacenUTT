@@ -55,4 +55,20 @@ export class ValesEffects {
                                         })
                                     );
 
+    @Effect()
+    LoadFacturaWithDocuments$ = this.actions$.ofType(fromVales.LOAD_VALES_WITH_DOCUMENTS)
+        .pipe(
+            mergeMap(action => {
+                return this.valesService.getValesWithDocuments(action['page'])
+                    .pipe(
+                         map(data => {
+                            return new fromVales.LoadValeSalidaWithDocumentsSuccess(data['vales']['content'], data['vales']);
+                        }),
+                        catchError(error => {
+                            return of(new fromVales.LoadValeSalidaWithDocumentsFail(error));
+                        })
+                    );
+            })
+        );
+
 }

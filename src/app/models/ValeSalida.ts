@@ -10,7 +10,8 @@ export class ValeSalida {
         public fechaEntrega?: string,
         public idValeSalida?: number,
         public status?: boolean,
-        public idUsuario?: number ) {
+        public idUsuario?: number,
+        public documento?: string) {
 
     }
 }

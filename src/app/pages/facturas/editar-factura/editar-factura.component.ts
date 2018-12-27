@@ -51,7 +51,7 @@ export class EditarFacturaComponent implements OnInit {
             if (factura.mensaje != null) {
               setTimeout(() => {
                 this.router.navigate(['/facturas', this.folio]);
-              }, 2000);
+              }, 1500);
            }
             if (this.factura != null) {
               this.productos = this.factura.items;

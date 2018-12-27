@@ -12,6 +12,7 @@ import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { ErrorComponent } from './mensaje/error/error.component';
 import { SuccessComponent } from './mensaje/success/success.component';
 import { LoadingComponent } from './loading/loading.component';
+import { SubstrPipe } from './pipes/substr.pipe';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { LoadingComponent } from './loading/loading.component';
         ErrorComponent,
         SuccessComponent,
         LoadingComponent,
+        SubstrPipe
     ],
     exports: [
         NopagefoundComponent,
@@ -37,7 +39,8 @@ import { LoadingComponent } from './loading/loading.component';
         NopagefoundComponent,
         ErrorComponent,
         SuccessComponent,
-        LoadingComponent
+        LoadingComponent,
+        SubstrPipe
     ]
 })
 export class SharedModule { }

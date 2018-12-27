@@ -25,6 +25,11 @@ export const SEARCH_VALES = '[ValeSalida] Search vales';
 export const SEARCH_VALES_SUCCESS = '[ValeSalida] Search vales SUCCESS';
 export const SEARCH_VALES_FAIL = '[ValeSalida] Search vales FAIL';
 
+export const LOAD_VALES_WITH_DOCUMENTS = '[ValeSalida] load Vales documents';
+export const LOAD_VALES_WITH_DOCUMENTS_SUCCESS = '[ValeSalida] load Vales documents SUCCESS';
+export const LOAD_VALES_WITH_DOCUMENTS_FAIL = '[ValeSalida] load Vales documents FAIL';
+
+
 
 export class LoadValesSalidaActivos implements Action {
     readonly type = LOAD_VALES_SALIDA_ACTIVOS;
@@ -125,6 +130,25 @@ export class LoadValesSalidaEntregadosFail implements Action {
     constructor(public payLoad: any) {}
 }
 
+// VALES CON DOCUMENTOS
+
+export class LoadValeSalidaWithDocuments implements Action {
+    readonly type = LOAD_VALES_WITH_DOCUMENTS;
+    constructor(public page: number) {}
+}
+
+export class LoadValeSalidaWithDocumentsSuccess implements Action {
+    readonly type = LOAD_VALES_WITH_DOCUMENTS_SUCCESS;
+    constructor(public vales: ValeSalida[], public pageable: any) {}
+}
+
+export class LoadValeSalidaWithDocumentsFail implements Action {
+    readonly type = LOAD_VALES_WITH_DOCUMENTS_FAIL;
+    constructor(public payload: any) {}
+}
+
+
+
 export type valesActions = LoadValesSalidaActivos |
                             LoadValesSalidaActivosSuccess |
                             LoadValesSalidaActivosFail |
@@ -141,4 +165,7 @@ export type valesActions = LoadValesSalidaActivos |
                             CleanValesItems |
                             SearchVales |
                             SearchValesSuccess |
-                            SearchValesFail;
+                            SearchValesFail |
+                            LoadValeSalidaWithDocuments |
+                            LoadValeSalidaWithDocumentsSuccess |
+                            LoadValeSalidaWithDocumentsFail;

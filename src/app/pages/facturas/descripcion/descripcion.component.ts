@@ -51,9 +51,6 @@ export class DescripcionComponent implements OnInit, OnDestroy {
     this.store.dispatch(new fromFactura.LoadFacturaEnd());
   }
 
-  descargarArchivo(nombreArchivo: string) {
-    this.store.dispatch(new fromFactura.DownloadArchivoFactura(nombreArchivo));
 
-  }
 
 }

@@ -5,16 +5,16 @@ import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
 import { ActivatedRoute } from '@angular/router';
 import * as fromFacturas from '../../../../store/actions';
-import { URL_SERVICIOS } from '../../../../global/config';
+import { ValeSalida } from '../../../../models/ValeSalida';
 
 @Component({
-  selector: 'app-facturas-documentos',
-  templateUrl: './facturas-documentos.component.html',
+  selector: 'app-vales-documentos',
+  templateUrl: './vales-documentos.component.html',
   styles: []
 })
-export class FacturasDocumentosComponent implements OnInit {
+export class ValesDocumentosComponent implements OnInit {
 
-  facturas: Factura[];
+  vales: ValeSalida[];
   loading: boolean;
   loaded: boolean;
   error: any;
@@ -23,13 +23,13 @@ export class FacturasDocumentosComponent implements OnInit {
 
   constructor(private store: Store<AppState>, private activatedRoute: ActivatedRoute) {
     this.usuario = JSON.parse(localStorage.getItem('usuario'));
-      this.store.select('facturas')
-        .subscribe(facturas => {
-          this.facturas = facturas.facturas;
-          this.loading = facturas.loading;
-          this.loaded = facturas.loaded;
-          this.error = facturas.error;
-          this.pageable = facturas.pageable;
+      this.store.select('vales')
+        .subscribe(vales => {
+          this.vales = vales.vales;
+          this.loading = vales.loading;
+          this.loaded = vales.loaded;
+          this.error = vales.error;
+          this.pageable = vales.pageable;
         });
 
         this.activatedRoute.params
@@ -39,7 +39,7 @@ export class FacturasDocumentosComponent implements OnInit {
                 page = 0;
               }
 
-            this.store.dispatch(new fromFacturas.LoadFacturasWithDocuments(page - 1));
+            this.store.dispatch(new fromFacturas.LoadValeSalidaWithDocuments(page - 1));
 
           });
   }
@@ -48,7 +48,7 @@ export class FacturasDocumentosComponent implements OnInit {
   }
 
   descargar(nombreDocumento) {
-    this.store.dispatch(new fromFacturas.DownloadArchivoFactura(nombreDocumento));
+    this.store.dispatch(new fromFacturas.DownloadArchivoVale(nombreDocumento));
   }
 
 }

@@ -42,7 +42,7 @@ export class IngresarComponent implements OnInit {
            if (resp.factura.mensaje != null) {
              setTimeout(() => {
                this.router.navigate(['/facturas', resp.factura.mensaje.folio]);
-             }, 2000);
+             }, 1500);
           }
       });
 

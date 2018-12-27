@@ -5,6 +5,7 @@ import { Store } from '@ngrx/store';
 import * as fromVales from 'src/app/store/actions';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Area } from '../../../../models/Area';
+import { Usuario } from '../../../../models/Usuario';
 declare function init_selectPicker();
 
 @Component({
@@ -19,11 +20,12 @@ export class ActivosComponent implements OnInit {
   loaded: boolean;
   error: any;
   pageable: any;
-  orden = 'asc';
+  orden = 'desc';
   areas: Area[];
-
+  usuario: Usuario;
   constructor(private store: Store<AppState>,
     private activatedRoute: ActivatedRoute, private router: Router) {
+    this.usuario = JSON.parse(localStorage.getItem('usuario'));
     this.store.dispatch(new fromVales.LoadAreas());
     this.store
             .subscribe(resp => {

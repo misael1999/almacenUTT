@@ -168,6 +168,42 @@ export function valesReducer (state = estadoInicial, action: fromVales.valesActi
                 error: action.payLoad
             };
         break;
+         // ----  CARGAR FACTURAS CON DOCUMENTOS   ---- //
+    case fromVales.LOAD_VALES_WITH_DOCUMENTS:
+      return {
+        ...state,
+        loading: true,
+        loaded: false
+      };
+      break;
+    case fromVales.LOAD_VALES_WITH_DOCUMENTS_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        loaded: true,
+        vales: action.vales,
+        error: null,
+        pageable: {
+            pageable: action.pageable.pageable,
+            totalPages: action.pageable.totalPages,
+            totalElements: action.pageable.totalElements,
+            last: action.pageable.last,
+            size: action.pageable.size,
+            number: action.pageable.number,
+            numberOfElements: action.pageable.numberOfElements,
+            first: action.pageable.first
+          }
+      };
+      break;
+    case fromVales.LOAD_VALES_WITH_DOCUMENTS_FAIL:
+      return {
+        ...state,
+        loading: false,
+        loaded: false,
+        vales: [],
+        error: action.payload
+      };
+      break;
         default:
             return state;
         break;

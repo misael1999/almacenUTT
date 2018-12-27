@@ -1,14 +1,15 @@
-<div class="col-md-12 mt-4">
-    <select class="selectpicker m-b-20 m-r-10" data-style="btn-info btn-outline-info" (change)="ordenar($event.target.value)">
-        <option value="asc">Mas antiguos</option>
-                <option value="desc" >Mas recientes</option>
-            </select>
+<div class="col-md-6 mt-4 d-flex justify-content-start">
+    <p class="p-2 m-0">Ordenar por</p>
+    <select class="form-control w-50" data-style="btn-info btn-outline-info" (change)="ordenar($event.target.value)">
+        <option value="desc" >Mas recientes</option>
+                    <option value="asc">Mas antiguos</option>
+                </select>
 </div>
 <div *ngIf="loaded && facturas.length > 0" class="row mt-3">
-    <div class="col-lg-3 col-md-6" *ngFor="let factura of facturas">
+    <div class="col-xlg-2 col-lg-3 col-md-6" *ngFor="let factura of facturas">
         <div class="ribbon-wrapper card card-factura text-white">
-            <div class="ribbon ribbon-corner ribbon-success ribbon-right">
-                <i class="fa fa-check-circle"></i>
+            <div class="ribbon ribbon-corner ribbon-danger ribbon-right">
+                <i class="fa fa-star"></i>
             </div>
             <div class="card-body">
                 <p class="m-b-1 txt-titulo">Folio: <span class="label label-danger"> {{factura.folio | uppercase}}</span></p>

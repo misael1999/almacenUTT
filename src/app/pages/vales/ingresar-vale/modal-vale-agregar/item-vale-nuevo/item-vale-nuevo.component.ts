@@ -31,6 +31,12 @@ export class ItemValeNuevoComponent implements OnInit {
    }
 
   ngOnInit() {
+    const encontrado = this.factura.items.findIndex(pf => {
+      return pf.idFacturaProducto === this.productoFactura.idFacturaProducto;
+    });
+    if (encontrado >= 0) {
+      this.agregado = true;
+    }
     this.chkField = new FormControl(this.agregado);
 
     this.chkField.valueChanges

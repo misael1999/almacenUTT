@@ -44,4 +44,9 @@ export class DescripcionValeComponent implements OnInit {
     this.store.dispatch(new fromVale.GenerateValeSalida(this.vale.idValeSalida));
   }
 
+  descargarArchivo(nombreArchivo: string) {
+    this.store.dispatch(new fromVale.DownloadArchivoVale(nombreArchivo));
+
+  }
+
 }

@@ -1,6 +1,6 @@
 <div class="fondo-negro animated fadeIn" [ngClass]="modalValeService.oculto">
 
-    <div *ngIf="facturaVale" class="modal" style="display: block;" tabindex="-1" role="dialog">
+    <div *ngIf="vale" class="modal" style="display: block;" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -11,7 +11,7 @@
                 <div class="modal-body modal-vale-agregar">
                     <div class="row d-flex justify-content-center">
                         <!--   ELEGIR FACTURA    -->
-                        <div *ngIf="paso1 && !factura" class="elegirFacturaModal w-100">
+                        <div *ngIf="paso1" class="elegirFacturaModal w-100">
                             <div class="col-md-12">
                                 <input #txtBuscar (keyup)="buscarFactura(txtBuscar.value)" class="form-control" placeholder="Buscar factura por proveedor o folio" type="text">
                             </div>
@@ -19,7 +19,7 @@
                                 <div *ngIf="facturas" class="facturas">
                                     <div class="list-group">
                                         <div *ngFor="let factura of facturas" class="w-100">
-                                            <button *ngIf="factura.folio !== facturaVale.folio" (click)="irPaso2(factura)" type="button" class="list-group-item cursor bg-success text-white">Folio: {{factura.folio}} Proveedor: {{factura.proveedor.nombre}}</button>
+                                            <button *ngIf="factura.folio !== vale.factura.folio" (click)="irPaso2(factura)" type="button" class="list-group-item cursor bg-success text-white">Folio: {{factura.folio}} Proveedor: {{factura.proveedor.nombre}}</button>
                                         </div>
                                     </div>
                                 </div>
@@ -30,7 +30,7 @@
                         <div class="elegirProductos w-100 px-3" *ngIf="paso2 && factura">
 
                             <div>
-                                <app-item-vale-nuevo [factura]="facturaVale" *ngFor="let productoFactura of factura.items; let i = index" [productoFactura]="productoFactura" [index]="i"></app-item-vale-nuevo>
+                                <app-item-editar-vale [vale]="vale" *ngFor="let productoFactura of factura.items; let i = index" [productoFactura]="productoFactura" [index]="i"></app-item-editar-vale>
                             </div>
 
 
@@ -40,7 +40,10 @@
                 </div>
                 <div class="modal-footer justify-content-center">
                     <div *ngIf="paso2">
-                        <button (click)="cerrarModal()" class="btn btn-success">Aceptar</button>
+                        <button (click)="anteriorPaso()" class="btn btn-danger">Anterior</button>
+                    </div>
+                    <div *ngIf="paso2">
+                        <button (click)="guardar()" class="btn btn-success">Aceptar</button>
                     </div>
                 </div>
             </div>

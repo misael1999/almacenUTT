@@ -30,7 +30,6 @@ import { UsuariosSistemaComponent } from './mantenimiento/usuarios/lista-usuario
 import { ModalUsuarioSistemasComponent } from './mantenimiento/modals/usuarios/modal-usuario-sistemas/modal-usuario-sistemas.component';
 // tslint:disable-next-line:max-line-length
 import { ModalActualizarUsuarioComponent } from './mantenimiento/modals/usuarios/modal-actualizar-usuario/modal-actualizar-usuario.component';
-import { CargarFacturaComponent } from './facturas/subida-documento/cargar-factura/cargar-factura.component';
 import { ListaValesComponent } from './vales/lista-vales/lista-vales.component';
 import { ActivosComponent } from './vales/lista-vales/activos/activos.component';
 import { EntregadosComponent } from './vales/lista-vales/entregados/entregados.component';
@@ -44,8 +43,6 @@ import { PaginatorProductoComponent } from './mantenimiento/producto/lista-produ
 import { PaginatorFacturaActivasComponent } from './facturas/lista-facturas/facturas-activas/paginator-factura-activas/paginator-factura-activas.component';
 // tslint:disable-next-line:max-line-length
 import { PaginatorFacturaEntregadasComponent } from './facturas/lista-facturas/facturas-entregadas/paginator-factura-entregadas/paginator-factura-entregadas.component';
-import { SubidaDocumentoComponent } from './facturas/subida-documento/subida-documento.component';
-import { FacturasDocumentosComponent } from './facturas/subida-documento/facturas-documentos/facturas-documentos.component';
 import { EstadisticasComponent } from './estadisticas/estadisticas.component';
 
 // Graficas
@@ -68,6 +65,11 @@ import { EditarFacturaComponent } from './facturas/editar-factura/editar-factura
 import { EditarValeComponent } from './vales/editar-vale/editar-vale.component';
 import { ModalValeAgregarComponent } from './vales/ingresar-vale/modal-vale-agregar/modal-vale-agregar.component';
 import { ItemValeNuevoComponent } from './vales/ingresar-vale/modal-vale-agregar/item-vale-nuevo/item-vale-nuevo.component';
+import { ModalEditarValeComponent } from './vales/editar-vale/modal-vale-editar/modal-editar-vale.component';
+import { ItemValeEditarComponent } from './vales/editar-vale/modal-vale-editar/item-vale-editar/item-vale-editar.component';
+import { CargarValeComponent } from './vales/subida-documento/cargar-vale/cargar-vale.component';
+import { SubidaDocumentoComponent } from './vales/subida-documento/subida-documento.component';
+import { ValesDocumentosComponent } from './vales/subida-documento/vales-documentos/vales-documentos.component';
 
 
 // Pipe Module
@@ -93,7 +95,7 @@ import { ItemValeNuevoComponent } from './vales/ingresar-vale/modal-vale-agregar
         UsuariosSistemaComponent,
         ModalUsuarioSistemasComponent,
         ModalActualizarUsuarioComponent,
-        CargarFacturaComponent,
+        CargarValeComponent,
         ListaValesComponent,
         ActivosComponent,
         EntregadosComponent,
@@ -106,7 +108,7 @@ import { ItemValeNuevoComponent } from './vales/ingresar-vale/modal-vale-agregar
         PaginatorFacturaActivasComponent,
         PaginatorFacturaEntregadasComponent,
         SubidaDocumentoComponent,
-        FacturasDocumentosComponent,
+        ValesDocumentosComponent,
         EstadisticasComponent,
         GraficaValesComponent,
         GenerarReportesComponent,
@@ -123,7 +125,9 @@ import { ItemValeNuevoComponent } from './vales/ingresar-vale/modal-vale-agregar
         EditarFacturaComponent,
         EditarValeComponent,
         ModalValeAgregarComponent,
-        ItemValeNuevoComponent
+        ItemValeNuevoComponent,
+        ModalEditarValeComponent,
+        ItemValeEditarComponent
         ],
     exports: [
         DashboardComponent,

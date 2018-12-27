@@ -64,7 +64,7 @@ export class PriveligioUsuarioComponent implements OnInit {
 
   guardarPrivilegios() {
     this.store.dispatch(new fromUsuarios.UpdateUsuario(this.usuario));
-    this.router.navigate(['/privilegios']);
+    this.router.navigate(['/usuarios']);
   }
 
   agregarTodo() {

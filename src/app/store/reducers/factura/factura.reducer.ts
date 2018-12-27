@@ -123,64 +123,6 @@ export function facturaReducer(state = estadoInicial, action: fromfactura.factur
                 error: null
             };
             break;
-        // UPLOAD ARCHIVO FACTURA
-        case fromfactura.UPLOAD_ARCHIVO_FACTURA:
-            return {
-                ...state,
-                loading: true
-            };
-            break;
-        case fromfactura.UPLOAD_ARCHIVO_FACTURA_SUCCESS:
-            return {
-                ...state,
-                loading: false,
-                loaded: true,
-                mensaje: {
-                    titulo: action.payload.titulo,
-                    mensaje: action.payload.mensaje,
-                }
-            };
-            break;
-        case fromfactura.UPLOAD_ARCHIVO_FACTURA_FAIL:
-            return {
-                ...state,
-                loading: false,
-                loaded: false,
-                error: action.payload,
-                mensaje: null
-            };
-            break;
-        case fromfactura.UPLOAD_ARCHIVO_FACTURA_END:
-            return {
-                ...state,
-                mensaje: null,
-                error: null
-            };
-            break;
-        // ----  DESCARGAR ARCHIVO   ---- //
-        case fromfactura.DOWNLOAD_ARCHIVO_FACTURA:
-            return {
-                ...state,
-                loading: false,
-                loaded: false,
-            };
-            break;
-        case fromfactura.DOWNLOAD_ARCHIVO_FACTURA_SUCCESS:
-            return {
-                ...state,
-                loading: false,
-                loaded: true
-            };
-            break;
-        case fromfactura.DOWNLOAD_ARCHIVO_FACTURA_FAIL:
-            return {
-                ...state,
-                loading: false,
-                loaded: false,
-                error: action.payload,
-                mensaje: null
-            };
-            break;
         default:
             return state;
             break;

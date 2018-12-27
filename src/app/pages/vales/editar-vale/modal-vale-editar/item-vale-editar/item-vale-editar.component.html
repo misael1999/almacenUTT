@@ -1,0 +1,26 @@
+<div class="row p-3">
+    <div class="col-md-12 d-flex align-content-center">
+        <input [formControl]="chkField" [checked]="agregado" type="checkbox" class="check" id="checkbox-{{index}}">
+        <label for="checkbox-{{index}}">{{productoFactura.producto.descripcion}}</label>
+    </div>
+    <div class="col-md-12" *ngIf="agregado">
+        <div class="row">
+            <div class="col-md-3">
+                <label class="lb-vale-item" for="">Cantidad solicitada</label>
+                <input #txtSolicitada (change)="verificarSolicitada($event.target.value)" (blur)="agregarValeProducto()" type="number" name="cantidadSolicitada" [(ngModel)]="cantidadSolicitada" class="form-control">
+            </div>
+            <div class="col-md-3">
+                <label class="lb-vale-item" for="">Cantidad entregada</label>
+                <input #txtEntregada (change)="verificarEntregada($event.target.value)" (blur)=" agregarValeProducto() " name="cantidadEntregada " [(ngModel)]="cantidadEntregada " type="number " class="form-control ">
+            </div>
+            <div class="col-md-3 ">
+                <label class="lb-vale-item " for=" ">Unidad medida</label>
+                <input type="text " value="{{productoFactura.producto.unidadMedida}} " class="form-control ">
+            </div>
+            <div class="col-md-3 ">
+                <label class="lb-vale-item " for=" ">Cantidad restante</label>
+                <input #txtComprada type="number " disabled="disabled " value="{{productoFactura.cantidadRestante}} " class="form-control ">
+            </div>
+        </div>
+    </div>
+</div>

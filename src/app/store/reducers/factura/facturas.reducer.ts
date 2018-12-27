@@ -119,42 +119,6 @@ export function facturasReducer(
         error: action.payload
       };
       break;
-    // ----  CARGAR FACTURAS CON DOCUMENTOS   ---- //
-    case fromFacturas.LOAD_FACTURAS_WITH_DOCUMENTS:
-      return {
-        ...state,
-        loading: true,
-        loaded: false
-      };
-      break;
-    case fromFacturas.LOAD_FACTURAS_WITH_DOCUMENTS_SUCCESS:
-      return {
-        ...state,
-        loading: false,
-        loaded: true,
-        facturas: action.facturas,
-        error: null,
-        pageable: {
-            pageable: action.pageable.pageable,
-            totalPages: action.pageable.totalPages,
-            totalElements: action.pageable.totalElements,
-            last: action.pageable.last,
-            size: action.pageable.size,
-            number: action.pageable.number,
-            numberOfElements: action.pageable.numberOfElements,
-            first: action.pageable.first
-          }
-      };
-      break;
-    case fromFacturas.LOAD_FACTURAS_WITH_DOCUMENTS_FAIL:
-      return {
-        ...state,
-        loading: false,
-        loaded: false,
-        facturas: [],
-        error: action.payload
-      };
-      break;
     default:
           return state;
       break;
