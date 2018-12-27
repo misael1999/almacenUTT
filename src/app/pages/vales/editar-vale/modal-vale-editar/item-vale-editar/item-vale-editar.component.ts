@@ -75,8 +75,8 @@ export class ItemValeEditarComponent implements OnInit {
   agregarValeProducto() {
     if (this.cantidadEntregada != null && this.cantidadSolicitada != null) {
       const valeProducto = new ValeProducto(
-        Number(this.cantidadSolicitada),
-        Number(this.cantidadEntregada),
+        Number(this.txtSolicitada.nativeElement.value),
+        Number(this.txtEntregada.nativeElement.value),
         this.productoFactura.producto.unidadMedida,
         this.productoFactura
       );
