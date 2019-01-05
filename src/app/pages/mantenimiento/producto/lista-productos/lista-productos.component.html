@@ -27,7 +27,6 @@
                                 <th class="cursor" (click)="ordenarPiezas()">Piezas <i class="ti-exchange-vertical cursor" aria-hidden="true"></i></th>
                                 <th class="cursor">Unidad medida <i class="ti-exchange-vertical cursor" aria-hidden="true"></i></th>
                                 <th class="cursor" (click)="ordenarPrecio()">Precio <i class="ti-exchange-vertical cursor" aria-hidden="true"></i></th>
-                                <th *ngIf="usuario.role === 'ROLE_ADMIN'" class="cursor">Acciones <i class="t☻i-exchange-vertical cursor" aria-hidden="true"></i></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -37,10 +36,6 @@
                                 <td>{{producto.cantidad}}</td>
                                 <td><span class="label label-danger">{{producto.unidadMedida}}</span></td>
                                 <td>{{producto.precio}}</td>
-                                <td *ngIf="usuario.role === 'ROLE_ADMIN'">
-                                    <button type="button" (click)="eliminarProducto(producto)" class="btn btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Eliminar"><i class="ti-trash" aria-hidden="true"></i></button>
-                                    <button type="button" (click)="actualizarProducto(producto)" class="btn btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Editar"><i class="ti-pencil-alt" aria-hidden="true"></i></button>
-                                </td>
                             </tr>
                         </tbody>
                     </table>

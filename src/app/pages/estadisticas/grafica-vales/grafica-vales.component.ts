@@ -58,18 +58,18 @@ export class GraficaValesComponent implements OnInit {
   iniciarGrafica() {
 
     const valoresFecha1: any[] = Array.from(this.fecha1.valesPorMes);
-    const valoresFecha2: any[] = Array.from(this.fecha2.valesPorMes);
     const valoresFecha3: any[] = Array.from(this.fecha3.valesPorMes);
+    const valoresFecha2: any[] = Array.from(this.fecha2.valesPorMes);
     const datos = [];
     let valores = [];
 
 
     for (let i = 0; i < valoresFecha1.length; i++) {
-        valores = [valoresFecha3[i].total, valoresFecha2[i].total, valoresFecha1[i].total];
+        valores = [valoresFecha2[i].total, valoresFecha3[i].total , valoresFecha1[i].total];
         datos.push({data: valores, label: valoresFecha1[i].area});
     }
 
-    this.barChartLabels = [this.fecha3.mes, this.fecha2.mes, this.fecha1.mes];
+    this.barChartLabels = [this.fecha2.mes, this.fecha3.mes , this.fecha1.mes];
 
     this.barChartData = [];
     datos.forEach(area => {
