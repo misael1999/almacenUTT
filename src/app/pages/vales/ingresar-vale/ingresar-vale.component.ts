@@ -32,11 +32,14 @@ export class IngresarValeComponent implements OnInit, OnDestroy {
   numeroRequisicion: number;
   idVale: number;
   fechaEntrega: any;
+  todo = false;
 
   constructor(private store: Store<AppState>, private router: Router,
     private modalValeService: ModalValeAgregarService) {
       const date = new Date();
-      const fechaHoy = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+      const mes = (date.getMonth() + 1 < 10) ? '0' + (date.getMonth() + 1) : date.getMonth() + 1;
+      const dia = (date.getDate() < 10) ? '0' + (date.getDate()) : date.getDate();
+      const fechaHoy = date.getFullYear() + '-' + mes + '-' + dia;
       this.fechaEntrega = fechaHoy;
       this.store.dispatch(new fromVales.LoadFacturasActivas(0, 'desc'));
       this.store.dispatch(new fromVales.LoadAreas());
@@ -160,11 +163,11 @@ export class IngresarValeComponent implements OnInit, OnDestroy {
   }
 
   seleccionarTodo() {
-    this.store.dispatch(new fromVales.SelectAllItem());
+    this.todo = true;
   }
 
   quitarTodo() {
-    this.store.dispatch(new fromVales.DeselectAllItem());
+    this.todo = false;
   }
 
   abrirModal() {

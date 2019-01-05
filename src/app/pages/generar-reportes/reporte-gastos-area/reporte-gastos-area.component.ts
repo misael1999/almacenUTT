@@ -27,8 +27,10 @@ export class ReporteGastosAreaComponent implements OnInit {
 
   ngOnInit() {
     const date = new Date();
-    const fecha1 = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + '01';
-    const fecha2 = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + (date.getDate() + 1);
+    const mes = (date.getMonth() + 1 < 10) ? '0' + (date.getMonth() + 1) : date.getMonth() + 1;
+    const dia = (date.getDate() < 10) ?  '0' + (date.getDate() + 1) : date.getDate() + 1;
+    const fecha1 = date.getFullYear() + '-' + mes + '-' + '01';
+    const fecha2 = date.getFullYear() + '-' + mes + '-' + dia;
     this.formReporteGastoArea = new FormGroup({
       del: new FormControl(fecha1, Validators.required),
       al: new FormControl(fecha2, Validators.required),

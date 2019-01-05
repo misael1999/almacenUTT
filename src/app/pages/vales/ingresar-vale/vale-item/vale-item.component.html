@@ -4,24 +4,28 @@
         <div class="col-md-4 d-flex align-content-center">
             <input [formControl]="chkField" [checked]="agregado" type="checkbox" class="check" id="minimal-checkbox-{{index}}">
             <label for="minimal-checkbox-{{index}}">{{productoFactura.producto.descripcion}}</label>
+            <span *ngIf="agregadoVale" class="label label-danger d-flex align-self-end m-1">Agregado <i class="fa fa-check"></i></span>
         </div>
         <div class="col-md-8" *ngIf="agregado">
-            <div class="row">
+            <div class="row d-flex align-items-center">
                 <div class="col-md-3">
                     <label class="lb-vale-item" for="">Cantidad solicitada</label>
-                    <input #txtSolicitada (change)="verificarSolicitada($event.target.value)" (blur)="agregarValeProducto()" type="number" name="cantidadSolicitada" [(ngModel)]="cantidadSolicitada" class="form-control">
+                    <input #txtSolicitada (change)="verificarSolicitada($event.target.value)" type="number" name="cantidadSolicitada" [(ngModel)]="cantidadSolicitada" class="form-control">
                 </div>
                 <div class="col-md-3">
                     <label class="lb-vale-item" for="">Cantidad entregada</label>
-                    <input #txtEntregada (change)="verificarEntregada($event.target.value)" (blur)=" agregarValeProducto() " name="cantidadEntregada " [(ngModel)]="cantidadEntregada " type="number " class="form-control ">
+                    <input #txtEntregada (change)="verificarEntregada($event.target.value)" name="cantidadEntregada " [(ngModel)]="cantidadEntregada " type="number " class="form-control ">
                 </div>
-                <div class="col-md-3 ">
+                <div class="col-md-2 ">
                     <label class="lb-vale-item " for=" ">Unidad</label>
-                    <input type="text " value="{{productoFactura.producto.unidadMedida}} " class="form-control ">
+                    <input disabled="disabled" type="text " value="{{productoFactura.producto.unidadMedida}} " class="form-control ">
                 </div>
-                <div class="col-md-3 ">
+                <div class="col-md-2 ">
                     <label class="lb-vale-item " for=" ">Cantidad restante</label>
                     <input #txtComprada type="number " disabled="disabled " value="{{productoFactura.cantidadRestante}} " class="form-control ">
+                </div>
+                <div class="col-md-2 ">
+                    <button (click)="agregarValeProducto()" class="btn btn-sm btn-danger">Agregar</button>
                 </div>
             </div>
 

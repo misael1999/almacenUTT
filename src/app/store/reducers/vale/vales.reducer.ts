@@ -131,6 +131,13 @@ export function valesReducer (state = estadoInicial, action: fromVales.valesActi
            case fromVales.SELECT_ALL_ITEM:
         return {
             ...state,
+            agregado: true
+        };
+        break;
+           case fromVales.DESELECT_ALL_ITEM:
+        return {
+            ...state,
+            agregado: false
         };
         break;
         case fromVales.CLEAN_VALE_ITEM:

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, OnChanges, SimpleChanges } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import * as fromVale from '../../../../store/actions';
 import { AppState } from 'src/app/store/app.reducer';
@@ -11,9 +11,10 @@ import { FacturaProducto } from '../../../../models/FacturaProducto';
   templateUrl: './vale-item.component.html',
   styles: []
 })
-export class ValeItemComponent implements OnInit {
+export class ValeItemComponent implements OnInit, OnChanges {
 
   @Input() productoFactura: FacturaProducto;
+  @Input() todo: boolean;
   @ViewChild('txtSolicitada') txtSolicitada: ElementRef;
   @ViewChild('txtEntregada') txtEntregada: ElementRef;
   @ViewChild('txtComprada') txtComprada: ElementRef;
@@ -22,6 +23,7 @@ export class ValeItemComponent implements OnInit {
   agregado = false;
   cantidadSolicitada: number;
   cantidadEntregada: number;
+  agregadoVale = false;
   valesProductos: ValeProducto[] = [];
 
   constructor(private store: Store<AppState>) {
@@ -39,8 +41,17 @@ export class ValeItemComponent implements OnInit {
             this.agregado = !this.agregado;
           if (!this.agregado) {
             this.store.dispatch(new fromVale.RemoveValeItem(this.productoFactura.idFacturaProducto));
+            this.agregadoVale = false;
           }
         });
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    this.agregado = this.todo;
+    if (!this.agregado) {
+      this.agregadoVale = false;
+      this.store.dispatch(new fromVale.RemoveValeItem(this.productoFactura.idFacturaProducto));
+    }
   }
 
   agregarValeProducto() {
@@ -60,6 +71,7 @@ export class ValeItemComponent implements OnInit {
       }
 
         this.store.dispatch(new fromVale.AddValeItem(valeProducto));
+        this.agregadoVale = true;
     }
   }
 

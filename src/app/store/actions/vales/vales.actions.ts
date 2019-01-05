@@ -91,6 +91,7 @@ export class DeselectAllItem implements Action {
 
 }
 
+
 export class CleanValesItems implements Action {
 
     readonly type = CLEAN_VALE_ITEM;

@@ -76,7 +76,7 @@ export class EditarValeComponent implements OnInit {
       descripcion: new FormControl({value: this.valeProductoEditar.facturaProducto.producto.descripcion, disabled: true}, Validators.required),
       cantidadSolicitada: new FormControl(this.valeProductoEditar.cantidadSolicitada, Validators.required),
       cantidadEntregada: new FormControl(this.valeProductoEditar.cantidadEntregada, Validators.required),
-      unidadMedida: new FormControl(this.valeProductoEditar.unidadMedida, Validators.required),
+      unidadMedida: new FormControl({value: this.valeProductoEditar.unidadMedida, disabled: true}, Validators.required),
       cantidadRestante: new FormControl({value: this.valeProductoEditar.facturaProducto.cantidad, disabled: true}, Validators.required),
     });
   }

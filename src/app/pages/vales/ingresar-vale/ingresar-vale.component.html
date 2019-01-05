@@ -34,17 +34,18 @@
                         </div>
                         <!--   ELEGIR PRODUCTOS    -->
                         <div class="elegirProductos animated fadeIn p-3 " *ngIf="factura && paso2">
+                            <h3>Elija los productos</h3>
                             <div class="productos my-3">
-                                <!-- <button (click)="seleccionarTodo()" class="btn btn-info btn-sm mb-2">Seleccionar todo</button>
-                                <button class="btn btn-danger btn-sm mb-2 mx-1" (click)="quitarTodo()">Deseleccionar todo</button> -->
+                                <button (click)="seleccionarTodo()" class="btn btn-info btn-sm mb-2">Seleccionar todo</button>
+                                <button class="btn btn-danger btn-sm mb-2 mx-1" (click)="quitarTodo()">Deseleccionar todo</button>
 
-                                <app-vale-item *ngFor="let productoFactura of factura.items; let i = index" [productoFactura]="productoFactura" [index]="i"></app-vale-item>
+                                <app-vale-item *ngFor="let productoFactura of factura.items; let i = index" [productoFactura]="productoFactura" [todo]="todo" [index]="i"></app-vale-item>
 
                             </div>
                             <hr>
                             <div class="d-flex justify-content-between">
-                                <span class="lb-vale-item">Productos agregados {{valesProductos.length}}</span>
-                                <button (click)="abrirModal()" class="btn btn-sm btn-info">Agregar producto de otra factura</button>
+                                <span>Productos agregados {{valesProductos.length}}</span>
+                                <button (click)="abrirModal()" class="btn btn-sm btn-outline-info">Agregar producto de otra factura</button>
                             </div>
 
                             <div class="botones d-flex justify-content-between p-5">
@@ -73,8 +74,8 @@
                                 </div>
                             </div>
                             <div class="botones d-flex justify-content-between p-5">
-                                <button (click)="volverPaso2()" class="btn btn-sm btn-danger">Anterior</button>
-                                <button (click)="guardarVale()" class="btn btn-success">Imprimir vale</button>
+                                <button (click)="volverPaso2()" class="btn btn-danger">Anterior</button>
+                                <button [disabled]="loading" (click)="guardarVale()" class="btn btn-success">Generar vale <i *ngIf="loading" class="fa fa-spinner fa-spin"></i></button>
 
                             </div>
                         </div>
