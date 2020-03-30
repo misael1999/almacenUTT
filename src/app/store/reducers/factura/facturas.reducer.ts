@@ -1,5 +1,5 @@
 import * as fromFacturas from '../../actions';
-import { Factura } from 'src/app/models/Factura';
+import { Factura } from 'src/app/models/factura';
 
 export interface FacturasState {
   facturas: Factura[];

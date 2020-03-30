@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ValeSalida } from 'src/app/models/ValeSalida';
+import { ValeSalida } from 'src/app/models/valeSalida';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
 import * as fromVales from '../../../../store/actions';

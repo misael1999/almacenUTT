@@ -1,6 +1,6 @@
-import {Area} from './Area';
-import { ValeProducto } from './ValeProducto';
-import { Factura } from './Factura';
+import {Area} from './area';
+import { ValeProducto } from './valeProducto';
+import { Factura } from './factura';
 
 export class ValeSalida {
     constructor(public numeroRequisicion: number,

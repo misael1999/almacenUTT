@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { URL_SERVICIOS } from '../../global/config';
-import { Usuario } from '../../models/Usuario';
-import { Area } from '../../models/Area';
+import { Usuario } from '../../models/usuario';
+import { Area } from '../../models/area';
 
 @Injectable()
 export class UsuarioService {

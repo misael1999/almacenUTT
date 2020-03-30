@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { Factura } from '../../../models/Factura';
+import { Factura } from '../../../models/factura';
 export const LOAD_FACTURAS_ACTIVAS = '[Facturas] Load facturas activas';
 export const LOAD_FACTURAS_ACTIVAS_SUCCESS = '[Facturas] Load facturas activas SUCCESS';
 export const LOAD_FACTURAS_ACTIVAS_FAIL = '[Facturas] Load facturas activas FAIL';

@@ -3,9 +3,9 @@ import { ModalProductoService } from './modal-producto.service';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
-import { Producto } from '../../../../models/Producto';
+import { Producto } from '../../../../models/producto';
 import * as fromProducto from '../../../../store/actions';
-import { Mensaje } from 'src/app/models/Mensaje';
+import { Mensaje } from 'src/app/models/mensaje';
 
 
 @Component({

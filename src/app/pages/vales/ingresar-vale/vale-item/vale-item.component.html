@@ -1,4 +1,37 @@
-<hr>
+<td>
+        <input [formControl]="chkField" [checked]="agregado" type="checkbox" class="check" id="minimal-checkbox-{{index}}">
+        <label for="minimal-checkbox-{{index}}"></label>
+        <span *ngIf="agregadoVale" class="label label-danger d-flex align-self-end m-1">Agregado <i class="fa fa-check"></i></span> 
+    </td>
+    <td>
+        {{productoFactura.factura.folio}}
+    </td>
+    <td>
+        {{productoFactura.producto.descripcion}}
+    </td>
+    <td>
+        {{productoFactura.factura.proveedor.nombre}}
+
+    </td>
+    <td >
+        <input  #txtSolicitada *ngIf="agregado" (change)="verificarSolicitada($event.target.value)" type="number" name="cantidadSolicitada" [(ngModel)]="cantidadSolicitada" class="form-control">
+
+    </td>
+    <td>
+        <input #txtEntregada *ngIf="agregado" (change)="verificarEntregada($event.target.value)" name="cantidadEntregada " [(ngModel)]="cantidadEntregada " type="number " class="form-control ">
+
+    </td>
+    <td>
+        {{productoFactura.producto.unidadMedida}}
+    </td>
+    <td>
+        {{productoFactura.cantidadRestante}}
+    </td>
+    <td>
+        <button *ngIf="agregado" (click)="agregarValeProducto()" class="btn btn-sm btn-danger">Agregar</button>
+    </td>
+
+<!-- <hr>
 <form class="form-material">
     <div class="row">
         <div class="col-md-4 d-flex align-content-center">
@@ -31,4 +64,4 @@
 
         </div>
     </div>
-</form>
+</form> -->

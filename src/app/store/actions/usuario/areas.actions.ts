@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { Area } from '../../../models/Area';
+import { Area } from '../../../models/area';
 export const LOAD_AREAS = '[Areas] Load areas';
 export const LOAD_AREAS_SUCCESS = '[Areas] Load areas SUCCESS';
 export const LOAD_AREAS_FAIL = '[Areas] Load areas FAIL';

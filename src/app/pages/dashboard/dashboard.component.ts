@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../store/app.reducer';
 import * as fromDashboard from '../../store/actions';
-import { Producto } from '../../models/Producto';
+import { Producto } from '../../models/producto';
 
 @Component({
   selector: 'app-dashboard',

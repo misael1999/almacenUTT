@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { Mensaje } from '../../models/Mensaje';
+import { Mensaje } from '../../models/mensaje';
 
 export const UI_MESSAGE_SUCCESS = '[Ui] Message success';
 export const UI_MESSAGE_SUCCESS_END = '[Ui] Message success END';

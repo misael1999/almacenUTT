@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Usuario } from '../../models/Usuario';
+import { Usuario } from '../../models/usuario';
 
 @Injectable()
 export class SidebarService {

@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { Factura } from '../../../models/Factura';
+import { Factura } from '../../../models/factura';
 export const CREATE_FACTURA = '[Factura] Create factura';
 export const CREATE_FACTURA_SUCCESS = '[Factura] Create factura SUCCESS';
 export const CREATE_FACTURA_FAIL = '[Factura] Create factura FAIL';

@@ -1,12 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ProveedorService, ModalProveedorActualizarService, ModalProveedorService, LoginService } from 'src/app/services/service.index';
-import { Proveedor } from '../../../../models/Proveedor';
+import { Proveedor } from '../../../../models/proveedor';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
 import * as fromProveedor from '../../../../store/actions';
 import swal from 'sweetalert2';
 import { ActivatedRoute } from '@angular/router';
-import { Usuario } from '../../../../models/Usuario';
+import { Usuario } from '../../../../models/usuario';
 declare function init_factura_inputs();
 declare var $;
 @Component({

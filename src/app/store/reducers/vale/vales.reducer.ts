@@ -1,6 +1,6 @@
 import * as fromVales from 'src/app/store/actions';
-import { ValeSalida } from 'src/app/models/ValeSalida';
-import { ValeProducto } from '../../../models/ValeProducto';
+import { ValeSalida } from 'src/app/models/valeSalida';
+import { ValeProducto } from '../../../models/valeProducto';
 
 
 export interface ValesState {

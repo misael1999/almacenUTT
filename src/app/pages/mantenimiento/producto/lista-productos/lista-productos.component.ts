@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Producto } from '../../../../models/Producto';
+import { Producto } from '../../../../models/producto';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
 import * as fromProductos from '../../../../store/actions';
 import { ActivatedRoute } from '@angular/router';
-import { Usuario } from '../../../../models/Usuario';
+import { Usuario } from '../../../../models/usuario';
 import { ModalProductoService } from '../../../../services/service.index';
 import swal from 'sweetalert2';
 declare function init_factura_inputs();

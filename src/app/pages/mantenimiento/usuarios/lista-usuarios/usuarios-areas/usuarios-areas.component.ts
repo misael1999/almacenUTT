@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Area } from '../../../../../models/Area';
+import { Area } from '../../../../../models/area';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
 import * as fromAreas from '../../../../../store/actions';

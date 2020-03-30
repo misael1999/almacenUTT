@@ -3,7 +3,7 @@ import { ModalValeAgregarService } from './modal-area.service';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
 import * as fromVale from '../../../../store/actions';
-import { Factura } from '../../../../models/Factura';
+import { Factura } from '../../../../models/factura';
 import { FormControl } from '@angular/forms';
 
 @Component({

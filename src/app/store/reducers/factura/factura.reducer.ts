@@ -1,5 +1,5 @@
 import * as fromfactura from '../../actions';
-import { Factura } from '../../../models/Factura';
+import { Factura } from '../../../models/factura';
 
 export interface FacturaState {
     factura: Factura;

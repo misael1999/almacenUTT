@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Usuario } from '../../../../../models/Usuario';
+import { Usuario } from '../../../../../models/usuario';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
 import * as fromUsuarios from '../../../../../store/actions';

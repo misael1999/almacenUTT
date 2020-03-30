@@ -1,14 +1,15 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { Proveedor } from '../../../models/Proveedor';
+import { Proveedor } from '../../../models/proveedor';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
 import * as fromFactura from '../../../store/actions';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Producto } from '../../../models/Producto';
-import { Factura } from '../../../models/Factura';
+import { Producto } from '../../../models/producto';
+import { Factura } from '../../../models/factura';
 import { Router } from '@angular/router';
-import { Mensaje } from '../../../models/Mensaje';
+import { Mensaje } from '../../../models/mensaje';
 import { URL_SERVICIOS } from '../../../global/config';
+import { FacturaService } from 'src/app/services/service.index';
 declare function init_factura_inputs();
 
 @Component({
@@ -17,6 +18,7 @@ declare function init_factura_inputs();
 })
 export class IngresarComponent implements OnInit {
 
+  productFound: any;
   loading: boolean;
   formInformacion: FormGroup;
   formProducto: FormGroup;
@@ -34,7 +36,7 @@ export class IngresarComponent implements OnInit {
 
   @ViewChild('txtProveedor') txtProveedor: ElementRef;
 
-  constructor(private store: Store<AppState>, private router: Router) {
+  constructor(private store: Store<AppState>, private router: Router, private facturaService: FacturaService) {
 
       this.store
         .subscribe(resp => {
@@ -130,6 +132,22 @@ export class IngresarComponent implements OnInit {
     // ----  MANDAMOS LA ACCION DE CREAR FACTURA   ---- //
     this.store.dispatch(new fromFactura.CreateFactura(factura));
 
+  }
+
+  getProduct(value: string) {
+    // tslint:disable-next-line:triple-equals
+    if (value == '') {
+      return;
+    }
+    this.facturaService.getProductByClave(value)
+      .subscribe((data: any) => {
+        this.productFound = data.producto;
+        if (this.productFound) {
+          this.formProducto.get('descripcionProducto').setValue(this.productFound.descripcion);
+          this.formProducto.get('unidad').setValue(this.productFound.unidadMedida);
+          this.formProducto.get('precio').setValue(this.productFound.precio);
+        }
+      });
   }
 
   buscarProveedor(termino: string) {

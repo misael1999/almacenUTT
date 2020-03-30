@@ -1,4 +1,4 @@
-import { Producto } from '../../../models/Producto';
+import { Producto } from '../../../models/producto';
 import * as fromProductos from '../../actions';
 
 export interface ProductosState {

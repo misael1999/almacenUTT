@@ -1,5 +1,5 @@
 import * as fromAreas from '../../actions';
-import { Area } from '../../../models/Area';
+import { Area } from '../../../models/area';
 
 export interface AreaState {
     area: Area;

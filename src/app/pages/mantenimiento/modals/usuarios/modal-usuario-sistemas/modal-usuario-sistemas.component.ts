@@ -4,8 +4,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
 import * as fromUsuario from '../../../../../store/actions';
-import { Mensaje } from 'src/app/models/Mensaje';
-import { Usuario } from '../../../../../models/Usuario';
+import { Mensaje } from 'src/app/models/mensaje';
+import { Usuario } from '../../../../../models/usuario';
 import { Router } from '@angular/router';
 
 @Component({

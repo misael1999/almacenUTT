@@ -1,4 +1,4 @@
-import { Usuario } from '../../models/Usuario';
+import { Usuario } from '../../models/usuario';
 import * as fromAuth from '../actions';
 
 // Estado relacionado al login

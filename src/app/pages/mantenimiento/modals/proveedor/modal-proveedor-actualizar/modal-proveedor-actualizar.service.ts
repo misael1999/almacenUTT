@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { EventEmitter } from '@angular/core';
-import { Proveedor } from '../../../../../models/Proveedor';
+import { Proveedor } from '../../../../../models/proveedor';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
 

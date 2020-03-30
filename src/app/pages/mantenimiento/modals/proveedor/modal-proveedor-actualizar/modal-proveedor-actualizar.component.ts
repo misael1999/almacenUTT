@@ -3,7 +3,7 @@ import { ModalProveedorActualizarService } from '../../../../../services/service
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
-import { Proveedor } from '../../../../../models/Proveedor';
+import { Proveedor } from '../../../../../models/proveedor';
 import * as fromProveedor from '../../../../../store/actions';
 
 

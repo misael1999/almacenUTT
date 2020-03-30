@@ -3,11 +3,11 @@ import { FormControl } from '@angular/forms';
 import * as fromVale from '../../../../store/actions';
 import { AppState } from 'src/app/store/app.reducer';
 import { Store } from '@ngrx/store';
-import { ValeProducto } from '../../../../models/ValeProducto';
-import { FacturaProducto } from '../../../../models/FacturaProducto';
+import { ValeProducto } from '../../../../models/valeProducto';
+import { FacturaProducto } from '../../../../models/facturaProducto';
 
 @Component({
-  selector: 'app-vale-item',
+  selector: '[app-vale-item]',
   templateUrl: './vale-item.component.html',
   styles: []
 })

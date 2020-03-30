@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import * as fromReportes from '../../../store/actions';
-import { Mensaje } from 'src/app/models/Mensaje';
+import { Mensaje } from 'src/app/models/mensaje';
 
 @Component({
   selector: 'app-reporte-productos',

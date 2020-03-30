@@ -1,7 +1,7 @@
 
 import { Action } from '@ngrx/store';
-import { ValeSalida } from 'src/app/models/ValeSalida';
-import { ValeProducto } from 'src/app/models/ValeProducto';
+import { ValeSalida } from 'src/app/models/valeSalida';
+import { ValeProducto } from 'src/app/models/valeProducto';
 export const LOAD_VALES_SALIDA_ACTIVOS = '[ValeSalida] Load vales salida activos';
 export const LOAD_VALES_SALIDA_ACTIVOS_SUCCESS = '[ValeSalida] Load vales salida activos SUCCESS';
 export const LOAD_VALES_SALIDA_ACTIVOS_FAIL = '[ValeSalida] Load vales salida activos FAIL';

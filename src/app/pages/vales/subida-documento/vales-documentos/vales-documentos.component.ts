@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Factura } from '../../../../models/Factura';
-import { Usuario } from '../../../../models/Usuario';
+import { Factura } from '../../../../models/factura';
+import { Usuario } from '../../../../models/usuario';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
 import { ActivatedRoute } from '@angular/router';
 import * as fromFacturas from '../../../../store/actions';
-import { ValeSalida } from '../../../../models/ValeSalida';
+import { ValeSalida } from '../../../../models/valeSalida';
 
 @Component({
   selector: 'app-vales-documentos',

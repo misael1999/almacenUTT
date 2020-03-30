@@ -1,1 +1,1 @@
-export const URL_SERVICIOS = 'http://localhost:8080/v1';
+export const URL_SERVICIOS = 'http://52.87.197.19:8080/v1';

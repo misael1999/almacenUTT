@@ -4,7 +4,7 @@ import { LoginService } from '../services/service.index';
 import { Store } from '@ngrx/store';
 import { AppState } from '../store/app.reducer';
 import * as authActions from '../store/actions';
-import { Mensaje } from '../models/Mensaje';
+import { Mensaje } from '../models/mensaje';
 import { Router } from '@angular/router';
 
 declare function init_plugins();

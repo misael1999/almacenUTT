@@ -1,4 +1,4 @@
-import { Privilegio } from './Privilegio';
+import { Privilegio } from './privilegio';
 export class PrivilegioUsuario {
     constructor(
         public privilegio: Privilegio,

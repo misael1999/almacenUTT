@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ValeSalida } from 'src/app/models/ValeSalida';
+import { ValeSalida } from 'src/app/models/valeSalida';
 import { URL_SERVICIOS } from 'src/app/global/config';
 
 @Injectable()

@@ -1,5 +1,5 @@
-import { Privilegio } from './Privilegio';
-import { PrivilegioUsuario } from './PrivilegioUsuario';
+import { Privilegio } from './privilegio';
+import { PrivilegioUsuario } from './privilegioUsuario';
 export class Usuario {
     constructor(
     public nombre: string,

@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalProveedorService } from './modal-proveedor.service';
-import { Usuario } from '../../../../models/Usuario';
+import { Usuario } from '../../../../models/usuario';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Proveedor } from '../../../../models/Proveedor';
+import { Proveedor } from '../../../../models/proveedor';
 import * as fromProveedor from '../../../../store/actions';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
-import { Mensaje } from 'src/app/models/Mensaje';
+import { Mensaje } from 'src/app/models/mensaje';
 
 
 @Component({

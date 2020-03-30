@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { Usuario } from '../../../models/Usuario';
+import { Usuario } from '../../../models/usuario';
 export const LOAD_USUARIOS = '[Usuarios] Load Usuarios';
 export const LOAD_USUARIOS_SUCCESS = '[Usuarios] Load Usuarios SUCCESS';
 export const LOAD_USUARIOS_FAIL = '[Usuarios] Load Usuarios FAIL';

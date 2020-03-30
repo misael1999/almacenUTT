@@ -4,8 +4,8 @@ import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import * as fromUsuario from '../../../../../store/actions';
-import { Usuario } from '../../../../../models/Usuario';
-import { Mensaje } from 'src/app/models/Mensaje';
+import { Usuario } from '../../../../../models/usuario';
+import { Mensaje } from 'src/app/models/mensaje';
 
 @Component({
   selector: 'app-modal-actualizar-usuario',

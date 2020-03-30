@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { Privilegio } from '../../../models/Privilegio';
+import { Privilegio } from '../../../models/privilegio';
 export const LOAD_PRIVILEGIOS = '[Privilegios] Load Privilegios';
 export const LOAD_PRIVILEGIOS_SUCCESS = '[Privilegios] Load Privilegios SUCCESS';
 export const LOAD_PRIVILEGIOS_FAIL = '[Privilegios] Load Privilegios FAIL';

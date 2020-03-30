@@ -3,8 +3,8 @@ import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
 import { ActivatedRoute } from '@angular/router';
 import * as fromFactura from '../../../store/actions';
-import { Factura } from '../../../models/Factura';
-import { Usuario } from '../../../models/Usuario';
+import { Factura } from '../../../models/factura';
+import { Usuario } from '../../../models/usuario';
 
 
 @Component({

@@ -1,5 +1,5 @@
-import { Producto } from './Producto';
-import { Proveedor } from './Proveedor';
+import { Producto } from './producto';
+import { Proveedor } from './proveedor';
 
 
 export class Factura {

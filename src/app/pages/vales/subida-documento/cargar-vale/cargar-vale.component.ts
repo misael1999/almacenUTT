@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Factura } from '../../../../models/Factura';
+import { Factura } from '../../../../models/factura';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
 import * as fromVale from '../../../../store/actions';
-import { Mensaje } from 'src/app/models/Mensaje';
+import { Mensaje } from 'src/app/models/mensaje';
 import { Router } from '@angular/router';
-import { ValeSalida } from '../../../../models/ValeSalida';
+import { ValeSalida } from '../../../../models/valeSalida';
 declare function init_upload();
 @Component({
   selector: 'app-cargar-vale',

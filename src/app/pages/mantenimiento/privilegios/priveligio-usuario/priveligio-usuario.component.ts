@@ -4,8 +4,8 @@ import { Store } from '@ngrx/store';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as fromUsuarios from '../../../../store/actions';
 import { LoadUsuario } from '../../../../store/actions/usuario/usuario.actions';
-import { Usuario } from '../../../../models/Usuario';
-import { Privilegio } from '../../../../models/Privilegio';
+import { Usuario } from '../../../../models/usuario';
+import { Privilegio } from '../../../../models/privilegio';
 
 @Component({
   selector: 'app-priveligio-usuario',

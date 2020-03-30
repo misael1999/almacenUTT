@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Proveedor } from '../../models/Proveedor';
+import { Proveedor } from '../../models/proveedor';
 import { URL_SERVICIOS } from '../../global/config';
 
 @Injectable()

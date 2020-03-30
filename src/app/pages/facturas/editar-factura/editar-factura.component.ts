@@ -1,16 +1,16 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
-import { Proveedor } from '../../../models/Proveedor';
-import { Producto } from '../../../models/Producto';
+import { Proveedor } from '../../../models/proveedor';
+import { Producto } from '../../../models/producto';
 import { URL_SERVICIOS } from '../../../global/config';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as fromFacturas from '../../../store/actions';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
-import { Factura } from '../../../models/Factura';
+import { Factura } from '../../../models/factura';
 import swal from 'sweetalert2';
-import { FacturaProducto } from '../../../models/FacturaProducto';
-import { Mensaje } from 'src/app/models/Mensaje';
+import { FacturaProducto } from '../../../models/facturaProducto';
+import { Mensaje } from 'src/app/models/mensaje';
 declare var $;
 
 @Component({
@@ -89,6 +89,7 @@ export class EditarFacturaComponent implements OnInit {
     const facturaProducto = new FacturaProducto(
       null,
       this.formProducto.value.cantidad,
+      null,
       producto
     );
 
@@ -173,6 +174,7 @@ export class EditarFacturaComponent implements OnInit {
     const facturaProducto = new FacturaProducto(
       null,
       this.formProductoEditar.value.cantidadE,
+      null,
       producto
     );
 

@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../../store/app.reducer';
-import { Proveedor } from '../../../models/Proveedor';
+import { Proveedor } from '../../../models/proveedor';
 import * as fromReportes from '../../../store/actions';
-import { Mensaje } from 'src/app/models/Mensaje';
+import { Mensaje } from 'src/app/models/mensaje';
 import { FormGroup } from '@angular/forms';
 import { URL_SERVICIOS } from '../../../global/config';
 

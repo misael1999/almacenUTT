@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { Usuario } from '../../../models/Usuario';
+import { Usuario } from '../../../models/usuario';
 
 export const CREATE_USUARIO = '[Usuario] Create Usuario';
 export const CREATE_USUARIO_SUCCESS = '[Usuario] Create Usuario SUCCESS';

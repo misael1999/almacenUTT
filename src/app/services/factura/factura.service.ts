@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { URL_SERVICIOS } from 'src/app/global/config';
 import { HttpClient } from '@angular/common/http';
-import { Factura } from 'src/app/models/Factura';
+import { Factura } from 'src/app/models/factura';
 
 @Injectable()
 export class FacturaService {
@@ -36,6 +36,11 @@ export class FacturaService {
 
   public getFacturaLikeTermino(termino) {
     const URL = URL_SERVICIOS + '/facturas/todo/' + termino;
+    return this.http.get(URL);
+  }
+
+  public getProductByClave(clave) {
+    const URL = URL_SERVICIOS + '/productos/' + clave;
     return this.http.get(URL);
   }
 

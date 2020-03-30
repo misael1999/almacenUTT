@@ -1,5 +1,5 @@
  import * as fromVale from 'src/app/store/actions';
-import { ValeSalida } from 'src/app/models/ValeSalida';
+import { ValeSalida } from 'src/app/models/valeSalida';
 import { valeSalidaAcciones, CREATE_VALE_SALIDA_END, LOAD_VALE_SALIDA } from 'src/app/store/actions/vales/vale.actions';
 
 

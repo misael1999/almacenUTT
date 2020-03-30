@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Factura } from '../../../../models/Factura';
+import { Factura } from '../../../../models/factura';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
 import * as fromFacturas from '../../../../store/actions';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Usuario } from '../../../../models/Usuario';
+import { Usuario } from '../../../../models/usuario';
 declare function init_selectPicker();
 
 

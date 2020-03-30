@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ValeSalida } from 'src/app/models/ValeSalida';
+import { ValeSalida } from 'src/app/models/valeSalida';
 import { AppState } from 'src/app/store/app.reducer';
 import { Store } from '@ngrx/store';
 import { ActivatedRoute } from '@angular/router';

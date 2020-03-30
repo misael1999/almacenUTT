@@ -7,7 +7,7 @@ import { PagesComponent } from './pages/pages.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { ServiceModule } from './services/Service.module';
+import { ServiceModule } from './services/service.module';
 import { SharedModule } from './shared/shared.module';
 
 // Ngrx

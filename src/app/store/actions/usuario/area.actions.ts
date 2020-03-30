@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { Area } from '../../../models/Area';
+import { Area } from '../../../models/area';
 
 export const CREATE_AREA = '[Area] Create Area';
 export const CREATE_AREA_SUCCESS = '[Area] Create Area SUCCESS';

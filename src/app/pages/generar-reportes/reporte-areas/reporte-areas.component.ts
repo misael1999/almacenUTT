@@ -3,8 +3,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
 import * as fromReportes from '../../../store/actions';
-import { Mensaje } from 'src/app/models/Mensaje';
-import { Area } from '../../../models/Area';
+import { Mensaje } from 'src/app/models/mensaje';
+import { Area } from '../../../models/area';
 
 
 @Component({

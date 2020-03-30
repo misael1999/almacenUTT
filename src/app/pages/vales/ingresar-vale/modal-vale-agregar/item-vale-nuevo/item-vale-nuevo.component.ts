@@ -1,11 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { FacturaProducto } from '../../../../../models/FacturaProducto';
-import { ValeProducto } from '../../../../../models/ValeProducto';
+import { FacturaProducto } from '../../../../../models/facturaProducto';
+import { ValeProducto } from '../../../../../models/valeProducto';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../../../../store/app.reducer';
 import * as fromVale from '../../../../../store/actions';
-import { Factura } from '../../../../../models/Factura';
+import { Factura } from '../../../../../models/factura';
 
 @Component({
   selector: 'app-item-vale-nuevo',

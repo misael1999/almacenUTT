@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Mensaje } from '../../../models/Mensaje';
+import { Mensaje } from '../../../models/mensaje';
 import * as fromReportes from '../../../store/actions';
 
 

@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { ValeSalida } from '../../../models/ValeSalida';
+import { ValeSalida } from '../../../models/valeSalida';
 export const CREATE_VALE_SALIDA = '[ValeSalida] Create vale salida';
 export const CREATE_VALE_SALIDA_SUCCESS = '[ValeSalida] Create vale salida SUCCESS';
 export const CREATE_VALE_SALIDA_FAIL = '[ValeSalida] Create vale salida FAIL';

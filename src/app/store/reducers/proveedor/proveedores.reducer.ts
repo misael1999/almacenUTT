@@ -1,4 +1,4 @@
-import { Proveedor } from '../../../models/Proveedor';
+import { Proveedor } from '../../../models/proveedor';
 import * as fromProveedores from '../../actions';
 
 export interface ProveedoresState {

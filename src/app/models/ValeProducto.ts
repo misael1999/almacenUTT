@@ -1,4 +1,4 @@
-import { FacturaProducto } from './FacturaProducto';
+import { FacturaProducto } from './facturaProducto';
 export class ValeProducto {
 
     constructor(public cantidadSolicitada: number,

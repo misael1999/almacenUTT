@@ -3,15 +3,20 @@
         <div class="card">
             <div class="card-body">
                 <ul class="nav nav-tabs" role="tablist">
-                    <li class="nav-item"> <a (click)="irPaso1()" class="nav-link cursor" [ngClass]="{active: paso1}"><span class="mx-2"><i class="ti-files"></i></span> Selecciona la factura</a></li>
-                    <li class="nav-item"> <a (click)="irPaso2()" class="nav-link cursor" [ngClass]="{active: paso2}"><span class="mx-2"><i class="ti-user"></i></span>Elige los productos</a> </li>
-                    <li class="nav-item"> <a (click)="irPaso3()" class="nav-link cursor" [ngClass]="{active: paso3}"><span class="mx-2"><i class="ti-email"></i></span>Elige el area</a> </li>
+                    <!--                     <li class="nav-item"> <a (click)="irPaso1()" class="nav-link cursor" [ngClass]="{active: paso1}"><span class="mx-2"><i class="ti-files"></i></span> Selecciona la factura</a></li>
+ -->
+                    <li class="nav-item"> <a (click)="irPaso2()" class="nav-link cursor"
+                            [ngClass]="{'active': paso2}"><span class="mx-2"><i class="ti-user"></i></span>Elige los
+                            productos</a> </li>
+                    <li class="nav-item"> <a (click)="irPaso3()" class="nav-link cursor"
+                            [ngClass]="{'active': paso3}"><span class="mx-2"><i class="ti-email"></i></span>Elige el
+                            area</a> </li>
                 </ul>
 
                 <div class="tab-content tabcontent-border">
                     <div class="tab-pane active" id="home8" role="tabpanel">
                         <!--   ELEGIR FACTURA    -->
-                        <div class="elegirFactura animated fadeIn p-3" *ngIf="paso1">
+                        <!--    <div class="elegirFactura animated fadeIn p-3" *ngIf="paso1">
                             <div class="row">
                                 <div class="col-md-6">
                                     <form class="form-group">
@@ -31,21 +36,49 @@
                                 </div>
                                 <app-loading *ngIf="loading"></app-loading>
                             </div>
-                        </div>
+                        </div> -->
                         <!--   ELEGIR PRODUCTOS    -->
-                        <div class="elegirProductos animated fadeIn p-3 " *ngIf="factura && paso2">
+                        <div class="elegirProductos animated fadeIn p-3 " *ngIf="paso2">
                             <h3>Elija los productos</h3>
+                            <div class="row my-3">
+                                <div class="col-lg-5">
+                                    <input #searchValue (keyup.enter)="searchProduct(searchValue)" type="text" class="form-control"
+                                        placeholder="Buscar por factura, nombre, clave">
+                                </div>
+                                <div class="col-lg-7"></div>
+                            </div>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col"></th>
+                                        <th scope="col">Folio factura</th>
+                                        <th scope="col">Descripción</th>
+                                        <th scope="col">Proveedor</th>
+                                        <th scope="col">C. solicitada</th>
+                                        <th scope="col">C. entregada</th>
+                                        <th scope="col">Unidad</th>
+                                        <th scope="col">C. restante</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let productoFactura of products; let i = index" app-vale-item
+                                        [productoFactura]="productoFactura" [todo]="todo" [index]="i">
+                                    </tr>
+                                </tbody>
+                            </table>
                             <div class="productos my-3">
-                                <button (click)="seleccionarTodo()" class="btn btn-info btn-sm mb-2">Seleccionar todo</button>
-                                <button class="btn btn-danger btn-sm mb-2 mx-1" (click)="quitarTodo()">Deseleccionar todo</button>
+                                <!-- <button (click)="seleccionarTodo()" class="btn btn-info btn-sm mb-2">Seleccionar todo</button>
+                                <button class="btn btn-danger btn-sm mb-2 mx-1" (click)="quitarTodo()">Deseleccionar todo</button> -->
 
-                                <app-vale-item *ngFor="let productoFactura of factura.items; let i = index" [productoFactura]="productoFactura" [todo]="todo" [index]="i"></app-vale-item>
+                                <!-- <app-vale-item *ngFor="let productoFactura of products; let i = index"
+                                    [productoFactura]="productoFactura" [todo]="todo" [index]="i"></app-vale-item> -->
 
                             </div>
                             <hr>
                             <div class="d-flex justify-content-between">
                                 <span>Productos agregados {{valesProductos.length}}</span>
-                                <button (click)="abrirModal()" class="btn btn-sm btn-outline-info">Agregar producto de otra factura</button>
+                                <!--                                 <button (click)="abrirModal()" class="btn btn-sm btn-outline-info">Agregar producto de otra factura</button>
+ -->
                             </div>
 
                             <div class="botones d-flex justify-content-between p-5">
@@ -61,21 +94,25 @@
                                     <h4>Elige el area</h4>
                                     <select (change)="seleccionarArea($event.target.value)" class="form-control">
                                         <option value="0">Selecciona una area</option>
-                                        <option *ngFor="let area of areas" value="{{area.idArea}}">{{area.nombre}}</option>
+                                        <option *ngFor="let area of areas" value="{{area.idArea}}">{{area.nombre}}
+                                        </option>
                                     </select>
                                 </div>
                                 <div class="col-md-3 my-sm-5 my-5">
                                     <h4>Numero de requisición</h4>
-                                    <input name="numeroRequisicion" [(ngModel)]="numeroRequisicion" type="number" class="form-control">
+                                    <input name="numeroRequisicion" [(ngModel)]="numeroRequisicion" type="number"
+                                        class="form-control">
                                 </div>
                                 <div class="col-md-4 my-5 my-5">
                                     <h4>Selecciona la fecha de entrega</h4>
-                                    <input name="fechaEntrega" [(ngModel)]="fechaEntrega" type="date" class="form-control">
+                                    <input name="fechaEntrega" [(ngModel)]="fechaEntrega" type="date"
+                                        class="form-control">
                                 </div>
                             </div>
                             <div class="botones d-flex justify-content-between p-5">
                                 <button (click)="volverPaso2()" class="btn btn-danger">Anterior</button>
-                                <button [disabled]="loading" (click)="guardarVale()" class="btn btn-success">Generar vale <i *ngIf="loading" class="fa fa-spinner fa-spin"></i></button>
+                                <button [disabled]="loading" (click)="guardarVale()" class="btn btn-success">Generar
+                                    vale <i *ngIf="loading" class="fa fa-spinner fa-spin"></i></button>
 
                             </div>
                         </div>

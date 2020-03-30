@@ -1,5 +1,5 @@
 import * as fromPrivilegios from '../../actions';
-import { Privilegio } from '../../../models/Privilegio';
+import { Privilegio } from '../../../models/privilegio';
 
 export interface PrivilegiosState {
     privilegios: Privilegio[];

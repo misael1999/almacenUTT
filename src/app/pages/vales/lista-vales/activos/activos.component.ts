@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ValeSalida } from 'src/app/models/ValeSalida';
+import { ValeSalida } from 'src/app/models/valeSalida';
 import { AppState } from 'src/app/store/app.reducer';
 import { Store } from '@ngrx/store';
 import * as fromVales from 'src/app/store/actions';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Area } from '../../../../models/Area';
-import { Usuario } from '../../../../models/Usuario';
+import { Area } from '../../../../models/area';
+import { Usuario } from '../../../../models/usuario';
 declare function init_selectPicker();
 
 @Component({

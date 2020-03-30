@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { Proveedor } from '../../../models/Proveedor';
+import { Proveedor } from '../../../models/proveedor';
 export const CREATE_PROVEEDOR = '[Proveedor] Create proveedor';
 export const CREATE_PROVEEDOR_SUCCESS = '[Proveedor] Create proveedor SUCCESS';
 export const CREATE_PROVEEDOR_FAIL = '[Proveedor] Create Proveedor FAIL';
